@@ -21,7 +21,7 @@ jobs:
             [ -z "$name" ] && continue
             echo "::add-mask::$url"
             curl -sSfL -o "/tmp/$name.png" "$url"
-            cwebp -quiet -q 80 -resize 1200 0 "/tmp/$name.png" -o "assets/art/$name.webp" || cwebp -quiet -q 80 "/tmp/$name.png" -o "assets/art/$name.webp"
+            cwebp -quiet -q 78 "/tmp/$name.png" -o "assets/art/$name.webp"
             echo "saved $name"
           done < /tmp/list.txt
       - name: Commit
