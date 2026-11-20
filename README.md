@@ -29,7 +29,12 @@ voice inside claude.ai, or the most natural voice on the device. Choose the voic
 | `index.html` | The whole app |
 | `manifest.webmanifest`, `icon.svg`, `icon-192.png`, `icon-512.png` | Lets you add LearnSpark to a tablet or phone home screen |
 | `sw.js` | Keeps the app working offline after the first visit |
-| `audio/` | Recorded narration (about 45 minutes, 14 MB) |
+| `assets/` | Pictures: subject illustrations, game art and learner avatars (SVG) |
+| `audio/` | Recorded narration (about 45 minutes, 16 MB) |
+
+Keep the `assets/` and `audio/` folders next to `index.html`. Both are saved for offline
+use after the first visit. After an update, open the site once while online so devices
+pick up the new version.
 
 ## Put it on GitHub Pages (free, about 10 minutes, no coding)
 
@@ -37,7 +42,7 @@ voice inside claude.ai, or the most natural voice on the device. Choose the voic
    Name it `learnspark`, choose **Public**, and click **Create repository**.
    (GitHub Pages is free for public repositories.)
 2. On the new repository page, click **uploading an existing file**.
-   Drag in every file from this folder, then click **Commit changes**.
+   Drag in every file and folder from this folder, then click **Commit changes**.
 3. Go to **Settings → Pages**. Under **Build and deployment**, set **Source** to
    **Deploy from a branch**, choose branch **main** and folder **/ (root)**, then **Save**.
 4. Wait a minute or two and refresh. The page shows your address:

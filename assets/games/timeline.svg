@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img"><title>timeline</title><g stroke="#1F2A44" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><rect x="24" y="14" width="52" height="10" rx="4" fill="#8B5A3C"/><rect x="24" y="100" width="52" height="10" rx="4" fill="#8B5A3C"/>
+<path d="M30 24H70C70 46 54 54 54 62S70 78 70 100H30C30 78 46 70 46 62S30 46 30 24Z" fill="#E8F1FF"/>
+<path d="M37 32H63C61 42 54 48 50 54 46 48 39 42 37 32Z M35 98C40 86 60 86 65 98Z" fill="#FFC83D" stroke-width="3"/><path d="M50 56v24" stroke="#FFC83D" stroke-width="3"/>
+<path d="M88 64H148M140 56l8 8-8 8" fill="none"/>
+<circle cx="96" cy="64" r="7" fill="#E8559A"/><circle cx="116" cy="64" r="7" fill="#4C8DF6"/><circle cx="134" cy="64" r="7" fill="#2FB37A"/>
+<path d="M96 57V36h16l-4 5 4 5H96" fill="#FFC83D" stroke-width="3"/></g></svg>

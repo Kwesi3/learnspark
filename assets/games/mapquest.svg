@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img"><title>mapquest</title><g stroke="#1F2A44" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><path d="M16 30 56 18 104 30 144 18V94L104 106 56 94 16 106Z" fill="#FFF4D6"/>
+<path d="M56 18V94M104 30v76" stroke-width="3" opacity=".5"/>
+<path d="M28 44c8-8 18-6 22 2s-4 14-12 12-14 0-10-14Z" fill="#2FB37A" stroke-width="3"/>
+<path d="M30 92C46 80 52 72 70 74s24 2 36-14" fill="none" stroke="#E8559A" stroke-dasharray="2 9" stroke-width="5"/>
+<path d="M118 34c-11 0-17 8-17 17 0 13 17 27 17 27s17-14 17-27c0-9-6-17-17-17Z" fill="#E8559A"/><circle cx="118" cy="51" r="6" fill="#fff" stroke-width="3"/>
+<path d="M126 96l6-14M120 88l14 2" stroke-width="3" opacity=".6"/></g></svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img"><title>pizza</title><g stroke="#1F2A44" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><path d="M66 64 102.4 85A42 42 0 1 1 102.4 43Z" fill="#F4B860"/>
+<path d="M66 64 96 81.3A34.6 34.6 0 1 1 96 46.7Z" fill="#FFD45A" stroke-width="0"/>
+<g transform="translate(16 0)"><path d="M66 64 102.4 43A42 42 0 0 1 102.4 85Z" fill="#F4B860"/><path d="M66 64 96 46.7A34.6 34.6 0 0 1 96 81.3Z" fill="#FFD45A" stroke-width="0"/>
+<path d="M66 64 102.4 43A42 42 0 0 1 102.4 85Z" fill="none"/><circle cx="90" cy="64" r="6" fill="#E2543B" stroke-width="3"/></g>
+<path d="M66 64 102.4 85A42 42 0 1 1 102.4 43Z" fill="none"/><path d="M66 64 66 22M66 64 29.6 85M66 64 29.6 43M66 64 66 106" stroke-width="3" opacity=".55"/>
+<g fill="#E2543B" stroke-width="3"><circle cx="50" cy="42" r="6"/><circle cx="42" cy="66" r="6"/><circle cx="56" cy="88" r="6"/><circle cx="80" cy="40" r="6"/><circle cx="82" cy="88" r="6"/></g></g></svg>

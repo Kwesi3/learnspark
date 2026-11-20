@@ -991,6 +991,48 @@ button.shop-it.on{border-color:#2FB37A;box-shadow:0 3px 0 #2FB37A;background:#F0
 .voice-pick{display:flex;flex-direction:column;gap:6px;align-items:flex-end;max-width:58%}
 .voice-pick select{font:inherit;font-weight:800;border:2px solid var(--line-dk);border-radius:10px;padding:7px 8px;background:#fff;max-width:100%}
 .voice-pick .btn{flex:0 0 auto;padding:7px 14px}
+/* ── images & icons ── */
+.ic{width:1.1em;height:1.1em;vertical-align:-.18em;flex-shrink:0;display:inline-block}
+.tab .ic{margin-right:4px}
+.icon-btn{display:grid;place-items:center;color:var(--ink)}.icon-btn .ic{width:22px;height:22px}
+.c-flame{color:#FF6B1A;fill:#FFC83D}.c-medal{color:#E0A100;fill:#FFF0B8}
+.today-stats b .ic{margin-left:3px;width:1em;height:1em}
+.rec-k .ic{width:1.15em;height:1.15em;vertical-align:-.22em;margin-right:2px}
+.review-ic{color:#7C3AED;display:grid;place-items:center}.review-ic .ic{width:32px;height:32px}
+.tool-ic .ic{width:26px;height:26px}
+.str-ic{color:#B7791F}.str-ic .ic{width:30px;height:30px}
+.skill-learn .ic{width:22px;height:22px}
+.act-t .ic{margin-right:2px}
+.rep h2 .ic{width:.95em;height:.95em}
+.gcard-hi .ic{width:1em;height:1em;vertical-align:-.15em}
+.tb-star .ic{width:1em;height:1em;vertical-align:-.15em}
+/* subject pictures */
+img.subj-art{display:block;border-radius:14px}
+.subj-art-wrap{padding:0;background:none!important}
+.subj-art-wrap img.subj-art{width:100%;height:100%;object-fit:cover;border-radius:14px}
+.tb-art img.subj-art{width:120px;height:90px;border:3px solid rgba(255,255,255,.85);box-shadow:0 4px 0 rgba(0,0,0,.15);margin-bottom:8px}
+/* learner pictures */
+.av-img{display:block;width:100%;height:100%;object-fit:contain}
+.who-av{overflow:hidden;padding:0!important;line-height:0!important;font-size:0}
+.who-add .who-av{font-size:2.2rem;line-height:70px!important}
+.me-av{overflow:hidden;padding:0}
+.av-btn{aspect-ratio:1;padding:3px!important;display:grid;place-items:center}
+.av-btn .av-img{width:100%;height:100%}
+.rep-av{width:64px;height:64px;flex-shrink:0}
+.av-img.av-sm{display:inline-block;width:1.6em;height:1.6em;vertical-align:-.45em;margin-right:2px}
+/* game pictures */
+.gcard-ic{height:84px;display:flex;justify-content:center;margin-bottom:8px}
+.gcard-ic .game-img{height:84px}
+.gcard-t,.gcard-d{display:block}
+.game-img{display:block;height:100%;width:auto;max-width:100%;filter:drop-shadow(0 3px 0 rgba(0,0,0,.18))}
+.game-start-ic{display:flex;justify-content:center}.game-start-ic .game-img{height:130px}
+.game-t .game-img{display:inline-block;height:1.6em;vertical-align:-.45em;margin-right:4px;filter:none}
+/* award medals */
+.award-ic{height:64px;display:grid;place-items:center}
+.badge{width:60px;height:60px}
+.award.locked .badge{opacity:.75}
+.ach-i{width:52px;height:52px;flex-shrink:0}.ach-i .badge{width:52px;height:52px}
+@media (max-width:720px){.gcard-ic,.gcard-ic .game-img{height:68px}.subj-art-wrap img.subj-art{width:100%}}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#4C8DF6">
@@ -1001,6 +1043,95 @@ button.shop-it.on{border-color:#2FB37A;box-shadow:0 3px 0 #2FB37A;background:#F0
 <body>
 <div id="app"></div>
 <script>
+
+// ═══════════════════════════════════════════════════════════════
+// IMAGES — real illustration files instead of emoji
+// • assets/subjects, assets/games, assets/avatars: SVG picture files
+//   (cached for offline use by sw.js). The single-file copy carries them
+//   inline in window.ASSET_INLINE so it still works with no folder.
+// • Small interface icons are drawn as inline SVG so they stay crisp and
+//   take on the colour of the text around them.
+// ═══════════════════════════════════════════════════════════════
+function asset(p){const m=window.ASSET_INLINE;return (m&&m[p])||('./assets/'+p);}
+const SUBJ_ALT={math:'Mathematics picture',read:'Reading picture',sci:'Science picture',write:'Writing picture',hist:'History and Social Science picture'};
+function subjArt(subj,w){
+  return `<img class="subj-art" src="${asset('subjects/'+subj+'.svg')}" width="${w}" height="${Math.round(w*.75)}" alt="" decoding="async">`;
+}
+const AVATAR_FILE={'🦊':'fox','🐼':'panda','🦁':'lion','🐯':'tiger','🐸':'frog','🐙':'octopus','🦄':'unicorn','🐢':'turtle',
+  '🦉':'owl','🐬':'dolphin','🚀':'rocket','⚽':'soccer','🎨':'palette','🌻':'sunflower','🐝':'bee','🦖':'dino'};
+function avImg(a,cls){const f=AVATAR_FILE[a];
+  return f?`<img class="av-img${cls?' '+cls:''}" src="${asset('avatars/'+f+'.svg')}" alt="${f}" decoding="async">`:esc(a||'');}
+function gameImg(k){return GAMES[k]?`<img class="game-img" src="${asset('games/'+k+'.svg')}" alt="" decoding="async">`:'';}
+
+// line icons, 24×24, drawn with currentColor
+const IC={
+  books:'<path d="M4 19V5a2 2 0 0 1 2-2h3v18H6a2 2 0 0 1-2-2z"/><path d="M9 3h4v18H9"/><path d="M15 5l3.6-1 3.4 15.6-3.6 1z"/>',
+  book:'<path d="M2 5c3-1.4 7-1.4 10 1 3-2.4 7-2.4 10-1v14c-3-1-7-1-10 1-3-2-7-2-10-1z"/><path d="M12 6v14"/>',
+  lesson:'<path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11M9 8h6"/>',
+  gamepad:'<rect x="2" y="7" width="20" height="11" rx="5.5"/><path d="M7 10.5v4M5 12.5h4"/><circle cx="15.5" cy="11.2" r="1" fill="currentColor"/><circle cx="18" cy="13.8" r="1" fill="currentColor"/>',
+  trophy:'<path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M9 17h6v4H9z"/>',
+  chart:'<path d="M3 21h18M6 17v-6M11 17V5M16 17v-9"/>',
+  gear:'<path d="M10.3 2h3.4l.5 2.6 1.9.8 2.2-1.5 2.4 2.4-1.5 2.2.8 1.9 2.6.5v3.4l-2.6.5-.8 1.9 1.5 2.2-2.4 2.4-2.2-1.5-1.9.8-.5 2.6h-3.4l-.5-2.6-1.9-.8-2.2 1.5-2.4-2.4 1.5-2.2-.8-1.9L2 13.7v-3.4l2.6-.5.8-1.9-1.5-2.2 2.4-2.4 2.2 1.5 1.9-.8z"/><circle cx="12" cy="12" r="3"/>',
+  flame:'<path d="M12 3c1 4 6 6 6 11a6 6 0 0 1-12 0c0-3 2-4.5 2-6.5 2 1 3 3 3 5 1-2 1.5-5.5 1-9.5z"/>',
+  medal:'<circle cx="12" cy="15" r="6"/><path d="M8 3l4 6 4-6"/><path d="M12 12.2l.9 1.8 2 .3-1.4 1.4.3 2-1.8-.9-1.8.9.3-2-1.4-1.4 2-.3z"/>',
+  refresh:'<path d="M20 11a8 8 0 0 0-14.6-4.5M4 3v4h4M4 13a8 8 0 0 0 14.6 4.5M20 21v-4h-4"/>',
+  clipboard:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.5h6V4M9 12.5l2 2 4-4.5"/>',
+  people:'<circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c0-4 2.7-6 6-6s6 2 6 6M14.5 20c0-3 1.4-5 3.5-5s4 2 4 5"/>',
+  lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+  sprout:'<path d="M12 21v-9M12 12C12 8 9 5 4 5c0 4 3 7 8 7zM12 10c0-3 3-6 8-6 0 4-3 6-8 6z"/>',
+  check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+  checks:'<path d="M2 12.5l4.5 4.5L16 7.5M10 16l1 1 9.5-9.5"/>',
+  bolt:'<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
+  star:'<path d="M12 3l2.8 5.8 6.2.9-4.5 4.4 1 6.2L12 17.4l-5.5 2.9 1-6.2L3 9.7l6.2-.9z"/>',
+  crown:'<path d="M3 19h18M4 8l4 5 4-7 4 7 4-5-1.5 9h-13z"/>',
+  target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/>',
+  calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+  mic:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/>',
+  search:'<circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/>',
+  hat:'<path d="M7 16V5h10v11M3 16h18v3H3zM7 12h10"/>',
+  bulb:'<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/>',
+  puzzle:'<path d="M4 8h4a2 2 0 1 1 4 0h4v4a2 2 0 1 1 0 4v4H4z"/>',
+  question:'<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6"/><circle cx="12" cy="17" r=".9" fill="currentColor"/>',
+  hourglass:'<path d="M6 3h12M6 21h12M7 3c0 5 5 6 5 9s-5 4-5 9M17 3c0 5-5 6-5 9s5 4 5 9"/>',
+  link:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+  scale:'<path d="M12 3v18M7 21h10M4 7h16M7 7l-3 7a3 3 0 0 0 6 0zM17 7l-3 7a3 3 0 0 0 6 0z"/>',
+  calc:'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 12h2M14 12h2M8 16h2M14 16h2"/>',
+  flask:'<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3M7.5 15h9"/>',
+  pencil:'<path d="M4 20l1-4L16 5l3 3L8 19zM14 7l3 3"/>',
+  columns:'<path d="M3 9l9-5 9 5zM5 9v9M9.5 9v9M14.5 9v9M19 9v9M3 21h18M4 18h16"/>',
+};
+function ic(name,cls){const p=IC[name];if(!p)return '';
+  return `<svg class="ic${cls?' '+cls:''}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;}
+const SUBJ_IC={math:'calc',read:'book',sci:'flask',write:'pencil',hist:'columns'};
+function subjIc(k){return ic(SUBJ_IC[k]||'book');}
+
+// Award medals: a coloured medallion with a white symbol
+const BADGE={first:['sprout','#2FB37A'],ten:['check','#4C8DF6'],fifty:['checks','#2F6FE0'],q250:['books','#9B5DE5'],
+  streak5:['flame','#FF8A3D'],streak10:['bolt','#F59E0B'],m1:['medal','#E0A100'],m5:['star','#94A3B8'],m10:['trophy','#E0A100'],
+  goal:['target','#E8559A'],days3:['calendar','#14A394'],days7:['calendar','#0E8A7E'],xp500:['crown','#E0A100'],
+  gamer:['gamepad','#6366F1'],book1:['book','#2FB37A'],book5:['books','#17885A'],words300:['mic','#9B5DE5'],stars3:['search','#6D28D9'],
+  test1:['clipboard','#2F6FE0'],test80:['target','#1D4AA8'],detective:['search','#4C1D95'],closet:['hat','#E8559A'],family:['people','#E36B4E']};
+function badge(a,got){
+  const [g,c]=BADGE[a.id]||['star','#4C8DF6'];const col=got?c:'#CBD6E8';const glyph=IC[got?g:'lock'];
+  return `<svg class="badge" viewBox="0 0 64 64" aria-hidden="true">
+    <path d="M22 40 16 60 25 56 30 62 33 44Z M42 40 48 60 39 56 34 62 31 44Z" fill="${got?'#E8559A':'#E3E9F3'}" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="32" cy="28" r="22" fill="${col}" stroke="${INK}" stroke-width="3"/>
+    <circle cx="32" cy="28" r="16.5" fill="none" stroke="#fff" stroke-width="2" opacity=".55"/>
+    <g transform="translate(21 17) scale(.92)" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">${glyph}</g></svg>`;
+}
+// Strategy of the day: symbol for each strategy
+const EMOJI_IC={'🔎':'search','💡':'bulb','🧩':'puzzle','❓':'question','📊':'chart','⏳':'hourglass','🔗':'link','🕵️':'search','⚖️':'scale'};
+function strategyCard(){const s=strategyToday();
+  const g=EMOJI_IC[s.ic];
+  return `<div class="strategy"><div class="str-ic">${g?ic(g):s.ic}</div><div class="str-b"><div class="str-k">Strategy of the day</div><div class="str-t">${s.t}</div><div class="str-d">${s.d}</div></div>
+    <button class="btn btn-sec str-go" onclick="strategyGo()">Practice it</button></div>`;}
+// Game start screens and the game title bar show the game's picture
+const _introBase=intro;
+intro=function(icon,title,desc,onPlay){
+  const k=Object.keys(GAMES).find(k=>GAMES[k].title===title);
+  return _introBase(k?gameImg(k):icon,title,desc,onPlay);
+};
+
 
 
 // ═══════════════════════════════════════════════════════════════
@@ -3036,7 +3167,6 @@ const SUBJ_ART={
     <path d="M115 105 L118 112 L121 105 Z" fill="${INK}"/></g>
   </g>`,
 };
-function subjArt(subj,w){return `<svg class="subj-art" viewBox="0 0 160 120" width="${w}" height="${Math.round(w*.75)}" aria-hidden="true">${SUBJ_ART[subj]||''}</svg>`;}
 // soft decorative clouds/stars for hero bands
 function heroDeco(){
   return `<svg class="hero-deco" viewBox="0 0 400 160" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
@@ -3446,7 +3576,7 @@ const ACH=[
   {id:'words300',ic:'🗣️',label:'Read Aloud Star',d:'Read 300 words out loud to Sparky',t:()=>rstate().words>=300},
   {id:'stars3',ic:'🌟',label:'Proof Detective',d:'Earn 3 stars on a book',t:()=>Object.values(rstate().books).some(b=>b.stars>=3)},
 ];
-function checkAch(){ACH.forEach(a=>{if(!ST.achievements.includes(a.id)&&a.t()){ST.achievements.push(a.id);toast(a.ic,'Award unlocked!',a.label);}});}
+function checkAch(){ACH.forEach(a=>{if(!ST.achievements.includes(a.id)&&a.t()){ST.achievements.push(a.id);toast(badge(a,true),'Award unlocked!',a.label);}});}
 function addXP(xp,stars){ST.xp+=xp;ST.stars+=stars;checkAch();save();}
 
 // ═══════════════ WHO'S LEARNING ═══════════════
@@ -3461,7 +3591,7 @@ function renderWho(){
       <h1 class="who-h">Who's learning today?</h1>
       <div class="who-grid">
         ${list.map(p=>`<button class="who-card" onclick="pickLearner('${p.id}')">
-          <span class="who-av">${p.avatar}</span><span class="who-n">${esc(p.name)}</span>
+          <span class="who-av">${avImg(p.avatar)}</span><span class="who-n">${esc(p.name)}</span>
           <span class="who-g">Grade ${p.grade} · ${p.xp} XP</span></button>`).join('')}
         <button class="who-card who-add" onclick="renderAddLearner()"><span class="who-av">＋</span><span class="who-n">Add learner</span><span class="who-g">New profile</span></button>
       </div>
@@ -3480,7 +3610,7 @@ function renderAddLearner(editId,first){
       <div class="brand-sub">${first?'Welcome! Let\'s set up your first learner.':(p?'Edit learner':'Add a learner')}</div>
       <div class="w-card">
         <div class="f-label">Pick an avatar</div>
-        <div class="av-grid">${AVATARS.map(a=>`<button class="av-btn${a===_form.avatar?' sel':''}" onclick="formAvatar(this,'${a}')">${a}</button>`).join('')}</div>
+        <div class="av-grid">${AVATARS.map(a=>`<button class="av-btn${a===_form.avatar?' sel':''}" onclick="formAvatar(this,'${a}')" aria-label="${AVATAR_FILE[a]||'picture'}">${avImg(a)}</button>`).join('')}</div>
         <div class="f-label">Name</div>
         <input class="f-input" id="nameIn" maxlength="24" placeholder="Type a name…" value="${esc(_form.name)}" oninput="_form.name=this.value.trim();formCheck()">
         <div class="f-label">Grade</div>
@@ -3526,11 +3656,11 @@ function renderDash(){
   setScreen(`<div id="dash" class="screen active home">
     <header class="home-top">${heroDeco()}
       <div class="home-row">
-        <button class="me" onclick="renderWho()" title="Switch learner"><span class="me-av">${ST.avatar}</span>
+        <button class="me" onclick="renderWho()" title="Switch learner"><span class="me-av">${avImg(ST.avatar)}</span>
           <span><span class="me-hi">Hi, ${esc(ST.name)}!</span><span class="me-sub">Grade ${ST.grade} · Virginia SOL${ST.grade!==gc?` · Grade ${gc} skills`:''}</span></span></button>
         <div class="home-actions">
-          <button class="icon-btn" onclick="renderReport()" title="Parent report" aria-label="Parent report">📊</button>
-          <button class="icon-btn" onclick="openSettings()" title="Settings" aria-label="Settings">⚙️</button>
+          <button class="icon-btn" onclick="renderReport()" title="Parent report" aria-label="Parent report">${ic('chart')}</button>
+          <button class="icon-btn" onclick="openSettings()" title="Settings" aria-label="Settings">${ic('gear')}</button>
         </div>
       </div>
       <div class="hero-mid">
@@ -3541,11 +3671,11 @@ function renderDash(){
         <div class="today-ring">${ring(gp,76,'#10B981',`${tq}/${goal}`)}</div>
         <div class="today-txt">
           <div class="today-h">Today's goal: ${goal} questions</div>
-          <div class="today-d">${tq} done${tq?` · ${(ST.days[todayKey()]||{}).c||0} correct · ${fmtTime((ST.days[todayKey()]||{}).sec)}`:''}. Change the goal in ⚙️ Settings.</div>
+          <div class="today-d">${tq} done${tq?` · ${(ST.days[todayKey()]||{}).c||0} correct · ${fmtTime((ST.days[todayKey()]||{}).sec)}`:''}. Change the goal in Settings.</div>
         </div>
         <div class="today-stats">
-          <div><b>${streak}🔥</b><span>day streak</span></div>
-          <div><b>${totalMastered()}🏅</b><span>mastered</span></div>
+          <div><b>${streak}${ic('flame','c-flame')}</b><span>day streak</span></div>
+          <div><b>${totalMastered()}${ic('medal','c-medal')}</b><span>mastered</span></div>
           <div><b>${ST.xp}</b><span>XP</span></div>
           <div><b>${acc}</b><span>accuracy</span></div>
         </div>
@@ -3553,10 +3683,10 @@ function renderDash(){
     </header>
     <div class="dash-body">
       <div class="tabs" role="tablist">
-        <button class="tab ${ST.tab==='learn'?'active':''}" onclick="switchTab('learn')">📚 Learn</button>
-        <button class="tab ${ST.tab==='stories'?'active':''}" onclick="switchTab('stories')">📖 Stories</button>
-        <button class="tab ${ST.tab==='arcade'?'active':''}" onclick="switchTab('arcade')">🎮 Arcade</button>
-        <button class="tab ${ST.tab==='awards'?'active':''}" onclick="switchTab('awards')">🏆 Awards</button>
+        <button class="tab ${ST.tab==='learn'?'active':''}" onclick="switchTab('learn')">${ic('books')} Learn</button>
+        <button class="tab ${ST.tab==='stories'?'active':''}" onclick="switchTab('stories')">${ic('book')} Stories</button>
+        <button class="tab ${ST.tab==='arcade'?'active':''}" onclick="switchTab('arcade')">${ic('gamepad')} Arcade</button>
+        <button class="tab ${ST.tab==='awards'?'active':''}" onclick="switchTab('awards')">${ic('trophy')} Awards</button>
       </div>
       <div id="tabContent"></div>
     </div>
@@ -3568,7 +3698,7 @@ function skillChip(x){
   const s=SUBJ[x.subj];const sk=getSkill(x.subj,x.st.code);const sc=sk?sk.score:0;
   return `<button class="rec" onclick="startSkill('${x.subj}','${x.st.code}')">
     ${ring(sc,46,s.color)}
-    <span class="rec-txt"><span class="rec-k" style="color:${s.color}">${s.icon} ${s.short} · ${x.st.code}</span>
+    <span class="rec-txt"><span class="rec-k" style="color:${s.color}">${subjIc(x.subj)} ${s.short} · ${x.st.code}</span>
     <span class="rec-n">${x.st.name}</span>
     <span class="rec-s">${sk&&sk.n?level(sc,sk.n).t:'New skill'}</span></span>
     <span class="rec-go" style="background:${s.color}">${sk&&sk.n?'Continue':'Start'}</span></button>`;
@@ -3582,15 +3712,15 @@ function renderTab(){
       <div class="rec-list">${rec.map(skillChip).join('')}</div>
       ${(()=>{const b=STORIES.filter(x=>x.level===myLevel()).find(x=>!rstate().books[x.id])||STORIES.find(x=>x.level===myLevel());
         return `<button class="story-promo" onclick="openBook('${b.id}')"><span class="sp-cover">${scene(b.cover,'')}</span>
-        <span class="rec-txt"><span class="rec-k" style="color:#6D28D9">📖 Story Time</span><span class="rec-n">${b.title}</span>
+        <span class="rec-txt"><span class="rec-k" style="color:#6D28D9">${ic('book')} Story Time</span><span class="rec-n">${b.title}</span>
         <span class="rec-s">Read it out loud to Sparky</span></span><span class="rec-go" style="background:#9B5DE5">Read</span></button>`;})()}
       ${miss?`<button class="review-card" onclick="startReview()">
-        <span class="review-ic">🔁</span><span><b>Review your mistakes</b><br><small>${miss} question${miss===1?'':'s'} waiting — fix them to clear the list</small></span>
+        <span class="review-ic">${ic('refresh')}</span><span><b>Review your mistakes</b><br><small>${miss} question${miss===1?'':'s'} waiting — fix them to clear the list</small></span>
         <span class="rec-go" style="background:#7C3AED">Review</span></button>`:''}
       ${strategyCard()}
       <div class="duo">
-        <button class="rec tool-card" onclick="renderTestSetup()"><span class="tool-ic" style="background:#E3EAF5">📝</span><span class="rec-txt"><span class="rec-n">SOL Practice Test</span><span class="rec-s">Flag, cross out, review, submit — like the real test</span></span></button>
-        <button class="rec tool-card" onclick="startFamily()"><span class="tool-ic" style="background:#FDE3DC">👨‍👩‍👧</span><span class="rec-txt"><span class="rec-n">Family Challenge</span><span class="rec-s">Same 5 questions — kid vs. grown-up</span></span></button>
+        <button class="rec tool-card" onclick="renderTestSetup()"><span class="tool-ic" style="background:#E3EAF5;color:#2F6FE0">${ic('clipboard')}</span><span class="rec-txt"><span class="rec-n">SOL Practice Test</span><span class="rec-s">Flag, cross out, review, submit — like the real test</span></span></button>
+        <button class="rec tool-card" onclick="startFamily()"><span class="tool-ic" style="background:#FDE3DC;color:#E36B4E">${ic('people')}</span><span class="rec-txt"><span class="rec-n">Family Challenge</span><span class="rec-s">Same 5 questions — kid vs. grown-up</span></span></button>
       </div>
       <div class="sec-title">Subjects</div>
       <div class="subj-grid">${Object.entries(SUBJ).map(([k,s])=>{
@@ -3610,13 +3740,13 @@ function renderTab(){
       <p class="muted" style="margin:-6px 0 12px">Games are a fun break. Real progress comes from practicing skills in Learn.</p>
       <div class="game-grid">${Object.entries(GAMES).map(([k,g])=>{const hi=ST.gameHi[k]||0;
         return `<button class="gcard" style="background:${g.grad}" onclick="launchGame('${k}')">
-          ${hi>0?`<span class="gcard-hi">🏆 ${hi}</span>`:''}<span class="gcard-ic">${g.icon}</span>
+          ${hi>0?`<span class="gcard-hi">${ic('trophy')} ${hi}</span>`:''}<span class="gcard-ic">${gameImg(k)}</span>
           <span class="gcard-t">${g.title}</span><span class="gcard-d">${g.desc}</span></button>`;}).join('')}</div>`;
   } else {
     const mast=allSkills().filter(x=>scoreOf(x.subj,x.st.code)>=100);
     c.innerHTML=`${renderShop()}<div class="sec-title">Awards · ${ST.achievements.length}/${ACH.length}</div>
       <div class="award-grid">${ACH.map(a=>{const got=ST.achievements.includes(a.id);
-        return `<div class="award${got?'':' locked'}"><div class="award-ic">${got?a.ic:'🔒'}</div><div class="award-n">${a.label}</div><div class="award-d">${a.d}</div></div>`;}).join('')}</div>
+        return `<div class="award${got?'':' locked'}"><div class="award-ic">${badge(a,got)}</div><div class="award-n">${a.label}</div><div class="award-d">${a.d}</div></div>`;}).join('')}</div>
       <div class="sec-title">Mastered skills · ${mast.length}</div>
       ${mast.length?`<div class="rec-list">${mast.map(skillChip).join('')}</div>`:
         `<div class="empty">${mascot(70,'think')}<br>No mastered skills yet. Reach a SmartScore of 100 in any skill to earn its medal 🏅</div>`}`;
@@ -3638,7 +3768,7 @@ function openSubject(subj,filter){
         <span class="skill-info"><span class="skill-code" style="background:${s.lt};color:${s.dk}">SOL ${st.code}</span>
         <span class="skill-name">${st.name}</span><span class="skill-desc">${st.desc}</span></span>
         <span class="lv ${lv.cls}">${lv.t}</span></button>
-      <button class="skill-learn" onclick="openLesson('${subj}','${st.code}')" title="Learn it first" aria-label="Lesson for ${esc(st.name)}">📘</button>
+      <button class="skill-learn" onclick="openLesson('${subj}','${st.code}')" title="Learn it first" aria-label="Lesson for ${esc(st.name)}">${ic('lesson')}</button>
     </div>`;};
   let body='';
   if(subj==='math'){
@@ -3651,7 +3781,7 @@ function openSubject(subj,filter){
   setScreen(`<div id="strands" class="screen active">
     <div class="topbar" style="background:${s.band}">
       <button class="tb-back" onclick="renderDash()" aria-label="Back">←</button>
-      <div class="tb-user"><div class="tb-name" style="color:#fff">${s.icon} ${s.label}</div>
+      <div class="tb-user"><div class="tb-name" style="color:#fff">${s.label}</div>
       <div class="tb-sub" style="color:rgba(255,255,255,.9)">Grade ${gc} · ${counts.done} of ${counts.all} skills mastered</div></div>
       <div class="tb-art">${subjArt(subj,96)}</div>
     </div>
@@ -3737,7 +3867,7 @@ function renderPracticeShell(){
   setScreen(`<div id="activity" class="screen active">
     <div class="act-top" style="background:${SESSION.mode==='review'?'#7C5CFA':s.band}">
       <button class="tb-back" style="background:rgba(255,255,255,.2);color:#fff" onclick="endSession()" aria-label="Finish">←</button>
-      <div style="flex:1;min-width:0"><div class="act-t">${SESSION.mode==='review'?'🔁':s.icon} ${SESSION.name}</div>
+      <div style="flex:1;min-width:0"><div class="act-t">${SESSION.mode==='review'?ic('refresh'):subjIc(SESSION.subj||ST.subject)} ${SESSION.name}</div>
       <div class="act-sub">${sub}</div></div>
       <button class="act-finish" onclick="endSession()">Finish</button>
     </div>
@@ -4091,7 +4221,7 @@ function renderReport(){
       <button class="print-btn" onclick="window.print()">🖨️ Print</button>
     </div>
     <div class="rep">
-      <div class="rep-head"><div class="rep-av">${ST.avatar}</div><div><h1>${esc(ST.name)}'s learning report</h1>
+      <div class="rep-head"><div class="rep-av">${avImg(ST.avatar)}</div><div><h1>${esc(ST.name)}'s learning report</h1>
         <p>Grade ${ST.grade} · Virginia SOL (Grade ${gc} skills) · ${now.toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric',year:'numeric'})}</p></div></div>
       <div class="rep-tiles">
         <div><b>${wkQ}</b><span>questions this week</span></div>
@@ -4115,7 +4245,7 @@ function renderReport(){
           `<li><b>${SUBJ[r.subj].short} ${r.st.code}</b> ${r.st.name} — SmartScore ${r.score}</li>`).join('')}</ul>`:
           '<p>Skills appear here once they reach a SmartScore of 90 or more.</p>'}</div>
       </div>
-      ${Object.entries(SUBJ).map(([k,s])=>`<h2 style="color:${s.dk}">${s.icon} ${s.label}</h2>
+      ${Object.entries(SUBJ).map(([k,s])=>`<h2 style="color:${s.dk}">${subjIc(k)} ${s.label}</h2>
         <div class="tbl-wrap"><table class="tbl"><thead><tr><th>SOL</th><th>Skill</th><th>SmartScore</th><th>Status</th><th>Questions</th><th>Accuracy</th><th>Time</th><th>Last</th></tr></thead>
         <tbody>${rows.filter(r=>r.subj===k).map(r=>`<tr class="${r.n?'':'dim'}"><td>${r.st.code}</td><td>${r.st.name}</td>
           <td><div class="mini"><div style="width:${r.score}%;background:${r.score>=100?'#F59E0B':s.color}"></div></div>${r.score}</td>
@@ -4176,7 +4306,7 @@ function gameShell(inner,titleIcon,title){
       <button class="tb-back" style="background:rgba(255,255,255,.15);color:#fff" onclick="FX.click();renderDash()">←</button>
       <div class="game-t">${titleIcon} ${title}</div>
       <button class="snd-btn" onclick="toggleSound(this)">${FX.isOn()?'🔊':'🔇'}</button>
-      <div class="tb-chip tb-star">🏆 ${ST.gameHi[ST.currentGame]||0}</div>
+      <div class="tb-chip tb-star">${ic('trophy')} ${ST.gameHi[ST.currentGame]||0}</div>
     </div>
     <div class="game-body" id="gameBody">${inner}</div>
   </div>`;
@@ -5983,10 +6113,6 @@ function strategyGo(){
   const subj=s.go[1];const list=skillsFor(subj);if(!list.length)return;
   const x=list.slice().sort((a,b)=>scoreOf(subj,a.code)-scoreOf(subj,b.code))[0];startSkill(subj,x.code);
 }
-function strategyCard(){const s=strategyToday();
-  return `<div class="strategy"><div class="str-ic">${s.ic}</div><div class="str-b"><div class="str-k">Strategy of the day</div><div class="str-t">${s.t}</div><div class="str-d">${s.d}</div></div>
-    <button class="btn btn-sec str-go" onclick="strategyGo()">Practice it</button></div>`;}
-
 // ── wire History & Social Science into the app ──
 SUBJ.hist={card:'History',label:'History & Social Science',short:'History',icon:'🏛️',color:'#0E8A7E',dk:'#0A6158',lt:'#D5F3EE',band:'#14A394'};
 STRANDS[4].hist=HIST_STRANDS[4];STRANDS[6].hist=HIST_STRANDS[6];
@@ -6430,7 +6556,7 @@ function startFamily(){
   setScreen(`<div class="screen active">${topBar('👨‍👩‍👧 Family Challenge','Same 5 questions — who scores higher?','#E36B4E')}
     <div class="act-body"><div class="qc">
       <p>${esc(ST.name)} answers 5 questions, then passes the device. The next player gets the <b>same</b> questions.</p>
-      <div class="f-label">Player 1</div><div class="fam-p">${ST.avatar} ${esc(ST.name)}</div>
+      <div class="f-label">Player 1</div><div class="fam-p">${avImg(ST.avatar,'av-sm')} ${esc(ST.name)}</div>
       <div class="f-label">Player 2</div><input class="f-input fam-in" id="p2In" maxlength="20" value="${esc(FAM.p2)}" aria-label="Player 2 name">
       <div class="f-label">Questions from</div>
       <div class="seg wide">${[['mixed','Mixed'],['math','Math'],['hist','History'],['sci','Science']].map(([k,l])=>`<button class="${(FAM.subj||'mixed')===k?'on':''}" onclick="FAM.subj='${k}';FAM.p2=document.getElementById('p2In').value;startFamily()">${l}</button>`).join('')}</div>
@@ -6443,7 +6569,7 @@ function famBegin(){
   Object.assign(FAM,{qs,player:0,qi:0,scores:[0,0],picks:[[],[]]});famQ();
 }
 function famQ(){
-  const q=FAM.qs[FAM.qi];const who=FAM.player===0?`${ST.avatar} ${esc(ST.name)}`:`🧑 ${esc(FAM.p2)}`;FAM.done=false;FAM.order=shuf(q.opts.slice());
+  const q=FAM.qs[FAM.qi];const who=FAM.player===0?`${avImg(ST.avatar,'av-sm')} ${esc(ST.name)}`:`🧑 ${esc(FAM.p2)}`;FAM.done=false;FAM.order=shuf(q.opts.slice());
   const dg=q.dgSvg?{svg:q.dgSvg}:diagram(q,'#E36B4E');
   setScreen(`<div class="screen active">${topBar(`${who}’s turn`,`Question ${FAM.qi+1} of 5 · Score ${FAM.scores[FAM.player]}`,'#E36B4E')}
     <div class="act-body"><div class="qc"><div class="q-text">${String(dg&&dg.text||q.question).replace(/\n/g,'<br>')}</div>${dg?`<div class="dg-wrap">${dg.svg}</div>`:''}
@@ -6467,7 +6593,7 @@ function famNext(){
   xs().family.push({d:Date.now(),p2:FAM.p2,a,b});if(xs().family.length>30)xs().family.shift();addXP(a*2,a>b?2:1);
   setScreen(`<div class="screen active">${topBar('Family Challenge results','','#E36B4E')}<div class="act-body"><div class="qc mastery">
     <div class="medal">${win?'🏆':'🤝'}</div><div class="m-t">${win?esc(win)+' wins!':'It’s a tie!'}</div>
-    <div class="fam-score"><div><b>${a}</b><span>${ST.avatar} ${esc(ST.name)}</span></div><div><b>${b}</b><span>🧑 ${esc(FAM.p2)}</span></div></div>
+    <div class="fam-score"><div><b>${a}</b><span>${avImg(ST.avatar,'av-sm')} ${esc(ST.name)}</span></div><div><b>${b}</b><span>🧑 ${esc(FAM.p2)}</span></div></div>
     <div class="fam-qs">${FAM.qs.map((q,i)=>`<div class="fam-q"><span>${FAM.picks[0][i]?'✅':'❌'}</span><span>${FAM.picks[1][i]?'✅':'❌'}</span><span>${esc(plain(q.question).slice(0,70))}… <b>${q.answer}</b></span></div>`).join('')}</div>
     <div class="btns"><button class="btn btn-sec" onclick="famBegin()">Rematch (new questions)</button><button class="btn btn-pri" style="background:#E36B4E" onclick="renderDash()">Home</button></div></div></div></div>`);
   FX.win();checkAch();save();

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img"><title>whoami</title><g stroke="#1F2A44" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><path d="M22 110c0-24 16-38 38-38s38 14 38 38Z" fill="#4B5B7E"/><circle cx="60" cy="48" r="24" fill="#4B5B7E"/>
+<path d="M104 18h40a10 10 0 0 1 10 10v30a10 10 0 0 1-10 10h-22l-14 12 2-12h-6a10 10 0 0 1-10-10V28a10 10 0 0 1 10-10Z" fill="#fff"/>
+<path d="M116 36a8 8 0 1 1 10 8v5" fill="none" stroke="#9B5DE5" stroke-width="5"/>
+<path d="M52 42a8 8 0 1 1 10 8v6" fill="none" stroke="#fff" stroke-width="5"/></g>
+<circle cx="126" cy="58" r="3.5" fill="#9B5DE5"/><circle cx="62" cy="66" r="3.5" fill="#fff"/></svg>

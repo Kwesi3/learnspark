@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img"><title>codebot</title><g stroke="#1F2A44" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><path d="M80 28V14"/><circle cx="80" cy="12" r="6" fill="#FFC83D"/>
+<rect x="34" y="28" width="92" height="66" rx="16" fill="#fff"/><rect x="24" y="48" width="10" height="24" rx="4" fill="#9B5DE5"/><rect x="126" y="48" width="10" height="24" rx="4" fill="#9B5DE5"/>
+<circle cx="62" cy="56" r="10" fill="#4C8DF6"/><circle cx="98" cy="56" r="10" fill="#4C8DF6"/>
+<rect x="58" y="74" width="44" height="10" rx="5" fill="#2FB37A"/><path d="M69 74v10M80 74v10M91 74v10" stroke-width="3"/>
+<path d="M52 104h18l-6-6M108 104H90l6 6" fill="none"/></g><g fill="#fff"><circle cx="65" cy="53" r="3"/><circle cx="101" cy="53" r="3"/></g></svg>

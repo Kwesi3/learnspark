@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img"><title>fracmatch</title><g stroke="#1F2A44" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><g transform="rotate(-10 52 64)"><rect x="18" y="22" width="68" height="86" rx="10" fill="#fff"/>
+<circle cx="52" cy="65" r="22" fill="#FFF4D6" stroke-width="3"/><path d="M52 43A22 22 0 0 1 52 87Z" fill="#FF8A3D" stroke-width="3"/></g>
+<g transform="rotate(10 108 64)"><rect x="74" y="22" width="68" height="86" rx="10" fill="#fff"/>
+<rect x="88" y="52" width="40" height="26" rx="4" fill="#FFF4D6" stroke-width="3"/><path d="M88 52h20v26H92a4 4 0 0 1-4-4Z" fill="#E8559A" stroke-width="3"/><path d="M108 52v26" stroke-width="3"/></g>
+<path d="M70 14l3 6 6 1-4.5 4 1 6-5.5-3-5.5 3 1-6-4.5-4 6-1Z" fill="#FFC83D" stroke-width="3"/></g></svg>

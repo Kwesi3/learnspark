@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img"><title>asteroids</title><g transform="translate(48 70) rotate(40) scale(1)" stroke="#1F2A44" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<path d="M-8 26 Q0 50 8 26Z" fill="#FF8A3D"/><path d="M-12 12-24 32-12 28Z M12 12 24 32 12 28Z" fill="#E8559A"/>
+<path d="M0-30C12-18 14 2 12 26H-12C-14 2-12-18 0-30Z" fill="#fff"/><circle cy="-4" r="7" fill="#4C8DF6"/></g><g stroke="#1F2A44" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><path d="M100 30 122 22 142 34 148 58 134 76 110 76 98 56Z" fill="#B9A68E"/>
+<circle cx="118" cy="44" r="7" fill="#9C8970" stroke-width="3"/><circle cx="134" cy="60" r="5" fill="#9C8970" stroke-width="3"/><circle cx="112" cy="64" r="4" fill="#9C8970" stroke-width="3"/></g>
+<g fill="#FFC83D" stroke="#1F2A44" stroke-width="3"><circle cx="76" cy="46" r="4"/><circle cx="88" cy="38" r="4"/></g>
+<g fill="#fff"><circle cx="30" cy="20" r="3"/><circle cx="146" cy="100" r="3"/><circle cx="96" cy="104" r="2.5"/></g></svg>

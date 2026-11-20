@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img"><title>wordwiz</title><g stroke="#1F2A44" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><path d="M22 74 54 10l30 64Z" fill="#9B5DE5"/><ellipse cx="53" cy="74" rx="38" ry="9" fill="#7C3AED"/>
+<path d="M50 34l2 4 4.5.5-3.3 3 .8 4.5-4-2.2-4 2.2.8-4.5-3.3-3 4.5-.5Z" fill="#FFC83D" stroke-width="2.5"/>
+<rect x="66" y="80" width="26" height="28" rx="6" fill="#fff"/><rect x="96" y="74" width="26" height="28" rx="6" fill="#fff"/><rect x="126" y="80" width="26" height="28" rx="6" fill="#fff"/>
+<path d="M72 102l7-16 7 16M74.5 97h9" stroke-width="3.5"/><path d="M104 80v16h6a4 4 0 0 0 0-8h-6m0-8h5a4 4 0 0 1 0 8" fill="none" stroke-width="3.5"/>
+<path d="M145 89a7 7 0 1 0 0 10" fill="none" stroke-width="3.5"/></g>
+<g fill="#FFC83D"><circle cx="118" cy="30" r="4"/><circle cx="138" cy="48" r="3"/><circle cx="104" cy="50" r="2.5"/></g></svg>
