@@ -1209,6 +1209,83 @@ img.art{display:block;width:100%;height:100%;object-fit:cover;background:#F3EEE4
   .cl-pagehead.has-img{flex-direction:column}.cl-ph-img{order:-1;flex:none;height:150px;min-height:0}.cl-pagehead.has-img>div:first-child{padding:16px 18px}
   .sk-thumb{width:60px;height:46px}.les-art{height:160px}
 }
+/* ── calmer top bars (subject colour as a thin accent) ── */
+.topbar.calm,.act-top.calm{background:#fff!important;border-top:4px solid var(--acc,#2D74DA);border-bottom:1px solid var(--cline);box-shadow:none;min-height:72px;color:var(--navy)}
+.topbar.calm .tb-name,.act-top.calm .act-t{color:var(--navy)!important}
+.topbar.calm .tb-sub,.act-top.calm .act-sub{color:var(--cmuted)!important}
+.topbar.calm .tb-back,.act-top.calm .tb-back{background:#F3F6FA!important;color:var(--navy)!important;border:1px solid var(--cline)!important;box-shadow:none!important}
+.act-top.calm .act-finish{background:var(--navy);color:#fff;border:none}
+.topbar.calm .tb-art{align-self:center;margin-bottom:0}
+.topbar.calm .tb-art img.art,.topbar.calm .tb-art .art{border:1px solid var(--cline);width:112px;height:74px}
+.topbar.calm .tb-chip,.topbar.calm .rd-chip{color:var(--navy)}
+/* ── home hierarchy ── */
+.cl-hero{margin-bottom:22px}
+.cl-hero-txt h1{font-size:clamp(1.6rem,2.6vw,2.2rem)}
+.cl-hero-img{flex-basis:42%;min-height:210px}
+.cl-focus{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;margin-bottom:30px;align-items:stretch}
+.cl-sub{color:var(--cmuted);font-size:.8rem;font-weight:700}
+.cl-kick{color:var(--cblue);font-size:.72rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+.cl-up{display:flex;gap:18px;align-items:stretch;width:100%;text-align:left;font:inherit;color:inherit;background:#F7FAFF;border:1px solid #D6E8FA;border-radius:14px;padding:12px;cursor:pointer;margin-bottom:6px;transition:box-shadow .15s}
+.cl-up:hover{box-shadow:var(--cshadow)}
+.cl-up-img{flex:0 0 42%;border-radius:10px;overflow:hidden;min-height:140px}
+.cl-up-b{display:flex;flex-direction:column;gap:6px;justify-content:center;padding:4px 4px 4px 0}
+.cl-up-b b{font-size:1.25rem;color:var(--navy);font-weight:900;line-height:1.2}
+.cl-up-b small{color:var(--cmuted);font-size:.86rem}
+.cl-btn{display:inline-flex;align-items:center;gap:6px}
+.cl-btn .ic{width:16px;height:16px}
+.cl-btn-lg{align-self:flex-start;margin-top:8px;padding:10px 16px;font-size:.88rem}
+.cl-btn-ghost{background:#fff;color:var(--navy);border:1px solid #CBD6E8}.cl-btn-ghost:hover{background:#F3F6FA}
+.cl-today{display:flex;flex-direction:column}
+.cl-ring{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.cl-ring p{margin:0;color:#557087;font-size:.9rem;line-height:1.45}
+.cl-kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto}
+.cl-kpis div{background:#F7FAFC;border:1px solid var(--cline);border-radius:12px;padding:12px 14px}
+.cl-kpis b{display:block;color:var(--navy);font-size:1.35rem;font-weight:900}
+.cl-kpis span{display:flex;align-items:center;gap:5px;color:var(--cmuted);font-size:.76rem;font-weight:800}
+.cl-kpis .ic{width:14px;height:14px;color:var(--cblue)}
+.cl-lower{grid-template-columns:1.1fr 1fr}
+.cl-strat-row{display:flex;gap:18px;align-items:center}
+.cl-strat-row .cl-strat-img{flex:0 0 38%;height:170px;margin:0}
+.cl-strat-row h3{display:flex;align-items:center;gap:7px;margin:6px 0;color:var(--navy);font-size:1.1rem}
+.cl-strat-row h3 .ic{width:18px;height:18px;color:#B7791F}
+.cl-strat-row p{margin:0 0 12px;color:#557087;font-size:.88rem;line-height:1.5}
+button.cl-row.cl-link{width:100%;background:none;border:none;border-bottom:1px solid var(--cline);font:inherit;color:inherit;text-align:left;cursor:pointer;border-radius:0}
+button.cl-row.cl-link:last-child{border-bottom:0}
+button.cl-row.cl-link:hover b{color:var(--cblue)}
+.cl-link>.ic{width:18px;height:18px;color:var(--cmuted)}
+.cl-note{line-height:1.6}
+.cl-inline{background:none;border:none;color:var(--cblue);font:inherit;font-weight:800;cursor:pointer;text-decoration:underline;padding:0}
+/* ── about ── */
+.cl-about{background:var(--cbg)}
+.ab-body{max-width:1100px;margin:0 auto;padding:26px 24px 60px}
+.ab-hero{display:flex;background:#fff;border:1px solid var(--cline);border-radius:20px;overflow:hidden;margin-bottom:20px;box-shadow:var(--cshadow-sm)}
+.ab-hero>div:first-child{padding:28px 30px;flex:1}
+.ab-hero h1{margin:6px 0 10px;color:var(--navy);font-size:clamp(1.4rem,2.4vw,1.9rem);font-weight:900;letter-spacing:-.02em;line-height:1.2}
+.ab-hero p{color:#557087;margin:0;line-height:1.6}
+.ab-img{flex:0 0 38%;min-height:200px}
+.ab-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.ab-grid h2{display:flex;align-items:center;gap:8px;margin:0 0 12px;color:var(--navy);font-size:1.1rem}
+.ab-grid h2 .ic{width:20px;height:20px;color:var(--cblue)}
+.ab-grid p{color:#3E5267;line-height:1.6;margin:0 0 10px}
+.ab-list{margin:0;padding-left:18px;color:#3E5267;line-height:1.55}
+.ab-list li{margin-bottom:8px}.ab-list b{color:var(--navy)}
+.ab-levels{list-style:none;padding:0}.ab-levels li{border-bottom:1px solid var(--cline);padding:8px 0;margin:0}
+.ab-levels small{display:block;color:var(--cmuted);font-size:.76rem}
+.ab-small{font-size:.84rem;color:var(--cmuted)!important}
+.ab-small a{color:var(--cblue);font-weight:800}
+/* ── learner form levels ── */
+.g-btn small{display:block;font-size:.68rem;font-weight:700;opacity:.75;margin-top:2px}
+/* ── accessibility ── */
+:focus-visible{outline:3px solid #2D74DA!important;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media (max-width:1020px){.cl-focus{grid-template-columns:1fr}.ab-grid{grid-template-columns:1fr}}
+@media (max-width:700px){
+  .cl-up{flex-direction:column}.cl-up-img{flex:none;height:150px;min-height:0}
+  .cl-strat-row{flex-direction:column;align-items:stretch}.cl-strat-row .cl-strat-img{flex:none;height:150px}
+  .ab-hero{flex-direction:column}.ab-img{order:-1;flex:none;height:160px;min-height:0}.ab-body{padding:16px 14px 90px}
+  .topbar.calm .tb-art{display:none}
+}
+@media (max-width:1020px){.cl-lower{grid-template-columns:1fr}}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#4C8DF6">
@@ -1219,6 +1296,7 @@ img.art{display:block;width:100%;height:100%;object-fit:cover;background:#F3EEE4
 <body>
 <div id="app"></div>
 <script>
+window.ART_KEYS=["gen_family", "gen_mastered", "gen_review", "gen_stories", "gen_strategy", "gen_test", "h_1900s", "h_civil", "h_civilwar", "h_coldwar", "h_colonial", "h_econ", "h_geo", "h_growth", "h_immig", "h_jamestown", "h_nation", "h_native", "h_presidents", "h_recon", "h_revolution", "h_skills", "h_west", "h_ww2", "hero", "m_area", "m_circle", "m_coord", "m_data", "m_dec", "m_eq", "m_frac", "m_geo", "m_int", "m_measure", "m_ops", "m_pattern", "m_place", "m_prob", "m_ratio", "m_squares", "m_time", "r_fiction", "r_nonfic", "r_vocab", "s_adapt", "s_atoms", "s_cells", "s_classify", "s_eco", "s_elec", "s_energy", "s_evolution", "s_force", "s_genetics", "s_matter", "s_periodic", "s_photo", "s_plants", "s_pop", "s_resources", "s_space", "s_waves", "s_weather", "subj_civics", "subj_geo", "subj_hist", "subj_math", "subj_read", "subj_sci", "subj_sci8", "subj_write", "w_argue", "w_edit", "w_sentence"];
 
 // ═══════════════════════════════════════════════════════════════
 // IMAGES — real illustration files instead of emoji
@@ -3778,7 +3856,7 @@ function pickLearner(id){activateProfile(id);FX.click();renderDash();}
 let _form={};
 function renderAddLearner(editId,first){
   const p=editId?PROFILES.list[editId]:null;
-  _form={id:editId||null,name:p?p.name:'',grade:p?p.grade:0,avatar:p?p.avatar:AVATARS[Object.keys(PROFILES.list).length%AVATARS.length]};
+  _form={id:editId||null,name:p?p.name:'',grade:p?normGrade(p.grade):0,avatar:p?p.avatar:AVATARS[Object.keys(PROFILES.list).length%AVATARS.length]};
   setScreen(`<div class="screen active who">
     <div class="who-in">
       <div class="who-mascot">${mascot(96,'happy')}</div>
@@ -3790,7 +3868,7 @@ function renderAddLearner(editId,first){
         <div class="f-label">Name</div>
         <input class="f-input" id="nameIn" maxlength="24" placeholder="Type a name…" value="${esc(_form.name)}" oninput="_form.name=this.value.trim();formCheck()">
         <div class="f-label">Grade</div>
-        <div class="g-grid">${[1,2,3,4,5,6].map(g=>`<button class="g-btn${g===_form.grade?' sel':''}" data-g="${g}" onclick="formGrade(${g})">Grade ${g}</button>`).join('')}</div>
+        <div class="g-grid">${LEVELS.map(([g,l,d])=>`<button class="g-btn${g===_form.grade?' sel':''}" data-g="${g}" onclick="formGrade(${g})">${l}<small>${d}</small></button>`).join('')}</div>
         <button class="go-btn" id="goBtn" disabled onclick="formSave()">${p?'Save changes':'Start learning ✨'}</button>
         ${Object.keys(PROFILES.list).length?`<button class="link-btn" onclick="${p?'renderDash()':'renderWho()'}">Cancel</button>`:''}
       </div>
@@ -3955,9 +4033,9 @@ function openSubject(subj,filter){
     doing:sk.filter(st=>{const r=getSkill(subj,st.code);return r&&r.n&&r.score<100;}).length,
     done:sk.filter(st=>scoreOf(subj,st.code)>=100).length};
   setScreen(`<div id="strands" class="screen active">
-    <div class="topbar" style="background:${s.band}">
+    <div class="topbar calm" style="--acc:${s.band}">
       <button class="tb-back" onclick="renderDash()" aria-label="Back">←</button>
-      <div class="tb-user"><div class="tb-name" style="color:#fff">${s.label}</div>
+      <div class="tb-user"><div class="tb-name" style="color:#fff">${subjTitle(subj)}</div>
       <div class="tb-sub" style="color:rgba(255,255,255,.9)">Grade ${gc} · ${counts.done} of ${counts.all} skills mastered</div></div>
       <div class="tb-art">${subjArt(subj,96)}</div>
     </div>
@@ -3979,7 +4057,7 @@ function openLesson(subj,code,firstTime){
   const st=findSkill(subj,code);if(!st)return renderDash();const s=SUBJ[subj];
   const ideas=LESSONS[st.gen]||[st.desc];
   setScreen(`<div class="screen active lesson">
-    <div class="topbar" style="background:${s.band}">
+    <div class="topbar calm" style="--acc:${s.band}">
       <button class="tb-back" onclick="openSubject('${subj}')" aria-label="Back">←</button>
       <div class="tb-user"><div class="tb-name" style="color:#fff">${st.name}</div>
       <div class="tb-sub" style="color:rgba(255,255,255,.9)">SOL ${st.code} · Learn it first</div></div>
@@ -4040,7 +4118,7 @@ function renderPracticeShell(){
   const dk=SESSION.mode==='review'?'#4C1D95':s.dk;
   const sub=SESSION.mode==='review'?'Fix them to clear the list':`SOL ${SESSION.code} · ${s.label}`;
   setScreen(`<div id="activity" class="screen active">
-    <div class="act-top" style="background:${SESSION.mode==='review'?'#7C5CFA':s.band}">
+    <div class="act-top calm" style="--acc:${SESSION.mode==='review'?'#7C5CFA':s.band}">
       <button class="tb-back" style="background:rgba(255,255,255,.2);color:#fff" onclick="endSession()" aria-label="Finish">←</button>
       <div style="flex:1;min-width:0"><div class="act-t">${SESSION.mode==='review'?ic('refresh'):subjIc(SESSION.subj||ST.subject)} ${SESSION.name}</div>
       <div class="act-sub">${sub}</div></div>
@@ -4287,7 +4365,7 @@ function endSession(){
      'Some questions were tricky today. A quick lesson can help — then try again.';
   const s=SUBJ[SESSION.subj];
   setScreen(`<div class="screen active" style="background:var(--bg)">
-    <div class="act-top" style="background:${SESSION.mode==='review'?'#7C5CFA':s.band}">
+    <div class="act-top calm" style="--acc:${SESSION.mode==='review'?'#7C5CFA':s.band}">
       <div class="act-t" style="text-align:center">Session summary</div></div>
     <div class="act-body"><div class="qc summary">
       ${SESSION.mode==='skill'?`<div class="sum-rings"><div>${ring(from,74,'#94A3B8')}<small>Before</small></div><div class="sum-arrow">→</div><div>${ring(to,96,col)}<small>Now</small></div></div>`:
@@ -5818,7 +5896,7 @@ function startBookQuiz(){
 function quizShell(inner){
   const b=READ.book;const col=BOOK_LEVELS[b.level].color;
   setScreen(`<div class="screen active">
-    <div class="topbar" style="background:${col}"><button class="tb-back" onclick="closeBook()" aria-label="Back">←</button>
+    <div class="topbar calm" style="--acc:${col}"><button class="tb-back" onclick="closeBook()" aria-label="Back">←</button>
       <div class="tb-user"><div class="tb-name" style="color:#fff">Think about the story</div><div class="tb-sub" style="color:rgba(255,255,255,.92)">${b.title} · Question ${READ.qi+1} of ${READ.qN}</div></div></div>
     <div class="act-body" id="qBody">${inner}</div></div>`);
 }
@@ -5894,7 +5972,7 @@ function finishBook(){
   addXP(first?30:10,stars);FX.win();confetti(window.innerWidth/2,140,70);
   const tricky=READ.helpedWords;
   setScreen(`<div class="screen active">
-    <div class="topbar" style="background:${BOOK_LEVELS[b.level].color}"><div class="tb-user"><div class="tb-name" style="color:#fff">You finished the book!</div></div></div>
+    <div class="topbar calm" style="--acc:${BOOK_LEVELS[b.level].color}"><div class="tb-user"><div class="tb-name" style="color:#fff">You finished the book!</div></div></div>
     <div class="act-body"><div class="qc mastery">
       <div class="sticker big-st"><svg viewBox="${STICKER_VB[b.sticker]}">${PROPS[b.sticker]({})}</svg></div>
       <div class="m-t">${first?'New sticker!':'Great reading!'}</div>
@@ -5920,7 +5998,7 @@ function startSwap(){
 function swapRound(){
   const it=SWAP.items[SWAP.i];const [w,idx,nl,ans,x1,x2]=it;SWAP.opts=shuf([ans,x1,x2]);SWAP.done=false;
   setScreen(`<div class="screen active">
-    <div class="topbar" style="background:#9B5DE5"><button class="tb-back" onclick="renderDash();switchTab('stories')" aria-label="Back">←</button>
+    <div class="topbar calm" style="--acc:#9B5DE5"><button class="tb-back" onclick="renderDash();switchTab('stories')" aria-label="Back">←</button>
       <div class="tb-user"><div class="tb-name" style="color:#fff">Sound Swap</div><div class="tb-sub" style="color:rgba(255,255,255,.92)">Word ${SWAP.i+1} of ${SWAP.items.length} · ${SWAP.c} right</div></div></div>
     <div class="act-body"><div class="qc swap">
       <div class="swap-say">Read the word:</div>
@@ -5945,7 +6023,7 @@ function swapPick(i){
 }
 function swapEnd(){
   addXP(5,SWAP.c>=6?2:0);FX.win();
-  setScreen(`<div class="screen active"><div class="topbar" style="background:#9B5DE5"><div class="tb-user"><div class="tb-name" style="color:#fff">Sound Swap</div></div></div>
+  setScreen(`<div class="screen active"><div class="topbar calm" style="--acc:#9B5DE5"><div class="tb-user"><div class="tb-name" style="color:#fff">Sound Swap</div></div></div>
     <div class="act-body"><div class="qc mastery"><div class="mastery-art">${mascot(96,'cheer')}</div>
     <div class="m-t">${SWAP.c} of ${SWAP.items.length} words!</div><p class="m-d">Changing one sound makes a whole new word. Great ears and eyes!</p>
     <div class="btns"><button class="btn btn-sec" onclick="startSwap()">Play again</button><button class="btn btn-pri" style="background:#9B5DE5" onclick="renderDash();switchTab('stories')">Back to stories</button></div></div></div></div>`);
@@ -6308,7 +6386,7 @@ SUBJ_ART.hist=`<g stroke="${INK}" stroke-width="4" stroke-linejoin="round" strok
 function xs(){if(!ST.extras)ST.extras={};const x=ST.extras,d={outfit:{hat:'',color:''},owned:[],tests:[],cases:{n:0,c:0},family:[],games:{}};
   for(const k in d)if(x[k]===undefined)x[k]=d[k];return x;}
 function topBar(title,sub,color,back,right){
-  return `<div class="topbar" style="background:${color}"><button class="tb-back" onclick="${back||'renderDash()'}" aria-label="Back">←</button>
+  return `<div class="topbar calm" style="--acc:${color}"><button class="tb-back" onclick="${back||'renderDash()'}" aria-label="Back">←</button>
     <div class="tb-user"><div class="tb-name" style="color:#fff">${title}</div>${sub?`<div class="tb-sub" style="color:rgba(255,255,255,.92)">${sub}</div>`:''}</div>${right||''}</div>`;}
 function inPageConfirm(msg,yesLabel,onYes){
   closeSheet();const el=document.createElement('div');el.className='sheet-wrap';el.id='sheet';
@@ -6370,7 +6448,7 @@ function testDraw(){
       <div class="sm-label">Your order — tap one to take it back</div><div class="sdrop order">${placed.length?placed.map((wi,pi)=>`<button class="pchip" style="border-color:${col};color:${col}" onclick="testUnord(${pi})">${esc(it.words[wi])}</button>`).join(''):'<span class="ph">Tap the items above…</span>'}</div>`;
   }
   setScreenKeepTimer(`<div class="screen active">
-    <div class="topbar" style="background:#2F4B7C"><button class="tb-back" onclick="inPageConfirm('Leave the test? Your answers will be lost.','Leave test',()=>renderDash())" aria-label="Leave test">←</button>
+    <div class="topbar calm" style="--acc:#2F4B7C"><button class="tb-back" onclick="inPageConfirm('Leave the test? Your answers will be lost.','Leave test',()=>renderDash())" aria-label="Leave test">←</button>
       <div class="tb-user"><div class="tb-name" style="color:#fff">Question ${T.i+1} of ${T.qs.length}</div><div class="tb-sub" style="color:rgba(255,255,255,.9)">${T.label}</div></div>
       <div class="t-time" id="tTime">${testClock()}</div></div>
     <div class="act-body">
@@ -6396,7 +6474,7 @@ function testSpeak(){const q=T.qs[T.i].q;let t=plain(q.question);if(q.opts)t+='.
 function testReview(){
   const un=T.qs.map((_,i)=>i).filter(i=>!answered(i));
   setScreenKeepTimer(`<div class="screen active">
-    <div class="topbar" style="background:#2F4B7C"><button class="tb-back" onclick="testDraw()" aria-label="Back to questions">←</button>
+    <div class="topbar calm" style="--acc:#2F4B7C"><button class="tb-back" onclick="testDraw()" aria-label="Back to questions">←</button>
       <div class="tb-user"><div class="tb-name" style="color:#fff">Review your answers</div><div class="tb-sub" style="color:rgba(255,255,255,.9)">${T.label}</div></div><div class="t-time" id="tTime">${testClock()}</div></div>
     <div class="act-body"><div class="qc">
       <div class="t-nav big">${T.qs.map((x,i)=>`<button class="t-dot${answered(i)?' done':''}${T.flags.has(i)?' flag':''}" onclick="T.i=${i};testDraw()">${i+1}</button>`).join('')}</div>
@@ -6798,12 +6876,12 @@ function certPrint(){try{window.print();}catch(e){}}
 
 // ═════════════ WORD-PROBLEM HELPER ═════════════
 function isWordProblem(q){if(!q||q.type!=='mc'||q.passage)return false;const t=plain(q.question);
-  const nums=t.match(/-?\$?\d+(?:[.,]\d+)?(?:\/\d+)?/g)||[];return t.length>55&&nums.length>=2&&/[?]/.test(t)&&/[a-z]{4,}/i.test(t)&&!/^Solve|^Evaluate|=\s*\?/.test(t);}
+  const nums=t.match(/(?<![A-Za-z\d.,])-?\$?\d+(?:[.,]\d+)?(?:\/\d+)?/g)||[];return t.length>55&&nums.length>=2&&/[?]/.test(t)&&/[a-z]{4,}/i.test(t)&&!/^Solve|^Evaluate|=\s*\?/.test(t);}
 function wpWrap(q){
   const t=plain(q.question);let k=0;
-  const html=esc(t).replace(/(-?\$?\d+(?:[.,]\d+)?(?:\/\d+)?(?:\s?(?:cm²|m²|cm|m|ft|in|miles|mph|°F|%))?)/g,m=>`<button class="wp-num" data-k="${k++}" onclick="wpTap(this)">${m}</button>`);
+  const html=esc(t).replace(/(?<![A-Za-z\d.,])(-?\$?\d+(?:[.,]\d+)?(?:\/\d+)?(?:\s?(?:cm²|m²|cm|m|ft|in|miles|mph|°F|%))?)/g,m=>`<button class="wp-num" data-k="${k++}" onclick="wpTap(this)">${m}</button>`);
   SESSION.wpNeed=k;SESSION.wpGot=0;
-  return `<div class="wp"><div class="wp-step" id="wpStep">✋ <b>Step 1:</b> Tap every number in the problem.</div><div class="q-text wp-text">${html.replace(/\n/g,'<br>')}</div></div>`;
+  return `<div class="wp"><div class="wp-step" id="wpStep">${ic('target')} <b>Step 1:</b> Tap every number in the problem.</div><div class="q-text wp-text">${html.replace(/\n/g,'<br>')}</div></div>`;
 }
 function wpTap(b){if(b.classList.contains('got'))return;b.classList.add('got');FX.click();SESSION.wpGot++;
   if(SESSION.wpGot>=SESSION.wpNeed){const t=plain(SESSION.q.question);const qs=(t.match(/[^.!?\n]*\?/g)||[t]).pop().trim();
@@ -6956,6 +7034,7 @@ try{if(typeof speechSynthesis!=='undefined')speechSynthesis.onvoiceschanged=()=>
 // Inserted before start-up; uses assignment so it replaces the
 // earlier function declarations.
 // ═══════════════════════════════════════════════════════════════
+IC.shield='<path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/>';
 IC.speaker='<path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/>';IC.x='<path d="M6 6l12 12M18 6L6 18"/>';
 IC.home='<path d="M3 11l9-7 9 7"/><path d="M5 10v10h5v-6h4v6h5V10"/>';
 IC.spark='<path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"/>';
@@ -6973,13 +7052,33 @@ const SK_ART={'math:4.1':'m_place','math:4.2':'m_frac','math:4.3':'m_dec','math:
  'hist:VS.1':'h_geo','hist:VS.2':'h_native','hist:VS.3':'h_jamestown','hist:VS.4':'h_colonial','hist:VS.5':'h_revolution','hist:VS.6':'h_nation',
  'hist:VS.7':'h_civilwar','hist:VS.8':'h_recon','hist:VS.9':'h_growth','hist:VS.10':'h_1900s','hist:VS.11':'h_civil','hist:VS.12':'h_presidents',
  'hist:VS.13':'h_econ','hist:VS Skills':'h_skills','hist:USII.1':'h_west','hist:USII.2':'h_recon','hist:USII.3':'h_immig','hist:USII.4':'h_1900s',
- 'hist:USII.5':'h_1900s','hist:USII.6':'h_ww2','hist:USII.7':'h_coldwar','hist:USII.8':'h_civil','hist:USII Skills':'h_skills'};
+ 'hist:USII.5':'h_1900s',
+ 'math:7.NS.1':'m_scinot','math:7.NS.2':'m_int','math:7.NS.3':'m_squares','math:7.CE.1':'m_dec','math:7.CE.2':'m_percent','math:7.MG.1':'m_volume','math:7.MG.2':'m_similar',
+ 'math:7.MG.3':'m_geo','math:7.MG.4':'m_similar','math:7.PS.1':'m_prob','math:7.PS.2':'m_data','math:7.PFA.1':'m_linear','math:7.PFA.2':'m_eq','math:7.PFA.3':'m_eq','math:7.PFA.4':'m_eq',
+ 'math:8.NS.1':'m_int','math:8.NS.2':'m_scinot','math:8.CE.1':'m_percent','math:8.MG.1':'m_geo','math:8.MG.2':'m_volume','math:8.MG.3':'m_transform','math:8.MG.4':'m_pyth','math:8.MG.5':'m_area',
+ 'math:8.PS.1':'m_prob','math:8.PS.2':'m_data','math:8.PS.3':'m_scatter','math:8.PFA.1':'m_eq','math:8.PFA.2':'m_func','math:8.PFA.3':'m_linear','math:8.PFA.4':'m_eq','math:8.PFA.5':'m_eq',
+ 'read:7.4':'r_vocab','read:8.4':'r_vocab','read:7.5':'r_fiction','read:8.5':'r_fiction','read:7.6':'r_nonfic','read:8.6':'r_nonfic',
+ 'write:7.7':'w_argue','write:7.8':'w_edit','write:8.7':'w_argue','write:8.8':'w_edit',
+ 'sci:LS.2':'s_cells','sci:LS.3':'s_classify','sci:LS.4':'s_photo','sci:LS.5':'s_eco','sci:LS.6':'s_pop','sci:LS.7':'s_adapt','sci:LS.10':'s_genetics','sci:LS.11':'s_evolution',
+ 'sci:PS.2':'s_atoms','sci:PS.3':'s_matter','sci:PS.4':'s_periodic','sci:PS.5':'s_energy','sci:PS.6':'s_waves','sci:PS.7':'s_light','sci:PS.8':'s_newton','sci:PS.9':'s_elec',
+ 'hist:CE.1':'h_nation','hist:CE.2':'h_branches','hist:CE.3':'h_vagov','hist:CE.4':'h_local','hist:CE.5':'h_courts','hist:CE.6':'h_citizen','hist:CE.7':'h_citizen','hist:CE.8':'h_vote',
+ 'hist:CE.9':'h_media','hist:CE.11':'h_market','hist:CE.12':'h_publicgoods','hist:CE.13':'h_finance',
+ 'hist:WG.1':'g_tools','hist:WG.2':'s_resources','hist:WG.3':'g_usca','hist:WG.4':'g_latam','hist:WG.5':'g_europe','hist:WG.6':'g_russia','hist:WG.7':'g_africa','hist:WG.8':'g_mena',
+ 'hist:WG.9':'g_sasia','hist:WG.10':'g_easia','hist:WG.11':'g_oceania','hist:WG.12':'g_pop','hist:WG.13':'g_migration','hist:WG.14':'g_culture','hist:WG.15':'g_pop','hist:WG.16':'g_global','hist:WG.17':'g_political',
+'hist:USII.6':'h_ww2','hist:USII.7':'h_coldwar','hist:USII.8':'h_civil','hist:USII Skills':'h_skills'};
 function skArt(subj,code){return SK_ART[subj+':'+code]||('subj_'+subj);}
+function subjArtKey(k){const g=gradeContent();return (g===7&&k==='sci')?'subj_sci7':(g===8&&k==='sci')?'subj_sci8':(g===7&&k==='hist')?'subj_civics':(g===8&&k==='hist')?'subj_geo':'subj_'+k;}
+const ART_FALLBACK={subj_sci7:'s_cells',s_light:'s_energy',s_newton:'s_force',m_scinot:'s_space',m_percent:'m_dec',m_volume:'m_measure',m_similar:'m_geo',m_transform:'m_geo',m_pyth:'m_geo',
+ m_func:'m_eq',m_linear:'m_data',m_scatter:'m_data',h_branches:'h_nation',h_vagov:'h_nation',h_local:'subj_civics',h_courts:'h_nation',h_citizen:'h_civil',h_vote:'subj_civics',
+ h_media:'r_nonfic',h_market:'h_econ',h_publicgoods:'h_econ',h_finance:'m_dec',g_tools:'h_skills',g_usca:'subj_geo',g_latam:'subj_geo',g_europe:'subj_geo',g_russia:'subj_geo',
+ g_africa:'subj_geo',g_mena:'subj_geo',g_sasia:'subj_geo',g_easia:'subj_geo',g_oceania:'subj_geo',g_pop:'h_1900s',g_migration:'h_immig',g_culture:'subj_geo',g_global:'h_econ',g_political:'subj_geo',about:'gen_family'};
+const ART_HAVE=new Set(window.ART_KEYS||[]);
 function art(key,small){
+  if(ART_HAVE.size&&!ART_HAVE.has(key))key=ART_FALLBACK[key]&&ART_HAVE.has(ART_FALLBACK[key])?ART_FALLBACK[key]:'hero';
   const p='art/'+(small?'sm/':'')+key+'.webp';const m=window.ASSET_INLINE;
   const src=(m&&(m[p]||m['art/sm/'+key+'.webp']))||('./assets/'+p);
   return `<img class="art" src="${src}" alt="" loading="lazy" decoding="async">`;}
-subjArt=function(subj,w){return art('subj_'+subj,w<200);};
+subjArt=function(subj,w){return art(subjArtKey(subj),w<200);};
 const CL_DESC={math:'Numbers, fractions, measurement, geometry, and word problems.',
   read:'Passages, vocabulary, main idea, and finding evidence.',
   sci:'Investigations, diagrams, data tables, and the natural world.',
@@ -6992,6 +7091,7 @@ function clReview(){if(ST.missed.length)startReview();else toast(ic('check'),'Re
 function clGrade(g){g=+g;if(!g||g===ST.grade)return;ST.grade=g;save();renderDash();}
 renderDash=function(){
   if(!ST.id)return renderWho();
+  if(!LEVEL_IDS.includes(ST.grade)){ST.grade=normGrade(ST.grade);save();}
   if(!CL_TABS[ST.tab])ST.tab='learn';
   const miss=ST.missed.length;
   setScreen(`<div id="dash" class="screen active cl">
@@ -7006,7 +7106,8 @@ renderDash=function(){
       <button class="cl-ni" onclick="renderReport()">${ic('chart')}<span>Parent Report</span></button>
       <button class="cl-ni" onclick="openSettings()">${ic('gear')}<span>Settings</span></button>
       <button class="cl-ni" onclick="renderWho()">${ic('people')}<span>Switch Learner</span></button>
-      <div class="cl-foot">Progress is saved on this device.<br>Original practice for the Virginia SOL. SmartScores are practice indicators, not SOL scores.</div>
+      <button class="cl-ni" onclick="renderAbout()">${ic('shield')}<span>About &amp; Privacy</span></button>
+      <div class="cl-foot">Progress is saved only on this device.<br>Not affiliated with the Virginia Department of Education.</div>
     </aside>
     <main class="cl-main">
       <header class="cl-top">
@@ -7051,20 +7152,38 @@ renderTab=function(){
       <span class="cl-rt"><b>${x.st.name}</b><small>${s.short} · SOL ${x.st.code} · ${started?`SmartScore ${sc}`:'Not started'}</small></span>
       <button class="cl-btn" onclick="startSkill('${x.subj}','${x.st.code}')">${started?'Continue':'Start'}</button></div>`;};
   const st=strategyToday();const sg=EMOJI_IC[st.ic]||'bulb';
+  const nxt=rec[0];const more=rec.slice(1);
+  const lvl=LEVELS.find(l=>l[0]===ST.grade)||LEVELS[0];
   c.innerHTML=`
     <section class="cl-hero">
       <div class="cl-hero-txt"><div class="cl-eye">Welcome back, ${esc(ST.name)}</div><h1>Let’s learn something today.</h1>
         <p>Small steps build strong readers, thinkers, and problem-solvers.</p>
-      <label class="cl-grade"><span>Learning level</span>
-        <select onchange="clGrade(this.value)">${[1,2,3,4,5,6].map(g=>`<option value="${g}"${g===ST.grade?' selected':''}>Grade ${g}</option>`).join('')}</select></label></div>
+        <label class="cl-grade"><span>Learning level</span>
+          <select onchange="clGrade(this.value)" aria-label="Learning level"><optgroup label="Elementary"><option value="4"${ST.grade===4?' selected':''}>Grade 4 · Virginia Studies</option></optgroup><optgroup label="Middle school">${[6,7,8].map(g=>`<option value="${g}"${g===ST.grade?' selected':''}>Grade ${g}</option>`).join('')}</optgroup></select></label></div>
       <div class="cl-hero-img">${art('hero')}</div>
     </section>
-    <section class="cl-goal">
-      <div><h2>Today’s learning goal</h2>
-        <p>${tq>=goal?`Goal reached. Everything now is bonus practice.`:`Answer ${goal} questions. Read each one carefully and check your work.`}</p>
-        <div class="cl-stats"><span>${ic('flame')}<b>${streak}</b> day streak</span><span>${ic('medal')}<b>${totalMastered()}</b> mastered</span><span>${ic('star')}<b>${ST.xp}</b> XP</span><span>${ic('target')}<b>${acc}</b> accuracy</span></div></div>
-      <div class="cl-gp"><div class="cl-pl"><span>Daily progress</span><span>${tq} of ${goal}</span></div>
-        <div class="cl-track"><i style="width:${gp}%"></i></div></div>
+    <section class="cl-focus">
+      <div class="cl-panel cl-next">
+        <div class="cl-sh"><h2>Continue learning</h2><span class="cl-sub">${lvl[1]} · ${lvl[2]}</span></div>
+        ${nxt?`<button class="cl-up" onclick="startSkill('${nxt.subj}','${nxt.st.code}')">
+          <span class="cl-up-img">${art(skArt(nxt.subj,nxt.st.code),1)}</span>
+          <span class="cl-up-b"><span class="cl-kick">Up next · ${SUBJ[nxt.subj].short} · SOL ${nxt.st.code}</span><b>${nxt.st.name}</b><small>${nxt.st.desc}</small>
+          <span class="cl-btn cl-btn-lg">${(getSkill(nxt.subj,nxt.st.code)||{}).n?'Continue':'Start practice'} ${ic('arrow')}</span></span></button>`:''}
+        ${more.map(row).join('')}
+        ${b?`<div class="cl-row"><span class="cl-ri cl-thumb">${scene(b.cover,'')}</span>
+          <span class="cl-rt"><b>${b.title}</b><small>Story Time · Read it out loud to Sparky</small></span>
+          <button class="cl-btn cl-btn-ghost" onclick="openBook('${b.id}')">Read</button></div>`:''}
+      </div>
+      <div class="cl-panel cl-today">
+        <div class="cl-sh"><h2>Today</h2></div>
+        <div class="cl-ring">${ring(gp,92,'#2D74DA',`${tq}/${goal}`)}<p>${tq>=goal?'Goal reached. Everything now is bonus practice.':`${goal-tq} question${goal-tq===1?'':'s'} to reach today’s goal.`}</p></div>
+        <div class="cl-kpis">
+          <div><b>${streak}</b><span>${ic('flame')} Day streak</span></div>
+          <div><b>${totalMastered()}</b><span>${ic('medal')} Mastered</span></div>
+          <div><b>${ST.xp}</b><span>${ic('star')} XP</span></div>
+          <div><b>${acc}</b><span>${ic('target')} Accuracy</span></div>
+        </div>
+      </div>
     </section>
     <div class="cl-sh"><h2>Choose a subject</h2></div>
     <section class="cl-subjects">${Object.entries(SUBJ).map(([k,s])=>{
@@ -7072,31 +7191,1041 @@ renderTab=function(){
       const avg=sk.length?Math.round(sk.reduce((a,x)=>a+scoreOf(k,x.code),0)/sk.length):0;
       return `<button class="cl-subj" onclick="openSubject('${k}')"><span class="cl-subj-img">${subjArt(k,320)}</span>
         <span class="cl-subj-b"><span class="cl-chip" style="background:${s.lt};color:${s.dk}">${CL_CODE[k]||k.toUpperCase()}</span>
-        <b>${s.card||s.label}</b><small>${CL_DESC[k]||''}</small>
+        <b>${subjTitle(k)}</b><small>${subjDesc(k)}</small>
         <span class="cl-bar"><i style="width:${avg}%;background:${s.color}"></i></span>
         <small class="cl-m">${m} of ${sk.length} skills mastered</small></span></button>`;}).join('')}</section>
     <section class="cl-lower">
-      <div class="cl-panel"><div class="cl-sh"><h2>Continue learning</h2></div>
-        ${rec.map(row).join('')}
-        ${b?`<div class="cl-row"><span class="cl-ri cl-thumb">${scene(b.cover,'')}</span>
-          <span class="cl-rt"><b>${b.title}</b><small>Story Time · Read it out loud to Sparky</small></span>
-          <button class="cl-btn" onclick="openBook('${b.id}')">Read</button></div>`:''}
-        ${ST.missed.length?`<div class="cl-row"><span class="cl-ri cl-pic">${art('gen_review',1)}</span>
-          <span class="cl-rt"><b>Review your mistakes</b><small>${ST.missed.length} question${ST.missed.length===1?'':'s'} waiting</small></span>
-          <button class="cl-btn" onclick="startReview()">Review</button></div>`:''}
+      <div class="cl-panel cl-strat-row">
+        <div class="cl-strat-img">${art('gen_strategy',1)}</div>
+        <div><div class="cl-kick">Strategy of the day</div><h3>${ic(sg)} ${st.t}</h3><p>${st.d}</p>
+          <button class="cl-btn cl-btn-ghost" onclick="strategyGo()">Practice it</button></div>
       </div>
-      <div class="cl-col">
-        <div class="cl-panel"><div class="cl-sh"><h2>Strategy of the day</h2></div>
-          <div class="cl-strat-img">${art('gen_strategy',1)}</div><div class="cl-strat"><strong>${ic(sg)} ${st.t}</strong><p>${st.d}</p>
-          <button onclick="strategyGo()">Practice it</button></div></div>
-        <button class="cl-panel cl-tool" onclick="renderTestSetup()"><span class="cl-ri cl-pic lg">${art('gen_test',1)}</span>
+      <div class="cl-panel">
+        <div class="cl-sh"><h2>More ways to practice</h2></div>
+        <button class="cl-row cl-link" onclick="renderTestSetup()"><span class="cl-ri cl-pic">${art('gen_test',1)}</span>
           <span class="cl-rt"><b>SOL Practice Test</b><small>Flag, cross out, review, and submit, like the real test</small></span>${ic('arrow')}</button>
-        <button class="cl-panel cl-tool" onclick="startFamily()"><span class="cl-ri cl-pic lg">${art('gen_family',1)}</span>
+        <button class="cl-row cl-link" onclick="clReview()"><span class="cl-ri cl-pic">${art('gen_review',1)}</span>
+          <span class="cl-rt"><b>Review mistakes</b><small>${ST.missed.length?`${ST.missed.length} question${ST.missed.length===1?'':'s'} waiting`:'Nothing to fix right now'}</small></span>${ic('arrow')}</button>
+        <button class="cl-row cl-link" onclick="startFamily()"><span class="cl-ri cl-pic">${art('gen_family',1)}</span>
           <span class="cl-rt"><b>Family Challenge</b><small>Same 5 questions, kid vs. grown-up</small></span>${ic('arrow')}</button>
       </div>
     </section>
-    <div class="cl-note">Original practice aligned to the Virginia Standards of Learning · Not affiliated with the Virginia Department of Education</div>`;
+    <footer class="cl-note">Original practice aligned to the Virginia Standards of Learning. Not affiliated with or endorsed by the Virginia Department of Education. SmartScores are practice indicators, not SOL scores. <button class="cl-inline" onclick="renderAbout()">About &amp; privacy</button></footer>`;
 };
+
+// ── About & privacy ──
+function renderAbout(){
+  const g=(n,t,d)=>`<li><b>${n}</b> ${t}<small>${d}</small></li>`;
+  setScreen(`<div class="screen active cl-about">${topBar('About &amp; privacy','How LearnSpark works and how your family’s data is handled','#17324D')}
+    <div class="ab-body">
+      <section class="ab-hero"><div><div class="cl-eye">About LearnSpark</div><h1>Practice that follows Virginia’s standards, kept on your device.</h1>
+        <p>LearnSpark is an independent, family-made practice app for Virginia students. It has original questions, lessons, read-aloud stories, and games organized by the Virginia Standards of Learning.</p></div>
+        <div class="ab-img">${art('about')}</div></section>
+      <div class="ab-grid">
+        <section class="cl-panel"><h2>${ic('shield')} Privacy</h2>
+          <ul class="ab-list">
+            <li><b>No accounts and no sign-in.</b> Learner names, pictures, scores, and settings are stored only in this browser on this device.</li>
+            <li><b>Nothing is sent to a LearnSpark server.</b> There is no LearnSpark server. The app is a set of files that runs entirely in your browser.</li>
+            <li><b>Reading out loud.</b> When a child reads to Sparky, the browser’s own speech service turns speech into text (Google in Chrome, Microsoft in Edge, Apple in Safari). LearnSpark keeps only which words were read, never recordings.</li>
+            <li><b>Narration</b> is recorded ahead of time and stored with the app, so listening needs no internet once the app is saved.</li>
+            <li><b>Removing data.</b> Delete a learner in Settings, or clear this site’s data in your browser settings. Each device keeps separate progress.</li>
+          </ul></section>
+        <section class="cl-panel"><h2>${ic('book')} What is covered</h2>
+          <ul class="ab-list ab-levels">
+            ${g('Grade 4','Mathematics, Reading, Science, Writing, and Virginia Studies','Elementary')}
+            ${g('Grade 6','Mathematics, Reading, Science, Writing, and U.S. History 1865 to the Present','Middle school')}
+            ${g('Grade 7','Mathematics, Reading, Life Science, Writing, and Civics & Economics','Middle school')}
+            ${g('Grade 8','Mathematics, Reading, Physical Science, Writing, and World Geography','Middle school')}
+          </ul>
+          <p class="ab-small">Skills are labeled with the matching standard code, such as SOL 7.PFA.3 or CE.2, so you can compare them with your child’s classwork. Official standards and released test items are on the <a href="https://www.doe.virginia.gov/teaching-learning-assessment/student-assessment/sol-practice-items-all-subjects" target="_blank" rel="noopener">Virginia Department of Education website</a>.</p></section>
+        <section class="cl-panel"><h2>${ic('target')} About SmartScores</h2>
+          <p>A SmartScore shows how steadily a child answers questions in one skill. It rises with correct answers and dips after mistakes. It reaches 100 when a skill is mastered.</p>
+          <p class="ab-small">SmartScores are practice indicators only. They are not SOL test scores and do not predict an official result.</p></section>
+        <section class="cl-panel"><h2>${ic('star')} Content and pictures</h2>
+          <p>All questions, lessons, and stories were written for LearnSpark. Illustrations were created for LearnSpark with AI image tools. Narration uses an open-source text-to-speech voice.</p>
+          <p class="ab-small">LearnSpark is not affiliated with or endorsed by the Virginia Department of Education.</p></section>
+      </div>
+    </div></div>`);
+}
+
+
+// ═══════════════════════════════════════════════════════════════
+// MIDDLE SCHOOL MATH — 2023 Virginia Mathematics SOL, Grades 7 and 8
+// Each generator returns a fresh question every time.
+// ═══════════════════════════════════════════════════════════════
+const M=n=>(n<0?'−'+Math.abs(n):String(n));            // display with a true minus sign
+const R2=n=>Math.round(n*100)/100;
+const fmt=n=>{const r=R2(n);return M(Number.isInteger(r)?r:+r.toFixed(2));};
+const sup={'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'};
+const pow10=e=>'10'+String(e).split('').map(c=>sup[c]||c).join('');
+function sci(m,e){return `${m} × ${pow10(e)}`;}
+
+// ---------- GRADE 7 ----------
+GEN.g7_ns1=()=>{
+  const t=rng(0,3);
+  if(t===0){const m=rng(11,99)/10;const e=rng(3,7);const n=Math.round(m*Math.pow(10,e));
+    return mcq('Scientific Notation','7.NS.1',`Write ${n.toLocaleString()} in scientific notation.`,
+      [sci(m,e),sci(m,e-1),sci(m,e+1),sci(m*10,e-1)],sci(m,e),
+      `Move the decimal point ${e} places left to get ${m}, a number from 1 to 10. So ${n.toLocaleString()} = ${sci(m,e)}.`,
+      'The first factor must be at least 1 and less than 10. Count how many places the decimal moves.');}
+  if(t===1){const m=rng(11,99)/10;const e=-rng(2,5);const n=(m*Math.pow(10,e)).toFixed(-e+1);
+    return mcq('Scientific Notation','7.NS.1',`Write ${n} in scientific notation.`,
+      [sci(m,e),sci(m,-e),sci(m,e+1),sci(m,e-1)],sci(m,e),
+      `Move the decimal point ${-e} places right to get ${m}. Small numbers use a negative power of 10: ${sci(m,e)}.`,
+      'Numbers less than 1 have a negative exponent.');}
+  if(t===2){const e=rng(1,4);const v='0.'+'0'.repeat(e-1)+'1';
+    return mcq('Negative Powers of 10','7.NS.1',`What is the value of ${pow10(-e)}?`,
+      [v,'0.'+'0'.repeat(e)+'1',String(Math.pow(10,e)),M(-Math.pow(10,e))],v,
+      `${pow10(-e)} = 1 ÷ ${Math.pow(10,e).toLocaleString()} = ${v}.`,'A negative exponent means divide 1 by that power of 10. It is NOT a negative number.');}
+  const a=[rng(11,99)/10,rng(2,6)],b=[rng(11,99)/10,rng(2,6)];if(a[1]===b[1])b[1]++;
+  const va=a[0]*Math.pow(10,a[1]),vb=b[0]*Math.pow(10,b[1]);
+  return mcq('Compare','7.NS.1',`Which is greater: ${sci(a[0],a[1])} or ${sci(b[0],b[1])}?`,
+    [sci(a[0],a[1]),sci(b[0],b[1]),'They are equal'],va>vb?sci(a[0],a[1]):sci(b[0],b[1]),
+    'Compare the exponents first. The larger power of 10 gives the larger number.','Look at the exponents before the first factors.');
+};
+GEN.g7_ns2=()=>{
+  const t=rng(0,2);
+  if(t===0){const d=pick([4,5,8,10]);const n=-rng(1,d-1);const dec=-(rng(1,9)/10);const fv=n/d;
+    if(Math.abs(fv-dec)<1e-9)return GEN.g7_ns2();
+    return mcq('Compare Rational Numbers','7.NS.2',`Which symbol makes this true?   ${M(n)}/${d} ___ ${M(dec)}`,['<','>','='],fv<dec?'<':'>',
+      `${M(n)}/${d} = ${fmt(fv)}. On a number line, ${fv<dec?`${fmt(fv)} is to the left of ${M(dec)}`:`${fmt(fv)} is to the right of ${M(dec)}`}.`,
+      'Change the fraction to a decimal. With negatives, the number farther from zero is smaller.');}
+  if(t===1){const vals=shuf([[rng(1,9)/10,null],[rng(1,3)/4,'f4'],[rng(10,90)/100,'pct'],[-(rng(1,9)/10),null]]);
+    const lab=v=>v[1]==='f4'?`${v[0]*4}/4`:v[1]==='pct'?`${Math.round(v[0]*100)}%`:M(v[0]);
+    const uniq=new Set(vals.map(v=>v[0]));if(uniq.size<4)return GEN.g7_ns2();
+    const sorted=vals.slice().sort((x,y)=>x[0]-y[0]);
+    return mcq('Order Rational Numbers','7.NS.2',`Which list is in order from LEAST to GREATEST?`,
+      [sorted.map(lab).join(', '),sorted.slice().reverse().map(lab).join(', '),shuf(sorted).map(lab).join(', '),[sorted[1],sorted[0],sorted[2],sorted[3]].map(lab).join(', ')],
+      sorted.map(lab).join(', '),'Change every number to a decimal, then order them. The negative number is least.','Write each one as a decimal first.');}
+  const a=rng(2,9),b=rng(2,9);
+  return mcq('Absolute Value','7.NS.2',`Which is greater: |${M(-a)}| or ${M(-b)}?`,[`|${M(-a)}|`,M(-b),'They are equal'],`|${M(-a)}|`,
+    `|${M(-a)}| = ${a}, which is positive, and ${M(-b)} is negative. Any positive number is greater than a negative number.`,'Absolute value is distance from zero, so it is never negative.');
+};
+GEN.g7_ns3=()=>{
+  const t=rng(0,2);const r=rng(2,20);
+  if(t===0)return mcq('Square Roots','7.NS.3',`What is √${r*r}?`,[r,r*2,r+1,r*r/2|0||r+2],r,`${r} × ${r} = ${r*r}, so √${r*r} = ${r}.`,'Which number times itself gives this number?');
+  if(t===1){const sq=r*r;const others=[sq+1,sq+r,sq-2].filter(x=>Math.sqrt(x)%1!==0);
+    return mcq('Perfect Squares','7.NS.3',`Which number is a perfect square?`,[sq].concat(others.slice(0,3)),sq,`${sq} = ${r} × ${r}, so it is a perfect square.`,'A perfect square is a whole number times itself.');}
+  return mcq('Square Roots','7.NS.3',`A square garden has an area of ${r*r} square feet. How long is one side?`,[`${r} ft`,`${r*2} ft`,`${r*r/4|0} ft`,`${r+1} ft`],`${r} ft`,
+    `Area = side × side. √${r*r} = ${r}, so each side is ${r} feet.`,'Find the number that times itself equals the area.');
+};
+GEN.g7_ce1=()=>{
+  const t=rng(0,2);
+  if(t===0){const s=-rng(2,12),rise=rng(5,15),drop=rng(3,10);const ans=s+rise-drop;
+    return mcq('Multistep Problems','7.CE.1',`At 6 a.m. the temperature was ${M(s)}°F. It rose ${rise}° by noon, then fell ${drop}° by evening. What was the evening temperature?`,
+      [`${M(ans)}°F`,`${M(s-rise+drop)}°F`,`${M(-s+rise-drop)}°F`,`${M(ans+2)}°F`],`${M(ans)}°F`,`${M(s)} + ${rise} − ${drop} = ${M(ans)}.`,'Start at the first temperature, add the rise, then subtract the drop.');}
+  if(t===1){const p=rng(3,9)+pick([0.25,0.5,0.75]);const n=rng(3,6);const paid=Math.ceil(p*n/5)*5+5;const ch=R2(paid-p*n);
+    return mcq('Money','7.CE.1',`Ana buys ${n} notebooks for $${p.toFixed(2)} each. She pays with $${paid}. How much change does she get?`,
+      [`$${ch.toFixed(2)}`,`$${(ch+p).toFixed(2)}`,`$${R2(p*n).toFixed(2)}`,`$${(ch+0.5).toFixed(2)}`],`$${ch.toFixed(2)}`,
+      `${n} × $${p.toFixed(2)} = $${(p*n).toFixed(2)}. $${paid} − $${(p*n).toFixed(2)} = $${ch.toFixed(2)}.`,'Find the total cost first, then subtract from what she paid.');}
+  const L=rng(6,12),c=pick([[3,4],[1,2],[2,3]]);const each=R2(L*c[0]/c[1]);const left=R2(L-each);
+  return mcq('Fractions in Context','7.CE.1',`A ${L}-foot board is cut. ${c[0]}/${c[1]} of it is used for a shelf. How many feet are left?`,
+    [`${fmt(left)} ft`,`${fmt(each)} ft`,`${fmt(L-c[0])} ft`,`${fmt(left+1)} ft`],`${fmt(left)} ft`,
+    `${c[0]}/${c[1]} × ${L} = ${fmt(each)} ft used. ${L} − ${fmt(each)} = ${fmt(left)} ft left.`,'Find the part used, then subtract it from the whole board.');
+};
+GEN.g7_ce2=()=>{
+  const t=rng(0,3);
+  if(t===0){const p=pick([10,15,20,25,30,40]);const price=rng(4,20)*5;const sale=R2(price*(1-p/100));
+    return mcq('Percent Discount','7.CE.2',`A jacket costs $${price}. It is on sale for ${p}% off. What is the sale price?`,
+      [`$${fmt(sale)}`,`$${fmt(price*p/100)}`,`$${fmt(price-p)}`,`$${fmt(price*(1+p/100))}`],`$${fmt(sale)}`,
+      `${p}% of $${price} is $${fmt(price*p/100)}. $${price} − $${fmt(price*p/100)} = $${fmt(sale)}.`,'Find the discount amount, then subtract it from the price.');}
+  if(t===1){const p=pick([5,6,8]);const price=rng(10,60);const tot=R2(price*(1+p/100));
+    return mcq('Sales Tax','7.CE.2',`A game costs $${price}. Sales tax is ${p}%. What is the total cost?`,
+      [`$${tot.toFixed(2)}`,`$${R2(price*p/100).toFixed(2)}`,`$${(price+p).toFixed(2)}`,`$${R2(price*(1-p/100)).toFixed(2)}`],`$${tot.toFixed(2)}`,
+      `Tax = ${p}% × $${price} = $${R2(price*p/100).toFixed(2)}. Total = $${tot.toFixed(2)}.`,'Tax is added to the price.');}
+  if(t===2){const rate=rng(40,70);const h=rng(2,5);
+    return mcq('Unit Rate','7.CE.2',`A car travels ${rate*h} miles in ${h} hours at a steady speed. How far will it travel in ${h+2} hours?`,
+      [`${rate*(h+2)} miles`,`${rate*h+2} miles`,`${rate*(h+1)} miles`,`${rate} miles`],`${rate*(h+2)} miles`,
+      `Unit rate: ${rate*h} ÷ ${h} = ${rate} miles per hour. ${rate} × ${h+2} = ${rate*(h+2)} miles.`,'Find miles per hour first.');}
+  const a=rng(2,5),b=rng(3,9),k=rng(3,6);
+  return mcq('Proportions','7.CE.2',`A recipe uses ${a} cups of flour for every ${b} muffins. How much flour is needed for ${b*k} muffins?`,
+    [`${a*k} cups`,`${a+k} cups`,`${b*k-a} cups`,`${a*k+a} cups`],`${a*k} cups`,`${b*k} is ${k} times ${b}, so use ${k} × ${a} = ${a*k} cups.`,'How many times bigger is the new batch?');
+};
+GEN.g7_mg1=()=>{
+  const t=rng(0,2);
+  if(t===0){const r=rng(2,6),h=rng(3,10);const v=R2(3.14*r*r*h);
+    return mcq('Volume of a Cylinder','7.MG.1',`A cylinder has a radius of ${r} cm and a height of ${h} cm. What is its volume? Use π ≈ 3.14.`,
+      [`${fmt(v)} cm³`,`${fmt(3.14*2*r*h)} cm³`,`${fmt(3.14*r*h)} cm³`,`${fmt(3.14*r*r)} cm³`],`${fmt(v)} cm³`,
+      `V = πr²h = 3.14 × ${r}² × ${h} = ${fmt(v)} cm³.`,'Volume of a cylinder = area of the circle base × height.');}
+  if(t===1){const l=rng(3,10),w=rng(2,8),h=rng(2,8);const sa=2*(l*w+l*h+w*h);
+    return mcq('Surface Area of a Prism','7.MG.1',`A rectangular prism is ${l} in. long, ${w} in. wide, and ${h} in. tall. What is its surface area?`,
+      [`${sa} in²`,`${l*w*h} in²`,`${l*w+l*h+w*h} in²`,`${2*(l+w+h)} in²`],`${sa} in²`,
+      `SA = 2(lw + lh + wh) = 2(${l*w} + ${l*h} + ${w*h}) = ${sa} in².`,'Add the areas of all six faces. Opposite faces match.');}
+  const r=rng(2,5),h=rng(4,10);const sa=R2(2*3.14*r*r+2*3.14*r*h);
+  return mcq('Surface Area of a Cylinder','7.MG.1',`A can has a radius of ${r} cm and a height of ${h} cm. What is its total surface area? Use π ≈ 3.14.`,
+    [`${fmt(sa)} cm²`,`${fmt(3.14*r*r*h)} cm²`,`${fmt(2*3.14*r*h)} cm²`,`${fmt(3.14*r*r+3.14*r*h)} cm²`],`${fmt(sa)} cm²`,
+    `SA = 2πr² + 2πrh = ${fmt(2*3.14*r*r)} + ${fmt(2*3.14*r*h)} = ${fmt(sa)} cm².`,'Two circles (top and bottom) plus the label that wraps around.');
+};
+GEN.g7_mg2=()=>{
+  const t=rng(0,1);
+  if(t===0){const k=rng(2,4);const a=rng(3,8),b=rng(4,9);
+    return mcq('Similar Figures','7.MG.2',`Triangle ABC is similar to triangle DEF. AB = ${a} and DE = ${a*k}. If BC = ${b}, what is EF?`,
+      [b*k,b+a*k-a,b*k+k,a*k],b*k,`The scale factor is ${a*k} ÷ ${a} = ${k}. EF = ${b} × ${k} = ${b*k}.`,'Find the scale factor from the matching sides you know.');}
+  const s=rng(2,5);const cm=rng(3,9);
+  return mcq('Scale Drawings','7.MG.2',`On a map, 1 cm represents ${s} km. Two towns are ${cm} cm apart on the map. How far apart are they really?`,
+    [`${s*cm} km`,`${s+cm} km`,`${cm} km`,`${s*cm*10} km`],`${s*cm} km`,`${cm} × ${s} = ${s*cm} km.`,'Multiply the map distance by the scale.');
+};
+GEN.g7_mg3=()=>{
+  const t=rng(0,3);
+  if(t===0){const a=rng(60,120),b=rng(60,120),c=rng(50,110);const d=360-a-b-c;if(d<20)return GEN.g7_mg3();
+    return mcq('Quadrilateral Angles','7.MG.3',`Three angles of a quadrilateral measure ${a}°, ${b}°, and ${c}°. What is the fourth angle?`,
+      [`${d}°`,`${180-((a+b+c)%180)}°`,`${d+10}°`,`${360-a-b}°`],`${d}°`,`The angles of a quadrilateral add to 360°. 360 − ${a} − ${b} − ${c} = ${d}°.`,'All four angles in a quadrilateral total 360°.');}
+  if(t===1){const q=pick([['has exactly one pair of parallel sides','Trapezoid'],['always has four congruent sides and four right angles','Square'],['has four congruent sides but may not have right angles','Rhombus'],['has four right angles but its sides may not all be congruent','Rectangle']]);
+    return mcq('Classify Quadrilaterals','7.MG.3',`Which quadrilateral ${q[0]}?`,['Trapezoid','Square','Rhombus','Rectangle'],q[1],`A ${q[1].toLowerCase()} ${q[0]}.`,'Think about parallel sides, side lengths, and right angles.');}
+  if(t===2){return mcq('Classify Quadrilaterals','7.MG.3','Which statement is ALWAYS true?',['Every square is a rhombus.','Every rhombus is a square.','Every rectangle is a square.','Every trapezoid is a parallelogram.'],'Every square is a rhombus.',
+    'A square has four congruent sides, so it is always a rhombus. A rhombus does not always have right angles, so it is not always a square.','Check each statement against the definitions.');}
+  const s=rng(4,12);
+  return mcq('Rhombus','7.MG.3',`A rhombus has one side that is ${s} cm long. What is its perimeter?`,[`${4*s} cm`,`${2*s} cm`,`${s*s} cm`,`${3*s} cm`],`${4*s} cm`,
+    `All four sides of a rhombus are congruent: 4 × ${s} = ${4*s} cm.`,'How many sides are equal in a rhombus?');
+};
+GEN.g7_mg4=()=>{
+  const k=pick([2,3,0.5]);const x=k===0.5?rng(1,6)*2:rng(-5,6),y=k===0.5?rng(1,6)*2:rng(-5,6);
+  const P=(a,b)=>`(${M(a)}, ${M(b)})`;
+  return mcq('Dilations','7.MG.4',`Point A ${P(x,y)} is dilated by a scale factor of ${k} with the origin as the center. Where is A′?`,
+    [P(x*k,y*k),P(x+k,y+k),P(x*k,y),P(y*k,x*k)],P(x*k,y*k),`Multiply both coordinates by ${k}: ${P(x*k,y*k)}.${k<1?' A scale factor less than 1 makes the figure smaller.':' A scale factor greater than 1 makes the figure larger.'}`,
+    'With the origin as the center, multiply x and y by the scale factor.');
+};
+GEN.g7_ps1=()=>{
+  const t=rng(0,1);
+  const r=rng(2,6),b=rng(2,6),g=rng(1,5);const tot=r+b+g;
+  if(t===0)return mcq('Theoretical Probability','7.PS.1',`A bag has ${r} red, ${b} blue, and ${g} green marbles. What is the probability of picking a blue marble?`,
+    [`${b}/${tot}`,`${b}/${tot-b}`,`${r}/${tot}`,`1/${tot}`],`${b}/${tot}`,`There are ${b} blue out of ${tot} marbles: ${b}/${tot}.`,'Probability = favorable outcomes ÷ total outcomes.');
+  const n=pick([20,40,50]);const heads=rng(Math.floor(n*.3),Math.floor(n*.7));
+  return mcq('Experimental Probability','7.PS.1',`Jo flipped a coin ${n} times and got heads ${heads} times. What is the experimental probability of heads?`,
+    [`${heads}/${n}`,'1/2',`${n-heads}/${n}`,`${heads}/${n-heads}`],`${heads}/${n}`,
+    `Experimental probability uses what actually happened: ${heads}/${n}. The theoretical probability is 1/2. With more flips, the results usually get closer to 1/2.`,'Use the results of the experiment, not what you expect.');
+};
+function dgHist(bins,counts,col){
+  const W=360,H=200,x0=40,y0=170,bw=(W-60)/bins.length;const mx=Math.max(...counts);const sc=130/mx;
+  let r=`<line x1="${x0}" y1="${y0}" x2="${W-14}" y2="${y0}" stroke="${DG.ink}" stroke-width="2.5"/><line x1="${x0}" y1="${y0}" x2="${x0}" y2="24" stroke="${DG.ink}" stroke-width="2.5"/>`;
+  for(let v=0;v<=mx;v+=Math.max(1,Math.ceil(mx/5))){const y=y0-v*sc;r+=`<line x1="${x0}" y1="${y}" x2="${W-14}" y2="${y}" stroke="${DG.grid}"/>`+dgText(x0-8,y+5,String(v),{s:12,a:'end'});}
+  counts.forEach((c,i)=>{const x=x0+i*bw;r+=`<rect x="${x}" y="${y0-c*sc}" width="${bw}" height="${c*sc}" fill="${col}" stroke="${DG.ink}" stroke-width="2"/>`+dgText(x+bw/2,y0+18,bins[i],{s:11});});
+  return dgSvg(W,H+10,r,'Histogram');
+}
+GEN.g7_ps2=()=>{
+  const bins=['0–9','10–19','20–29','30–39','40–49'];const counts=bins.map(()=>rng(1,9));
+  const svg=dgHist(bins,counts,'#4C8DF6');const t=rng(0,2);
+  if(t===0){const i=rng(0,4);return mcq('Histograms','7.PS.2',`The histogram shows minutes students spent reading. How many students read ${bins[i]} minutes?`,
+    [counts[i],counts[i]+1,Math.max(0,counts[i]-1),counts[(i+1)%5]],counts[i],`The bar for ${bins[i]} reaches ${counts[i]}.`,'Read the height of the bar on the vertical axis.',{dgSvg:svg});}
+  if(t===1){const tot=counts.reduce((a,b)=>a+b,0);return mcq('Histograms','7.PS.2',`How many students are shown in the histogram in all?`,
+    [tot,tot-counts[0],tot+2,counts.length],tot,`Add the bar heights: ${counts.join(' + ')} = ${tot}.`,'Add the height of every bar.',{dgSvg:svg});}
+  const mx=Math.max(...counts);if(counts.filter(c=>c===mx).length>1)return GEN.g7_ps2();
+  return mcq('Histograms','7.PS.2',`Which interval has the most students?`,bins.slice(),bins[counts.indexOf(mx)],`The tallest bar is ${bins[counts.indexOf(mx)]} with ${mx} students.`,'Find the tallest bar.',{dgSvg:svg});
+};
+GEN.g7_pfa1=()=>{
+  const m=rng(2,9);const xs=[1,2,3,4].map(x=>x*rng(1,2)).sort((a,b)=>a-b);const uniq=[...new Set(xs)];if(uniq.length<3)return GEN.g7_pfa1();
+  const t=rng(0,1);const tbl=uniq.map(x=>`(${x}, ${m*x})`).join(', ');
+  if(t===0)return mcq('Proportional Relationships','7.PFA.1',`The points ${tbl} show a proportional relationship. Which equation fits?`,
+    [`y = ${m}x`,`y = x + ${m}`,`y = ${m+1}x`,`y = ${m}x + 1`],`y = ${m}x`,`Each y is ${m} times x, so y = ${m}x. The slope (unit rate) is ${m}.`,'Divide y by x for each pair. Is it always the same?');
+  return mcq('Slope as Rate','7.PFA.1',`A pump fills a tank at a constant rate. After ${uniq[0]} min it holds ${m*uniq[0]} gal; after ${uniq[2]} min it holds ${m*uniq[2]} gal. What is the slope (gallons per minute)?`,
+    [m,m*uniq[0],uniq[2],m+1],m,`Slope = change in y ÷ change in x = (${m*uniq[2]} − ${m*uniq[0]}) ÷ (${uniq[2]} − ${uniq[0]}) = ${m}.`,'Slope = rise ÷ run.');
+};
+GEN.g7_pfa2=()=>{
+  const t=rng(0,2);
+  if(t===0){const a=rng(2,6),b=rng(1,9),x=rng(-4,6);const v=a*x+b;
+    return mcq('Evaluate Expressions','7.PFA.2',`Evaluate ${a}x + ${b} when x = ${M(x)}.`,[M(v),M(a+x+b),M(a*x-b),M(a*(x+b))],M(v),`${a}(${M(x)}) + ${b} = ${M(a*x)} + ${b} = ${M(v)}.`,'Replace x with the number, multiply first, then add.');}
+  if(t===1){const a=rng(2,7),b=rng(2,7),c=rng(1,9);
+    return mcq('Simplify Expressions','7.PFA.2',`Simplify: ${a}x + ${c} + ${b}x`,[`${a+b}x + ${c}`,`${a+b+c}x`,`${a*b}x + ${c}`,`${a+b}x + ${c}x`],`${a+b}x + ${c}`,`Combine like terms: ${a}x + ${b}x = ${a+b}x. Keep the ${c}.`,'Only terms with the same variable can be combined.');}
+  const a=rng(2,6),b=rng(1,8);
+  return mcq('Distributive Property','7.PFA.2',`Which expression is equivalent to ${a}(x + ${b})?`,[`${a}x + ${a*b}`,`${a}x + ${b}`,`x + ${a*b}`,`${a+b}x`],`${a}x + ${a*b}`,`Multiply ${a} by each term: ${a}·x + ${a}·${b} = ${a}x + ${a*b}.`,'Multiply the outside number by EVERY term inside.');
+};
+GEN.g7_pfa3=()=>{
+  const a=rng(2,9),x=rng(-6,12),b=rng(-10,15);const c=a*x+b;
+  const eq=`${a}x ${b<0?'−':'+'} ${Math.abs(b)} = ${M(c)}`;
+  return mcq('Two-Step Equations','7.PFA.3',`Solve: ${eq}`,[`x = ${M(x)}`,`x = ${M(x+1)}`,`x = ${M(-x)}`,`x = ${M(Math.round((c+b)/a))}`],`x = ${M(x)}`,
+    `${b<0?'Add':'Subtract'} ${Math.abs(b)} on both sides: ${a}x = ${M(c-b)}. Divide by ${a}: x = ${M(x)}. Check: ${a}(${M(x)}) ${b<0?'−':'+'} ${Math.abs(b)} = ${M(c)}.`,
+    'Undo the adding or subtracting first, then undo the multiplying.');
+};
+GEN.g7_pfa4=()=>{
+  const a=rng(2,6),x=rng(-4,9),b=rng(1,12);const c=a*x+b;const sym=pick(['<','>','≤','≥']);
+  return mcq('Inequalities','7.PFA.4',`Solve: ${a}x + ${b} ${sym} ${M(c)}`,[`x ${sym} ${M(x)}`,`x ${({'<':'>','>':'<','≤':'≥','≥':'≤'})[sym]} ${M(x)}`,`x ${sym} ${M(x+b)}`,`x ${sym} ${M(c-b)}`],`x ${sym} ${M(x)}`,
+    `Subtract ${b}: ${a}x ${sym} ${M(c-b)}. Divide by ${a} (positive, so the sign stays the same): x ${sym} ${M(x)}.`,'Solve it like an equation. The sign only flips if you multiply or divide by a negative.');
+};
+
+// ---------- GRADE 8 ----------
+GEN.g8_ns1=()=>{
+  const t=rng(0,2);
+  if(t===0){const n=pick([2,3,5,6,7,8,10,11,12,13,14,15,17,18,19,20,22,24,27,30,33,35,40,45,50,55,60,65,70,75,80,90,99]);const lo=Math.floor(Math.sqrt(n));
+    if(lo*lo===n)return GEN.g8_ns1();
+    return mcq('Estimate Square Roots','8.NS.1',`√${n} is between which two whole numbers?`,[`${lo} and ${lo+1}`,`${lo-1} and ${lo}`,`${lo+1} and ${lo+2}`,`${Math.floor(n/2)} and ${Math.floor(n/2)+1}`],`${lo} and ${lo+1}`,
+      `${lo}² = ${lo*lo} and ${lo+1}² = ${(lo+1)*(lo+1)}. ${n} is between them, so √${n} is between ${lo} and ${lo+1}.`,'Find the perfect squares just below and just above the number.');}
+  if(t===1){const set=shuf([['π',Math.PI],['3.1',3.1],['√10',Math.sqrt(10)],['22/7',22/7]]);const mx=set.reduce((a,b)=>b[1]>a[1]?b:a);
+    return mcq('Compare Real Numbers','8.NS.1',`Which number is the GREATEST?`,set.map(s=>s[0]),mx[0],`As decimals: π ≈ 3.142, 3.1, √10 ≈ 3.162, 22/7 ≈ 3.143. The greatest is ${mx[0]}.`,'Write each number as a decimal to a few places.');}
+  const a=rng(2,12);return mcq('Square Roots','8.NS.1',`What are the square roots of ${a*a}?`,[`${a} and ${M(-a)}`,`${a} only`,`${a*a/2|0} and ${M(-(a*a/2|0))}`,`${M(-a)} only`],`${a} and ${M(-a)}`,
+    `${a} × ${a} = ${a*a} and (${M(-a)}) × (${M(-a)}) = ${a*a}. A positive number has two square roots.`,'A negative times a negative is positive.');
+};
+GEN.g8_ns2=()=>{
+  const items=[['√16','natural, whole, integer, rational'],['−7','integer, rational'],['0.75','rational'],['√7','irrational'],['π','irrational'],['0','whole, integer, rational'],['2/3','rational'],['−√25','integer, rational'],['0.333…','rational'],['√2','irrational']];
+  const it=pick(items);const t=rng(0,1);
+  if(t===0){const isIrr=it[1]==='irrational';
+    return mcq('Real Number System','8.NS.2',`Is ${it[0]} rational or irrational?`,['Rational','Irrational'],isIrr?'Irrational':'Rational',
+      isIrr?`${it[0]} is a non-repeating, non-ending decimal, so it is irrational.`:`${it[0]} can be written as a fraction of integers, so it is rational. It belongs to: ${it[1]}.`,
+      'Rational numbers can be written as a fraction. Square roots of non-perfect squares are irrational.');}
+  const opts=['natural, whole, integer, rational','whole, integer, rational','integer, rational','rational','irrational'];
+  return mcq('Real Number System','8.NS.2',`Which list names ALL the sets that ${it[0]} belongs to?`,opts,it[1],`${it[0]} belongs to: ${it[1]}. Every one of these is also a real number.`,
+    'Work from the smallest set (natural numbers) outward.');
+};
+GEN.g8_ce1=()=>{
+  const t=rng(0,2);
+  if(t===0){const o=rng(4,20)*5,p=pick([10,20,25,40,50]);const nw=o*(1+p/100);
+    return mcq('Percent Increase','8.CE.1',`A club had ${o} members. Membership grew by ${p}%. How many members are there now?`,[nw,o+p,o*p/100,o*(1-p/100)],nw,
+      `${p}% of ${o} = ${o*p/100}. ${o} + ${o*p/100} = ${nw}.`,'Find the increase, then add it to the original.');}
+  if(t===1){const P=rng(2,20)*100,r=pick([2,3,4,5]),y=rng(2,5);const I=P*r/100*y;
+    return mcq('Simple Interest','8.CE.1',`$${P.toLocaleString()} is saved at ${r}% simple interest per year. How much interest is earned in ${y} years?`,
+      [`$${I.toLocaleString()}`,`$${(P*r/100).toLocaleString()}`,`$${(P+I).toLocaleString()}`,`$${(P*r*y).toLocaleString()}`],`$${I.toLocaleString()}`,
+      `I = P × r × t = ${P} × ${r/100} × ${y} = $${I.toLocaleString()}.`,'Simple interest = principal × rate × time.');}
+  const o=rng(5,20)*10,n=o-rng(1,4)*o/10;const pc=Math.round((o-n)/o*100);
+  return mcq('Percent Decrease','8.CE.1',`A bike’s price dropped from $${o} to $${n}. What is the percent decrease?`,[`${pc}%`,`${o-n}%`,`${100-pc}%`,`${Math.round((o-n)/n*100)}%`],`${pc}%`,
+    `Change = $${o-n}. ${o-n} ÷ ${o} = ${(pc/100).toFixed(2)} = ${pc}%.`,'Percent change = amount of change ÷ ORIGINAL amount.');
+};
+GEN.g8_mg1=()=>{
+  const a=rng(20,160);const t=rng(0,2);
+  if(t===0)return mcq('Vertical Angles','8.MG.1',`Two lines cross. One angle measures ${a}°. What is the measure of the angle vertical to it?`,[`${a}°`,`${180-a}°`,`${90-a>0?90-a:a+10}°`,`${360-a}°`],`${a}°`,'Vertical angles are always congruent.','Vertical angles are across from each other at the intersection.');
+  if(t===1)return mcq('Supplementary Angles','8.MG.1',`Two angles are supplementary. One measures ${a}°. What is the other?`,[`${180-a}°`,`${a}°`,`${Math.abs(90-a)}°`,`${360-a}°`],`${180-a}°`,`Supplementary angles add to 180°: 180 − ${a} = ${180-a}°.`,'Supplementary = 180°.');
+  const b=rng(10,80);return mcq('Complementary Angles','8.MG.1',`Two angles are complementary. One measures ${b}°. What is the other?`,[`${90-b}°`,`${180-b}°`,`${b}°`,`${90+b}°`],`${90-b}°`,`Complementary angles add to 90°: 90 − ${b} = ${90-b}°.`,'Complementary = 90°.');
+};
+GEN.g8_mg2=()=>{
+  const t=rng(0,2);
+  if(t===0){const r=rng(2,6),h=rng(3,12);const v=R2(3.14*r*r*h/3);
+    return mcq('Volume of a Cone','8.MG.2',`A cone has a radius of ${r} cm and a height of ${h} cm. What is its volume? Use π ≈ 3.14.`,
+      [`${fmt(v)} cm³`,`${fmt(3.14*r*r*h)} cm³`,`${fmt(3.14*r*h/3)} cm³`,`${fmt(v*2)} cm³`],`${fmt(v)} cm³`,`V = ⅓πr²h = ⅓ × 3.14 × ${r*r} × ${h} = ${fmt(v)} cm³.`,'A cone holds one-third as much as a cylinder with the same base and height.');}
+  if(t===1){const s=rng(3,10),h=rng(3,12);const v=R2(s*s*h/3);
+    return mcq('Volume of a Pyramid','8.MG.2',`A square pyramid has a base side of ${s} m and a height of ${h} m. What is its volume?`,
+      [`${fmt(v)} m³`,`${s*s*h} m³`,`${fmt(s*h/3)} m³`,`${fmt(s*s*h/2)} m³`],`${fmt(v)} m³`,`V = ⅓Bh = ⅓ × ${s*s} × ${h} = ${fmt(v)} m³.`,'Find the base area first, then multiply by height and divide by 3.');}
+  const s=rng(4,10),l=rng(5,12);const sa=s*s+2*s*l;
+  return mcq('Surface Area of a Pyramid','8.MG.2',`A square pyramid has a base side of ${s} in. and a slant height of ${l} in. What is its surface area?`,
+    [`${sa} in²`,`${s*s+4*s*l} in²`,`${2*s*l} in²`,`${s*s*l} in²`],`${sa} in²`,`Base = ${s}² = ${s*s}. Four triangles = 4 × ½ × ${s} × ${l} = ${2*s*l}. Total = ${sa} in².`,'Add the square base and the four triangle faces.');
+};
+GEN.g8_mg3=()=>{
+  const x=rng(-6,6),y=rng(-6,6);const P=(a,b)=>`(${M(a)}, ${M(b)})`;const t=rng(0,2);
+  if(t===0){const dx=rng(-5,5)||2,dy=rng(-5,5)||-3;
+    return mcq('Translations','8.MG.3',`Point P ${P(x,y)} is translated ${Math.abs(dx)} units ${dx>0?'right':'left'} and ${Math.abs(dy)} units ${dy>0?'up':'down'}. Where is P′?`,
+      [P(x+dx,y+dy),P(x-dx,y-dy),P(x+dy,y+dx),P(x+dx,y-dy)],P(x+dx,y+dy),`Right/left changes x; up/down changes y: ${P(x+dx,y+dy)}.`,'Left and right move x. Up and down move y.');}
+  if(t===1)return mcq('Reflections','8.MG.3',`Point P ${P(x,y)} is reflected over the x-axis. Where is P′?`,[P(x,-y),P(-x,y),P(-x,-y),P(y,x)],P(x,-y),`Reflecting over the x-axis keeps x and changes the sign of y: ${P(x,-y)}.`,'Over the x-axis, the point flips up/down.');
+  return mcq('Reflections','8.MG.3',`Point P ${P(x,y)} is reflected over the y-axis. Where is P′?`,[P(-x,y),P(x,-y),P(-x,-y),P(y,x)],P(-x,y),`Reflecting over the y-axis changes the sign of x: ${P(-x,y)}.`,'Over the y-axis, the point flips left/right.');
+};
+GEN.g8_mg4=()=>{
+  const tr=pick([[3,4,5],[5,12,13],[6,8,10],[8,15,17],[9,12,15],[7,24,25]]);const t=rng(0,2);
+  if(t===0)return mcq('Pythagorean Theorem','8.MG.4',`A right triangle has legs of ${tr[0]} and ${tr[1]}. How long is the hypotenuse?`,[tr[2],tr[0]+tr[1],tr[2]+1,Math.round(Math.sqrt(tr[0]*tr[1]))],tr[2],
+    `a² + b² = c²: ${tr[0]*tr[0]} + ${tr[1]*tr[1]} = ${tr[2]*tr[2]}, and √${tr[2]*tr[2]} = ${tr[2]}.`,'Square both legs, add, then take the square root.');
+  if(t===1)return mcq('Pythagorean Theorem','8.MG.4',`A ${tr[2]}-foot ladder leans against a wall. Its base is ${tr[0]} feet from the wall. How high up the wall does it reach?`,[`${tr[1]} ft`,`${tr[2]-tr[0]} ft`,`${tr[2]+tr[0]} ft`,`${tr[1]+1} ft`],`${tr[1]} ft`,
+    `${tr[2]}² − ${tr[0]}² = ${tr[2]*tr[2]} − ${tr[0]*tr[0]} = ${tr[1]*tr[1]}. √${tr[1]*tr[1]} = ${tr[1]} ft.`,'The ladder is the hypotenuse. Subtract to find a missing leg.');
+  const bad=[tr[0],tr[1],tr[2]+1];const isR=Math.random()<.5;const s=isR?tr:bad;
+  return mcq('Right Triangles','8.MG.4',`Can sides of ${s[0]}, ${s[1]}, and ${s[2]} form a right triangle?`,['Yes','No'],isR?'Yes':'No',
+    `${s[0]}² + ${s[1]}² = ${s[0]*s[0]+s[1]*s[1]} and ${s[2]}² = ${s[2]*s[2]}. ${isR?'They are equal, so yes.':'They are not equal, so no.'}`,'Check whether a² + b² equals c² for the longest side.');
+};
+GEN.g8_mg5=()=>{
+  const t=rng(0,1);const l=rng(6,14),w=rng(4,10);
+  if(t===0){const h=rng(2,8);const A=l*w+l*h/2;
+    return mcq('Composite Area','8.MG.5',`A figure is a ${l} ft by ${w} ft rectangle with a triangle on top. The triangle’s base is ${l} ft and its height is ${h} ft. What is the total area?`,
+      [`${fmt(A)} ft²`,`${l*w+l*h} ft²`,`${l*w} ft²`,`${fmt(l*w+h)} ft²`],`${fmt(A)} ft²`,`Rectangle: ${l*w}. Triangle: ½ × ${l} × ${h} = ${fmt(l*h/2)}. Total: ${fmt(A)} ft².`,'Split the shape into parts, find each area, then add.');}
+  const r=w/2;const A=R2(l*w+3.14*r*r/2);
+  return mcq('Composite Area','8.MG.5',`A ${l} m by ${w} m rectangle has a half-circle on one ${w} m side. What is the total area? Use π ≈ 3.14.`,
+    [`${fmt(A)} m²`,`${fmt(l*w+3.14*r*r)} m²`,`${l*w} m²`,`${fmt(l*w+3.14*w*w/2)} m²`],`${fmt(A)} m²`,
+    `Rectangle: ${l*w}. Half-circle (radius ${fmt(r)}): ½ × 3.14 × ${fmt(r*r)} = ${fmt(3.14*r*r/2)}. Total: ${fmt(A)} m².`,'The half-circle’s diameter is the side it sits on.');
+};
+GEN.g8_ps1=()=>{
+  const r=rng(2,6),b=rng(2,6);const tot=r+b;const t=rng(0,1);
+  if(t===0){const n=r*r,d=tot*tot;const g=gcd(n,d);
+    return mcq('Independent Events','8.PS.1',`A bag has ${r} red and ${b} blue tiles. You pick one, PUT IT BACK, and pick again. What is P(red, then red)?`,
+      [`${n/g}/${d/g}`,`${r*(r-1)/gcd(r*(r-1),tot*(tot-1))}/${tot*(tot-1)/gcd(r*(r-1),tot*(tot-1))}`,`${r}/${tot}`,`${2*r}/${tot}`],`${n/g}/${d/g}`,
+      `Replacing the tile makes the picks independent: ${r}/${tot} × ${r}/${tot} = ${n/g}/${d/g}.`,'With replacement, the total stays the same both times.');}
+  const n=r*(r-1),d=tot*(tot-1);const g=gcd(n,d);
+  return mcq('Dependent Events','8.PS.1',`A bag has ${r} red and ${b} blue tiles. You pick one and DO NOT put it back, then pick again. What is P(red, then red)?`,
+    [`${n/g}/${d/g}`,`${r*r/gcd(r*r,tot*tot)}/${tot*tot/gcd(r*r,tot*tot)}`,`${r-1}/${tot-1}`,`${r}/${tot}`],`${n/g}/${d/g}`,
+    `Without replacement the events are dependent: ${r}/${tot} × ${r-1}/${tot-1} = ${n/g}/${d/g}.`,'After the first pick there is one less red tile and one less tile in all.');
+};
+function fiveNum(a){const s=a.slice().sort((x,y)=>x-y);const med=v=>{const m=v.length/2;return v.length%2?v[Math.floor(m)]:(v[m-1]+v[m])/2;};
+  const h=Math.floor(s.length/2);return [s[0],med(s.slice(0,h)),med(s),med(s.slice(s.length%2?h+1:h)),s[s.length-1]];}
+GEN.g8_ps2=()=>{
+  const data=Array.from({length:rng(4,5)*2-1},()=>rng(10,60));const [mn,q1,md,q3,mx]=fiveNum(data);const s=data.slice().sort((a,b)=>a-b);
+  const t=rng(0,2);
+  if(t===0)return mcq('Boxplots','8.PS.2',`Data: ${s.join(', ')}. What is the median?`,[md,q1,q3,Math.round(s.reduce((a,b)=>a+b,0)/s.length)],md,`The median is the middle value of the ordered data: ${md}.`,'Order the data and find the middle number.');
+  if(t===1)return mcq('Boxplots','8.PS.2',`A boxplot has minimum ${mn}, Q1 ${q1}, median ${md}, Q3 ${q3}, and maximum ${mx}. What is the interquartile range (IQR)?`,[fmt(q3-q1),fmt(mx-mn),fmt(md-q1),fmt(q3-md)],fmt(q3-q1),`IQR = Q3 − Q1 = ${q3} − ${q1} = ${fmt(q3-q1)}.`,'The IQR is the length of the box.');
+  return mcq('Boxplots','8.PS.2',`A boxplot has minimum ${mn}, Q1 ${q1}, median ${md}, Q3 ${q3}, and maximum ${mx}. About what percent of the data is between Q1 and Q3?`,['50%','25%','75%','100%'],'50%',
+    'The box (Q1 to Q3) holds the middle half of the data, about 50%.','Each of the four sections holds about 25%.');
+};
+GEN.g8_ps3=()=>{
+  const cases=[['hours studied and test score','positive'],['outside temperature and hot cocoa sales','negative'],['shoe size and favorite color','no'],['age of a car and its value','negative'],['height and arm span','positive'],['hours of TV and hours of sleep','negative']];
+  const c=pick(cases);const t=rng(0,1);
+  if(t===0)return mcq('Scatterplots','8.PS.3',`What kind of relationship would a scatterplot of ${c[0]} most likely show?`,['Positive','Negative','No relationship'],c[1]==='no'?'No relationship':c[1][0].toUpperCase()+c[1].slice(1),
+    `${c[1]==='positive'?'As one goes up, the other tends to go up.':c[1]==='negative'?'As one goes up, the other tends to go down.':'The two have nothing to do with each other.'}`,'Ask: when one increases, what happens to the other?');
+  const m=rng(2,6),b=rng(10,40),x=rng(5,12);
+  return mcq('Line of Best Fit','8.PS.3',`The line of best fit for a scatterplot is y = ${m}x + ${b}. Predict y when x = ${x}.`,[m*x+b,m*x,m+x+b,(m+1)*x+b],m*x+b,`y = ${m}(${x}) + ${b} = ${m*x+b}.`,'Substitute x into the equation of the line.');
+};
+GEN.g8_pfa1=()=>{
+  const a=rng(2,6),b=rng(2,9),c=rng(1,5),d=rng(1,9);
+  return mcq('Equivalent Expressions','8.PFA.1',`Simplify: ${a}(x − ${b}) + ${c}x + ${d}`,[`${a+c}x ${d-a*b<0?'−':'+'} ${Math.abs(d-a*b)}`,`${a+c}x ${d-b<0?'−':'+'} ${Math.abs(d-b)}`,`${a*c}x + ${d+a*b}`,`${a+c}x + ${d+a*b}`],
+    `${a+c}x ${d-a*b<0?'−':'+'} ${Math.abs(d-a*b)}`,`Distribute: ${a}x − ${a*b}. Combine: ${a}x + ${c}x = ${a+c}x and −${a*b} + ${d} = ${M(d-a*b)}.`,'Distribute first, then combine like terms. Watch the negative sign.');
+};
+GEN.g8_pfa2=()=>{
+  const t=rng(0,1);const xs=shuf([1,2,3,4,5,6,7]).slice(0,4);
+  if(t===0){const isF=Math.random()<.5;const pts=xs.map(x=>[x,rng(-5,9)]);if(!isF)pts[3]=[pts[0][0],pts[0][1]+rng(1,4)];
+    return mcq('Functions','8.PFA.2',`Is this relation a function? {${pts.map(p=>`(${p[0]}, ${M(p[1])})`).join(', ')}}`,['Yes','No'],isF?'Yes':'No',
+      isF?'Each x-value is paired with exactly one y-value, so it is a function.':`The x-value ${pts[0][0]} is paired with two different y-values, so it is NOT a function.`,'Look for any x-value that repeats with a different y.');}
+  const pts=xs.map(x=>[x,rng(-5,9)]);const dom=pts.map(p=>p[0]).sort((a,b)=>a-b);
+  return mcq('Domain and Range','8.PFA.2',`What is the domain of {${pts.map(p=>`(${p[0]}, ${M(p[1])})`).join(', ')}}?`,
+    [`{${dom.join(', ')}}`,`{${[...new Set(pts.map(p=>p[1]))].sort((a,b)=>a-b).map(M).join(', ')}}`,`{${dom.slice(0,3).join(', ')}}`],`{${dom.join(', ')}}`,
+    'The domain is the set of all x-values (inputs).','Domain = inputs (x). Range = outputs (y).');
+};
+GEN.g8_pfa3=()=>{
+  const t=rng(0,2);
+  if(t===0){const x1=rng(-3,3),x2=x1+rng(1,4),m=rng(-4,5)||2,b=rng(-5,5);const y1=m*x1+b,y2=m*x2+b;
+    return mcq('Slope','8.PFA.3',`What is the slope of the line through (${M(x1)}, ${M(y1)}) and (${M(x2)}, ${M(y2)})?`,[M(m),M(-m),M(y2-y1),M(x2-x1)],M(m),
+      `Slope = (${M(y2)} − ${M(y1)}) ÷ (${M(x2)} − ${M(x1)}) = ${M(y2-y1)} ÷ ${x2-x1} = ${M(m)}.`,'Slope = change in y ÷ change in x.');}
+  if(t===1){const m=rng(-5,6)||3,b=rng(-9,9);return mcq('Y-Intercept','8.PFA.3',`What is the y-intercept of y = ${M(m)}x ${b<0?'−':'+'} ${Math.abs(b)}?`,[M(b),M(m),M(-b),'0'],M(b),
+    `In y = mx + b, b is the y-intercept: ${M(b)}. The line crosses the y-axis at (0, ${M(b)}).`,'Look at the constant term in y = mx + b.');}
+  const fee=rng(2,6),per=rng(1,4),mi=rng(3,12);
+  return mcq('Linear Functions','8.PFA.3',`A taxi charges $${fee} plus $${per} per mile: y = ${per}x + ${fee}. What does a ${mi}-mile ride cost?`,[`$${per*mi+fee}`,`$${per*mi}`,`$${(per+fee)*mi}`,`$${fee*mi+per}`],`$${per*mi+fee}`,
+    `y = ${per}(${mi}) + ${fee} = $${per*mi+fee}. The slope (${per}) is the rate per mile and the y-intercept (${fee}) is the starting fee.`,'Substitute the miles for x.');
+};
+GEN.g8_pfa4=()=>{
+  const x=rng(-5,9),a=rng(4,9),c=rng(1,a-1),b=rng(-8,12);const d=(a-c)*x+b;
+  return mcq('Multistep Equations','8.PFA.4',`Solve: ${a}x ${b<0?'−':'+'} ${Math.abs(b)} = ${c}x ${d<0?'−':'+'} ${Math.abs(d)}`,[`x = ${M(x)}`,`x = ${M(-x)}`,`x = ${M(x+1)}`,`x = ${M(Math.round((d+b)/(a+c)))}`],`x = ${M(x)}`,
+    `Subtract ${c}x from both sides: ${a-c}x ${b<0?'−':'+'} ${Math.abs(b)} = ${M(d)}. Then ${a-c}x = ${M(d-b)}, so x = ${M(x)}.`,'Get the variable terms on one side first.');
+};
+GEN.g8_pfa5=()=>{
+  const a=rng(2,6),x=rng(-5,6),b=rng(1,10);const c=-a*x+b;const sym=pick(['<','>']);const flip=sym==='<'?'>':'<';
+  return mcq('Multistep Inequalities','8.PFA.5',`Solve: −${a}x + ${b} ${sym} ${M(c)}`,[`x ${flip} ${M(x)}`,`x ${sym} ${M(x)}`,`x ${flip} ${M(-x)}`,`x ${sym} ${M(c-b)}`],`x ${flip} ${M(x)}`,
+    `Subtract ${b}: −${a}x ${sym} ${M(c-b)}. Divide by −${a} and FLIP the sign: x ${flip} ${M(x)}.`,'When you divide both sides by a negative number, flip the inequality sign.');
+};
+
+
+// ═══════════════════════════════════════════════════════════════
+// MIDDLE SCHOOL BANKS — Reading, Science, Writing, History & Social Science
+// Item: {p:passage?, q, a, w:[wrong...], e:explanation, h:hint}
+//       {t:'multi', q, o, a:[...], e, h}   {t:'order', q, items, e, h}
+// All passages and questions are original.
+// ═══════════════════════════════════════════════════════════════
+const MSB={
+// ── READING · GRADE 7 ──
+r7_vocab:[
+ {p:'The hikers were <b>apprehensive</b> about crossing the narrow bridge, so they tested each board before stepping on it.',q:'What does “apprehensive” mean?',a:'Worried or uneasy',w:['Excited and eager','Bored','Angry'],e:'They tested each board before stepping, which shows they were worried.',h:'Why would someone test each board first?'},
+ {p:'The prefix <b>trans-</b> means “across.”',q:'Which word most likely means “to carry across”?',a:'Transport',w:['Transparent','Transform','Translate'],e:'Port means “carry,” so transport means to carry across.',h:'Find the root that means “carry.”'},
+ {p:'Despite the storm, the old lighthouse stood <b>resolute</b> on the rocks, its light never wavering.',q:'What does “resolute” mean?',a:'Firm and determined',w:['Weak and shaky','Brand new','Hidden'],e:'The lighthouse stood through the storm and its light never wavered, so it was firm.',h:'Did the lighthouse give up during the storm?'},
+ {p:'Maria called her brother <b>thrifty</b> because he saved every dollar he earned.',q:'Which word has a similar meaning but a more NEGATIVE connotation?',a:'Stingy',w:['Careful','Wise','Generous'],e:'“Thrifty” sounds positive. “Stingy” means almost the same thing but sounds negative.',h:'Connotation is the feeling a word gives.'},
+ {p:'The Latin root <b>aud</b> means “hear.”',q:'Which word comes from this root?',a:'Audience',w:['Autograph','Aquarium','Astronaut'],e:'An audience is a group of people who hear or watch something.',h:'Which word is about listening?'},
+ {p:'When the coach said the team had “a mountain to climb,” he meant the game would be hard to win.',q:'What kind of language is “a mountain to climb”?',a:'Figurative language (a metaphor)',w:['Literal language','A fact','A question'],e:'The team will not really climb a mountain. The phrase compares a hard task to a mountain.',h:'Is there a real mountain?'},
+],
+r7_fiction:[
+ {p:'Kai had practiced the violin solo for weeks, but when the spotlight hit him, his fingers froze. He glanced at the third row. His grandmother nodded slowly, the same nod she gave when he learned to ride a bike. Kai took a breath and began to play.',q:'What is the main conflict in the passage?',a:'Kai struggles with nerves before performing',w:['Kai and his grandmother argue','Kai forgets his violin at home','Kai cannot find the stage'],e:'His fingers freeze in the spotlight, which shows an internal conflict with nerves.',h:'What problem does Kai face inside himself?'},
+ {p:'Kai had practiced the violin solo for weeks, but when the spotlight hit him, his fingers froze. He glanced at the third row. His grandmother nodded slowly, the same nod she gave when he learned to ride a bike. Kai took a breath and began to play.',q:'Why does the author mention the bike?',a:'To show the grandmother’s nod gives Kai confidence, as it did before',w:['To show Kai likes bikes more than music','To explain how Kai got to the concert','To describe the setting'],e:'The nod reminds Kai of a time he succeeded with her support, which helps him begin.',h:'How does the memory connect to the moment?'},
+ {p:'The village had always feared the forest. So when Tamsin walked in alone to find the lost goat, the elders shook their heads. At sunset she returned, the goat trotting beside her, and a small path now led between the trees.',q:'Which theme is best supported by the passage?',a:'Courage can change what a community believes',w:['Goats are hard to train','Forests are always dangerous','Elders are always right'],e:'Tamsin faced what everyone feared and came back safely, opening a new path.',h:'What lesson might the village learn?'},
+ {p:'“Fine,” said Rosa, slamming her locker. “I’m totally fine.” She did not look at Ben as she walked away.',q:'What can the reader infer about Rosa?',a:'She is upset even though she says she is fine',w:['She is happy','She is tired','She is excited about class'],e:'Her actions (slamming the locker, not looking at Ben) don’t match her words.',h:'Compare what she says with what she does.'},
+ {p:'The story is told by Marcus, who says “I” and shares only his own thoughts.',q:'What point of view is this?',a:'First person',w:['Third person omniscient','Second person','Third person limited'],e:'A narrator who is a character and uses “I” tells the story in first person.',h:'Who is telling the story?'},
+ {p:'The rain drummed on the tin roof like impatient fingers.',q:'What does this simile suggest about the rain?',a:'It is steady and restless',w:['It is silent','It has stopped','It is warm'],e:'Impatient fingers drum over and over, so the rain is steady and restless.',h:'Picture fingers drumming on a table.'},
+],
+r7_nonfic:[
+ {p:'Honeybees pollinate about one-third of the food crops people eat. When bee colonies shrink, farmers may harvest fewer apples, almonds, and blueberries. Scientists are studying how pesticides, disease, and habitat loss affect bees.',q:'What is the main idea?',a:'Bees are important to food crops, so scientists study threats to them',w:['Almonds are the most popular nut','Pesticides are always safe','Farmers dislike bees'],e:'The passage explains why bees matter and what threatens them.',h:'What is the whole passage mostly about?'},
+ {p:'Honeybees pollinate about one-third of the food crops people eat. When bee colonies shrink, farmers may harvest fewer apples, almonds, and blueberries.',q:'Which text structure does the second sentence use?',a:'Cause and effect',w:['Chronological order','Compare and contrast','Problem and solution'],e:'Shrinking colonies (cause) lead to smaller harvests (effect).',h:'Look for “when … may.”'},
+ {p:'Our school should start at 9:00 a.m. Studies show teenagers learn better with more sleep. Later start times have improved attendance in several districts.',q:'What is the author’s purpose?',a:'To persuade',w:['To entertain','To describe a place','To give directions'],e:'The author states an opinion and gives reasons to convince the reader.',h:'Is the author trying to change your mind?'},
+ {p:'Our school should start at 9:00 a.m. Studies show teenagers learn better with more sleep. Later start times have improved attendance in several districts.',q:'Which sentence is the author’s CLAIM?',a:'Our school should start at 9:00 a.m.',w:['Studies show teenagers learn better with more sleep.','Later start times have improved attendance in several districts.','Teenagers need breakfast.'],e:'The claim is the main opinion. The other sentences are evidence.',h:'Which sentence is the opinion the rest supports?'},
+ {q:'Which is a FACT rather than an opinion?',a:'The Chesapeake Bay is the largest estuary in the United States.',w:['The Chesapeake Bay is the prettiest place in Virginia.','Everyone should visit the bay.','Crabs taste better than fish.'],e:'A fact can be checked and proven. The others are personal opinions.',h:'Which statement could you look up and verify?'},
+ {p:'First, the caterpillar spins a chrysalis. Next, its body breaks down and rebuilds. Finally, a butterfly pushes its way out.',q:'Which text structure is used?',a:'Sequence (chronological order)',w:['Compare and contrast','Cause and effect','Description only'],e:'Signal words “first,” “next,” and “finally” show steps in order.',h:'Look at the signal words.'},
+],
+// ── READING · GRADE 8 ──
+r8_vocab:[
+ {p:'The scientist’s explanation was so <b>lucid</b> that even the youngest students understood it.',q:'What does “lucid” mean?',a:'Clear and easy to understand',w:['Confusing','Very long','Funny'],e:'Even the youngest students understood, so the explanation was clear.',h:'What made it easy for everyone?'},
+ {p:'The Greek root <b>chron</b> means “time.”',q:'Which word means “arranged in time order”?',a:'Chronological',w:['Chronic','Synonym','Chromatic'],e:'Chronological means in the order events happened in time.',h:'Which word is about order in time?'},
+ {p:'The new mall was called “an eyesore” by neighbors who preferred the old park.',q:'What connotation does “eyesore” have?',a:'Negative',w:['Positive','Neutral','Scientific'],e:'“Eyesore” suggests something ugly that people dislike.',h:'Would you want your house called an eyesore?'},
+ {q:'Which word is an ANTONYM of “benevolent”?',a:'Cruel',w:['Kind','Generous','Helpful'],e:'Benevolent means kind and well-meaning, so “cruel” is the opposite.',h:'Bene- means “good.”'},
+ {p:'The prefix <b>mal-</b> means “bad.”',q:'What does “malfunction” mean?',a:'To work badly or fail',w:['To work perfectly','To build quickly','To function twice'],e:'Mal- (bad) + function means it works badly.',h:'Combine the prefix with the base word.'},
+ {p:'Her words were a double-edged sword: they helped the team win but hurt her friend’s feelings.',q:'What does “a double-edged sword” mean here?',a:'Something with both good and bad results',w:['A dangerous weapon','A very sharp tool','A tie game'],e:'Her words helped and hurt at the same time.',h:'What two results do her words have?'},
+],
+r8_fiction:[
+ {p:'Ever since the flood, Grandpa kept a rowboat tied behind the barn. We laughed at him. The river hadn’t risen in forty years. Then came the spring of the endless rain.',q:'What is the author creating with the last sentence?',a:'Foreshadowing',w:['A flashback','A resolution','A summary'],e:'It hints that a flood is coming and Grandpa’s boat may matter.',h:'Does the sentence hint at what happens next?'},
+ {p:'Lena smiled and congratulated the winner, but under the table her hands were clenched into fists.',q:'What does this detail reveal about Lena?',a:'She is hiding disappointment',w:['She is cold','She is truly happy','She is planning to leave'],e:'Her smile contrasts with clenched fists, revealing hidden feelings (indirect characterization).',h:'Compare her face with her hands.'},
+ {p:'The fire station was named “Calm Waters.” It burned down on its opening day.',q:'Which literary device is used?',a:'Situational irony',w:['Alliteration','Personification','Hyperbole'],e:'A fire station burning down is the opposite of what we expect.',h:'Is the outcome what you would expect?'},
+ {p:'In the story, Omar refuses to cheat even when his team might lose, and in the end the coach trusts him to lead.',q:'Which theme best fits the story?',a:'Integrity earns trust',w:['Winning is everything','Coaches are strict','Teams always lose'],e:'Omar’s honesty leads to the coach’s trust.',h:'What did Omar’s choice lead to?'},
+ {p:'The old house groaned and sighed as the wind pushed against its shutters.',q:'Which device is used?',a:'Personification',w:['Simile','Onomatopoeia only','Irony'],e:'The house is given human actions: groaning and sighing.',h:'Can a house really sigh?'},
+ {p:'The narrator tells us what every character in the town is thinking and feeling.',q:'What point of view is this?',a:'Third person omniscient',w:['First person','Third person limited','Second person'],e:'An all-knowing narrator who shares everyone’s thoughts is third person omniscient.',h:'Does the narrator know everyone’s thoughts?'},
+],
+r8_nonfic:[
+ {p:'Some people argue that video games waste time. However, a study of 2,000 students found that strategy games improved planning skills. Of course, too much screen time can still harm sleep.',q:'Why does the author include the last sentence?',a:'To acknowledge a counterclaim',w:['To change the topic','To end with a joke','To repeat the claim exactly'],e:'Admitting a limit to the argument is addressing a counterclaim.',h:'Does the sentence show another side?'},
+ {p:'Some people argue that video games waste time. However, a study of 2,000 students found that strategy games improved planning skills.',q:'Which evidence supports the author’s claim?',a:'A study of 2,000 students found improved planning skills',w:['Some people argue that games waste time','Games are fun','Many games are expensive'],e:'The study is the evidence that backs up the claim.',h:'Look for data or research.'},
+ {q:'A writer says, “Every smart family already uses our app.” Which persuasive technique is this?',a:'Bandwagon',w:['Statistics','Expert opinion','Anecdote'],e:'Bandwagon suggests you should join because everyone else is doing it.',h:'Is it pressure to join the crowd?'},
+ {p:'Article A says recycling saves energy. Article B says some recycled plastic ends up in landfills anyway.',q:'How do the two articles relate?',a:'They present different perspectives on recycling',w:['They say exactly the same thing','They are both fiction','Neither mentions recycling'],e:'One focuses on benefits and the other on problems.',h:'Compare the two viewpoints.'},
+ {q:'Which source would be MOST reliable for facts about Virginia’s population?',a:'U.S. Census Bureau data',w:['An anonymous blog post','A social media comment','An advertisement'],e:'Government data from the Census Bureau is gathered carefully and can be checked.',h:'Who collects official population numbers?'},
+ {p:'The bridge collapsed because the steel had rusted for decades without repair.',q:'Which text structure is shown?',a:'Cause and effect',w:['Sequence','Compare and contrast','Description'],e:'“Because” connects the cause (rust) to the effect (collapse).',h:'Look for the signal word.'},
+],
+// ── WRITING ──
+w7_write:[
+ {q:'Which sentence is the strongest THESIS for an essay about school gardens?',a:'School gardens help students learn science, eat healthier, and work as a team.',w:['Gardens are nice.','I like vegetables.','This essay is about gardens.'],e:'A strong thesis states the main claim and previews the reasons.',h:'Which one gives a clear claim and reasons?'},
+ {q:'Which transition best shows CONTRAST?',a:'However',w:['Furthermore','For example','First'],e:'“However” signals a different or opposite idea.',h:'Which word means “but”?'},
+ {q:'Which sentence uses formal style for a research report?',a:'The data show that recycling rates increased by 12 percent.',w:['Recycling is, like, super cool.','OMG recycling went way up!!!','You gotta recycle, dude.'],e:'Formal writing avoids slang and uses precise information.',h:'Which sounds like a textbook?'},
+ {q:'Which is the best way to combine: “The storm was loud. We stayed inside.”',a:'Because the storm was loud, we stayed inside.',w:['The storm was loud we stayed inside.','The storm was loud, we stayed inside.','The storm, was loud and inside.'],e:'Using “because” joins the ideas correctly and shows cause and effect.',h:'Avoid run-ons and comma splices.'},
+ {q:'Which detail would BEST support the claim “Dogs make good companions”?',a:'Studies show dog owners walk more and report feeling less lonely.',w:['Dogs come in many colors.','My neighbor has a cat.','Dogs were once wolves.'],e:'This evidence directly supports the claim about companionship.',h:'Which detail connects to “companions”?'},
+],
+w7_edit:[
+ {p:'Neither of the boys have finished their homework.',q:'Which is the CORRECT version?',a:'Neither of the boys has finished his homework.',w:['Neither of the boys have finished their homework.','Neither of the boys have finished his homework.'],e:'“Neither” is singular, so it takes “has” and “his.”',h:'Is “neither” singular or plural?'},
+ {p:'The team, who practiced all week were ready for the game.',q:'Which is the CORRECT version?',a:'The team, which practiced all week, was ready for the game.',w:['The team, who practiced all week were ready for the game.','The team which practiced all week, were ready for the game.'],e:'Set off the clause with two commas, and “team” as a unit takes “was.”',h:'Nonessential clauses need commas on both sides.'},
+ {p:'Running to the bus, my backpack fell open.',q:'What is wrong with this sentence?',a:'It has a dangling modifier',w:['It is a run-on','It has a spelling error','Nothing is wrong'],e:'The backpack was not running. Fix: “Running to the bus, I dropped my open backpack.”',h:'Who was running?'},
+ {p:'We bought apples, oranges and, bananas.',q:'Which is the CORRECT version?',a:'We bought apples, oranges, and bananas.',w:['We bought apples oranges, and bananas.','We bought, apples, oranges and bananas.'],e:'Commas go between items in a series, before “and.”',h:'Where do commas go in a list?'},
+ {p:'Its going to rain, so the dog stayed in it’s house.',q:'Which is the CORRECT version?',a:'It’s going to rain, so the dog stayed in its house.',w:['Its going to rain, so the dog stayed in it’s house.','It’s going to rain, so the dog stayed in it’s house.'],e:'It’s = it is. Its shows possession.',h:'Try reading “it is” in each spot.'},
+],
+w8_write:[
+ {q:'In an argument essay, what is a COUNTERCLAIM?',a:'An opposing view the writer addresses and responds to',w:['The writer’s main claim','A list of sources','The title'],e:'Addressing a counterclaim makes an argument stronger.',h:'Think of the other side.'},
+ {q:'Which sentence best introduces a quotation?',a:'According to Dr. Lee, “Sleep is essential for memory.”',w:['“Sleep is essential for memory.”','Dr. Lee. Sleep is important.','Sleep, memory, Dr. Lee said.'],e:'Introduce the speaker and use correct punctuation.',h:'Who said it, and is it punctuated correctly?'},
+ {q:'Which is the best way to avoid plagiarism?',a:'Cite the source when you use someone else’s words or ideas',w:['Change one word in the sentence','Copy only short paragraphs','Use ideas without telling anyone'],e:'Citing gives credit to the original author.',h:'Give credit where it is due.'},
+ {q:'Which conclusion is the strongest?',a:'Because later start times improve sleep and grades, the school board should approve the change.',w:['That’s all I have to say.','The end.','Anyway, school is school.'],e:'A strong conclusion restates the claim and reasons and calls for action.',h:'Which one sums up the argument?'},
+ {q:'Which word choice is most PRECISE?',a:'The river surged over its banks.',w:['The river did a thing.','The river was big.','The river went.'],e:'“Surged over its banks” gives a clear, vivid picture.',h:'Which verb is most specific?'},
+],
+w8_edit:[
+ {p:'If I was the captain, I would change the plan.',q:'Which is the CORRECT version?',a:'If I were the captain, I would change the plan.',w:['If I was the captain, I would change the plan.','If I am the captain, I would change the plan.'],e:'Imagined situations use the subjunctive “were.”',h:'Is this real or imagined?'},
+ {p:'The book was written by the author in 1999.',q:'This sentence is in passive voice. Which is the ACTIVE version?',a:'The author wrote the book in 1999.',w:['The book was written in 1999.','In 1999 the book was written by the author.'],e:'In active voice the subject does the action.',h:'Who did the writing? Start with them.'},
+ {p:'I have three goals: to read more, exercising daily, and learning Spanish.',q:'Which version uses PARALLEL structure?',a:'I have three goals: to read more, to exercise daily, and to learn Spanish.',w:['I have three goals: reading more, to exercise daily, and learn Spanish.','I have three goals: to read more, exercising daily, and learning Spanish.'],e:'Items in a series should use the same form.',h:'Make every item start the same way.'},
+ {p:'The coach gave the award to Sam and I.',q:'Which is the CORRECT version?',a:'The coach gave the award to Sam and me.',w:['The coach gave the award to Sam and I.','The coach gave the award to I and Sam.'],e:'Use the object pronoun “me” after a preposition like “to.”',h:'Remove “Sam and.” Would you say “to I”?'},
+ {p:'She studied hard she passed the exam.',q:'What is the error?',a:'Run-on sentence',w:['Fragment','Misspelled word','Missing capital letter'],e:'Two complete thoughts are joined without punctuation. Fix: “She studied hard, so she passed the exam.”',h:'How many complete thoughts are there?'},
+],
+// ── LIFE SCIENCE · GRADE 7 ──
+ls2:[
+ {q:'What does the cell theory state?',a:'All living things are made of cells, cells are the basic unit of life, and cells come from existing cells',w:['Only animals have cells','Cells are made of rocks','Cells appear from nonliving things'],e:'These three ideas make up the cell theory.',h:'There are three parts to the cell theory.'},
+ {q:'Which organelle is the control center of the cell and holds the DNA?',a:'Nucleus',w:['Cell membrane','Vacuole','Ribosome'],e:'The nucleus contains genetic material and directs cell activities.',h:'Think “brain” of the cell.'},
+ {q:'Which structures are found in plant cells but NOT animal cells?',a:'Cell wall and chloroplasts',w:['Nucleus and mitochondria','Cell membrane and cytoplasm','Ribosomes and nucleus'],e:'Plant cells have a cell wall for support and chloroplasts for photosynthesis.',h:'What helps plants make food and stand upright?'},
+ {q:'Which organelle releases energy from food for the cell?',a:'Mitochondria',w:['Chloroplast','Cell wall','Vacuole'],e:'Mitochondria carry out cellular respiration to release energy.',h:'It is called the powerhouse of the cell.'},
+ {q:'Water moving across a cell membrane from high to low concentration is called…',a:'Osmosis',w:['Photosynthesis','Mitosis','Respiration'],e:'Osmosis is the diffusion of water across a membrane.',h:'It is diffusion of WATER.'},
+ {q:'What is the purpose of mitosis?',a:'Growth and repair by making identical cells',w:['Making food from sunlight','Breaking down waste','Making cells with half the DNA'],e:'Mitosis makes two identical cells for growth and repair.',h:'Think of healing a cut.'},
+ {t:'order',q:'Put the levels of organization in order from SMALLEST to LARGEST.',items:['Cell','Tissue','Organ','Organ system','Organism'],e:'Cells form tissues, tissues form organs, organs form systems, and systems form an organism.',h:'Start with the basic unit of life.'},
+],
+ls3:[
+ {q:'Which is the broadest (largest) level of classification?',a:'Domain',w:['Species','Genus','Family'],e:'From broadest to most specific: domain, kingdom, phylum, class, order, family, genus, species.',h:'It contains the most organisms.'},
+ {q:'Scientists classify organisms mainly by…',a:'Shared characteristics and evolutionary relationships',w:['Their size only','Their color only','Where they were found first'],e:'Organisms with more in common are grouped more closely.',h:'What do grouped organisms have in common?'},
+ {q:'In the scientific name Homo sapiens, “Homo” is the…',a:'Genus',w:['Species','Kingdom','Family'],e:'Binomial nomenclature uses genus then species.',h:'The first word, capitalized.'},
+ {q:'An organism is single-celled, has no nucleus, and lives in hot springs. It most likely belongs to…',a:'Archaea',w:['Animals','Plants','Fungi'],e:'Archaea are single-celled prokaryotes, and many live in extreme places.',h:'No nucleus means prokaryote.'},
+ {q:'Which organisms are multicellular, absorb food, and include mushrooms?',a:'Fungi',w:['Plants','Bacteria','Protists'],e:'Fungi absorb nutrients from their surroundings.',h:'Mushrooms are not plants.'},
+ {q:'A dichotomous key helps you…',a:'Identify an organism by answering a series of two-choice questions',w:['Measure an organism’s mass','Grow bacteria','Count chromosomes'],e:'Each step offers two choices that lead to the organism’s name.',h:'“Di” means two.'},
+],
+ls4:[
+ {q:'What are the products of photosynthesis?',a:'Glucose (sugar) and oxygen',w:['Carbon dioxide and water','Protein and fat','Nitrogen and soil'],e:'Plants use sunlight, carbon dioxide, and water to make glucose and release oxygen.',h:'What do plants make and give off?'},
+ {q:'Where does photosynthesis take place?',a:'Chloroplasts',w:['Mitochondria','Nucleus','Cell membrane'],e:'Chloroplasts contain chlorophyll, which captures light energy.',h:'It contains green chlorophyll.'},
+ {q:'How are photosynthesis and cellular respiration related?',a:'The products of one are the reactants of the other',w:['They are the same process','Only animals do both','They both make sunlight'],e:'Photosynthesis makes glucose and oxygen, which respiration uses to release energy, carbon dioxide, and water.',h:'Compare what goes in and what comes out.'},
+ {q:'Why is photosynthesis the foundation of nearly all food webs?',a:'Producers turn sunlight into food energy that consumers eat',w:['Animals make sunlight','It creates rocks','It makes animals grow fur'],e:'Energy enters most food webs through producers.',h:'Where does a food chain start?'},
+ {q:'Which organisms carry out cellular respiration?',a:'Both plants and animals',w:['Only animals','Only plants','Only bacteria'],e:'All living cells need energy, so plants and animals both respire.',h:'Do plants need energy too?'},
+],
+ls5:[
+ {q:'Which is an ABIOTIC factor in an ecosystem?',a:'Sunlight',w:['Mushrooms','Deer','Grass'],e:'Abiotic factors are nonliving, such as sunlight, water, and temperature.',h:'A- means “not.”'},
+ {q:'In an energy pyramid, how much energy usually passes to the next level?',a:'About 10%',w:['About 90%','100%','None'],e:'Most energy is used for life processes or lost as heat, so only about 10% moves up.',h:'Most energy is lost at each step.'},
+ {q:'What role do decomposers play?',a:'They break down dead matter and return nutrients to the soil',w:['They make food from sunlight','They hunt other animals','They create water'],e:'Decomposers like fungi and bacteria recycle nutrients.',h:'What happens to fallen leaves?'},
+ {q:'Which process moves water from plants into the air?',a:'Transpiration',w:['Condensation','Precipitation','Photosynthesis'],e:'Plants release water vapor through their leaves.',h:'Plants “sweat.”'},
+ {t:'order',q:'Put this food chain in order, starting with the producer.',items:['Grass','Grasshopper','Frog','Snake','Hawk'],e:'Energy flows from producer to primary consumer and up to top predators.',h:'Start with the organism that makes its own food.'},
+],
+ls6:[
+ {q:'A hawk eats a mouse. What is this relationship called?',a:'Predator–prey',w:['Mutualism','Parasitism','Commensalism'],e:'The hawk (predator) hunts the mouse (prey).',h:'One eats the other.'},
+ {q:'Bees get nectar and flowers get pollinated. What is this relationship?',a:'Mutualism',w:['Parasitism','Competition','Predation'],e:'Both organisms benefit.',h:'Who benefits?'},
+ {q:'A tick feeds on a dog’s blood. What is this relationship?',a:'Parasitism',w:['Mutualism','Commensalism','Predation'],e:'The tick benefits and the dog is harmed.',h:'One benefits and one is harmed.'},
+ {q:'If the number of rabbits suddenly increases, what will likely happen to the fox population next?',a:'It will increase',w:['It will decrease','It will stay the same forever','Foxes will become plants'],e:'More prey means more food for predators.',h:'What do foxes eat?'},
+ {q:'Two kinds of birds eat the same seeds in a small area. This is…',a:'Competition',w:['Mutualism','Symbiosis that helps both','Decomposition'],e:'Organisms competing for the same limited resource.',h:'They want the same thing.'},
+ {q:'What is the largest population an environment can support called?',a:'Carrying capacity',w:['Biodiversity','Habitat','Niche'],e:'Limited food, water, and space set the carrying capacity.',h:'How much can it “carry”?'},
+],
+ls7:[
+ {q:'A snowshoe hare’s fur turns white in winter. This is an example of…',a:'A structural adaptation (camouflage)',w:['A behavioral adaptation','Hibernation','Competition'],e:'A body feature that helps it hide from predators is a structural adaptation.',h:'Is it a body part or a behavior?'},
+ {q:'Birds flying south for the winter is a…',a:'Behavioral adaptation',w:['Structural adaptation','Physical feature','Food chain'],e:'Migration is something the animal DOES.',h:'Is it something they do?'},
+ {q:'Why do cacti have thick, waxy stems?',a:'To store water and reduce water loss in dry climates',w:['To attract snow','To grow taller than trees','To make seeds faster'],e:'Thick, waxy stems help desert plants survive drought.',h:'Think about the desert.'},
+ {q:'Which adaptation helps a plant reach sunlight in a dense forest?',a:'Growing tall or climbing other plants',w:['Losing all leaves','Growing underground only','Changing color at night'],e:'Reaching light helps a plant carry out photosynthesis.',h:'What do plants need from the sun?'},
+ {q:'A walking stick insect looks like a twig. This adaptation is called…',a:'Mimicry',w:['Hibernation','Migration','Pollination'],e:'Looking like another object or organism to avoid predators is mimicry.',h:'It copies the look of something else.'},
+],
+ls10:[
+ {q:'What carries genetic information in cells?',a:'DNA',w:['Glucose','Water','Chlorophyll'],e:'DNA holds the instructions for traits.',h:'It is found in chromosomes.'},
+ {q:'In pea plants, purple flowers (P) are dominant over white (p). What color is a Pp plant?',a:'Purple',w:['White','Pink','Half purple, half white'],e:'One dominant allele is enough to show the dominant trait.',h:'The capital letter wins.'},
+ {q:'Two Pp plants are crossed. What fraction of offspring is expected to have white flowers (pp)?',a:'1/4',w:['1/2','3/4','None'],e:'A Punnett square gives PP, Pp, Pp, pp, so 1 out of 4 is pp.',h:'Draw a 2 × 2 Punnett square.'},
+ {q:'Which describes an organism’s genotype?',a:'The combination of alleles, such as Tt',w:['Its height only','The color you can see','Its habitat'],e:'Genotype is the genetic makeup. Phenotype is the visible trait.',h:'Geno- relates to genes.'},
+ {q:'How does sexual reproduction differ from asexual reproduction?',a:'It combines DNA from two parents, creating variation',w:['It needs only one parent','Offspring are always identical','It never happens in animals'],e:'Mixing DNA from two parents produces genetic variation.',h:'How many parents?'},
+],
+ls11:[
+ {q:'Which evidence best supports the idea that species change over time?',a:'Fossils showing gradual changes in body structures',w:['The weather today','The colors of rocks','The number of planets'],e:'The fossil record shows how organisms changed across long periods.',h:'What do layers of rock preserve?'},
+ {q:'What is natural selection?',a:'Organisms with helpful traits survive and reproduce more often',w:['Animals choose their own traits','All organisms survive equally','Traits never change'],e:'Helpful traits become more common over generations.',h:'Survival of those best suited to the environment.'},
+ {q:'In undisturbed rock layers, where are the oldest fossils usually found?',a:'In the bottom layers',w:['In the top layers','In the middle only','Floating in water'],e:'Lower layers formed first, so they are older.',h:'Think of stacking papers over time.'},
+ {q:'Why is genetic variation important for a species?',a:'It increases the chance some individuals survive changes in the environment',w:['It makes all individuals identical','It stops reproduction','It removes adaptations'],e:'Variation gives a population more ways to cope with change.',h:'Are identical populations more at risk?'},
+ {q:'Bacteria that survive an antibiotic reproduce, and the next generation is harder to kill. This is an example of…',a:'Natural selection',w:['Photosynthesis','Erosion','Mimicry'],e:'Resistant bacteria survived and passed on their traits.',h:'Which ones survived?'},
+],
+// ── PHYSICAL SCIENCE · GRADE 8 ──
+ps2:[
+ {q:'Which particle has a positive charge?',a:'Proton',w:['Electron','Neutron','Photon'],e:'Protons are positive, electrons negative, and neutrons neutral.',h:'Positive starts with P.'},
+ {q:'Where are electrons found in an atom?',a:'In energy levels (the electron cloud) around the nucleus',w:['Inside the proton','In the nucleus','Only outside the universe'],e:'Electrons move around the nucleus.',h:'They are outside the nucleus.'},
+ {q:'An atom has 6 protons, 6 neutrons, and 6 electrons. What is its atomic number?',a:'6',w:['12','18','0'],e:'The atomic number is the number of protons.',h:'Count only one kind of particle.'},
+ {q:'What does the particle theory of matter say about particles in a gas?',a:'They move freely and are far apart',w:['They do not move at all','They are packed in a fixed pattern','They are bigger than solid particles'],e:'Gas particles have the most energy and space between them.',h:'Which state spreads to fill a container?'},
+ {q:'How has the model of the atom changed over time?',a:'Scientists revised it as new evidence was discovered',w:['It has never changed','It was finished in 1900 and never revised','People voted on it'],e:'Models change as experiments give new evidence.',h:'Science changes with evidence.'},
+],
+ps3:[
+ {q:'Which is a CHEMICAL change?',a:'Iron rusting',w:['Ice melting','Paper being cut','Water boiling'],e:'Rusting forms a new substance (iron oxide).',h:'Is a new substance formed?'},
+ {q:'Which is a PHYSICAL property?',a:'Density',w:['Flammability','Reactivity with acid','Ability to rust'],e:'Density can be measured without changing the substance.',h:'Can you measure it without changing what it is?'},
+ {q:'What does the law of conservation of mass state?',a:'Mass is not created or destroyed in a chemical reaction',w:['Mass always increases','Mass disappears when things burn','Only gases have mass'],e:'The total mass of reactants equals the total mass of products.',h:'What goes in must come out.'},
+ {q:'Salt water is an example of a…',a:'Mixture (solution)',w:['Element','Compound','Pure substance'],e:'Salt and water are physically mixed and can be separated by evaporation.',h:'Can you separate it physically?'},
+ {q:'Which is a COMPOUND?',a:'Water (H₂O)',w:['Oxygen (O₂)','Gold (Au)','Iron (Fe)'],e:'A compound is two or more elements chemically combined.',h:'Look for more than one kind of element.'},
+],
+ps4:[
+ {q:'How is the modern periodic table arranged?',a:'By increasing atomic number',w:['Alphabetically','By color','By date of discovery'],e:'Elements are ordered by the number of protons.',h:'What number identifies each element?'},
+ {q:'Elements in the same COLUMN (group) have…',a:'Similar chemical properties',w:['The same mass','The same number of protons','No electrons'],e:'Groups share similar numbers of outer electrons, so they react similarly.',h:'Groups are “families.”'},
+ {q:'Where are metals found on the periodic table?',a:'On the left and in the middle',w:['Only on the far right','Only in the top row','Only at the bottom'],e:'Metals are to the left of the zigzag line. Nonmetals are on the right.',h:'Find the staircase line.'},
+ {q:'What is the chemical symbol for sodium?',a:'Na',w:['So','S','Sd'],e:'Sodium’s symbol comes from its Latin name, natrium.',h:'It comes from Latin.'},
+ {q:'Which group contains unreactive gases like neon?',a:'Noble gases (group 18)',w:['Alkali metals','Halogens','Transition metals'],e:'Noble gases have full outer electron shells.',h:'They are on the far right.'},
+],
+ps5:[
+ {q:'A ball at the top of a hill has mostly which type of energy?',a:'Potential energy',w:['Kinetic energy','Sound energy','Nuclear energy'],e:'Stored energy due to position is potential energy.',h:'It is stored, not moving yet.'},
+ {q:'As a roller coaster goes down a hill, potential energy changes into…',a:'Kinetic energy',w:['Chemical energy','Nuclear energy','Light energy only'],e:'Falling converts stored energy into energy of motion.',h:'It speeds up.'},
+ {q:'What does the law of conservation of energy say?',a:'Energy changes form but is not created or destroyed',w:['Energy is used up forever','Energy only comes from batteries','Energy can be created from nothing'],e:'The total amount of energy stays the same.',h:'It changes form.'},
+ {q:'Heat moving through a metal spoon in hot soup is…',a:'Conduction',w:['Convection','Radiation','Insulation'],e:'Conduction is heat transfer by direct contact.',h:'Touching.'},
+ {q:'Warm air rising and cool air sinking is…',a:'Convection',w:['Conduction','Radiation','Reflection'],e:'Convection moves heat through fluids like air and water.',h:'It forms currents.'},
+],
+ps6:[
+ {q:'Sound waves are…',a:'Longitudinal waves that need a medium',w:['Transverse waves that travel in space','Light waves','Waves that need no medium'],e:'Sound compresses and spreads particles, so it needs matter to travel through.',h:'Can sound travel in empty space?'},
+ {q:'What is the frequency of a wave?',a:'The number of waves that pass a point each second',w:['The height of a wave','The speed of light','The color of the wave'],e:'Frequency is measured in hertz (waves per second).',h:'How often?'},
+ {q:'A higher frequency sound wave has a…',a:'Higher pitch',w:['Lower pitch','Louder volume always','Longer wavelength'],e:'Pitch depends on frequency.',h:'Think of a whistle.'},
+ {q:'Which part of a transverse wave is the highest point?',a:'Crest',w:['Trough','Wavelength','Frequency'],e:'The crest is the top and the trough is the bottom.',h:'Like the crest of a hill.'},
+ {q:'An echo is an example of a sound wave being…',a:'Reflected',w:['Absorbed','Created','Refracted only'],e:'The sound bounces off a surface and returns.',h:'It bounces back.'},
+],
+ps7:[
+ {q:'Which type of electromagnetic radiation has the LONGEST wavelength?',a:'Radio waves',w:['Gamma rays','X-rays','Ultraviolet'],e:'Radio waves have the longest wavelength and lowest frequency.',h:'Radios can pick them up from far away.'},
+ {q:'Which electromagnetic waves are used to see bones?',a:'X-rays',w:['Radio waves','Microwaves','Visible light'],e:'X-rays pass through soft tissue but not bone.',h:'Think of a doctor’s image of a broken arm.'},
+ {q:'Light bending as it passes from air into water is called…',a:'Refraction',w:['Reflection','Absorption','Conduction'],e:'Light changes speed in a new medium and bends.',h:'A straw looks bent in a glass.'},
+ {q:'A prism splits white light into colors because…',a:'Each color bends a different amount',w:['The prism adds paint','Light stops inside','Only red light passes'],e:'Different wavelengths refract by different amounts.',h:'Rainbows form the same way.'},
+ {q:'Can electromagnetic waves travel through empty space?',a:'Yes, they do not need a medium',w:['No, they need air','Only sound can','Only in water'],e:'Sunlight crosses space to reach Earth.',h:'How does sunlight reach us?'},
+],
+ps8:[
+ {q:'Newton’s first law says an object in motion…',a:'Stays in motion unless an unbalanced force acts on it',w:['Always slows down by itself','Speeds up forever','Has no mass'],e:'This is the law of inertia.',h:'Why do you lurch forward when a car stops?'},
+ {q:'F = ma. A 2 kg ball accelerates at 3 m/s². What is the force?',a:'6 N',w:['5 N','1.5 N','9 N'],e:'F = 2 × 3 = 6 newtons.',h:'Multiply mass by acceleration.'},
+ {q:'A rocket pushes gas down and the gas pushes the rocket up. This is Newton’s…',a:'Third law',w:['First law','Second law','Law of gravity only'],e:'For every action there is an equal and opposite reaction.',h:'Action and reaction.'},
+ {q:'Work is done when…',a:'A force moves an object a distance',w:['You push a wall that does not move','You think hard','An object stays still'],e:'Work = force × distance. No movement means no work.',h:'Did the object move?'},
+ {q:'A car travels 120 km in 2 hours. What is its average speed?',a:'60 km/h',w:['240 km/h','122 km/h','30 km/h'],e:'Speed = distance ÷ time = 120 ÷ 2 = 60 km/h.',h:'Divide distance by time.'},
+],
+ps9:[
+ {q:'In a series circuit, if one bulb burns out…',a:'All the bulbs go out',w:['The others get brighter','Nothing changes','Only that bulb goes out'],e:'A series circuit has one path, so a break stops all current.',h:'How many paths are there?'},
+ {q:'Why are homes wired in parallel circuits?',a:'Each device can work even if another is off',w:['It uses less copper','It makes lights dimmer','So everything turns off together'],e:'Parallel circuits have several paths.',h:'Can you turn off one lamp and keep the TV on?'},
+ {q:'Rubbing a balloon on your hair makes it stick to a wall. This is…',a:'Static electricity',w:['Magnetism','Gravity','Current electricity'],e:'An imbalance of charges creates static electricity.',h:'Electrons moved between the balloon and your hair.'},
+ {q:'Two magnets with north poles facing each other will…',a:'Repel',w:['Attract','Have no effect','Become one magnet'],e:'Like poles repel; opposite poles attract.',h:'Like poles…'},
+ {q:'Wrapping wire around a nail and connecting it to a battery makes a…',a:'Electromagnet',w:['Battery','Solar panel','Thermometer'],e:'Electric current produces a magnetic field.',h:'Electricity can make magnetism.'},
+],
+// ── CIVICS & ECONOMICS · GRADE 7 ──
+ce1:[
+ {q:'Which principle means the people are the source of the government’s power?',a:'Popular sovereignty',w:['Federalism','Checks and balances','Limited government'],e:'Popular sovereignty means power comes from the people.',h:'Sovereign means ruling power.'},
+ {q:'Why were the Articles of Confederation replaced?',a:'The national government was too weak, for example it could not collect taxes',w:['The government was too strong','It had too many presidents','It gave states no power'],e:'Under the Articles, Congress could not tax or enforce laws.',h:'Was the national government strong or weak?'},
+ {q:'The Great Compromise created…',a:'A two-house Congress: the House based on population and the Senate with equal representation',w:['A king for the United States','Only one house of Congress','The Supreme Court'],e:'It balanced the interests of large and small states.',h:'Large states and small states both got something.'},
+ {q:'Dividing power between the national and state governments is called…',a:'Federalism',w:['Republicanism','Popular sovereignty','Rule of law'],e:'Federalism shares power between levels of government.',h:'Two levels of government.'},
+ {q:'How can the U.S. Constitution be amended?',a:'Proposed by two-thirds of Congress and ratified by three-fourths of the states',w:['By the President alone','By a Supreme Court vote','By any one state'],e:'This process makes changes possible but difficult.',h:'It needs large majorities.'},
+ {t:'multi',q:'Which are fundamental principles of U.S. government? Choose all that are correct.',o:['Limited government','Separation of powers','Checks and balances','Absolute monarchy'],a:['Limited government','Separation of powers','Checks and balances'],e:'The U.S. does not have a monarchy.',h:'Which ones limit power?'},
+],
+ce2:[
+ {q:'Which branch of the federal government makes laws?',a:'Legislative (Congress)',w:['Executive','Judicial','Military'],e:'Article I gives Congress the power to make laws.',h:'Legislate means make laws.'},
+ {q:'How many senators does each state have?',a:'Two',w:['One','Based on population','Ten'],e:'The Senate has 100 members, two from each state.',h:'Equal for every state.'},
+ {q:'The President rejecting a bill is called a…',a:'Veto',w:['Filibuster','Impeachment','Ratification'],e:'Congress can override a veto with a two-thirds vote of both houses.',h:'It is an executive check on Congress.'},
+ {q:'What did Marbury v. Madison (1803) establish?',a:'Judicial review',w:['The right to vote at 18','The Bill of Rights','The Electoral College'],e:'Courts can declare laws unconstitutional.',h:'It gave power to the courts.'},
+ {q:'Which is an example of checks and balances?',a:'The Senate approves the President’s choices for federal judges',w:['A state picks its governor','Citizens pay taxes','A city builds a park'],e:'One branch limits the power of another.',h:'Look for one branch checking another.'},
+],
+ce3:[
+ {q:'What is Virginia’s legislative branch called?',a:'The General Assembly',w:['Congress','The City Council','The Supreme Court of Virginia'],e:'Virginia’s General Assembly has the House of Delegates and the Senate.',h:'It dates back to 1619.'},
+ {q:'Who leads Virginia’s executive branch?',a:'The Governor',w:['The President','The Mayor','The Chief Justice'],e:'The Governor serves a four-year term.',h:'The state’s chief executive.'},
+ {q:'What is the highest court in Virginia?',a:'The Supreme Court of Virginia',w:['The U.S. Supreme Court','A district court','A circuit court'],e:'It is the top of Virginia’s court system.',h:'Look for “Virginia.”'},
+ {q:'How does a bill become a Virginia law?',a:'Both houses pass it and the Governor signs it (or a veto is overridden)',w:['The Governor writes it alone','Any citizen announces it','The courts vote on it first'],e:'Bills go through committees and both houses before reaching the Governor.',h:'Both chambers plus the Governor.'},
+],
+ce4:[
+ {q:'Where do local governments in Virginia get their power?',a:'From the Virginia General Assembly',w:['From the President','From other countries','From private companies'],e:'Virginia follows the Dillon Rule: local governments have only the powers the state gives them.',h:'The state grants it.'},
+ {q:'A law passed by a county or city is called an…',a:'Ordinance',w:['Amendment','Treaty','Executive order'],e:'Local governing bodies pass ordinances.',h:'It is a local law.'},
+ {q:'What are the three types of local government in Virginia?',a:'Counties, cities, and towns',w:['States, nations, and continents','Courts, jails, and schools','Parks, roads, and libraries'],e:'These are Virginia’s local government units.',h:'Places where you live.'},
+ {q:'What is a main source of money for local governments?',a:'Property taxes',w:['Tariffs on imports','Selling the Constitution','Federal income tax only'],e:'Local governments rely on property taxes, sales taxes, and state aid.',h:'Taxes on homes and land.'},
+],
+ce5:[
+ {q:'A case about breaking a federal law would be heard in…',a:'Federal court',w:['City council','Traffic school','The General Assembly'],e:'Federal courts hear cases about federal laws and the Constitution.',h:'Federal law → federal court.'},
+ {q:'Which describes a CIVIL case?',a:'A dispute between people over money or property',w:['The government charges someone with a crime','A trial for robbery','A case about treason'],e:'Civil cases settle private disputes.',h:'No crime is involved.'},
+ {q:'Which amendment guarantees due process at the state level?',a:'The 14th Amendment',w:['The 1st Amendment','The 2nd Amendment','The 19th Amendment'],e:'The 14th Amendment protects due process and equal protection from state actions.',h:'It came after the Civil War.'},
+ {q:'Which is a right of a person accused of a crime?',a:'The right to a lawyer',w:['The right to skip the trial','The right to choose the judge','The right to a guilty verdict'],e:'The 6th Amendment guarantees the right to counsel.',h:'Who helps defend the accused?'},
+],
+ce6:[
+ {q:'How can a person become a U.S. citizen?',a:'By birth or by naturalization',w:['Only by paying a fee','Only by joining the military','By moving to any state'],e:'The 14th Amendment and naturalization laws describe citizenship.',h:'Two main ways.'},
+ {q:'Which freedom is protected by the First Amendment?',a:'Freedom of speech',w:['The right to bear arms','The right to a jury trial','Protection from unreasonable searches'],e:'The First Amendment protects religion, speech, press, assembly, and petition.',h:'It is the first freedom many people name.'},
+ {q:'Which is a DUTY (required) of citizens?',a:'Obeying laws',w:['Voting','Volunteering','Joining a political party'],e:'Duties are required. Voting and volunteering are responsibilities.',h:'What is required by law?'},
+ {q:'Which is a RESPONSIBILITY (expected but not required) of citizens?',a:'Voting in elections',w:['Paying taxes','Serving on a jury when called','Obeying laws'],e:'Voting is encouraged but not required.',h:'Which one is a choice?'},
+ {t:'multi',q:'Which are First Amendment freedoms? Choose all that are correct.',o:['Religion','Press','Assembly','Driving'],a:['Religion','Press','Assembly'],e:'The five are religion, speech, press, assembly, and petition.',h:'Remember RAPPS.'},
+],
+ce7:[
+ {q:'Which shows CIVILITY?',a:'Listening respectfully to someone you disagree with',w:['Shouting down an opponent','Ignoring a meeting','Spreading rumors'],e:'Civility means being respectful in public discussion.',h:'Respect even in disagreement.'},
+ {q:'Volunteering at a food bank is an example of…',a:'Community service',w:['A duty required by law','Paying taxes','Running for office'],e:'Community service promotes the common good.',h:'Helping others voluntarily.'},
+ {q:'Which trait is shown by a student who returns a lost wallet?',a:'Honesty',w:['Patriotism','Self-reliance only','Competition'],e:'Returning what is not yours shows honesty and trustworthiness.',h:'Doing the right thing.'},
+],
+ce8:[
+ {q:'What is a main role of political parties?',a:'Recruiting candidates and informing voters',w:['Writing the Constitution','Running the courts','Printing money'],e:'Parties nominate candidates and campaign on issues.',h:'What do parties do at election time?'},
+ {q:'How many electoral votes are needed to win the presidency?',a:'270',w:['100','538','50'],e:'There are 538 electoral votes, and a candidate needs a majority: 270.',h:'More than half of 538.'},
+ {q:'What role do third parties often play?',a:'Bringing new ideas into public debate',w:['Always winning the presidency','Choosing Supreme Court justices','Collecting taxes'],e:'Third parties raise issues the major parties may adopt.',h:'They rarely win but can influence.'},
+ {q:'Who can register to vote in Virginia?',a:'U.S. citizens who are Virginia residents and at least 18 by Election Day',w:['Anyone who visits Virginia','Only property owners','Only people over 30'],e:'Voters must be citizens, residents, and 18 by the general election.',h:'Think about age and citizenship.'},
+],
+ce9:[
+ {q:'Which amendment protects freedom of the press?',a:'The First Amendment',w:['The Fifth Amendment','The Tenth Amendment','The Twenty-sixth Amendment'],e:'A free press can inform citizens and question leaders.',h:'The same one as free speech.'},
+ {q:'How can citizens check a news story for bias?',a:'Compare several reliable sources',w:['Trust the first headline','Share it right away','Read only the comments'],e:'Comparing sources helps reveal one-sided coverage.',h:'Look at more than one source.'},
+ {q:'Investigative reporting on the Watergate scandal led to…',a:'President Nixon’s resignation',w:['A new state','The end of World War II','The Bill of Rights'],e:'Reporters uncovered abuses of power in the 1970s.',h:'It was about a president in the 1970s.'},
+],
+ce11:[
+ {q:'What is SCARCITY?',a:'Unlimited wants but limited resources',w:['Having more than enough of everything','A type of tax','A bank account'],e:'Scarcity forces people to make choices.',h:'Not enough for everything we want.'},
+ {q:'Maria spends Saturday studying instead of going to a concert. The concert is her…',a:'Opportunity cost',w:['Profit','Tax','Budget'],e:'Opportunity cost is the next-best choice given up.',h:'What did she give up?'},
+ {q:'What kind of economy does the United States have?',a:'A mixed economy',w:['A pure command economy','A traditional economy','No economy'],e:'The U.S. combines free markets with some government involvement.',h:'It mixes markets and government.'},
+ {q:'If demand for a toy rises and supply stays the same, the price will likely…',a:'Rise',w:['Fall','Stay exactly the same','Become free'],e:'More buyers competing for the same supply pushes prices up.',h:'More people want it.'},
+ {t:'multi',q:'Which are economic resources (factors of production)? Choose all that are correct.',o:['Natural resources','Human resources','Capital resources','Opinions'],a:['Natural resources','Human resources','Capital resources'],e:'The four are natural, human, capital, and entrepreneurship.',h:'What is needed to make goods?'},
+],
+ce12:[
+ {q:'Which is a PUBLIC GOOD provided by government?',a:'National defense',w:['A video game','A private car','A restaurant meal'],e:'Public goods, like roads and defense, are provided for everyone.',h:'Something everyone shares.'},
+ {q:'Who controls U.S. monetary policy?',a:'The Federal Reserve',w:['The Supreme Court','Each state','The Census Bureau'],e:'The Fed manages interest rates and the money supply.',h:'It is the central bank.'},
+ {q:'Congress deciding how much to tax and spend is…',a:'Fiscal policy',w:['Monetary policy','Judicial review','Federalism'],e:'Fiscal policy covers taxing and spending.',h:'Fiscal relates to budgets.'},
+ {q:'When government spending is greater than revenue, there is a…',a:'Budget deficit',w:['Budget surplus','Balanced budget','Profit'],e:'A deficit means spending more than you take in.',h:'Spending too much.'},
+],
+ce13:[
+ {q:'What is a BUDGET?',a:'A plan for spending and saving money',w:['A type of loan','A bank robbery','A tax on imports'],e:'A budget helps you plan income and expenses.',h:'A money plan.'},
+ {q:'Why is a good credit score helpful?',a:'It helps a person borrow money at lower interest rates',w:['It doubles your salary','It cancels taxes','It guarantees a job'],e:'Lenders trust borrowers with good credit.',h:'Lenders check it before making loans.'},
+ {q:'What is an insurance DEDUCTIBLE?',a:'The amount you pay before insurance starts paying',w:['Your monthly payment','The total value of your house','A tax refund'],e:'The premium is the regular payment; the deductible is paid first when you make a claim.',h:'Paid out of your own pocket first.'},
+ {q:'Why do people diversify their investments?',a:'To reduce risk',w:['To guarantee profit','To avoid saving','To pay more fees'],e:'Spreading money across investments lowers the chance of losing it all.',h:'Don’t put all your eggs in one basket.'},
+],
+// ── WORLD GEOGRAPHY · GRADE 8 ──
+wg1:[
+ {q:'Which tool uses layers of data on digital maps to study places?',a:'GIS (Geographic Information Systems)',w:['A compass only','A thermometer','A telescope'],e:'GIS combines layers like roads, rivers, and population.',h:'It is a computer mapping tool.'},
+ {q:'Lines of latitude measure distance…',a:'North and south of the equator',w:['East and west of the prime meridian','Above sea level','Between cities only'],e:'Latitude lines run east-west and measure north-south position.',h:'Think of rungs on a ladder.'},
+ {q:'A region defined by a common language or religion is a…',a:'Formal (uniform) region',w:['Functional region','Perceptual region','Time zone'],e:'Formal regions share a measurable characteristic.',h:'One shared trait across the area.'},
+ {q:'Why do all flat maps have some distortion?',a:'Earth is a sphere, so showing it flat stretches shapes or sizes',w:['Mapmakers make mistakes on purpose','Earth is flat','Satellites cannot see Earth'],e:'Every projection distorts shape, size, distance, or direction.',h:'Try flattening an orange peel.'},
+],
+wg2:[
+ {q:'Which is a NONRENEWABLE resource?',a:'Oil',w:['Wind','Sunlight','Trees managed sustainably'],e:'Oil takes millions of years to form.',h:'It cannot be replaced quickly.'},
+ {q:'People’s skills and education are called…',a:'Human resources (human capital)',w:['Natural resources','Capital resources','Raw materials'],e:'Human capital makes workers more productive.',h:'Resources that are people.'},
+ {q:'Why do countries trade?',a:'No country has all the resources it needs',w:['To get rid of all resources','Because trade is required by the UN','To stop making goods'],e:'Uneven resource distribution encourages trade.',h:'Resources are spread unevenly.'},
+],
+wg3:[
+ {q:'Which mountain range runs through the western United States and Canada?',a:'The Rocky Mountains',w:['The Appalachian Mountains','The Andes','The Alps'],e:'The Rockies stretch from Canada to New Mexico.',h:'They are west of the Great Plains.'},
+ {q:'Which waterways connect the Great Lakes to the Atlantic Ocean?',a:'The St. Lawrence River and Seaway',w:['The Mississippi River','The Colorado River','The Rio Grande'],e:'The St. Lawrence Seaway lets ships travel from the Great Lakes to the Atlantic.',h:'It flows through Canada.'},
+ {q:'Canada has two official languages. What are they?',a:'English and French',w:['English and Spanish','French and German','Spanish and Portuguese'],e:'French is common in Quebec.',h:'Think of Quebec.'},
+],
+wg4:[
+ {q:'Which is the largest rainforest in the world?',a:'The Amazon',w:['The Sahara','The Gobi','The Outback'],e:'The Amazon rainforest covers much of northern South America.',h:'It is in South America.'},
+ {q:'Which mountain range runs along the western side of South America?',a:'The Andes',w:['The Rockies','The Himalayas','The Urals'],e:'The Andes are the longest continental mountain range.',h:'Peru and Chile are along it.'},
+ {q:'What is the main language of Brazil?',a:'Portuguese',w:['Spanish','French','English'],e:'Brazil was colonized by Portugal.',h:'It is not Spanish.'},
+ {q:'The Panama Canal is important because it…',a:'Connects the Atlantic and Pacific Oceans for ships',w:['Divides Mexico and the U.S.','Is the longest river','Stores fresh water for Brazil'],e:'Ships avoid sailing around South America.',h:'A shortcut for ships.'},
+],
+wg5:[
+ {q:'Which mountain range is in central Europe?',a:'The Alps',w:['The Andes','The Rockies','The Atlas Mountains'],e:'The Alps cross Switzerland, Austria, France, and Italy.',h:'Famous for skiing.'},
+ {q:'Many European countries share a common currency called the…',a:'Euro',w:['Dollar','Yen','Peso'],e:'The euro is used by many European Union members.',h:'It sounds like Europe.'},
+ {q:'The North Atlantic Drift (Gulf Stream) gives Western Europe…',a:'A milder climate than its latitude suggests',w:['Desert weather','Monsoons','No seasons'],e:'Warm ocean currents warm the region.',h:'A warm ocean current.'},
+ {q:'Which river is an important trade route through Germany and the Netherlands?',a:'The Rhine',w:['The Nile','The Amazon','The Yangtze'],e:'The Rhine carries barges between industrial cities and the North Sea.',h:'It flows to the North Sea.'},
+],
+wg6:[
+ {q:'Which mountains are often said to divide Europe from Asia in Russia?',a:'The Ural Mountains',w:['The Alps','The Andes','The Pyrenees'],e:'The Urals run north-south through western Russia.',h:'They are in Russia.'},
+ {q:'The large, cold forested region of Siberia is called the…',a:'Taiga',w:['Savanna','Sahel','Pampas'],e:'The taiga is a huge evergreen forest.',h:'Boreal forest.'},
+ {q:'Which is the world’s largest country by area?',a:'Russia',w:['Canada','China','Brazil'],e:'Russia spans 11 time zones.',h:'It crosses two continents.'},
+],
+wg7:[
+ {q:'Which is the tallest mountain in Africa?',a:'Mount Kilimanjaro',w:['Mount Everest','Mount Fuji','Mont Blanc'],e:'Kilimanjaro is in Tanzania.',h:'It is snow-capped near the equator.'},
+ {q:'Grasslands with scattered trees in sub-Saharan Africa are called…',a:'Savannas',w:['Tundra','Taiga','Steppes'],e:'Savannas support large herds of animals.',h:'Lions and zebras live there.'},
+ {q:'The Sahel is…',a:'A semi-arid strip south of the Sahara',w:['A rainforest','A river delta','An ice cap'],e:'The Sahel is at risk of desertification.',h:'It borders the desert.'},
+ {q:'Which river is the main river of West Africa?',a:'The Niger River',w:['The Thames','The Volga','The Ganges'],e:'The Niger flows through Mali, Niger, and Nigeria.',h:'A country shares its name.'},
+],
+wg8:[
+ {q:'Which river created a fertile valley through the desert of Egypt?',a:'The Nile',w:['The Congo','The Amazon','The Danube'],e:'The Nile is the longest river in Africa.',h:'Ancient Egypt grew along it.'},
+ {q:'Which natural resource is most important to many Southwest Asian economies?',a:'Oil',w:['Coffee','Timber','Rubber'],e:'Countries around the Persian Gulf have large oil reserves.',h:'It is found near the Persian Gulf.'},
+ {q:'Which is the largest hot desert in the world?',a:'The Sahara',w:['The Gobi','The Mojave','The Atacama'],e:'The Sahara covers much of North Africa.',h:'It is in North Africa.'},
+ {q:'Why is fresh water a major issue in Southwest Asia?',a:'The climate is very dry and water sources are shared',w:['It rains every day','There are no rivers anywhere','Everyone lives on islands'],e:'Rivers like the Tigris and Euphrates cross borders.',h:'Think about the climate.'},
+],
+wg9:[
+ {q:'Which mountain range includes Mount Everest?',a:'The Himalayas',w:['The Alps','The Rockies','The Andes'],e:'The Himalayas separate South Asia from the Tibetan Plateau.',h:'The highest mountains on Earth.'},
+ {q:'Seasonal winds that bring heavy summer rain to South Asia are called…',a:'Monsoons',w:['Tornadoes','Hurricanes only','Blizzards'],e:'Monsoons are vital for farming.',h:'They change direction with the season.'},
+ {q:'Which country in Southeast Asia is made of thousands of islands?',a:'Indonesia',w:['Laos','Nepal','Mongolia'],e:'Indonesia is an archipelago.',h:'An archipelago.'},
+ {q:'Rice terraces on hillsides help farmers…',a:'Create flat land and control water',w:['Grow cactus','Build cities','Mine coal'],e:'Terraces prevent erosion and hold water.',h:'Steps on a hillside.'},
+],
+wg10:[
+ {q:'Which country has the most people in East Asia?',a:'China',w:['Japan','South Korea','Mongolia'],e:'China is among the most populous countries in the world.',h:'It is the largest country in the region.'},
+ {q:'Japan has many earthquakes and volcanoes because it is located on the…',a:'Ring of Fire',w:['Sahara','Great Plains','Arctic Circle'],e:'Tectonic plates meet around the Pacific Ocean.',h:'Around the Pacific.'},
+ {q:'Which river is the longest in Asia?',a:'The Yangtze',w:['The Mekong','The Ganges','The Nile'],e:'The Yangtze flows across China.',h:'It flows through China.'},
+],
+wg11:[
+ {q:'What is Australia’s dry interior called?',a:'The Outback',w:['The Tundra','The Steppe','The Pampas'],e:'Most Australians live along the coasts, not the Outback.',h:'Kangaroo country.'},
+ {q:'The Great Barrier Reef is located off the coast of…',a:'Australia',w:['Chile','Norway','Egypt'],e:'It is the world’s largest coral reef system.',h:'Down under.'},
+ {q:'Why do many Pacific Islands worry about rising sea levels?',a:'Many are low-lying and could flood',w:['They are high mountains','They have no coasts','They are inland'],e:'Low islands are at risk from rising seas.',h:'Think about elevation.'},
+],
+wg12:[
+ {q:'Population density means…',a:'The number of people living in a given area',w:['The total population of the world','How fast people walk','The age of a population'],e:'Density = people ÷ area.',h:'How crowded a place is.'},
+ {q:'Countries with high birth rates and young populations are often…',a:'Developing countries',w:['Countries with very old populations','Countries with no children','Countries with shrinking cities only'],e:'Developing economies often have faster population growth.',h:'Think about population pyramids.'},
+ {q:'Which is often used to measure standard of living?',a:'GDP per capita',w:['Total land area','Number of mountains','Length of coastline'],e:'GDP per capita shows average economic output per person.',h:'Per person.'},
+],
+wg13:[
+ {q:'A “push factor” in migration is…',a:'Something that makes people want to leave a place, like war or drought',w:['A job opportunity somewhere else','Good schools in a new city','Free land elsewhere'],e:'Push factors drive people away; pull factors attract them.',h:'Push = away.'},
+ {q:'Which is a PULL factor?',a:'Better job opportunities',w:['Natural disasters','Conflict','Crop failure'],e:'Pull factors attract people to a new place.',h:'Pull = toward.'},
+ {q:'A person forced to flee their country because of war or persecution is a…',a:'Refugee',w:['Tourist','Commuter','Retiree'],e:'Refugees are protected under international law.',h:'They had to escape.'},
+],
+wg14:[
+ {q:'The spread of ideas, foods, and customs from one culture to another is called…',a:'Cultural diffusion',w:['Erosion','Urbanization','Deforestation'],e:'Trade, travel, and technology spread culture.',h:'Culture spreading out.'},
+ {q:'Which is part of a group’s culture?',a:'Language, religion, food, and customs',w:['Latitude and longitude','The tilt of Earth','The speed of light'],e:'Culture is the shared way of life of a group.',h:'How people live.'},
+ {q:'Which helps spread culture fastest today?',a:'The internet and social media',w:['Horse-drawn carts','Handwritten letters only','Smoke signals'],e:'Digital communication spreads ideas instantly worldwide.',h:'Modern technology.'},
+],
+wg15:[
+ {q:'The movement of people from farms to cities is called…',a:'Urbanization',w:['Ruralization','Deforestation','Desertification'],e:'Cities grow as people move for jobs and services.',h:'Urban = city.'},
+ {q:'Why did many cities grow along rivers and coasts?',a:'Water provided transportation, trade, and fresh water',w:['Rivers kept people away','Coasts have no wind','Mountains block rivers'],e:'A city’s site and situation affect its growth.',h:'Think about ships and water.'},
+ {q:'A problem in fast-growing cities is…',a:'Traffic, pollution, and housing shortages',w:['Too few people','No jobs at all','Too much farmland'],e:'Rapid growth strains services.',h:'Many people in a small space.'},
+],
+wg16:[
+ {q:'Globalization means…',a:'Countries becoming more connected through trade, travel, and technology',w:['Countries cutting off all contact','Making the world smaller in size','Only one country trading'],e:'Goods, ideas, and people move across the world.',h:'The world is more connected.'},
+ {q:'Which helps global trade the most?',a:'Container ships and international agreements',w:['Closing all ports','Banning the internet','Using only barter'],e:'Shipping and trade agreements move goods cheaply.',h:'How do goods cross oceans?'},
+ {q:'A phone designed in one country, with parts from many countries, shows…',a:'Economic interdependence',w:['Isolation','Self-sufficiency','A command economy'],e:'Countries rely on each other to make goods.',h:'They depend on one another.'},
+],
+wg17:[
+ {q:'Why can rivers cause conflict between countries?',a:'Countries may disagree over sharing the water',w:['Rivers never cross borders','Rivers are always private property','Rivers cannot be used for farming'],e:'Dams upstream can reduce water downstream.',h:'Who controls the water?'},
+ {q:'Which is a reason borders are sometimes disputed?',a:'Valuable resources or historical claims to the same land',w:['Everyone agrees on every map','Borders never change','There are no resources near borders'],e:'Resources and history can lead countries to claim the same land.',h:'Why might two countries want the same land?'},
+ {q:'A narrow waterway that controls ship traffic is a…',a:'Strategic chokepoint',w:['Delta','Plateau','Tributary'],e:'Examples include the Strait of Hormuz and the Panama Canal.',h:'Ships must pass through it.'},
+],
+};
+
+
+// ═══════════════════════════════════════════════════════════════
+// LEARNING LEVELS — only grades with real content are offered:
+// Grade 4 (elementary) and Grades 6, 7, 8 (middle school).
+// ═══════════════════════════════════════════════════════════════
+const LEVELS=[[4,'Grade 4','Elementary · Virginia Studies'],[6,'Grade 6','Middle school'],[7,'Grade 7','Middle school'],[8,'Grade 8','Middle school']];
+const LEVEL_IDS=LEVELS.map(l=>l[0]);
+function normGrade(g){g=+g||4;return g>=8?8:g===7?7:g>=5?6:4;}
+gradeContent=function(){return normGrade(ST.grade);};
+gcNum=gradeContent;
+
+STRANDS[7]={
+  math:[
+    {code:'7.NS.1',name:'Scientific Notation',desc:'Negative powers of 10 & scientific notation',gen:'g7_ns1'},
+    {code:'7.NS.2',name:'Rational Numbers',desc:'Compare & order fractions, decimals, percents',gen:'g7_ns2'},
+    {code:'7.NS.3',name:'Square Roots',desc:'Perfect squares and square roots to 400',gen:'g7_ns3'},
+    {code:'7.CE.1',name:'Multistep Problems',desc:'Solve problems with rational numbers',gen:'g7_ce1'},
+    {code:'7.CE.2',name:'Percents & Proportions',desc:'Discounts, tax, unit rates & proportions',gen:'g7_ce2'},
+    {code:'7.MG.1',name:'Volume & Surface Area',desc:'Cylinders and rectangular prisms',gen:'g7_mg1'},
+    {code:'7.MG.2',name:'Similar Figures',desc:'Scale factors & scale drawings',gen:'g7_mg2'},
+    {code:'7.MG.3',name:'Quadrilaterals',desc:'Classify & find missing angles',gen:'g7_mg3'},
+    {code:'7.MG.4',name:'Dilations',desc:'Dilate figures from the origin',gen:'g7_mg4'},
+    {code:'7.PS.1',name:'Probability',desc:'Theoretical vs. experimental',gen:'g7_ps1'},
+    {code:'7.PS.2',name:'Histograms',desc:'Read & analyze histograms',gen:'g7_ps2'},
+    {code:'7.PFA.1',name:'Proportional Relationships',desc:'y = mx, tables, graphs & slope',gen:'g7_pfa1'},
+    {code:'7.PFA.2',name:'Expressions',desc:'Evaluate & simplify expressions',gen:'g7_pfa2'},
+    {code:'7.PFA.3',name:'Two-Step Equations',desc:'Write & solve equations',gen:'g7_pfa3'},
+    {code:'7.PFA.4',name:'Inequalities',desc:'Solve one- and two-step inequalities',gen:'g7_pfa4'},
+  ],
+  read:[
+    {code:'7.4',name:'Vocabulary',desc:'Roots, affixes, connotation & figurative language',gen:'r7_vocab'},
+    {code:'7.5',name:'Fiction Analysis',desc:'Conflict, theme, point of view & inference',gen:'r7_fiction'},
+    {code:'7.6',name:'Nonfiction Analysis',desc:'Main idea, structure, claims & purpose',gen:'r7_nonfic'},
+  ],
+  sci:[
+    {code:'LS.2',name:'Cells',desc:'Cell theory, organelles & cell division',gen:'ls2'},
+    {code:'LS.3',name:'Classification',desc:'Levels of organization & classifying life',gen:'ls3'},
+    {code:'LS.4',name:'Photosynthesis & Respiration',desc:'How living things get energy',gen:'ls4'},
+    {code:'LS.5',name:'Ecosystems',desc:'Biotic & abiotic factors, cycles, energy flow',gen:'ls5'},
+    {code:'LS.6',name:'Populations & Interactions',desc:'Predators, symbiosis & competition',gen:'ls6'},
+    {code:'LS.7',name:'Adaptations',desc:'How traits help organisms survive',gen:'ls7'},
+    {code:'LS.10',name:'Heredity',desc:'DNA, genes & Punnett squares',gen:'ls10'},
+    {code:'LS.11',name:'Change Over Time',desc:'Fossils, variation & natural selection',gen:'ls11'},
+  ],
+  write:[
+    {code:'7.7',name:'Writing',desc:'Thesis, evidence, transitions & style',gen:'w7_write'},
+    {code:'7.8',name:'Editing',desc:'Agreement, modifiers & punctuation',gen:'w7_edit'},
+  ],
+  hist:[
+    {code:'CE.1',name:'Constitutional Foundations',desc:'Principles, Articles of Confederation, amendments',gen:'ce1'},
+    {code:'CE.2',name:'Federal Government',desc:'Three branches & checks and balances',gen:'ce2'},
+    {code:'CE.3',name:'Virginia Government',desc:'General Assembly, Governor & courts',gen:'ce3'},
+    {code:'CE.4',name:'Local Government',desc:'Counties, cities, towns & ordinances',gen:'ce4'},
+    {code:'CE.5',name:'The Judicial System',desc:'State & federal courts, rights of the accused',gen:'ce5'},
+    {code:'CE.6',name:'Citizenship & Rights',desc:'Becoming a citizen, duties & responsibilities',gen:'ce6'},
+    {code:'CE.7',name:'Good Citizenship',desc:'Civility, honesty & community service',gen:'ce7'},
+    {code:'CE.8',name:'Parties & Elections',desc:'Political parties, voting & the Electoral College',gen:'ce8'},
+    {code:'CE.9',name:'The Media',desc:'Free press, bias & evaluating sources',gen:'ce9'},
+    {code:'CE.11',name:'Economic Foundations',desc:'Scarcity, choices, supply & demand',gen:'ce11'},
+    {code:'CE.12',name:'Government & the Economy',desc:'Public goods, fiscal & monetary policy',gen:'ce12'},
+    {code:'CE.13',name:'Personal Finance',desc:'Budgets, credit, insurance & saving',gen:'ce13'},
+  ],
+};
+STRANDS[8]={
+  math:[
+    {code:'8.NS.1',name:'Real Numbers',desc:'Compare, order & estimate square roots',gen:'g8_ns1'},
+    {code:'8.NS.2',name:'Real Number System',desc:'Rational, irrational & number sets',gen:'g8_ns2'},
+    {code:'8.CE.1',name:'Percents in Context',desc:'Percent change, tax & simple interest',gen:'g8_ce1'},
+    {code:'8.MG.1',name:'Angle Relationships',desc:'Vertical, supplementary & complementary',gen:'g8_mg1'},
+    {code:'8.MG.2',name:'Cones & Pyramids',desc:'Volume and surface area',gen:'g8_mg2'},
+    {code:'8.MG.3',name:'Transformations',desc:'Translations & reflections',gen:'g8_mg3'},
+    {code:'8.MG.4',name:'Pythagorean Theorem',desc:'Right triangles in context',gen:'g8_mg4'},
+    {code:'8.MG.5',name:'Composite Figures',desc:'Area & perimeter of combined shapes',gen:'g8_mg5'},
+    {code:'8.PS.1',name:'Compound Probability',desc:'Independent & dependent events',gen:'g8_ps1'},
+    {code:'8.PS.2',name:'Boxplots',desc:'Median, quartiles & IQR',gen:'g8_ps2'},
+    {code:'8.PS.3',name:'Scatterplots',desc:'Relationships & lines of best fit',gen:'g8_ps3'},
+    {code:'8.PFA.1',name:'Algebraic Expressions',desc:'Simplify & write equivalent expressions',gen:'g8_pfa1'},
+    {code:'8.PFA.2',name:'Functions',desc:'Relations, domain & range',gen:'g8_pfa2'},
+    {code:'8.PFA.3',name:'Linear Functions',desc:'Slope, intercepts & rate of change',gen:'g8_pfa3'},
+    {code:'8.PFA.4',name:'Multistep Equations',desc:'Variables on both sides',gen:'g8_pfa4'},
+    {code:'8.PFA.5',name:'Multistep Inequalities',desc:'Solve & flip the sign when needed',gen:'g8_pfa5'},
+  ],
+  read:[
+    {code:'8.4',name:'Vocabulary',desc:'Roots, connotation & figurative language',gen:'r8_vocab'},
+    {code:'8.5',name:'Fiction Analysis',desc:'Foreshadowing, irony, theme & characterization',gen:'r8_fiction'},
+    {code:'8.6',name:'Nonfiction Analysis',desc:'Arguments, evidence, sources & techniques',gen:'r8_nonfic'},
+  ],
+  sci:[
+    {code:'PS.2',name:'Atoms & Matter',desc:'Atomic structure & particle theory',gen:'ps2'},
+    {code:'PS.3',name:'Properties of Matter',desc:'Physical & chemical changes, conservation',gen:'ps3'},
+    {code:'PS.4',name:'Periodic Table',desc:'How elements are organized',gen:'ps4'},
+    {code:'PS.5',name:'Energy',desc:'Potential, kinetic & heat transfer',gen:'ps5'},
+    {code:'PS.6',name:'Waves & Sound',desc:'Wave properties & sound',gen:'ps6'},
+    {code:'PS.7',name:'Light & EM Radiation',desc:'The electromagnetic spectrum',gen:'ps7'},
+    {code:'PS.8',name:'Force & Motion',desc:'Newton’s laws, work & speed',gen:'ps8'},
+    {code:'PS.9',name:'Electricity & Magnetism',desc:'Circuits, static & electromagnets',gen:'ps9'},
+  ],
+  write:[
+    {code:'8.7',name:'Writing',desc:'Arguments, counterclaims & citing sources',gen:'w8_write'},
+    {code:'8.8',name:'Editing',desc:'Voice, mood, parallelism & pronouns',gen:'w8_edit'},
+  ],
+  hist:[
+    {code:'WG.1',name:'Geography Tools',desc:'Maps, GIS, regions & projections',gen:'wg1'},
+    {code:'WG.2',name:'Resources',desc:'Natural, human & capital resources',gen:'wg2'},
+    {code:'WG.3',name:'United States & Canada',desc:'Landforms, waterways & cultures',gen:'wg3'},
+    {code:'WG.4',name:'Latin America',desc:'Andes, Amazon & the Caribbean',gen:'wg4'},
+    {code:'WG.5',name:'Europe',desc:'Alps, rivers, climate & the EU',gen:'wg5'},
+    {code:'WG.6',name:'Russia & Central Asia',desc:'Urals, taiga & a vast land',gen:'wg6'},
+    {code:'WG.7',name:'Sub-Saharan Africa',desc:'Savannas, the Sahel & rivers',gen:'wg7'},
+    {code:'WG.8',name:'North Africa & Southwest Asia',desc:'Deserts, the Nile & oil',gen:'wg8'},
+    {code:'WG.9',name:'South & Southeast Asia',desc:'Himalayas, monsoons & islands',gen:'wg9'},
+    {code:'WG.10',name:'East Asia',desc:'China, Japan & the Ring of Fire',gen:'wg10'},
+    {code:'WG.11',name:'Australia & the Pacific',desc:'Outback, reefs & islands',gen:'wg11'},
+    {code:'WG.12',name:'Population',desc:'Density, growth & standard of living',gen:'wg12'},
+    {code:'WG.13',name:'Migration',desc:'Push and pull factors, refugees',gen:'wg13'},
+    {code:'WG.14',name:'Culture',desc:'Cultural patterns & diffusion',gen:'wg14'},
+    {code:'WG.15',name:'Cities & Rural Areas',desc:'Urbanization & where cities grow',gen:'wg15'},
+    {code:'WG.16',name:'Globalization',desc:'Trade, interdependence & networks',gen:'wg16'},
+    {code:'WG.17',name:'Political Geography',desc:'Borders, chokepoints & shared rivers',gen:'wg17'},
+  ],
+};
+HIST_STRANDS[7]=STRANDS[7].hist;HIST_STRANDS[8]=STRANDS[8].hist;
+
+// questions from the middle-school banks
+function msStrand(gen){for(const g of [7,8])for(const s of Object.keys(STRANDS[g]))for(const st of STRANDS[g][s])if(st.gen===gen)return st;return null;}
+function msQ(gen){
+  const st=msStrand(gen)||{code:'',name:'Practice'};const it=pick(MSB[gen]);
+  if(it.t==='multi')return {type:'multi',badge:'Select all',sol:st.code,question:it.q,opts:shuf(it.o.slice()),answers:it.a,explanation:it.e,hint:it.h};
+  if(it.t==='order')return {type:'order',badge:'Put in order',sol:st.code,question:it.q,items:it.items,explanation:it.e,hint:it.h};
+  const q=mcq(st.name,st.code,it.q,[it.a].concat(it.w),it.a,it.e,it.h);
+  if(it.p)q.passage=it.p;return q;
+}
+const _makeQBase=makeQ;
+makeQ=function(gen){return MSB[gen]?msQ(gen):_makeQBase(gen);};
+
+// lessons: key ideas shown before practice
+Object.assign(LESSONS,{
+ g7_ns1:['Scientific notation writes a number as a factor from 1 to less than 10 times a power of 10, like 4.5 × 10⁴.','Negative exponents mean small numbers: 10⁻³ = 1 ÷ 1,000 = 0.001.','Compare numbers in scientific notation by looking at the exponents first.'],
+ g7_ns2:['Change fractions and percents to decimals to compare them.','On a number line, numbers increase to the right. −0.8 is less than −0.75.','Absolute value is distance from zero, so it is never negative.'],
+ g7_ns3:['A perfect square is a whole number times itself, like 196 = 14 × 14.','The square root undoes squaring: √196 = 14.'],
+ g7_ce1:['Read the problem, decide the operations, then solve step by step.','Estimate first so you can check whether your answer makes sense.'],
+ g7_ce2:['Percent means “out of 100.” 20% of 50 = 0.20 × 50 = 10.','Discount: subtract from the price. Tax and tip: add to the price.','A unit rate compares to 1, like miles per hour.'],
+ g7_mg1:['Volume of a cylinder: V = πr²h.','Surface area of a rectangular prism: SA = 2lw + 2lh + 2wh.','Surface area of a cylinder: SA = 2πr² + 2πrh.'],
+ g7_mg2:['Similar figures have the same shape; corresponding sides are proportional.','The scale factor is new length ÷ original length.'],
+ g7_mg3:['The angles of any quadrilateral add to 360°.','Square ⊂ rectangle and rhombus ⊂ parallelogram. A trapezoid has exactly one pair of parallel sides.'],
+ g7_mg4:['A dilation with the origin as center multiplies each coordinate by the scale factor.','Scale factor > 1 enlarges; between 0 and 1 shrinks.'],
+ g7_ps1:['Theoretical probability = favorable outcomes ÷ total outcomes.','Experimental probability uses actual results. More trials usually bring it closer to the theoretical value.'],
+ g7_ps2:['A histogram groups data into equal intervals.','The height of each bar is how many values fall in that interval.'],
+ g7_pfa1:['A proportional relationship can be written y = mx. The graph is a straight line through (0, 0).','The slope m is the unit rate: change in y ÷ change in x.'],
+ g7_pfa2:['Combine like terms: 3x + 5x = 8x.','Distributive property: a(b + c) = ab + ac.'],
+ g7_pfa3:['Undo operations in reverse order: first add or subtract, then multiply or divide.','Check your answer by substituting it back in.'],
+ g7_pfa4:['Solve inequalities like equations.','On a number line, use an open circle for < or > and a closed circle for ≤ or ≥.'],
+ g8_ns1:['Estimate a square root by finding the perfect squares on either side: √50 is between 7 and 8.','Every positive number has two square roots, one positive and one negative.'],
+ g8_ns2:['Natural ⊂ whole ⊂ integers ⊂ rational ⊂ real numbers.','Irrational numbers, like π and √2, are non-repeating, non-ending decimals.'],
+ g8_ce1:['Percent change = amount of change ÷ original amount.','Simple interest: I = P × r × t.'],
+ g8_mg1:['Vertical angles are congruent.','Supplementary angles add to 180°. Complementary angles add to 90°.'],
+ g8_mg2:['Volume of a cone: V = ⅓πr²h. Volume of a pyramid: V = ⅓Bh.','Surface area of a square pyramid = base + 4 triangles.'],
+ g8_mg3:['Translation: slide every point the same distance.','Reflect over the x-axis: (x, y) → (x, −y). Over the y-axis: (x, y) → (−x, y).'],
+ g8_mg4:['In a right triangle, a² + b² = c², where c is the hypotenuse.','Use it to find a missing side or to check whether a triangle is a right triangle.'],
+ g8_mg5:['Split a composite figure into rectangles, triangles, and circle parts.','Add the parts (or subtract a cut-out part).'],
+ g8_ps1:['Independent events: multiply the probabilities.','Dependent events: after the first pick, update the numbers before multiplying.'],
+ g8_ps2:['A boxplot shows the minimum, Q1, median, Q3, and maximum.','The interquartile range (IQR) = Q3 − Q1 and holds the middle 50% of the data.'],
+ g8_ps3:['A scatterplot shows how two variables relate: positive, negative, or no relationship.','A line of best fit can be used to make predictions.'],
+ g8_pfa1:['Distribute first, then combine like terms.','Watch negative signs when distributing.'],
+ g8_pfa2:['A function pairs each input with exactly one output.','Domain = all inputs (x). Range = all outputs (y).'],
+ g8_pfa3:['In y = mx + b, m is the slope and b is the y-intercept.','Slope = (y₂ − y₁) ÷ (x₂ − x₁).'],
+ g8_pfa4:['Move variable terms to one side and numbers to the other.','Keep both sides balanced: do the same thing to each side.'],
+ g8_pfa5:['Solve like an equation.','When you multiply or divide by a negative number, flip the inequality sign.'],
+ r7_vocab:['Use context clues around an unknown word.','Roots and affixes help: trans- = across, aud = hear.','Connotation is the feeling a word gives: thrifty (positive) vs. stingy (negative).'],
+ r7_fiction:['Conflict can be internal (inside a character) or external.','Theme is the lesson or message about life.','Point of view: first person uses “I”; third person uses “he” or “she.”'],
+ r7_nonfic:['Main idea: what the whole passage is mostly about.','Text structures: sequence, cause and effect, compare and contrast, problem and solution.','A claim is an opinion supported by evidence.'],
+ r8_vocab:['Greek and Latin roots unlock many words: chron = time, mal- = bad.','Figurative language says something non-literally.'],
+ r8_fiction:['Foreshadowing hints at future events.','Irony is the difference between what is expected and what happens.','Indirect characterization shows character through actions and words.'],
+ r8_nonfic:['Strong arguments use relevant evidence and address counterclaims.','Check sources for reliability.','Persuasive techniques include bandwagon, expert opinion, and statistics.'],
+ w7_write:['A thesis states your main claim.','Use transitions to connect ideas: however, therefore, for example.'],
+ w7_edit:['Indefinite pronouns like each and neither are singular.','Place modifiers next to the word they describe.'],
+ w8_write:['Address a counterclaim, then explain why your claim is stronger.','Cite sources to avoid plagiarism.'],
+ w8_edit:['Use active voice for clear writing.','Keep items in a list parallel.','Use “were” for imagined situations: If I were…'],
+ ls2:['Cell theory: all living things are made of cells, cells are the basic unit of life, and cells come from cells.','Plant cells have a cell wall and chloroplasts; animal cells do not.','Mitosis makes identical cells for growth and repair.'],
+ ls3:['Levels: cell → tissue → organ → organ system → organism.','Classification: domain, kingdom, phylum, class, order, family, genus, species.'],
+ ls4:['Photosynthesis: carbon dioxide + water + light → glucose + oxygen.','Cellular respiration releases energy from glucose.'],
+ ls5:['Biotic = living; abiotic = nonliving.','Only about 10% of energy passes to the next level of an energy pyramid.','Decomposers recycle nutrients.'],
+ ls6:['Symbiosis: mutualism (both benefit), commensalism (one benefits, one unaffected), parasitism (one harmed).','Limited resources lead to competition and set the carrying capacity.'],
+ ls7:['Structural adaptations are body features; behavioral adaptations are actions.','Camouflage and mimicry help organisms avoid predators.'],
+ ls10:['DNA carries genetic information.','Dominant alleles (capital letters) hide recessive alleles.','Punnett squares predict offspring.'],
+ ls11:['Fossils show how life has changed over time.','Natural selection: organisms with helpful traits survive and reproduce.'],
+ ps2:['Atoms have protons (+), neutrons (0), and electrons (−).','The atomic number is the number of protons.'],
+ ps3:['Physical changes do not make new substances; chemical changes do.','Mass is conserved in chemical reactions.'],
+ ps4:['The periodic table is ordered by atomic number.','Groups (columns) share similar properties. Metals are on the left.'],
+ ps5:['Potential energy is stored; kinetic energy is motion.','Energy changes form but is conserved.','Heat moves by conduction, convection, and radiation.'],
+ ps6:['Sound is a longitudinal wave that needs a medium.','Frequency affects pitch; amplitude affects loudness.'],
+ ps7:['The electromagnetic spectrum goes from radio waves (long) to gamma rays (short).','EM waves can travel through empty space.'],
+ ps8:['Newton’s laws: inertia, F = ma, and action–reaction.','Speed = distance ÷ time. Work = force × distance.'],
+ ps9:['Series circuits have one path; parallel circuits have several.','Like poles repel; opposite poles attract.'],
+ ce1:['Principles: popular sovereignty, limited government, federalism, separation of powers, checks and balances.','The Constitution replaced the weak Articles of Confederation.'],
+ ce2:['Legislative makes laws, executive carries them out, judicial interprets them.','Checks and balances: veto, override, judicial review.'],
+ ce3:['Virginia’s General Assembly has the House of Delegates and the Senate.','The Governor leads the executive branch for a four-year term.'],
+ ce4:['Local governments get their power from the General Assembly.','Local laws are called ordinances.'],
+ ce5:['There are state courts and federal courts.','Criminal cases involve crimes; civil cases settle private disputes.'],
+ ce6:['Citizenship comes by birth or naturalization.','Duties are required (obey laws, pay taxes); responsibilities are expected (vote, stay informed).'],
+ ce7:['Good citizens show civility, honesty, respect, and responsibility.','Community service promotes the common good.'],
+ ce8:['Political parties recruit candidates and inform voters.','A presidential candidate needs 270 of 538 electoral votes.'],
+ ce9:['A free press informs citizens and checks government.','Compare sources to spot bias.'],
+ ce11:['Scarcity forces choices. Opportunity cost is the next-best choice given up.','Prices are set by supply and demand in a market economy.'],
+ ce12:['Government provides public goods like roads and defense.','Fiscal policy = taxing and spending. Monetary policy = the Federal Reserve.'],
+ ce13:['A budget plans spending and saving.','Good credit means lower interest rates. Diversify to reduce risk.'],
+ wg1:['Latitude measures north–south; longitude measures east–west.','GIS layers data on digital maps.','All flat maps distort Earth.'],
+ wg2:['Resources: natural, human, and capital.','Uneven resources lead countries to trade.'],
+ wg3:['The Rockies are in the west; the Appalachians in the east.','The St. Lawrence Seaway links the Great Lakes to the Atlantic.'],
+ wg4:['The Andes run along western South America.','The Amazon is the largest rainforest.'],
+ wg5:['The Alps cross central Europe.','Warm ocean currents give Western Europe a mild climate.'],
+ wg6:['Russia is the largest country by area.','The Ural Mountains divide Europe and Asia.'],
+ wg7:['Savannas cover much of sub-Saharan Africa.','The Sahel borders the Sahara and faces desertification.'],
+ wg8:['The Nile Valley is fertile land in the desert.','Oil is a key resource near the Persian Gulf.'],
+ wg9:['The Himalayas include Mount Everest.','Monsoons bring heavy summer rain.'],
+ wg10:['Japan lies on the Ring of Fire.','The Yangtze is Asia’s longest river.'],
+ wg11:['Most Australians live along the coasts.','Low-lying Pacific Islands face rising seas.'],
+ wg12:['Population density = people ÷ area.','GDP per capita helps measure standard of living.'],
+ wg13:['Push factors drive people away; pull factors attract them.','Refugees flee war or persecution.'],
+ wg14:['Culture includes language, religion, food, and customs.','Cultural diffusion spreads ideas between groups.'],
+ wg15:['Urbanization: people moving from rural areas to cities.','Cities often grow near water for trade and transportation.'],
+ wg16:['Globalization connects countries through trade and technology.','Countries depend on one another to make goods.'],
+ wg17:['Borders can be disputed over resources or history.','Chokepoints like straits and canals control shipping.'],
+});
+
+// games and timelines for middle school
+HIST_EVENTS[7]=[[1776,'Declaration of Independence'],[1781,'Articles of Confederation ratified'],[1787,'Constitution written'],[1791,'Bill of Rights ratified'],[1803,'Marbury v. Madison'],
+  [1868,'14th Amendment ratified'],[1870,'15th Amendment ratified'],[1913,'Federal Reserve created'],[1920,'19th Amendment ratified'],[1954,'Brown v. Board of Education'],
+  [1965,'Voting Rights Act'],[1971,'26th Amendment lowers voting age to 18'],[1974,'Nixon resigns after Watergate']];
+HIST_EVENTS[8]=[[1869,'Suez Canal opens'],[1914,'Panama Canal opens'],[1945,'United Nations founded'],[1947,'India gains independence'],[1957,'European Economic Community formed'],
+  [1960,'Many African nations gain independence'],[1969,'First moon landing'],[1989,'Fall of the Berlin Wall'],[1991,'Soviet Union dissolves'],[1993,'European Union established'],[1999,'Euro introduced'],[2007,'Smartphones spread worldwide']];
+WHO[7]=[
+ ['James Madison',['I am called the “Father of the Constitution.”','I helped write The Federalist Papers.','I was the fourth president.']],
+ ['John Marshall',['I was Chief Justice of the Supreme Court.','My decision in Marbury v. Madison set up judicial review.','I was from Virginia.']],
+ ['George Mason',['I wrote the Virginia Declaration of Rights.','My ideas shaped the Bill of Rights.','I refused to sign the Constitution without a bill of rights.']],
+ ['Thurgood Marshall',['I argued Brown v. Board of Education before the Supreme Court.','I became the first African American Supreme Court justice.','I fought for equal rights under the law.']],
+ ['Sandra Day O’Connor',['I was the first woman on the U.S. Supreme Court.','I was appointed in 1981.','I came from Arizona.']],
+ ['The Governor of Virginia',['I lead Virginia’s executive branch.','I serve a four-year term.','I can sign or veto bills passed by the General Assembly.']],
+ ['The Federal Reserve',['I am the central bank of the United States.','I help control the money supply.','I can raise or lower interest rates.']],
+ ['A Supreme Court justice',['I am appointed by the President.','The Senate must confirm me.','I can serve for life.']],
+];
+WHO[8]=[
+ ['The Nile River',['I am the longest river in Africa.','I flow north to the Mediterranean Sea.','Ancient Egypt grew along my banks.']],
+ ['The Amazon',['I am the largest rainforest on Earth.','Most of me is in Brazil.','I am home to millions of species.']],
+ ['The Sahara',['I am the largest hot desert in the world.','I cover much of North Africa.','The Sahel lies along my southern edge.']],
+ ['The Himalayas',['I am the highest mountain range on Earth.','Mount Everest is part of me.','I separate South Asia from the Tibetan Plateau.']],
+ ['The Panama Canal',['I connect two oceans.','Ships use me to avoid sailing around South America.','I opened in 1914.']],
+ ['Australia',['I am both a country and a continent.','My dry interior is called the Outback.','The Great Barrier Reef is off my coast.']],
+ ['Russia',['I am the largest country by area.','I stretch across 11 time zones.','The Ural Mountains cross me.']],
+ ['The Alps',['I am a mountain range in central Europe.','Switzerland and Austria are in my peaks.','I am famous for skiing.']],
+];
+if(typeof WORD_BANK!=='undefined'){WORD_BANK[7]=WORD_BANK[7]||WORD_BANK[6];WORD_BANK[8]=WORD_BANK[8]||WORD_BANK[6];}
+
+// grade-aware subject titles and descriptions
+const SUBJ_GRADE={
+  7:{sci:['Life Science','Cells, ecosystems, heredity, and adaptation.'],hist:['Civics & Economics','Government, citizenship, and economic choices.']},
+  8:{sci:['Physical Science','Matter, energy, waves, forces, and electricity.'],hist:['World Geography','World regions, people, resources, and trade.']},
+  6:{hist:['U.S. History','The United States from 1865 to the present.']},
+  4:{hist:['Virginia Studies','Virginia’s geography, people, and history.']}};
+function subjTitle(k){const o=(SUBJ_GRADE[gradeContent()]||{})[k];return o?o[0]:(SUBJ[k].card||SUBJ[k].label);}
+function subjDesc(k){const o=(SUBJ_GRADE[gradeContent()]||{})[k];return o?o[1]:(CL_DESC[k]||'');}
 
 loadProfiles();
 if(PROFILES.active&&activateProfile(PROFILES.active))renderDash();else renderWho();
