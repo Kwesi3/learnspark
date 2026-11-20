@@ -1,6 +1,7 @@
 # LearnSpark
 
-Virginia SOL practice (Grades 1–6) and Story Time read-aloud books, in one web page.
+Virginia SOL practice (Grades 1–6) in Math, Reading, Science, Writing, and History & Social Science,
+plus Story Time read-aloud books, in one web page.
 No server, no accounts, no build step. Each learner's progress is saved in the
 browser on the device they use.
 
@@ -58,4 +59,6 @@ Skip "free domain" sites: they tend to expire or disappear.
 
 LearnSpark is an independent practice app. It is not affiliated with or endorsed by
 the Virginia Department of Education. SmartScores are practice indicators, not SOL
-scores. All stories and questions are original.
+scores. All stories and questions are original. History & Social Science follows the
+2023 Virginia History and Social Science Standards of Learning (Grade 4 Virginia Studies,
+Grade 6 United States History: 1865 to the Present).
