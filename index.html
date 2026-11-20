@@ -3681,13 +3681,13 @@ function openLesson(subj,code,firstTime){
         <div class="les-k" style="color:${s.color}">Key ideas</div>
         <ul class="les-list">${ideas.map(i=>`<li>${i}</li>`).join('')}</ul>
         ${lessonArt(st.gen)?`<div class="dg-wrap" style="margin-top:14px">${lessonArt(st.gen)}</div>`:''}
-        <button class="btn btn-sec speak" onclick="speak(${esc(JSON.stringify(ideas.join(' ')))})">🔊 Read to me</button>
+        <button class="btn btn-sec speak" onclick="narrOrSay('lessons','L:${st.gen}',${esc(JSON.stringify(ideas.join(' ')))},.9)">🔊 Read to me</button>
       </div>
       <div class="qc"><div class="les-k" style="color:${s.color}">Watch one worked out</div><div id="exArea"></div>
         <button class="btn btn-sec" style="margin-top:12px" onclick="drawExample('${subj}','${code}')">↻ Show another example</button></div>
       <div class="btns"><button class="btn btn-pri big" style="background:${s.color}" onclick="beginPractice('${subj}','${code}')">${firstTime?'Start practicing →':'Practice this skill →'}</button></div>
     </div></div>`);
-  drawExample(subj,code);
+  drawExample(subj,code);narrLoad('lessons');
 }
 function exampleHTML(q,color){
   if(q.type==='sentence')return `<div class="q-text">Put these words in order:</div>
@@ -4030,6 +4030,7 @@ function openSettings(){
     <div class="sheet-h">Settings <button class="icon-btn" onclick="document.getElementById('sheet').remove()" aria-label="Close">✕</button></div>
     <div class="set-row"><div><b>Daily goal</b><small>Questions per day</small></div>
       <div class="seg">${[10,20,30,50].map(g=>`<button class="${ST.dailyGoal===g?'on':''}" onclick="setGoal(${g},this)">${g}</button>`).join('')}</div></div>
+    ${voiceSettingsRows()}
     <div class="set-row"><div><b>Read-aloud button</b><small>Show 🔊 on questions</small></div>
       <button class="toggle ${ST.settings.readAloud!==false?'on':''}" onclick="toggleSet('readAloud',this)"></button></div>
     <div class="set-row"><div><b>Auto read questions</b><small>Read each question as it appears</small></div>
@@ -5315,6 +5316,20 @@ function stopTalking(){READ.talking=false;if(READ.ttsTimer){clearInterval(READ.t
 function readToMe(){
   if(READ.talking)return stopTalking();
   if(READ.want)micStop(true);micUI();
+  const key='p'+READ.page,bid=READ.book.id;
+  if(narrOK(bid,key)){
+    const W=AUDIO_MAP[bid].map[key].w;let last=-1;READ.talking=true;document.getElementById('ttsBtn').classList.add('on');
+    const mark=i=>{document.querySelectorAll('.w.tts').forEach(x=>x.classList.remove('tts'));const el=document.querySelector(`.w[data-k="${i}"]`);if(el)el.classList.add('tts');};
+    sparkySays('Follow the words with your eyes while I read.','happy');
+    narrPlay(bid,key,{onTick:t=>{let i=-1;for(let k=0;k<W.length;k++){if(W[k][0]<=t)i=k;else break;}if(i!==last&&i>=0){last=i;mark(i);}},
+      onEnd:()=>{stopTalking();sparkySays('Now you try! Tap the microphone and read it to me.','wave');}})
+      .then(ok=>{if(!ok){READ.talking=false;readToMeVoice();}});
+    return;
+  }
+  readToMeVoice();
+}
+function readToMeVoice(){
+  if(READ.want)micStop(true);micUI();
   const toks=READ.toks;let text='';const starts=[];toks.forEach(t=>{starts.push(text.length);text+=t.text+' ';});
   READ.talking=true;document.getElementById('ttsBtn').classList.add('on');
   let lastIdx=-1,gotBoundary=false;
@@ -5385,7 +5400,7 @@ function openBook(id,page){
         </div>
       </div>
     </div></div>`);
-  applyTextPrefs();drawPage();
+  applyTextPrefs();drawPage();narrLoad(b.id);
   sparkySays(canListen()?'Tap the microphone and read the page out loud. I’ll follow along!':'Read the page out loud, then tap › for the next page. Tap 🔊 to hear it first.','wave');
   _tick=setInterval(readerTick,500);
 }
@@ -5446,7 +5461,7 @@ function readerTick(){
 }
 function helpWord(k){
   const t=READ.toks[k];READ.helpedAt=Date.now();
-  const w=t.subs.join(' ')||t.text;sayText(plain(t.text).replace(/[“”"]/g,''),.75);
+  const w=t.subs.join(' ')||t.text;narrOrSay(READ.book.id,'w:'+normW(t.text),plain(t.text).replace(/[“”"]/g,''),.75);
   READ.pageHelped=(READ.pageHelped||0)+1;
   if(!t.free&&!READ.helpedWords.includes(w)){READ.helpedWords.push(w);const r=rstate();r.tricky[w]=(r.tricky[w]||0)+1;save();}
   sparkySays(`That word is “${t.text.replace(/[“”".,!?;:]/g,'')}”. Now you say it!`,'happy');
@@ -5463,9 +5478,9 @@ function forcePast(k){
 function tapWord(k){
   const t=READ.toks[k];if(!t)return;
   if(READ.want&&!t.free&&READ.exp[READ.cur]&&READ.exp[READ.cur].tok===k){helpWord(k);}
-  else sayText(t.text.replace(/[“”"]/g,''),.75);
+  else narrOrSay(READ.book.id,'w:'+normW(t.text),t.text.replace(/[“”"]/g,''),.75);
   const box=document.getElementById('rDef');
-  if(t.gloss){box.hidden=false;box.innerHTML=`<b>${esc(t.gloss)}</b> means ${esc(READ.book.words[t.gloss])}. <button class="speak-mini" data-w="${esc(t.gloss+' means '+READ.book.words[t.gloss])}" onclick="sayText(this.dataset.w,.85)" aria-label="Read the meaning">🔊</button>`;}
+  if(t.gloss){box.hidden=false;box.innerHTML=`<b>${esc(t.gloss)}</b> means ${esc(READ.book.words[t.gloss])}. <button class="speak-mini" data-w="${esc(t.gloss+' means '+READ.book.words[t.gloss])}" onclick="narrOrSay(READ.book.id,'g:${t.gloss}',this.dataset.w,.85)" aria-label="Read the meaning">🔊</button>`;}
   else box.hidden=true;
 }
 function pageComplete(byVoice){
@@ -5502,7 +5517,7 @@ function quizQuestion(){
   const q=READ.book.qs[READ.qi];READ.qAnswered=false;READ.order=shuf(q.o.slice());
   quizShell(`<div class="qc">
     <div class="q-top"><span class="q-badge" style="background:#9B5DE518;color:#6D28D9">${q.kind}</span>
-    <button class="speak-mini" onclick="sayText(${esc(JSON.stringify(q.q+' '+READ.order.join('. ')))},.88)" aria-label="Read the question to me">🔊</button></div>
+    <button class="speak-mini" onclick="quizSpeak()" aria-label="Read the question to me">🔊</button></div>
     <div class="q-text">${esc(q.q)}</div><div class="hintbox" id="hintBox">💡 ${esc(q.hint)}</div>
     <div class="opts" id="opts">${READ.order.map((o,i)=>`<button class="opt" data-i="${i}" onclick="quizPick(${i})"><span class="opt-l">${'ABCD'[i]}</span><span>${esc(o)}</span></button>`).join('')}</div></div>
     <div id="fbCard"></div>
@@ -5513,6 +5528,9 @@ function peekStory(){
   const b=READ.book;const box=document.getElementById('fbCard');
   box.className='fb2 info';box.innerHTML=`<div class="fb2-h">The story</div>`+b.pages.map((p,i)=>`<p class="peek"><b>Page ${i+1}.</b> ${p.t.map(esc).join(' ')}</p>`).join('');
 }
+function quizSpeak(){const q=READ.book.qs[READ.qi];const keys=['q'+READ.qi].concat(READ.order.map(o=>'q'+READ.qi+'o'+q.o.indexOf(o)));
+  if(!keys.every(k=>narrOK(READ.book.id,k))){sayText(q.q+' '+READ.order.join('. '),.88);return;}
+  narrSeq(READ.book.id,keys).then(ok=>{if(!ok)sayText(q.q+' '+READ.order.join('. '),.88);});}
 function quizPick(i){
   if(READ.qAnswered)return;READ.qAnswered=true;const q=READ.book.qs[READ.qi];const ok=READ.order[i]===q.a;
   document.querySelectorAll('#opts .opt').forEach(btn=>{btn.disabled=true;const bi=+btn.dataset.i;
@@ -5576,7 +5594,7 @@ function finishBook(){
       <div class="sum-grid">
         <div><b>${READ.wordsRead}</b><span>words read aloud</span></div><div><b>${READ.qC}/${READ.qN}</b><span>questions right</span></div>
         <div><b>${READ.proofC}/${READ.qN}</b><span>proofs found</span></div><div><b>${READ.pagesHeard}/${b.pages.length}</b><span>pages Sparky heard</span></div></div>
-      ${tricky.length?`<div class="tricky"><div class="les-k" style="color:#6D28D9">Words to practice</div>${tricky.map(w=>`<button class="tw" data-w="${esc(w)}" onclick="sayText(this.dataset.w,.75)">🔊 ${esc(w)}</button>`).join('')}</div>`:''}
+      ${tricky.length?`<div class="tricky"><div class="les-k" style="color:#6D28D9">Words to practice</div>${tricky.map(w=>`<button class="tw" data-w="${esc(w)}" onclick="narrOrSay('${b.id}','w:'+this.dataset.w,this.dataset.w,.75)">🔊 ${esc(w)}</button>`).join('')}</div>`:''}
       <p class="m-d">${stars===3?'Three stars! You read it and proved your answers.':'Read it again any time to earn more stars.'}</p>
       ${READ.wcpm?`<div class="flu">📈 Reading speed: <b>${READ.wcpm}</b> words per minute${READ.wcpmPrev?` (last time ${READ.wcpmPrev})`:''}</div>`:''}
       <div class="btns"><button class="btn btn-sec" onclick="showCertificate('Book Finished: ${esc(b.title).replace(/'/g,"\\'")}','read the whole book out loud and earned ${stars} star${stars===1?'':'s'}')">🎓 Certificate</button><button class="btn btn-sec" onclick="openBook('${b.id}')">Read again</button>
@@ -5588,7 +5606,7 @@ function finishBook(){
 // ── Sound Swap ──
 const SWAP={};
 function startSwap(){
-  const lv=Math.min(myLevel(),2);Object.assign(SWAP,{items:shuf(SWAPS[lv].slice()).slice(0,8),i:0,c:0});swapRound();
+  const lv=Math.min(myLevel(),2);Object.assign(SWAP,{lv,items:shuf(SWAPS[lv].map((s,i)=>s.concat([i]))).slice(0,8),i:0,c:0});narrLoad('swap');swapRound();
 }
 function swapRound(){
   const it=SWAP.items[SWAP.i];const [w,idx,nl,ans,x1,x2]=it;SWAP.opts=shuf([ans,x1,x2]);SWAP.done=false;
@@ -5599,7 +5617,7 @@ function swapRound(){
       <div class="swap-say">Read the word:</div>
       <div class="tiles" id="tiles">${w.split('').map((ch,i)=>`<span class="tile${i===idx?' hi':''}">${ch}</span>`).join('')}</div>
       <div class="q-text" style="text-align:center">Change <b class="lt">${w[idx]}</b> to <b class="lt new">${nl}</b>. What word do you make?</div>
-      <button class="btn btn-sec speak" onclick="sayText('${w}. Change ${w[idx]} to ${nl}.',.8)">🔊 Hear it</button>
+      <button class="btn btn-sec speak" onclick="narrOrSay('swap','s${SWAP.lv}:${it[6]}','${w}. Change ${w[idx]} to ${nl}.',.8)">🔊 Hear it</button>
       <div class="opts swap-opts" id="opts">${SWAP.opts.map((o,i)=>`<button class="opt" data-i="${i}" onclick="swapPick(${i})"><span>${o}</span></button>`).join('')}</div></div>
       <div id="fbCard"></div><div class="btns" id="actBtns"></div></div></div>`);
 }
@@ -5609,7 +5627,7 @@ function swapPick(i){
     if(SWAP.opts[bi]===it[3])b.classList.add('correct');else if(bi===i)b.classList.add('wrong');else b.classList.add('faded');});
   const t=document.querySelectorAll('#tiles .tile')[it[1]];if(t){t.textContent=it[2];t.classList.add('swapped');}
   const r=rstate();r.swapN++;if(ok){r.swapC++;SWAP.c++;ST.xp+=2;FX.correct();}else FX.wrong();
-  sayText(it[3],.8);
+  narrOrSay('swap','sw:'+it[3],it[3],.8);
   const fb=document.getElementById('fbCard');fb.className='fb2 '+(ok?'ok':'err');
   fb.innerHTML=ok?`<div class="fb2-h">🎉 Yes — ${esc(it[0])} becomes ${esc(it[3])}!</div>`:`<div class="fb2-h">Look at the tiles: ${esc(it[0])} becomes ${esc(it[3])}.</div><div class="fb2-b">Only one letter changed. Read the new word slowly.</div>`;
   const last=SWAP.i>=SWAP.items.length-1;
@@ -6143,7 +6161,7 @@ const CASES=[
 const CS={};
 function startDetective(){
   const pool=CASES.filter(c=>c.lv===(ST.grade<=4?1:2));const extra=ST.grade===4?CASES.filter(c=>c.lv===2).slice(0,3):[];
-  Object.assign(CS,{list:shuf(pool.concat(extra)).slice(0,5),i:0,score:0,solved:0});ST.currentGame='detective';caseDraw();}
+  Object.assign(CS,{list:shuf(pool.concat(extra)).slice(0,5),i:0,score:0,solved:0});narrLoad('cases');ST.currentGame='detective';caseDraw();}
 function caseDraw(){
   const k=CS.list[CS.i];CS.stage='pick';CS.picked=new Set();CS.order=shuf(k.o.map((o,i)=>i));
   gameShell(`<div class="game-card case">
@@ -6151,7 +6169,7 @@ function caseDraw(){
     <div class="case-t">🕵️ ${k.t}</div>
     <div class="case-sub">Read the clues.</div>
     <div class="clues">${k.c.map((c,i)=>`<button class="clue" data-i="${i}" onclick="caseClue(${i})" disabled><span class="clue-n">🔍</span>${esc(c)}</button>`).join('')}</div>
-    <button class="btn btn-sec speak" onclick="sayText(${esc(JSON.stringify(k.c.join(' ')+' '+k.q))},.88)">🔊 Read the case to me</button>
+    <button class="btn btn-sec speak" onclick="narrOrSay('cases','c${CASES.indexOf(k)}',${esc(JSON.stringify(k.c.join(' ')+' '+k.q))},.88)">🔊 Read the case to me</button>
     <div class="q-text" style="margin-top:14px">${esc(k.q)}</div>
     <div class="opts" id="opts">${CS.order.map(oi=>`<button class="opt" data-o="${oi}" onclick="casePick(${oi})"><span>${esc(k.o[oi])}</span></button>`).join('')}</div>
     <div id="fbCard"></div><div class="btns" id="actBtns"></div></div>`,'🕵️','Detective Case Files');
@@ -6517,6 +6535,112 @@ ACH.push(
   {id:'detective',ic:'🕵️',label:'Super Sleuth',d:'Solve 5 cases with proof',t:()=>xs().cases.c>=5},
   {id:'closet',ic:'🎩',label:'Dressed Up',d:'Buy something for Sparky',t:()=>xs().owned.length>=1},
   {id:'family',ic:'👨‍👩‍👧',label:'Family Night',d:'Play a Family Challenge',t:()=>xs().family.length>=1});
+
+
+// ═══════════════════════════════════════════════════════════════
+// NARRATION & VOICES
+// • Recorded natural AI narration (Kokoro TTS, generated ahead of time) for
+//   Story Time, lessons, Sound Swap and Detective cases, played with Web Audio
+//   from one "sprite" file per book. Works offline once cached.
+// • Everything else (practice questions) uses the best voice available:
+//   a Claude voice inside claude.ai, otherwise the device's most natural voice.
+// ═══════════════════════════════════════════════════════════════
+const AUDIO_MAP={"seed":{"f":"audio/seed.mp3","off":0.0005,"map":{"title":{"s":0.25,"e":1.51},"p0":{"s":1.76,"e":5.01,"w":[[0.0,0.24],[0.33,0.513],[0.56,0.68],[0.68,1.138],[1.21,1.41],[1.76,1.893],[1.97,2.186],[2.27,2.32],[2.32,2.638],[2.72,2.798],[2.85,2.957],[3.04,3.25]]},"p1":{"s":5.26,"e":8.83,"w":[[0.0,0.218],[0.29,0.59],[0.59,0.785],[0.79,1.032],[1.07,1.206],[1.29,1.34],[1.34,1.7],[2.05,2.21],[2.27,2.562],[2.59,2.754],[2.78,3.106],[3.13,3.298],[3.38,3.57]]},"p2":{"s":9.08,"e":12.74,"w":[[0.0,0.33],[0.42,0.692],[0.71,0.89],[0.92,1.087],[1.12,1.45],[1.8,2.016],[2.09,2.189],[2.23,2.434],[2.48,2.74],[2.74,2.96],[2.96,3.14],[3.14,3.487],[3.55,3.66]]},"p3":{"s":12.99,"e":16.97,"w":[[0.0,0.222],[0.3,0.474],[0.63,0.77],[0.77,1.133],[1.17,1.607],[1.66,1.932],[2.02,2.11],[2.46,2.693],[2.78,3.189],[3.25,3.375],[3.39,3.639],[3.72,3.98]]},"p4":{"s":17.22,"e":20.93,"w":[[0.0,0.218],[0.28,0.392],[0.41,0.856],[0.87,1.03],[1.11,1.204],[1.27,1.451],[1.47,2.06],[2.41,2.577],[2.62,2.777],[2.8,3.143],[3.16,3.427],[3.51,3.71]]},"w:mia":{"s":21.18,"e":21.76},"w:has":{"s":22.01,"e":22.65},"w:a":{"s":22.9,"e":23.39},"w:tiny":{"s":23.64,"e":24.29},"w:seed":{"s":24.54,"e":25.21},"w:she":{"s":25.46,"e":26.03},"w:digs":{"s":26.28,"e":26.95},"w:hole":{"s":27.2,"e":27.8},"w:in":{"s":28.05,"e":28.57},"w:the":{"s":28.82,"e":29.29},"w:soil":{"s":29.54,"e":30.15},"w:drops":{"s":30.4,"e":31.12},"w:pats":{"s":31.37,"e":32.0},"w:on":{"s":32.25,"e":32.8},"w:top":{"s":33.05,"e":33.67},"w:rain":{"s":33.92,"e":34.55},"w:falls":{"s":34.8,"e":35.52},"w:then":{"s":35.77,"e":36.33},"w:sun":{"s":36.58,"e":37.16},"w:comes":{"s":37.41,"e":38.06},"w:out":{"s":38.31,"e":38.9},"w:to":{"s":39.15,"e":39.69},"w:warm":{"s":39.94,"e":40.62},"w:it":{"s":40.87,"e":41.29},"w:one":{"s":41.54,"e":42.08},"w:day":{"s":42.33,"e":42.88},"w:green":{"s":43.13,"e":43.8},"w:sprout":{"s":44.05,"e":44.78},"w:pops":{"s":45.03,"e":45.7},"w:up":{"s":45.95,"e":46.46},"w:jumps":{"s":46.71,"e":47.41},"w:and":{"s":47.66,"e":48.18},"w:down":{"s":48.43,"e":49.09},"w:soon":{"s":49.34,"e":49.98},"w:is":{"s":50.23,"e":50.76},"w:big":{"s":51.01,"e":51.6},"w:sunflower":{"s":51.85,"e":52.69},"w:taller":{"s":52.94,"e":53.57},"w:than":{"s":53.82,"e":54.34},"g:soil":{"s":54.59,"e":56.91},"g:sprout":{"s":57.16,"e":59.32},"g:taller":{"s":59.57,"e":62.02},"q0":{"s":62.27,"e":63.57},"q0o0":{"s":63.82,"e":64.76},"q0o1":{"s":65.01,"e":66.08},"q0o2":{"s":66.33,"e":67.43},"q1":{"s":67.68,"e":68.95},"q1o0":{"s":69.2,"e":70.08},"q1o1":{"s":70.33,"e":71.25},"q1o2":{"s":71.5,"e":72.16},"q2":{"s":72.41,"e":74.15},"q2o0":{"s":74.4,"e":76.13},"q2o1":{"s":76.38,"e":77.29},"q2o2":{"s":77.54,"e":78.64}}},"kite":{"f":"audio/kite.mp3","off":-0.0045,"map":{"title":{"s":0.25,"e":1.37},"p0":{"s":1.62,"e":4.44,"w":[[0.0,0.12],[0.12,0.33],[0.42,0.5],[0.5,0.915],[0.96,1.17],[1.52,1.77],[1.82,2.053],[2.1,2.253],[2.34,2.42],[2.42,2.82]]},"p1":{"s":4.69,"e":7.82,"w":[[0.0,0.305],[0.38,0.753],[0.83,1.2],[1.55,1.692],[1.72,2.005],[2.01,2.319],[2.4,2.489],[2.7,2.81],[3.02,3.13]]},"p2":{"s":8.07,"e":11.81,"w":[[0.0,0.259],[0.37,0.7],[1.05,1.238],[1.25,1.62],[1.62,2.16],[2.51,2.67],[2.67,3.02],[3.02,3.384],[3.46,3.74]]},"p3":{"s":12.06,"e":14.96,"w":[[0.0,0.275],[0.32,0.65],[0.65,0.989],[1.08,1.3],[1.65,1.863],[1.88,2.176],[2.21,2.417],[2.42,2.587],[2.63,2.9]]},"p4":{"s":15.21,"e":19.39,"w":[[0.0,0.65],[1.0,1.177],[1.22,1.567],[1.63,1.779],[1.85,2.08],[2.43,2.573],[2.58,2.889],[2.94,3.276],[3.29,3.52],[3.57,3.692],[3.78,3.864],[3.95,4.18]]},"w:it":{"s":19.64,"e":20.06},"w:is":{"s":20.31,"e":20.84},"w:a":{"s":21.09,"e":21.58},"w:windy":{"s":21.83,"e":22.47},"w:day":{"s":22.72,"e":23.27},"w:sam":{"s":23.52,"e":24.12},"w:has":{"s":24.37,"e":25.01},"w:new":{"s":25.26,"e":25.85},"w:kite":{"s":26.1,"e":26.75},"w:runs":{"s":27.0,"e":27.71},"w:fast":{"s":27.96,"e":28.68},"w:the":{"s":28.93,"e":29.4},"w:goes":{"s":29.65,"e":30.34},"w:up":{"s":30.59,"e":31.1},"w:oh":{"s":31.35,"e":31.88},"w:no":{"s":32.13,"e":32.69},"w:wind":{"s":32.94,"e":33.54},"w:stops":{"s":33.79,"e":34.52},"w:falls":{"s":34.77,"e":35.49},"w:down":{"s":35.74,"e":36.4},"w:dad":{"s":36.65,"e":37.25},"w:sits":{"s":37.5,"e":38.17},"w:with":{"s":38.42,"e":38.95},"w:they":{"s":39.2,"e":39.72},"w:wait":{"s":39.97,"e":40.6},"w:for":{"s":40.85,"e":41.39},"w:whoosh":{"s":41.64,"e":42.29},"w:back":{"s":42.54,"e":43.15},"w:flies":{"s":43.4,"e":44.14},"w:high":{"s":44.39,"e":44.93},"w:in":{"s":45.18,"e":45.66},"w:sky":{"s":45.91,"e":46.48},"g:windy":{"s":46.73,"e":49.74},"g:whoosh":{"s":49.99,"e":52.66},"q0":{"s":52.91,"e":54.35},"q0o0":{"s":54.6,"e":55.59},"q0o1":{"s":55.84,"e":56.71},"q0o2":{"s":56.96,"e":57.95},"q1":{"s":58.2,"e":59.58},"q1o0":{"s":59.83,"e":61.12},"q1o1":{"s":61.37,"e":62.18},"q1o2":{"s":62.43,"e":63.66},"q2":{"s":63.91,"e":65.64},"q2o0":{"s":65.89,"e":66.73},"q2o1":{"s":66.98,"e":68.02},"q2o2":{"s":68.27,"e":68.85}}},"bees":{"f":"audio/bees.mp3","off":0.0005,"map":{"title":{"s":0.25,"e":1.45},"p0":{"s":1.7,"e":8.98,"w":[[0.0,0.135],[0.16,0.567],[0.61,0.797],[0.8,1.12],[1.12,1.729],[1.74,1.891],[1.95,2.324],[2.41,2.45],[2.45,2.648],[2.72,3.08],[3.13,3.31],[3.66,3.79],[3.79,3.98],[3.98,4.35],[4.35,4.633],[4.7,5.031],[5.26,5.36],[5.36,5.687],[5.77,6.12],[6.12,6.631],[6.71,6.88],[6.88,7.28]]},"p1":{"s":9.23,"e":15.73,"w":[[0.0,0.145],[0.17,0.319],[0.4,0.63],[0.63,0.81],[0.81,1.17],[1.17,1.451],[1.47,1.81],[1.81,2.017],[2.04,2.15],[2.15,2.365],[2.42,2.82],[2.82,3.293],[3.37,3.612],[3.66,3.787],[3.81,4.106],[4.17,4.57],[4.92,5.123],[5.13,5.285],[5.3,5.649],[5.73,5.87],[5.87,6.041],[6.05,6.203],[6.26,6.5]]},"p2":{"s":15.98,"e":22.97,"w":[[0.0,0.475],[0.49,0.665],[0.75,1.013],[1.27,1.369],[1.45,1.559],[1.65,1.986],[1.99,2.14],[2.14,2.59],[2.59,2.793],[2.84,3.22],[3.31,3.41],[3.76,3.89],[3.89,4.13],[4.2,4.363],[4.39,4.528],[4.54,4.76],[4.76,4.91],[4.91,5.433],[5.55,5.879],[5.92,6.318],[6.4,6.825],[6.9,6.99]]},"p3":{"s":23.22,"e":29.98,"w":[[0.0,0.351],[0.58,0.63],[0.63,0.906],[0.99,1.285],[1.32,1.454],[1.54,1.833],[1.85,2.142],[2.2,2.451],[2.52,2.76],[3.11,3.317],[3.33,3.51],[3.51,3.78],[3.78,4.09],[4.12,4.255],[4.33,4.559],[4.58,4.725],[4.76,5.097],[5.15,5.24],[5.24,5.704],[5.79,5.939],[6.11,6.42],[6.42,6.76]]},"p4":{"s":30.23,"e":35.98,"w":[[0.0,0.494],[0.72,0.811],[0.84,1.051],[1.13,1.291],[1.36,1.531],[1.54,1.771],[1.85,2.01],[2.05,2.18],[2.25,2.49],[2.55,2.73],[3.08,3.222],[3.29,3.534],[3.61,3.776],[3.82,4.0],[4.0,4.16],[4.16,4.5],[4.58,4.955],[4.97,5.196],[5.23,5.33],[5.33,5.75]]},"w:a":{"s":36.23,"e":36.72},"w:honeybee":{"s":36.97,"e":37.67},"w:can":{"s":37.92,"e":38.49},"w:visit":{"s":38.74,"e":39.42},"w:hundreds":{"s":39.67,"e":40.46},"w:of":{"s":40.71,"e":41.2},"w:flowers":{"s":41.45,"e":42.23},"w:in":{"s":42.48,"e":43.0},"w:single":{"s":43.25,"e":43.9},"w:day":{"s":44.15,"e":44.7},"w:it":{"s":44.95,"e":45.37},"w:is":{"s":45.62,"e":46.15},"w:looking":{"s":46.4,"e":47.11},"w:for":{"s":47.36,"e":47.9},"w:nectar":{"s":48.15,"e":48.89},"w:sweet":{"s":49.14,"e":49.81},"w:liquid":{"s":50.06,"e":50.84},"w:inside":{"s":51.09,"e":51.88},"w:each":{"s":52.13,"e":52.76},"w:flower":{"s":53.01,"e":53.68},"w:the":{"s":53.93,"e":54.4},"w:bee":{"s":54.65,"e":55.22},"w:sips":{"s":55.47,"e":56.15},"w:and":{"s":56.4,"e":56.92},"w:stores":{"s":57.17,"e":57.96},"w:special":{"s":58.21,"e":58.96},"w:stomach":{"s":59.21,"e":59.9},"w:called":{"s":60.15,"e":60.81},"w:honey":{"s":61.06,"e":61.64},"w:then":{"s":61.89,"e":62.45},"w:flies":{"s":62.7,"e":63.44},"w:back":{"s":63.69,"e":64.3},"w:to":{"s":64.55,"e":65.09},"w:hive":{"s":65.34,"e":65.97},"w:passes":{"s":66.22,"e":67.0},"w:another":{"s":67.25,"e":67.87},"w:bees":{"s":68.12,"e":68.82},"w:chew":{"s":69.07,"e":69.7},"w:add":{"s":69.95,"e":70.48},"w:enzymes":{"s":70.73,"e":71.6},"w:which":{"s":71.85,"e":72.48},"w:slowly":{"s":72.73,"e":73.46},"w:change":{"s":73.71,"e":74.41},"w:next":{"s":74.66,"e":75.33},"w:spread":{"s":75.58,"e":76.24},"w:into":{"s":76.49,"e":77.15},"w:wax":{"s":77.4,"e":78.08},"w:cells":{"s":78.33,"e":79.04},"w:they":{"s":79.29,"e":79.81},"w:fan":{"s":80.06,"e":80.66},"w:their":{"s":80.91,"e":81.4},"w:wings":{"s":81.65,"e":82.35},"w:dry":{"s":82.6,"e":83.24},"w:until":{"s":83.49,"e":84.19},"w:becomes":{"s":84.44,"e":85.24},"w:thick":{"s":85.49,"e":86.1},"w:sticky":{"s":86.35,"e":87.09},"w:finally":{"s":87.34,"e":88.04},"w:seal":{"s":88.29,"e":88.95},"w:cell":{"s":89.2,"e":89.77},"w:with":{"s":90.02,"e":90.55},"w:cap":{"s":90.8,"e":91.38},"w:will":{"s":91.63,"e":92.18},"w:feed":{"s":92.43,"e":93.06},"w:whole":{"s":93.31,"e":93.91},"w:colony":{"s":94.16,"e":94.86},"w:through":{"s":95.11,"e":95.74},"w:winter":{"s":95.99,"e":96.71},"g:nectar":{"s":96.96,"e":100.3},"g:hive":{"s":100.55,"e":103.58},"g:enzymes":{"s":103.83,"e":108.88},"g:colony":{"s":109.13,"e":112.97},"g:cells":{"s":113.22,"e":116.81},"q0":{"s":117.06,"e":118.73},"q0o0":{"s":118.98,"e":120.42},"q0o1":{"s":120.67,"e":122.41},"q0o2":{"s":122.66,"e":124.05},"q1":{"s":124.3,"e":125.25},"q1o0":{"s":125.5,"e":127.47},"q1o1":{"s":127.72,"e":128.58},"q1o2":{"s":128.83,"e":130.12},"q2":{"s":130.37,"e":131.97},"q2o0":{"s":132.22,"e":134.41},"q2o1":{"s":134.66,"e":135.92},"q2o2":{"s":136.17,"e":137.42},"q3":{"s":137.67,"e":138.97},"q3o0":{"s":139.22,"e":142.03},"q3o1":{"s":142.28,"e":143.3},"q3o2":{"s":143.55,"e":145.12}}},"pip":{"f":"audio/pip.mp3","off":-0.0005,"map":{"title":{"s":0.25,"e":1.61},"p0":{"s":1.86,"e":4.44,"w":[[0.0,0.25],[0.25,0.468],[0.51,0.676],[0.76,0.97],[1.32,1.54],[1.54,1.837],[1.89,2.031],[2.12,2.305],[2.39,2.58]]},"p1":{"s":4.69,"e":7.73,"w":[[0.0,0.24],[0.24,0.628],[0.67,0.832],[0.89,1.12],[1.47,1.6],[1.6,1.87],[1.87,2.3],[2.3,2.607],[2.69,3.04]]},"p2":{"s":7.98,"e":10.46,"w":[[0.0,0.265],[0.33,0.477],[0.53,0.689],[0.76,0.99],[1.34,1.574],[1.59,1.84],[1.93,2.08],[2.08,2.293],[2.35,2.48]]},"p3":{"s":10.71,"e":14.16,"w":[[0.0,0.13],[0.13,0.41],[0.41,0.72],[0.72,0.91],[0.91,1.111],[1.18,1.37],[1.72,1.84],[1.84,2.1],[2.1,2.388],[2.43,2.54],[2.54,2.8],[2.8,3.01],[3.02,3.192],[3.22,3.45]]},"p4":{"s":14.41,"e":17.54,"w":[[0.0,0.257],[0.26,0.633],[0.68,0.839],[0.9,1.13],[1.48,1.701],[1.73,1.951],[1.99,2.128],[2.21,2.34],[2.34,2.703],[2.74,2.88],[2.95,3.13]]},"w:pip":{"s":17.79,"e":18.36},"w:is":{"s":18.61,"e":19.14},"w:a":{"s":19.39,"e":19.88},"w:pup":{"s":20.13,"e":20.7},"w:has":{"s":20.95,"e":21.59},"w:red":{"s":21.84,"e":22.44},"w:ball":{"s":22.69,"e":23.29},"w:kicks":{"s":23.54,"e":24.18},"w:the":{"s":24.43,"e":24.9},"w:rolls":{"s":25.15,"e":25.87},"w:and":{"s":26.12,"e":26.64},"w:where":{"s":26.89,"e":27.42},"w:can":{"s":27.67,"e":28.24},"w:not":{"s":28.49,"e":29.12},"w:see":{"s":29.37,"e":29.95},"w:it":{"s":30.2,"e":30.62},"w:cat":{"s":30.87,"e":31.45},"w:sits":{"s":31.7,"e":32.37},"w:on":{"s":32.62,"e":33.17},"w:log":{"s":33.42,"e":34.04},"w:sees":{"s":34.29,"e":35.0},"w:in":{"s":35.25,"e":35.77},"w:bush":{"s":36.02,"e":36.6},"w:gets":{"s":36.85,"e":37.52},"w:play":{"s":37.77,"e":38.38},"w:all":{"s":38.63,"e":39.17},"w:day":{"s":39.42,"e":39.97},"g:pup":{"s":40.22,"e":42.05},"g:bush":{"s":42.3,"e":45.87},"g:log":{"s":46.12,"e":49.13},"q0":{"s":49.38,"e":50.51},"q0o0":{"s":50.76,"e":51.58},"q0o1":{"s":51.83,"e":52.48},"q0o2":{"s":52.73,"e":53.37},"q1":{"s":53.62,"e":54.63},"q1o0":{"s":54.88,"e":55.55},"q1o1":{"s":55.8,"e":56.31},"q1o2":{"s":56.56,"e":57.25},"q2":{"s":57.5,"e":58.96},"q2o0":{"s":59.21,"e":59.84},"q2o1":{"s":60.09,"e":60.64},"q2o2":{"s":60.89,"e":61.51}}}};
+const NARR={ctx:null,bufs:{},loading:{},src:null,timer:null,token:0};
+function narrCtx(){if(!NARR.ctx){const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;try{NARR.ctx=new C();}catch(e){return null;}}return NARR.ctx;}
+function narrOK(name,key){return typeof AUDIO_MAP!=='undefined'&&location.protocol!=='file:'&&ST.settings.narration!==false&&!!AUDIO_MAP[name]&&(!key||!!AUDIO_MAP[name].map[key]);}
+function narrLoad(name){
+  if(!narrOK(name)||!narrCtx()||typeof fetch!=='function')return Promise.resolve(null);
+  if(NARR.bufs[name])return Promise.resolve(NARR.bufs[name]);
+  if(!NARR.loading[name])NARR.loading[name]=fetch(AUDIO_MAP[name].f).then(r=>r.ok?r.arrayBuffer():null)
+    .then(ab=>ab?new Promise((res,rej)=>NARR.ctx.decodeAudioData(ab,res,rej)):null).then(b=>{NARR.bufs[name]=b;return b;})
+    .catch(()=>{delete NARR.loading[name];return null;});
+  return NARR.loading[name];
+}
+function narrStop(){NARR.token++;if(NARR.src){try{NARR.src.onended=null;NARR.src.stop();}catch(e){}NARR.src=null;}if(NARR.timer){clearInterval(NARR.timer);NARR.timer=null;}}
+// Play one clip. Resolves true when it started (false = not available, so use a voice instead).
+function narrPlay(name,key,opt){
+  opt=opt||{};if(!narrOK(name,key))return Promise.resolve(false);
+  const ctx=narrCtx();if(!ctx)return Promise.resolve(false);
+  try{if(ctx.state==='suspended')ctx.resume();}catch(e){}   // must run inside the tap, for iPad/iPhone
+  narrStop();try{speechSynthesis.cancel();}catch(e){}if(CLAUDE_TTS){try{CLAUDE_TTS.stop();}catch(e){}}
+  const tok=NARR.token;
+  return narrLoad(name).then(buf=>{
+    if(!buf||tok!==NARR.token)return false;
+    const A=AUDIO_MAP[name],ent=A.map[key],off=A.off||0;
+    const s=Math.max(0,ent.s+off-0.02),e=Math.min(buf.duration,ent.e+off+0.12);
+    const src=ctx.createBufferSource();src.buffer=buf;src.connect(ctx.destination);
+    const t0=ctx.currentTime;src.start(0,s,e-s);NARR.src=src;
+    if(opt.onTick)NARR.timer=setInterval(()=>{if(NARR.src===src)opt.onTick(ctx.currentTime-t0-0.02);},50);
+    src.onended=()=>{if(NARR.src!==src)return;NARR.src=null;if(NARR.timer){clearInterval(NARR.timer);NARR.timer=null;}opt.onEnd&&opt.onEnd();};
+    return true;
+  });
+}
+// Play several clips in a row (a question, then its answer choices).
+function narrSeq(name,keys,onEnd){
+  if(!keys.every(k=>narrOK(name,k)))return Promise.resolve(false);
+  let i=0;const tok0=NARR.token+1;
+  const next=()=>{if(i>=keys.length){onEnd&&onEnd();return;}
+    narrPlay(name,keys[i++],{onEnd:()=>{if(NARR.token===tok0+i-1)setTimeout(next,220);}});};
+  return narrLoad(name).then(b=>{if(!b)return false;next();return true;});
+}
+// A recorded clip if there is one, otherwise a live voice.
+function narrOrSay(name,key,text,rate){
+  // no recording: speak right away, inside the tap (iPad/iPhone need that)
+  if(!narrOK(name,key)||!narrCtx()||typeof fetch!=='function'){sayText(text,rate||.88);return;}
+  narrPlay(name,key).then(ok=>{if(!ok)sayText(text,rate||.88);});}
+
+// ── live voices for everything that isn't recorded ──
+let CLAUDE_TTS=null;
+(async()=>{try{if(window.claude&&window.claude.use)CLAUDE_TTS=await window.claude.use('tts');}catch(e){CLAUDE_TTS=null;}})();
+const CLAUDE_VOICES={airy:'Airy',buttery:'Buttery',glassy:'Glassy',rounded:'Rounded'};
+function voiceScore(v){
+  const n=v.name||'';if(!/^en/i.test(v.lang||''))return -999;let s=/^en[-_]US/i.test(v.lang)?10:5;
+  if(/natural|neural|online/i.test(n))s+=60;if(/premium|enhanced/i.test(n))s+=45;if(/^Google (US|UK) English/i.test(n))s+=40;
+  if(/Samantha|Ava|Allison|Aria|Jenny|Michelle|Emma|Ana\b|Zoe|Nicky|Libby|Sonia/i.test(n))s+=15;
+  if(/compact|eSpeak|Fred|Albert|Bad News|Bells|Boing|Bubbles|Cellos|Deranged|Good News|Hysterical|Jester|Organ|Superstar|Trinoids|Whisper|Wobble|Zarvox|Junior|Ralph|Kathy|Princess|Grandma|Grandpa|Rocko|Shelley|Sandy|Reed|Eddy|Flo\b/i.test(n))s-=80;
+  return s;
+}
+function bestVoices(){try{return speechSynthesis.getVoices().map(v=>[voiceScore(v),v]).filter(x=>x[0]>-50).sort((a,b)=>b[0]-a[0]).map(x=>x[1]);}catch(e){return [];}}
+function niceVoice(){const p=ST.settings&&ST.settings.voicePick||'';const vs=bestVoices();
+  return (p.startsWith('dev:')&&vs.find(v=>v.name===p.slice(4)))||vs[0]||null;}
+function useClaudeVoice(){const p=ST.settings&&ST.settings.voicePick||'';return !!CLAUDE_TTS&&!p.startsWith('dev:');}
+function voiceRate(r){return (r||.9)*(ST.settings&&ST.settings.slowVoice?.85:1);}
+// replaces the earlier simple version: same arguments
+sayText=function(text,rate,onEnd,onWord){
+  text=String(text||'').replace(/[“”"]/g,'');narrStop();
+  if(useClaudeVoice()&&!onWord){
+    try{speechSynthesis.cancel();}catch(e){}
+    const v=(ST.settings.voicePick||'claude:airy').replace('claude:','');
+    CLAUDE_TTS.speak(text,{voice:CLAUDE_VOICES[v]?v:'airy',rate:Math.max(.7,Math.min(1.5,voiceRate(rate)/.9)),language:'en'})
+      .then(()=>onEnd&&onEnd()).catch(()=>{onEnd&&onEnd();});
+    return null;
+  }
+  if(typeof speechSynthesis==='undefined'){onEnd&&onEnd();return null;}
+  try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);const v=niceVoice();if(v){u.voice=v;u.lang=v.lang;}else u.lang='en-US';
+    u.rate=voiceRate(rate);u.pitch=1.02;
+    if(onWord)u.onboundary=e=>{if(e.name==='word'||e.name===undefined)onWord(e.charIndex);};
+    u.onend=()=>onEnd&&onEnd();u.onerror=()=>onEnd&&onEnd();speechSynthesis.speak(u);return u;}catch(e){onEnd&&onEnd();return null;}
+};
+speak=function(text){if(!voiceOK()&&!useClaudeVoice())return;sayText(String(text).replace(/−/g,' minus ').replace(/×/g,' times ').replace(/÷/g,' divided by ').replace(/___/g,' blank '),.92);};
+const _stopTalkingBase=stopTalking;
+stopTalking=function(){narrStop();if(CLAUDE_TTS){try{CLAUDE_TTS.stop();}catch(e){}}_stopTalkingBase();};
+voiceOK=function(){return ST.settings&&ST.settings.readAloud!==false&&(typeof window.speechSynthesis!=='undefined'||!!CLAUDE_TTS);};
+
+// ── settings: choose the voice ──
+function voiceSettingsRows(){
+  const pick=ST.settings.voicePick||'';const dev=bestVoices().slice(0,10);
+  const opts=(CLAUDE_TTS?Object.entries(CLAUDE_VOICES).map(([k,l])=>`<option value="claude:${k}" ${pick==='claude:'+k||(!pick&&k==='airy')?'selected':''}>Claude voice · ${l}</option>`).join(''):'')+
+    dev.map((v,i)=>`<option value="dev:${esc(v.name)}" ${pick==='dev:'+v.name||(!pick&&!CLAUDE_TTS&&i===0)?'selected':''}>${esc(v.name.replace(/Microsoft |Google /,''))}${i===0?' (recommended)':''}</option>`).join('');
+  return `<div class="set-row"><div><b>Story narrator</b><small>${typeof AUDIO_MAP!=='undefined'&&location.protocol!=='file:'?'Recorded natural AI voice for books, lessons and reading games':'Recorded voice plays when LearnSpark is opened from its web address'}</small></div>
+      <button class="toggle ${ST.settings.narration!==false?'on':''}" onclick="ST.settings.narration=ST.settings.narration===false?true:false;save();this.classList.toggle('on',ST.settings.narration!==false)"></button></div>
+    <div class="set-row voice-row"><div><b>Voice for questions</b><small>Used for everything that isn’t recorded</small></div>
+      <div class="voice-pick">${opts?`<select id="voiceSel" onchange="ST.settings.voicePick=this.value;save()" aria-label="Voice">${opts}</select>`:'<small>No voices found on this device</small>'}
+      <button class="btn btn-sec" onclick="sayText('Hi! I am Sparky. Let us read together!',.9)">▶ Test</button></div></div>
+    <div class="set-row"><div><b>Slower voice</b><small>Speak a little more slowly</small></div>
+      <button class="toggle ${ST.settings.slowVoice?'on':''}" onclick="toggleSet('slowVoice',this)"></button></div>`;
+}
+try{if(typeof speechSynthesis!=='undefined')speechSynthesis.onvoiceschanged=()=>{const s=document.getElementById('voiceSel');if(s&&document.getElementById('sheet')){closeSheet();openSettings();}};}catch(e){}
 
 // ═══════════════ BOOT (runs last, after games are defined) ═══════════════
 // ── BOOT ──

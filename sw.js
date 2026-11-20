@@ -1,6 +1,6 @@
 // LearnSpark offline cache: serve from cache, refresh in the background.
-const CACHE='learnspark-v4';
-const FILES=['./','./index.html','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png'];
+const CACHE='learnspark-v6';
+const FILES=['./','./index.html','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png','./audio/bees.mp3','./audio/kite.mp3','./audio/pip.mp3','./audio/seed.mp3'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)));self.skipWaiting();});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))));self.clients.claim();});
 self.addEventListener('fetch',e=>{
