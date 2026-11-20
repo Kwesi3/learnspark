@@ -16,6 +16,12 @@ browser on the device they use.
 - **Family Challenge,** Sparky's closet (spend stars on outfits), printable certificates,
   and a parent report with practice tests and reading speed.
 
+## Narration
+
+Story Time books, lessons, Sound Swap and Detective cases are read by a natural AI voice
+(Kokoro TTS, generated ahead of time and stored in `audio/`). Practice questions use a Claude
+voice inside claude.ai, or the most natural voice on the device. Choose the voice in Settings.
+
 ## Files
 
 | File | What it is |
@@ -23,6 +29,7 @@ browser on the device they use.
 | `index.html` | The whole app |
 | `manifest.webmanifest`, `icon.svg`, `icon-192.png`, `icon-512.png` | Lets you add LearnSpark to a tablet or phone home screen |
 | `sw.js` | Keeps the app working offline after the first visit |
+| `audio/` | Recorded narration (about 45 minutes, 14 MB) |
 
 ## Put it on GitHub Pages (free, about 10 minutes, no coding)
 
