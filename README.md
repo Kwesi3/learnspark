@@ -5,6 +5,17 @@ plus Story Time read-aloud books, in one web page.
 No server, no accounts, no build step. Each learner's progress is saved in the
 browser on the device they use.
 
+## What's inside
+
+- **Learn:** SmartScore practice for every SOL skill in Math, Reading, Science, Writing,
+  and History & Social Science, with lessons, worked examples, pictures, and mistake review.
+- **SOL Practice Test:** mixed tests with flag, cross-out, review, and submit, then results by standard.
+- **Stories:** read-aloud books where Sparky listens and helps, plus Detective Case Files and Sound Swap.
+- **Arcade:** Speed Math, Math Asteroids, Number Ninja, CodeBot, Fraction Match, Word Wizard,
+  SOL Quiz Battle, Map Quest, Timeline Dash, Who Am I?, Pizza Shop, and Integer Elevator.
+- **Family Challenge,** Sparky's closet (spend stars on outfits), printable certificates,
+  and a parent report with practice tests and reading speed.
+
 ## Files
 
 | File | What it is |
