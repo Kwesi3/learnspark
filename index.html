@@ -1286,6 +1286,14 @@ button.cl-row.cl-link:hover b{color:var(--cblue)}
   .topbar.calm .tb-art{display:none}
 }
 @media (max-width:1020px){.cl-lower{grid-template-columns:1fr}}
+/* painted art */
+.av-img.av-art{border-radius:50%;object-fit:cover}
+.game-img.game-art{width:100%;height:100%;object-fit:cover;border-radius:12px;filter:none}
+.gcard-ic:has(.game-art){height:auto;aspect-ratio:3/2;margin-bottom:10px}.gcard-ic .game-img.game-art{height:100%;width:100%}
+.game-start-ic .game-img.game-art{height:180px;width:auto;max-width:100%;aspect-ratio:3/2}
+.game-t .game-img.game-art{width:2.2em;height:1.6em;border-radius:6px}
+.badge.badge-art{object-fit:contain;border-radius:14px}
+.badge.locked-art{filter:grayscale(1);opacity:.45}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#4C8DF6">
@@ -1296,7 +1304,7 @@ button.cl-row.cl-link:hover b{color:var(--cblue)}
 <body>
 <div id="app"></div>
 <script>
-window.ART_KEYS=["gen_family", "gen_mastered", "gen_review", "gen_stories", "gen_strategy", "gen_test", "h_1900s", "h_civil", "h_civilwar", "h_coldwar", "h_colonial", "h_econ", "h_geo", "h_growth", "h_immig", "h_jamestown", "h_nation", "h_native", "h_presidents", "h_recon", "h_revolution", "h_skills", "h_west", "h_ww2", "hero", "m_area", "m_circle", "m_coord", "m_data", "m_dec", "m_eq", "m_frac", "m_geo", "m_int", "m_measure", "m_ops", "m_pattern", "m_place", "m_prob", "m_ratio", "m_squares", "m_time", "r_fiction", "r_nonfic", "r_vocab", "s_adapt", "s_atoms", "s_cells", "s_classify", "s_eco", "s_elec", "s_energy", "s_evolution", "s_force", "s_genetics", "s_matter", "s_periodic", "s_photo", "s_plants", "s_pop", "s_resources", "s_space", "s_waves", "s_weather", "subj_civics", "subj_geo", "subj_hist", "subj_math", "subj_read", "subj_sci", "subj_sci8", "subj_write", "w_argue", "w_edit", "w_sentence"];
+window.ART_KEYS=["about", "av_bee", "av_dino", "av_dolphin", "av_fox", "av_frog", "av_lion", "av_octopus", "av_owl", "av_palette", "av_panda", "av_rocket", "av_soccer", "av_sunflower", "av_tiger", "av_turtle", "av_unicorn", "aw_mastery", "aw_practice", "aw_streak", "g_africa", "g_culture", "g_easia", "g_europe", "g_global", "g_latam", "g_mena", "g_migration", "g_oceania", "g_political", "g_pop", "g_russia", "g_sasia", "g_tools", "g_usca", "game_asteroids", "game_codebot", "game_detective", "game_elevator", "game_fracmatch", "game_mapquest", "game_ninja", "game_pizza", "game_solquiz", "game_speedmath", "game_timeline", "game_whoami", "game_wordwiz", "gen_family", "gen_mastered", "gen_review", "gen_stories", "gen_strategy", "gen_test", "h_1900s", "h_branches", "h_china", "h_citizen", "h_civil", "h_civilwar", "h_coldwar", "h_colonial", "h_courts", "h_econ", "h_egypt", "h_finance", "h_geo", "h_greece", "h_growth", "h_immig", "h_jamestown", "h_local", "h_mali", "h_market", "h_media", "h_nation", "h_native", "h_presidents", "h_publicgoods", "h_recon", "h_revolution", "h_rome", "h_skills", "h_vagov", "h_vote", "h_west", "h_ww2", "hero", "m_area", "m_circle", "m_coord", "m_data", "m_dec", "m_eq", "m_frac", "m_func", "m_geo", "m_int", "m_linear", "m_measure", "m_ops", "m_pattern", "m_percent", "m_place", "m_prob", "m_pyth", "m_ratio", "m_scatter", "m_scinot", "m_similar", "m_squares", "m_time", "m_transform", "m_volume", "r_fiction", "r_nonfic", "r_vocab", "s_adapt", "s_atoms", "s_cells", "s_classify", "s_eco", "s_elec", "s_energy", "s_evolution", "s_force", "s_genetics", "s_light", "s_matter", "s_newton", "s_periodic", "s_photo", "s_plants", "s_pop", "s_resources", "s_space", "s_waves", "s_weather", "subj_civics", "subj_geo", "subj_hist", "subj_math", "subj_read", "subj_sci", "subj_sci7", "subj_sci8", "subj_write", "w_argue", "w_edit", "w_sentence"];
 
 // ═══════════════════════════════════════════════════════════════
 // IMAGES — real illustration files instead of emoji
@@ -8961,6 +8969,26 @@ Object.assign(SK_ART,{
  'hist:2.1':'h_citizen','hist:2.4':'h_nation','hist:2.5':'h_native','hist:2.6':'h_jamestown','hist:2.7':'h_revolution','hist:2.8':'h_nation','hist:2.9':'h_west','hist:2.10':'h_1900s','hist:2.11':'h_geo','hist:2.12':'h_presidents','hist:2.13':'h_econ',
  'hist:3.1':'h_citizen','hist:3.2':'subj_geo','hist:3.3':'h_skills','hist:3.4':'h_egypt','hist:3.5':'h_china','hist:3.6':'h_greece','hist:3.7':'h_rome','hist:3.8':'h_mali','hist:3.9':'h_branches','hist:3.10':'h_econ'});
 Object.assign(ART_FALLBACK,{h_egypt:'h_skills',h_china:'h_skills',h_greece:'h_skills',h_rome:'h_skills',h_mali:'h_skills'});
+
+// Painted art for games, avatars and award medals (falls back to the drawn SVGs when a picture is missing)
+function artSrc(key,small){const p='art/'+(small?'sm/':'')+key+'.webp';const m=window.ASSET_INLINE;
+  return (m&&(m[p]||m['art/sm/'+key+'.webp']))||('./assets/'+p);}
+function avImg(a,cls){const f=AVATAR_FILE[a];if(!f)return esc(a||'');
+  const k='av_'+f;const src=ART_HAVE.has(k)?artSrc(k,true):asset('avatars/'+f+'.svg');
+  return `<img class="av-img${ART_HAVE.has(k)?' av-art':''}${cls?' '+cls:''}" src="${src}" alt="${f}" decoding="async">`;}
+function gameImg(k){if(!GAMES[k])return '';const g='game_'+k;
+  return ART_HAVE.has(g)?`<img class="game-img game-art" src="${artSrc(g,true)}" alt="" decoding="async">`
+    :`<img class="game-img" src="${asset('games/'+k+'.svg')}" alt="" decoding="async">`;}
+const AWARD_CAT={first:'practice',ten:'practice',fifty:'practice',q250:'practice',test1:'practice',test80:'practice',
+  streak5:'streak',streak10:'streak',goal:'streak',days3:'streak',days7:'streak',
+  m1:'mastery',m5:'mastery',m10:'mastery',xp500:'mastery',
+  gamer:'games',detective:'games',stars3:'games',book1:'reading',book5:'reading',words300:'reading',closet:'fun',family:'fun'};
+const _badgeSvg=badge;
+// painted medals only once the whole set exists, so the awards grid stays consistent
+const AW_ALL=['practice','streak','mastery','games','reading','fun'].every(c=>ART_HAVE.has('aw_'+c));
+badge=function(a,got){const k='aw_'+(AWARD_CAT[a.id]||'');
+  if(!AW_ALL||!ART_HAVE.has(k))return _badgeSvg(a,got);
+  return `<img class="badge badge-art${got?'':' locked-art'}" src="${artSrc(k,true)}" alt="" decoding="async">`;};
 
 loadProfiles();
 if(PROFILES.active&&activateProfile(PROFILES.active))renderDash();else renderWho();
