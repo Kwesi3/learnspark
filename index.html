@@ -7159,7 +7159,7 @@ renderTab=function(){
       <div class="cl-hero-txt"><div class="cl-eye">Welcome back, ${esc(ST.name)}</div><h1>Let’s learn something today.</h1>
         <p>Small steps build strong readers, thinkers, and problem-solvers.</p>
         <label class="cl-grade"><span>Learning level</span>
-          <select onchange="clGrade(this.value)" aria-label="Learning level"><optgroup label="Elementary"><option value="4"${ST.grade===4?' selected':''}>Grade 4 · Virginia Studies</option></optgroup><optgroup label="Middle school">${[6,7,8].map(g=>`<option value="${g}"${g===ST.grade?' selected':''}>Grade ${g}</option>`).join('')}</optgroup></select></label></div>
+          <select onchange="clGrade(this.value)" aria-label="Learning level"><optgroup label="Elementary">${[1,2,3,4].map(g=>`<option value="${g}"${g===ST.grade?' selected':''}>Grade ${g}</option>`).join('')}</optgroup><optgroup label="Middle school">${[6,7,8].map(g=>`<option value="${g}"${g===ST.grade?' selected':''}>Grade ${g}</option>`).join('')}</optgroup></select></label></div>
       <div class="cl-hero-img">${art('hero')}</div>
     </section>
     <section class="cl-focus">
@@ -7218,7 +7218,7 @@ function renderAbout(){
   const g=(n,t,d)=>`<li><b>${n}</b> ${t}<small>${d}</small></li>`;
   setScreen(`<div class="screen active cl-about">${topBar('About &amp; privacy','How LearnSpark works and how your family’s data is handled','#17324D')}
     <div class="ab-body">
-      <section class="ab-hero"><div><div class="cl-eye">About LearnSpark</div><h1>Practice that follows Virginia’s standards, kept on your device.</h1>
+      <section class="ab-hero"><div><div class="cl-eye">About LearnSpark</div><h1>Practice that follows Virginia’s standards, Grades 1–8, kept on your device.</h1>
         <p>LearnSpark is an independent, family-made practice app for Virginia students. It has original questions, lessons, read-aloud stories, and games organized by the Virginia Standards of Learning.</p></div>
         <div class="ab-img">${art('about')}</div></section>
       <div class="ab-grid">
@@ -7232,6 +7232,7 @@ function renderAbout(){
           </ul></section>
         <section class="cl-panel"><h2>${ic('book')} What is covered</h2>
           <ul class="ab-list ab-levels">
+            ${g('Grades 1–3','Mathematics, Reading, Science, Writing, and History & Social Science','Elementary · phonics, early math, Virginia and U.S. history, ancient civilizations')}
             ${g('Grade 4','Mathematics, Reading, Science, Writing, and Virginia Studies','Elementary')}
             ${g('Grade 6','Mathematics, Reading, Science, Writing, and U.S. History 1865 to the Present','Middle school')}
             ${g('Grade 7','Mathematics, Reading, Life Science, Writing, and Civics & Economics','Middle school')}
@@ -8226,6 +8227,740 @@ const SUBJ_GRADE={
   4:{hist:['Virginia Studies','Virginia’s geography, people, and history.']}};
 function subjTitle(k){const o=(SUBJ_GRADE[gradeContent()]||{})[k];return o?o[0]:(SUBJ[k].card||SUBJ[k].label);}
 function subjDesc(k){const o=(SUBJ_GRADE[gradeContent()]||{})[k];return o?o[1]:(CL_DESC[k]||'');}
+
+
+// ═══════════════════════════════════════════════════════════════
+// EARLY ELEMENTARY MATH — 2023 Virginia Mathematics SOL, Grades 1–3
+// ═══════════════════════════════════════════════════════════════
+function dgClock(h,m){
+  const cx=90,cy=90,r=72;let s=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="#fff" stroke="${DG.ink}" stroke-width="4"/>`;
+  for(let i=1;i<=12;i++){const a=(i/12)*2*Math.PI-Math.PI/2;s+=dgText(cx+Math.cos(a)*56,cy+Math.sin(a)*56+6,String(i),{s:16});}
+  for(let i=0;i<60;i++){if(i%5)continue;const a=(i/60)*2*Math.PI-Math.PI/2;s+=`<line x1="${cx+Math.cos(a)*66}" y1="${cy+Math.sin(a)*66}" x2="${cx+Math.cos(a)*71}" y2="${cy+Math.sin(a)*71}" stroke="${DG.ink}" stroke-width="2"/>`;}
+  const ma=(m/60)*2*Math.PI-Math.PI/2,ha=((h%12)+m/60)/12*2*Math.PI-Math.PI/2;
+  s+=`<line x1="${cx}" y1="${cy}" x2="${cx+Math.cos(ha)*38}" y2="${cy+Math.sin(ha)*38}" stroke="${DG.ink}" stroke-width="6" stroke-linecap="round"/>`;
+  s+=`<line x1="${cx}" y1="${cy}" x2="${cx+Math.cos(ma)*58}" y2="${cy+Math.sin(ma)*58}" stroke="#2D74DA" stroke-width="4" stroke-linecap="round"/><circle cx="${cx}" cy="${cy}" r="5" fill="${DG.ink}"/>`;
+  return dgSvg(180,180,s,`Clock showing ${h}:${String(m).padStart(2,'0')}`);
+}
+function dgBars(labels,counts,col,title){
+  const W=360,H=210,x0=44,y0=172,bw=(W-70)/labels.length;const mx=Math.max(...counts,1);const step=mx>10?2:1;const sc=130/mx;
+  let r=`<line x1="${x0}" y1="${y0}" x2="${W-12}" y2="${y0}" stroke="${DG.ink}" stroke-width="2.5"/><line x1="${x0}" y1="${y0}" x2="${x0}" y2="28" stroke="${DG.ink}" stroke-width="2.5"/>`;
+  for(let v=0;v<=mx;v+=step){const y=y0-v*sc;r+=`<line x1="${x0}" y1="${y}" x2="${W-12}" y2="${y}" stroke="${DG.grid}"/>`+dgText(x0-8,y+5,String(v),{s:12,a:'end'});}
+  counts.forEach((c,i)=>{const x=x0+i*bw+bw*.18;r+=`<rect x="${x}" y="${y0-c*sc}" width="${bw*.64}" height="${c*sc}" rx="3" fill="${col}" stroke="${DG.ink}" stroke-width="2"/>`+dgText(x+bw*.32,y0+20,labels[i],{s:12});});
+  if(title)r+=dgText(W/2,18,title,{s:13});
+  return dgSvg(W,H+10,r,title||'Bar graph');
+}
+function dgPicto(labels,counts,col,key){
+  const W=360,rowH=34,H=labels.length*rowH+40;let r='';
+  labels.forEach((l,i)=>{const y=24+i*rowH;r+=dgText(70,y+6,l,{s:13,a:'end'});
+    for(let k=0;k<counts[i];k++)r+=`<circle cx="${92+k*24}" cy="${y}" r="9" fill="${col}" stroke="${DG.ink}" stroke-width="2"/>`;});
+  r+=dgText(W/2,H-6,key||'Each ● = 1',{s:12});
+  return dgSvg(W,H,r,'Picture graph');
+}
+const ORD=['first','second','third','fourth','fifth','sixth','seventh','eighth','ninth','tenth'];
+const DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const tm=(h,m)=>`${((h-1)%12+12)%12+1}:${String(m).padStart(2,'0')}`;
+
+// ---------- GRADE 1 ----------
+GEN.g1_ns1=()=>{const t=rng(0,3);
+  if(t===0){const by=pick([2,5,10]);const s=by*rng(1,8);const seq=[s,s+by,s+2*by];
+    return mcq('Skip Counting','1.NS.1',`Count by ${by}s. What comes next? ${seq.join(', ')}, ___`,[s+3*by,s+3*by+1,s+2*by+1,s+4*by],s+3*by,`Add ${by} each time: ${s+2*by} + ${by} = ${s+3*by}.`,`Count on by ${by}.`);}
+  if(t===1){const tens=rng(1,11),ones=rng(0,9);const n=tens*10+ones;if(n>120)return GEN.g1_ns1();
+    return mcq('Tens and Ones','1.NS.1',`What number is ${tens} tens and ${ones} ones?`,[n,ones*10+tens,tens+ones,n+10],n,`${tens} tens = ${tens*10}. ${tens*10} + ${ones} = ${n}.`,'Each ten is 10.');}
+  if(t===2){const p=rng(0,4),nk=rng(0,3),d=rng(1,4);const v=p+5*nk+10*d;
+    return mcq('Coins','1.NS.1',`You have ${d} dime${d>1?'s':''}, ${nk} nickel${nk!==1?'s':''}, and ${p} penn${p!==1?'ies':'y'}. How many cents is that?`,[`${v}¢`,`${d+nk+p}¢`,`${v+5}¢`,`${v-1}¢`],`${v}¢`,`Dimes are 10¢, nickels are 5¢, pennies are 1¢. Count: ${v}¢.`,'Count the dimes first, then nickels, then pennies.');}
+  const n=rng(20,110);return mcq('Counting','1.NS.1',`What number comes right after ${n}?`,[n+1,n-1,n+10,n+2],n+1,`Counting on by one: ${n}, ${n+1}.`,'Count up by one.');};
+GEN.g1_ns2=()=>{const t=rng(0,2);
+  if(t===0){const a=rng(10,120),b=rng(10,120);if(a===b)return GEN.g1_ns2();
+    return mcq('Compare Numbers','1.NS.2',`Which symbol makes this true?  ${a} ___ ${b}`,['>','<','='],a>b?'>':'<',`${a} is ${a>b?'greater':'less'} than ${b}. Compare the tens first.`,'The open side of the symbol faces the bigger number.');}
+  if(t===1){const n=rng(10,109);const which=pick(['one more','one less','ten more','ten less']);const v={'one more':n+1,'one less':n-1,'ten more':n+10,'ten less':n-10}[which];
+    return mcq('One More, Ten More','1.NS.2',`What is ${which} than ${n}?`,[v,n+(which.includes('more')?-1:1)*(which.includes('ten')?10:1),n+(which.includes('ten')?1:10)*(which.includes('more')?1:-1),n],v,`${which[0].toUpperCase()+which.slice(1)} than ${n} is ${v}.`,which.includes('ten')?'Change the tens digit.':'Change the ones digit.');}
+  const s=shuf([rng(10,40),rng(41,80),rng(81,120)]);const mx=Math.max(...s);
+  return mcq('Greatest Number','1.NS.2',`Which number is the greatest? ${s.join(', ')}`,s.slice(),mx,`${mx} has the most tens.`,'Look at the tens first.');};
+GEN.g1_ns3=()=>{const t=rng(0,2);
+  if(t===0){const p=pick([2,4]);const name=p===2?'half':'fourth';
+    return mcq('Equal Shares','1.NS.3',`A sandwich is cut into ${p} equal parts. What is each part called?`,['One '+name,p===2?'One fourth':'One half','One whole','One third'],'One '+name,`${p} equal parts are ${p===2?'halves':'fourths'}, so each part is one ${name}.`,'Count the equal parts.');}
+  if(t===1)return mcq('Equal Shares','1.NS.3','How many fourths make one whole?',['4','2','1','3'],'4','Four fourths make one whole.','Fourths means 4 equal parts.');
+  return mcq('Equal Shares','1.NS.3','Two friends share a pizza fairly. How much does each friend get?',['One half','One fourth','The whole pizza','None'],'One half','Sharing equally between 2 people makes halves.','Fair shares are equal.');};
+GEN.g1_ce1=()=>{const t=rng(0,2);
+  if(t===0){const a=rng(1,10),b=rng(0,10);const op=Math.random()<.5;if(!op&&b>a)return GEN.g1_ce1();
+    const v=op?a+b:a-b;return mcq('Add and Subtract','1.CE.1',`${a} ${op?'+':'−'} ${b} = ?`,[v,v+1,Math.max(0,v-1),op?Math.abs(a-b):a+b],v,`${a} ${op?'+':'−'} ${b} = ${v}.`,op?'Count on from the bigger number.':'Count back.');}
+  if(t===1){const a=rng(4,12),b=rng(2,8);const thing=pick(['apples','stickers','blocks','shells']);
+    return mcq('Word Problems','1.CE.1',`Mia has ${a} ${thing}. She gets ${b} more. How many ${thing} does she have now?`,[a+b,a-b,a+b+1,b],a+b,`${a} + ${b} = ${a+b}.`,'Getting more means add.');}
+  const w=rng(6,18),p=rng(1,w-1);return mcq('Part-Part-Whole','1.CE.1',`${p} + ___ = ${w}`,[w-p,w+p,w-p+1,p],w-p,`${w} − ${p} = ${w-p}, so ${p} + ${w-p} = ${w}.`,'What do you add to the part to make the whole?');};
+GEN.g1_mg1=()=>{const a=rng(3,9),b=rng(2,9);if(a===b)return GEN.g1_mg1();const t=rng(0,1);
+  if(t===0)return mcq('Compare Length','1.MG.1',`A pencil is ${a} paper clips long. A crayon is ${b} paper clips long. Which is longer?`,['The pencil','The crayon','They are the same'],a>b?'The pencil':'The crayon',`${Math.max(a,b)} paper clips is more than ${Math.min(a,b)}.`,'More paper clips means longer.');
+  return mcq('Compare Length','1.MG.1',`A pencil is ${Math.max(a,b)} paper clips long. A crayon is ${Math.min(a,b)} paper clips long. How much longer is the pencil?`,[`${Math.abs(a-b)} paper clips`,`${a+b} paper clips`,`${Math.max(a,b)} paper clips`,`1 paper clip`],`${Math.abs(a-b)} paper clips`,`${Math.max(a,b)} − ${Math.min(a,b)} = ${Math.abs(a-b)}.`,'Subtract to compare.');};
+GEN.g1_mg2=()=>{const shapes=[['triangle',3,3],['square',4,4],['rectangle',4,4],['circle',0,0]];const s=pick(shapes);const t=rng(0,2);
+  if(t===0)return mcq('Shapes','1.MG.2',`How many sides does a ${s[0]} have?`,['0','3','4','5'],String(s[1]),`A ${s[0]} has ${s[1]} sides.`,'Trace the sides with your finger.');
+  if(t===1)return mcq('Shapes','1.MG.2','Which shape has no corners (vertices)?',['Circle','Square','Triangle','Rectangle'],'Circle','A circle is round and has no corners.','Which one is round?');
+  return mcq('Right Angles','1.MG.2','Which shape always has 4 square corners (right angles)?',['Rectangle','Triangle','Circle','Oval'],'Rectangle','Rectangles and squares have four right angles.','A right angle looks like the corner of a page.');};
+GEN.g1_mg3=()=>{const t=rng(0,2);
+  if(t===0){const h=rng(1,12),m=pick([0,30]);return mcq('Tell Time','1.MG.3','What time does the clock show?',[tm(h,m),tm(h,m?0:30),tm(h%12+1,m),tm(h,15)],tm(h,m),
+    m?`The long hand points to 6, which means 30 minutes. The short hand is just past ${h}. It is ${tm(h,m)}.`:`The long hand points to 12, so it is ${h} o’clock: ${tm(h,0)}.`,'The short hand shows the hour. The long hand shows the minutes.',{dgSvg:dgClock(h,m)});}
+  if(t===1){const d=rng(0,6);return mcq('Calendar','1.MG.3',`What day comes right after ${DAYS[d]}?`,[DAYS[(d+1)%7],DAYS[(d+6)%7],DAYS[(d+2)%7],DAYS[d]],DAYS[(d+1)%7],`The days in order: … ${DAYS[d]}, ${DAYS[(d+1)%7]} …`,'Say the days of the week in order.');}
+  const n=rng(2,6);const kids=shuf(['Ana','Ben','Cal','Dee','Eli','Fay']);
+  return mcq('Ordinal Numbers','1.MG.3',`Kids are in line: ${kids.join(', ')}. Who is ${ORD[n-1]}?`,[kids[n-1]].concat(kids.filter((k,i)=>i!==n-1).slice(0,3)),kids[n-1],`Count from the front: ${kids.slice(0,n).join(', ')}. ${kids[n-1]} is ${ORD[n-1]}.`,'Start counting at the front of the line.');};
+GEN.g1_ps1=()=>{const labels=shuf(['Apple','Pear','Grape','Plum']).slice(0,3);const counts=labels.map(()=>rng(1,7));const svg=dgPicto(labels,counts,'#FF8A3D','Each ● = 1 vote');const t=rng(0,1);
+  if(t===0){const i=rng(0,2);return mcq('Picture Graphs','1.PS.1',`How many children chose ${labels[i]}?`,[counts[i],counts[i]+1,Math.max(0,counts[i]-1),counts[(i+1)%3]],counts[i],`Count the dots next to ${labels[i]}: ${counts[i]}.`,'Count the dots in that row.',{dgSvg:svg});}
+  const a=counts.indexOf(Math.max(...counts)),b=counts.indexOf(Math.min(...counts));if(a===b||counts[a]===counts[b])return GEN.g1_ps1();
+  return mcq('Picture Graphs','1.PS.1',`How many more chose ${labels[a]} than ${labels[b]}?`,[counts[a]-counts[b],counts[a]+counts[b],counts[a],1+counts[a]-counts[b]],counts[a]-counts[b],`${counts[a]} − ${counts[b]} = ${counts[a]-counts[b]}.`,'Subtract the smaller row from the bigger row.',{dgSvg:svg});};
+GEN.g1_pfa1=()=>{const t=rng(0,1);
+  if(t===0){const sets=[[['red','blue'],'green'],[['circle','square','square'],'triangle'],[['clap','stomp'],'jump'],[['A','B','B'],'C']];const ps=pick(sets);const p=ps[0];const seq=[];for(let i=0;i<p.length*2+1;i++)seq.push(p[i%p.length]);
+    const nx=p[seq.length%p.length];return mcq('Patterns','1.PFA.1',`What comes next? ${seq.join(', ')}, ___`,[...new Set(p)].concat([ps[1]]),nx,`The part that repeats is: ${p.join(', ')}. Next is ${nx}.`,'Find the part that repeats.');}
+  const by=pick([1,2,5,10]);const s=rng(1,20);return mcq('Growing Patterns','1.PFA.1',`What comes next? ${s}, ${s+by}, ${s+2*by}, ___`,[s+3*by,s+3*by+1,s+2*by,s+4*by],s+3*by,`It grows by ${by} each time.`,'How much does it grow each time?');};
+
+// ---------- GRADE 2 ----------
+GEN.g2_ns1=()=>{const t=rng(0,2);
+  if(t===0){const by=pick([2,5,10,25,100]);const s=by*rng(1,6);return mcq('Skip Counting','2.NS.1',`Count by ${by}s: ${s}, ${s+by}, ${s+2*by}, ___`,[s+3*by,s+3*by+1,s+2*by+by/2|0,s+4*by],s+3*by,`Add ${by} each time.`,`Count on by ${by}.`);}
+  if(t===1){const s=rng(5,9)*10+rng(0,9)+100;return mcq('Count Back by 10','2.NS.1',`Count back by 10s: ${s}, ${s-10}, ${s-20}, ___`,[s-30,s-21,s-3,s-40],s-30,`Subtract 10 each time.`,'The tens digit goes down by one.');}
+  const n=rng(1,50);return mcq('Even and Odd','2.NS.1',`Is ${n} even or odd?`,['Even','Odd'],n%2?'Odd':'Even',`Look at the ones digit: ${n%10}. ${n%2?'It is odd.':'It is even.'}`,'Even numbers end in 0, 2, 4, 6, or 8.');};
+GEN.g2_ns2=()=>{const n=rng(100,999);const d=String(n).split('').map(Number);const t=rng(0,2);
+  if(t===0){const i=rng(0,2);const vals=[d[0]*100,d[1]*10,d[2]];return mcq('Place Value','2.NS.2',`In ${n}, what is the value of the digit ${d[i]} in the ${['hundreds','tens','ones'][i]} place?`,[vals[i],d[i],d[i]*(i===0?10:100),d[i]*1000],vals[i],`The ${d[i]} is in the ${['hundreds','tens','ones'][i]} place, so it is worth ${vals[i]}.`,'Look at the place of the digit.');}
+  if(t===1)return mcq('Expanded Form','2.NS.2',`What is ${d[0]*100} + ${d[1]*10} + ${d[2]}?`,[n,d[0]+d[1]+d[2],Number(`${d[2]}${d[1]}${d[0]}`),n+100],n,`${d[0]} hundreds, ${d[1]} tens, ${d[2]} ones is ${n}.`,'Put the hundreds, tens, and ones together.');
+  const m=rng(100,999);if(m===n)return GEN.g2_ns2();return mcq('Compare','2.NS.2',`Which symbol makes this true?  ${n} ___ ${m}`,['>','<','='],n>m?'>':'<',`Compare hundreds first, then tens, then ones.`,'Start with the hundreds.');};
+GEN.g2_ns3=()=>{const t=rng(0,2);const dens=[2,3,4,6,8];
+  if(t===0){const d=pick(dens);const n=rng(1,d-1);return mcq('Fractions','2.NS.3',`A shape is cut into ${d} equal parts. ${n} part${n>1?'s are':' is'} shaded. What fraction is shaded?`,[`${n}/${d}`,`${d}/${n}`,`${n}/${d+1}`,`${d-n}/${d}`],`${n}/${d}`,`${n} shaded out of ${d} equal parts is ${n}/${d}.`,'Top number: shaded parts. Bottom number: all equal parts.');}
+  if(t===1){const a=pick(dens),b=pick(dens.filter(x=>x!==a));return mcq('Compare Unit Fractions','2.NS.3',`Which is greater: 1/${a} or 1/${b}?`,[`1/${a}`,`1/${b}`,'They are equal'],a<b?`1/${a}`:`1/${b}`,`Fewer equal parts means bigger pieces. 1/${Math.min(a,b)} is greater.`,'Would you rather have 1 of 2 pieces or 1 of 8 pieces of the same pizza?');}
+  return mcq('Fractions','2.NS.3','Which fraction names one whole?',['4/4','1/4','3/4','2/4'],'4/4','All 4 of 4 equal parts make one whole.','The top and bottom numbers are the same.');};
+GEN.g2_ns4=()=>{const q=rng(0,4),d=rng(0,5),n=rng(0,3),p=rng(0,4);const v=25*q+10*d+5*n+p;if(v===0||v>200)return GEN.g2_ns4();
+  const f=c=>c>=100?`$${(c/100).toFixed(2)}`:`${c}¢`;
+  return mcq('Money','2.NS.4',`How much money? ${q} quarter${q!==1?'s':''}, ${d} dime${d!==1?'s':''}, ${n} nickel${n!==1?'s':''}, ${p} penn${p!==1?'ies':'y'}`,[f(v),f(v+5),f(q+d+n+p),f(v+10)],f(v),`Quarters 25¢, dimes 10¢, nickels 5¢, pennies 1¢. Total: ${f(v)}.`,'Start with the coins worth the most.');};
+GEN.g2_ce1=()=>{const t=rng(0,2);
+  if(t===0){const a=rng(15,80),b=rng(5,99-a);return mcq('Add Within 100','2.CE.1',`${a} + ${b} = ?`,[a+b,a+b+10,a+b-10,a+b+1],a+b,`Add the tens, then the ones: ${a+b}.`,'Add tens and ones. Regroup 10 ones as a ten.');}
+  if(t===1){const a=rng(30,99),b=rng(5,a-5);return mcq('Subtract Within 100','2.CE.1',`${a} − ${b} = ?`,[a-b,a-b+10,a+b,a-b-1],a-b,`${a} − ${b} = ${a-b}.`,'You may need to regroup a ten as 10 ones.');}
+  const a=rng(12,40),b=rng(5,30),c=rng(3,15);return mcq('Two-Step Problems','2.CE.1',`A class has ${a} crayons. They buy ${b} more, then give away ${c}. How many crayons now?`,[a+b-c,a+b+c,a-b-c,a+b],a+b-c,`${a} + ${b} = ${a+b}. ${a+b} − ${c} = ${a+b-c}.`,'Do one step at a time.');};
+GEN.g2_mg1=()=>{const t=rng(0,2);
+  if(t===0){const it=pick([['the length of a pencil','inches'],['how heavy a dog is','pounds'],['how much milk a mug holds','cups']]);
+    return mcq('Choose the Unit','2.MG.1',`Which unit would you use to measure ${it[0]}?`,['inches','pounds','cups'],it[1],`Use ${it[1]} to measure ${it[1]==='inches'?'length':it[1]==='pounds'?'weight':'liquid volume'}.`,'Is it length, weight, or how much it holds?');}
+  if(t===1){const a=rng(6,12),b=rng(1,a-2);return mcq('Measure Length','2.MG.1',`A ribbon is ${a} inches long. Sam cuts off ${b} inches. How long is it now?`,[`${a-b} inches`,`${a+b} inches`,`${b} inches`,`${a} inches`],`${a-b} inches`,`${a} − ${b} = ${a-b} inches.`,'Cutting off means subtract.');}
+  return mcq('Estimate','2.MG.1','Which is the best estimate for the length of a crayon?',['4 inches','40 inches','4 feet','1 inch'],'4 inches','A crayon is about as long as your finger, about 4 inches.','Think about how big a crayon is.');};
+GEN.g2_mg2=()=>{const t=rng(0,1);
+  if(t===0){const h=rng(1,12),m=pick([5,10,15,20,25,35,40,45,50,55]);return mcq('Tell Time','2.MG.2','What time does the clock show?',[tm(h,m),tm(h,(m+30)%60),tm(h%12+1,m),tm(h,m/5|0)],tm(h,m),`Count by 5s on the long hand: ${m} minutes. The hour is ${h}. It is ${tm(h,m)}.`,'Count by 5s around the clock for the minutes.',{dgSvg:dgClock(h,m)});}
+  const it=pick([['How long does it take to brush your teeth?','minutes'],['How long do you sleep at night?','hours'],['How long does summer vacation last?','weeks'],['How long does it take to blink?','seconds']]);
+  return mcq('Units of Time','2.MG.2',`${it[0]} Choose the best unit.`,['seconds','minutes','hours','weeks'],it[1],`The best unit is ${it[1]}.`,'Think about how long it really takes.');};
+GEN.g2_mg3=()=>{const t=rng(0,1);
+  if(t===0)return mcq('Symmetry','2.MG.3','A shape is folded on a line of symmetry. What is true about the two halves?',['They match exactly','One half is bigger','They are different shapes','They do not touch'],'They match exactly','A line of symmetry makes two halves that are the same size and shape (congruent).','Fold a heart in half.');
+  const s=pick([['A','yes'],['M','yes'],['T','yes'],['F','no'],['G','no'],['R','no']]);
+  return mcq('Symmetry','2.MG.3',`Does the capital letter ${s[0]} have a line of symmetry?`,['Yes','No'],s[1]==='yes'?'Yes':'No',s[1]==='yes'?`${s[0]} can be folded down the middle so both sides match.`:`No fold makes the two sides of ${s[0]} match.`,'Imagine folding it in half.');};
+GEN.g2_mg4=()=>{const solids=[['cube',6,12,8],['rectangular prism',6,12,8],['sphere',0,0,0]];const s=pick(solids);const t=rng(0,2);
+  if(t===0&&s[1])return mcq('Solid Figures','2.MG.4',`How many faces does a ${s[0]} have?`,['6','4','8','12'],String(s[1]),`A ${s[0]} has ${s[1]} flat faces.`,'Count every flat side, including top and bottom.');
+  if(t===1)return mcq('Solid Figures','2.MG.4','Which solid figure can roll?',['Sphere','Cube','Rectangular prism'],'Sphere','A sphere is round all over, so it rolls.','Which one is like a ball?');
+  return mcq('Solid Figures','2.MG.4','How many vertices (corners) does a cube have?',['8','6','12','4'],'8','A cube has 8 vertices, 12 edges, and 6 faces.','Count 4 on top and 4 on the bottom.');};
+GEN.g2_ps1=()=>{const labels=shuf(['Soccer','Art','Music','Swim']).slice(0,4);const counts=labels.map(()=>rng(2,10));const svg=dgBars(labels,counts,'#4C8DF6','Favorite club');const t=rng(0,1);
+  if(t===0){const i=rng(0,3);return mcq('Bar Graphs','2.PS.1',`How many students chose ${labels[i]}?`,[counts[i],counts[i]+1,Math.max(0,counts[i]-1),counts[(i+1)%4]],counts[i],`The ${labels[i]} bar reaches ${counts[i]}.`,'Follow the top of the bar to the numbers.',{dgSvg:svg});}
+  const tot=counts.reduce((a,b)=>a+b,0);return mcq('Bar Graphs','2.PS.1','How many students voted in all?',[tot,tot-1,tot+2,Math.max(...counts)],tot,`${counts.join(' + ')} = ${tot}.`,'Add all the bars.',{dgSvg:svg});};
+GEN.g2_pfa1=()=>{const by=pick([2,5,10,3,4]);const s=rng(1,40);return mcq('Number Patterns','2.PFA.1',`What is the next number? ${s}, ${s+by}, ${s+2*by}, ${s+3*by}, ___`,[s+4*by,s+4*by+1,s+3*by+1,s+5*by],s+4*by,`The rule is “add ${by}.”`,'Find how much it grows each time.');};
+
+// ---------- GRADE 3 ----------
+GEN.g3_ns1=()=>{const t=rng(0,1);const n=rng(1000,999999);const s=String(n);const places=['ones','tens','hundreds','thousands','ten thousands','hundred thousands'];
+  if(t===0){const i=rng(0,s.length-1);const dg=Number(s[s.length-1-i]);if(!dg)return GEN.g3_ns1();const v=dg*Math.pow(10,i);
+    return mcq('Place Value','3.NS.1',`What is the value of the ${dg} in ${n.toLocaleString()}?`,[v.toLocaleString(),String(dg),(v*10).toLocaleString(),(v/10>=1?v/10:v*100).toLocaleString()],v.toLocaleString(),`The ${dg} is in the ${places[i]} place, so its value is ${v.toLocaleString()}.`,'Name the place, then find the value.');}
+  const m=rng(1000,9999);const d=String(m).split('').map(Number);
+  return mcq('Expanded Form','3.NS.1',`Which shows ${m.toLocaleString()} in expanded form?`,[`${d[0]*1000} + ${d[1]*100} + ${d[2]*10} + ${d[3]}`,`${d[0]} + ${d[1]} + ${d[2]} + ${d[3]}`,`${d[0]*100} + ${d[1]*10} + ${d[2]} + ${d[3]}`,`${d[0]*1000} + ${d[1]*10} + ${d[2]*100} + ${d[3]}`],`${d[0]*1000} + ${d[1]*100} + ${d[2]*10} + ${d[3]}`,'Expanded form shows the value of each digit.','Write each digit times its place.');};
+GEN.g3_ns2=()=>{const t=rng(0,1);
+  if(t===0){const a=rng(1000,9999),b=rng(1000,9999);if(a===b)return GEN.g3_ns2();return mcq('Compare Numbers','3.NS.2',`Which symbol makes this true?  ${a.toLocaleString()} ___ ${b.toLocaleString()}`,['>','<','='],a>b?'>':'<','Line up the digits and compare from the left.','Start with the thousands.');}
+  const s=[rng(1000,3000),rng(3001,6000),rng(6001,9999)];const o=shuf(s.slice());return mcq('Order Numbers','3.NS.2',`Which list is in order from least to greatest?`,[s.map(x=>x.toLocaleString()).join(', '),s.slice().reverse().map(x=>x.toLocaleString()).join(', '),[s[1],s[0],s[2]].map(x=>x.toLocaleString()).join(', '),[s[0],s[2],s[1]].map(x=>x.toLocaleString()).join(', ')],s.map(x=>x.toLocaleString()).join(', '),'Compare the thousands first.','Find the smallest number first.');};
+GEN.g3_ns3=()=>{const dens=[2,3,4,5,6,8,10];const t=rng(0,3);const d=pick(dens);
+  if(t===0){const a=rng(1,d-1),b=rng(1,d-1);if(a===b)return GEN.g3_ns3();return mcq('Compare Fractions','3.NS.3',`Which is greater: ${a}/${d} or ${b}/${d}?`,[`${a}/${d}`,`${b}/${d}`,'They are equal'],a>b?`${a}/${d}`:`${b}/${d}`,'Same denominator: the bigger numerator is the bigger fraction.','The pieces are the same size. Who has more pieces?');}
+  if(t===1){const w=rng(1,3),n=rng(1,d-1);const imp=w*d+n;return mcq('Mixed Numbers','3.NS.3',`Which improper fraction equals ${w} ${n}/${d}?`,[`${imp}/${d}`,`${w+n}/${d}`,`${w*n}/${d}`,`${imp}/${d+1}`],`${imp}/${d}`,`${w} whole${w>1?'s':''} = ${w*d}/${d}. Add ${n}/${d} to get ${imp}/${d}.`,'Change the whole number to parts first.');}
+  if(t===2){const pairs=[['1/2','2/4'],['1/2','3/6'],['1/2','4/8'],['1/3','2/6'],['2/3','4/6'],['1/4','2/8'],['3/4','6/8'],['1/5','2/10']];const p=pick(pairs);
+    return mcq('Equivalent Fractions','3.NS.3',`Which fraction is equal to ${p[0]}?`,[p[1],'1/3','3/4','2/3'].filter((v,i,a)=>a.indexOf(v)===i&&v!==p[0]).slice(0,4),p[1],`${p[0]} and ${p[1]} cover the same amount of a whole.`,'Draw both fractions with same-size wholes.');}
+  const n=rng(1,9);return mcq('Compare Fractions','3.NS.3',`Which is greater: ${n}/4 or ${n}/8?`,[`${n}/4`,`${n}/8`,'They are equal'],`${n}/4`,'Same numerator: fourths are bigger pieces than eighths.','Bigger pieces win when the number of pieces is the same.');};
+GEN.g3_ns4=()=>{const price=rng(50,450);const paid=Math.ceil((price+1)/100)*100;const ch=paid-price;const $=c=>`$${(c/100).toFixed(2)}`;
+  return mcq('Making Change','3.NS.4',`A book costs ${$(price)}. You pay with ${$(paid)}. How much change do you get?`,[$(ch),$(ch+10),$(price),$(Math.abs(ch-5))],$(ch),`${$(paid)} − ${$(price)} = ${$(ch)}. You can count up from ${$(price)} to check.`,'Count up from the price to the amount paid.');};
+GEN.g3_ce1=()=>{const t=rng(0,2);
+  if(t===0){const a=rng(100,600),b=rng(100,999-a);return mcq('Add','3.CE.1',`${a} + ${b} = ?`,[a+b,a+b+100,a+b-10,a+b+1],a+b,`Line up the places and add: ${a+b}.`,'Add ones, then tens, then hundreds. Regroup when needed.');}
+  if(t===1){const a=rng(300,999),b=rng(100,a-50);return mcq('Subtract','3.CE.1',`${a} − ${b} = ?`,[a-b,a-b+100,a-b-10,a+b],a-b,`${a} − ${b} = ${a-b}. Check: ${a-b} + ${b} = ${a}.`,'Regroup if the top digit is smaller.');}
+  const a=rng(200,800),b=rng(100,900);return mcq('Estimate','3.CE.1',`About how much is ${a} + ${b}? Round each number to the nearest hundred.`,[Math.round(a/100)*100+Math.round(b/100)*100,a+b,Math.round(a/100)*100+Math.round(b/100)*100+100,Math.floor(a/100)*100+Math.floor(b/100)*100-100],Math.round(a/100)*100+Math.round(b/100)*100,`${a} → ${Math.round(a/100)*100}, ${b} → ${Math.round(b/100)*100}. The estimate is ${Math.round(a/100)*100+Math.round(b/100)*100}.`,'Round first, then add.');};
+GEN.g3_ce2=()=>{const t=rng(0,2);const a=rng(2,10),b=rng(2,10);
+  if(t===0)return mcq('Multiplication','3.CE.2',`${a} × ${b} = ?`,[a*b,a+b,a*b+a,a*(b-1)],a*b,`${a} groups of ${b} is ${a*b}.`,`Skip count by ${b}, ${a} times.`);
+  if(t===1)return mcq('Division','3.CE.2',`${a*b} ÷ ${a} = ?`,[b,a,a*b-a,b+1],b,`${a} × ${b} = ${a*b}, so ${a*b} ÷ ${a} = ${b}.`,'Think of the multiplication fact.');
+  const thing=pick(['muffins','cards','marbles']);return mcq('Equal Groups','3.CE.2',`There are ${a} bags with ${b} ${thing} in each bag. How many ${thing} in all?`,[a*b,a+b,a*b-b,b],a*b,`${a} × ${b} = ${a*b}.`,'Equal groups means multiply.');};
+GEN.g3_mg1=()=>{const it=pick([['the length of a pencil','15 centimeters',['15 meters','15 kilometers','15 millimeters']],['the weight of an apple','150 grams',['150 kilograms','150 pounds','15 tons']],['the water in a bathtub','40 gallons',['40 cups','40 milliliters','4 teaspoons']],['the height of a door','2 meters',['2 centimeters','2 kilometers','20 meters']]]);
+  return mcq('Estimate Measurements','3.MG.1',`What is the best estimate for ${it[0]}?`,[it[1]].concat(it[2]),it[1],`${it[1]} is a sensible size for ${it[0]}.`,'Picture each unit. Which makes sense?');};
+GEN.g3_mg2=()=>{const l=rng(3,10),w=rng(2,8);const t=rng(0,1);
+  if(t===0)return mcq('Area','3.MG.2',`A rectangle is ${l} units long and ${w} units wide. What is its area?`,[`${l*w} square units`,`${2*(l+w)} square units`,`${l+w} square units`,`${l*w+l} square units`],`${l*w} square units`,`Area counts square units: ${l} × ${w} = ${l*w}.`,'Area = how many squares cover it.');
+  return mcq('Perimeter','3.MG.2',`A rectangle is ${l} feet long and ${w} feet wide. What is its perimeter?`,[`${2*(l+w)} feet`,`${l*w} feet`,`${l+w} feet`,`${2*l+w} feet`],`${2*(l+w)} feet`,`Add all four sides: ${l} + ${w} + ${l} + ${w} = ${2*(l+w)} feet.`,'Perimeter is the distance around.');};
+GEN.g3_mg3=()=>{const t=rng(0,1);
+  if(t===0){const h=rng(1,12),m=rng(1,59);return mcq('Tell Time','3.MG.3','What time does the clock show?',[tm(h,m),tm(h,(m+5)%60),tm(h%12+1,m),tm(h,(m+30)%60)],tm(h,m),`The hour hand is past ${h}. Count the minutes on the long hand: ${m}. It is ${tm(h,m)}.`,'Count by 5s, then by 1s.',{dgSvg:dgClock(h,m)});}
+  const h=rng(1,8),m=pick([0,15,30,45]),d=rng(1,4);return mcq('Elapsed Time','3.MG.3',`A movie starts at ${tm(h,m)} and lasts ${d} hour${d>1?'s':''}. When does it end?`,[tm(h+d,m),tm(h+d+1,m),tm(h,m+d>59?m:m+d),tm(h+d,(m+30)%60)],tm(h+d,m),`Add ${d} hour${d>1?'s':''} to ${tm(h,m)}: ${tm(h+d,m)}.`,'Count forward one hour at a time.');};
+GEN.g3_mg4=()=>{const p=pick([['triangle',3],['quadrilateral',4],['pentagon',5],['hexagon',6],['octagon',8]]);const t=rng(0,1);
+  if(t===0)return mcq('Polygons','3.MG.4',`How many sides does a ${p[0]} have?`,['3','4','5','6','8'].slice(0,5),String(p[1]),`A ${p[0]} has ${p[1]} sides.`,'Tri = 3, quad = 4, penta = 5, hexa = 6, octa = 8.');
+  return mcq('Polygons','3.MG.4','Which shape is NOT a polygon?',['Circle','Square','Triangle','Hexagon'],'Circle','A polygon is a closed shape with straight sides. A circle is curved.','Polygons have only straight sides.');};
+GEN.g3_ps1=()=>{const labels=['Mon','Tue','Wed','Thu'];const counts=labels.map(()=>rng(2,12)*2);const svg=dgBars(labels,counts,'#2FB37A','Books read');const t=rng(0,1);
+  if(t===0){const i=rng(0,3),j=(i+1+rng(0,2))%4;return mcq('Bar Graphs','3.PS.1',`How many more books were read on ${labels[i]} than on ${labels[j]}?`,[counts[i]-counts[j],counts[i]+counts[j],counts[i],counts[j]],counts[i]-counts[j],`${counts[i]} − ${counts[j]} = ${counts[i]-counts[j]}.`,'Read both bars, then subtract.',{dgSvg:svg});}
+  const tot=counts.reduce((a,b)=>a+b,0);return mcq('Bar Graphs','3.PS.1','How many books were read in all four days?',[tot,tot-2,tot+2,Math.max(...counts)*4],tot,`${counts.join(' + ')} = ${tot}.`,'Add all four bars.',{dgSvg:svg});};
+GEN.g3_pfa1=()=>{const by=pick([2,3,5,10,25,100]);const up=Math.random()<.5;const s=up?rng(1,50):by*rng(6,12);const sq=[s,s+(up?by:-by),s+(up?2:-2)*by,s+(up?3:-3)*by];const nx=s+(up?4:-4)*by;
+  return mcq('Patterns','3.PFA.1',`What is the next number? ${sq.join(', ')}, ___`,[nx,nx+(up?by:-by),nx+1,sq[3]],nx,`The rule is “${up?'add':'subtract'} ${by}.”`,'Is it growing or shrinking? By how much?');};
+
+
+// ═══════════════════════════════════════════════════════════════
+// EARLY ELEMENTARY BANKS — Grades 1–3 (original content)
+// Reading & Writing follow the 2024 English SOL strands; Science the 2018 SOL;
+// History & Social Science the 2023 SOL.
+// ═══════════════════════════════════════════════════════════════
+Object.assign(MSB,{
+// ── READING · GRADE 1 ──
+r1_ffr:[
+ {q:'Which word rhymes with “cat”?',a:'hat',w:['cup','dog','sun'],e:'Cat and hat both end with “-at.”',h:'Listen to the ending sound.'},
+ {q:'Which word begins with the same sound as “ball”?',a:'bed',w:['map','sun','top'],e:'Ball and bed both start with /b/.',h:'Say the first sound.'},
+ {q:'Which word has the short a sound, like in “apple”?',a:'man',w:['cake','tree','boat'],e:'Man has the short a sound.',h:'Say “a” as in apple.'},
+ {q:'How many sounds do you hear in “fish”? (f-i-sh)',a:'3',w:['4','2','5'],e:'F, i, and sh make 3 sounds. “sh” is one sound.',h:'Two letters can make one sound.'},
+ {q:'Which word ends with the “ck” sound like “duck”?',a:'sock',w:['sun','ship','sit'],e:'Sock ends with “ck.”',h:'Listen to the last sound.'},
+ {q:'Change the first letter of “pig” to “w.” What new word do you make?',a:'wig',w:['pin','dig','wag'],e:'P-i-g becomes w-i-g: wig.',h:'Only the first sound changes.'},
+],
+r1_rv:[
+ {q:'What is the opposite of “hot”?',a:'cold',w:['warm','sunny','big'],e:'Hot and cold are opposites.',h:'Think of ice.'},
+ {q:'Which two words make the compound word “sunflower”?',a:'sun + flower',w:['sunny + flow','son + flower','sun + flour'],e:'Sunflower = sun + flower.',h:'Find two small words inside.'},
+ {q:'Which word means the same as “big”?',a:'large',w:['tiny','fast','sad'],e:'Big and large mean the same thing.',h:'Think of another word for very big.'},
+ {p:'The puppy was so <b>sleepy</b> that it curled up and closed its eyes.',q:'What does “sleepy” mean?',a:'Tired and ready to sleep',w:['Very hungry','Ready to play','Wet'],e:'The puppy curled up and closed its eyes, so it was tired.',h:'What did the puppy do?'},
+ {q:'Which word names a color?',a:'purple',w:['run','table','happy'],e:'Purple is a color.',h:'Look for a word you can see in a rainbow.'},
+],
+r1_rl:[
+ {p:'Max lost his red hat at the park. He looked under the slide. He looked by the swings. At last he found it in the sandbox!',q:'Where did Max find his hat?',a:'In the sandbox',w:['Under the slide','By the swings','At home'],e:'The story says he found it in the sandbox.',h:'Look at the last sentence.'},
+ {p:'Max lost his red hat at the park. He looked under the slide. He looked by the swings. At last he found it in the sandbox!',q:'What is the setting of the story?',a:'The park',w:['A school','A store','The beach'],e:'The setting is where the story happens: the park.',h:'Where does Max look?'},
+ {p:'Lily planted a seed. She watered it every day. Soon a tiny green sprout popped up. Lily smiled.',q:'What happened FIRST?',a:'Lily planted a seed.',w:['A sprout popped up.','Lily smiled.','Lily watered it every day.'],e:'First she planted the seed, then watered it, then it sprouted.',h:'Find the first sentence.'},
+ {p:'Ben the bear wanted honey. The jar was too high. He asked his friend Owl to help, and Owl flew up to get it.',q:'What was Ben’s problem?',a:'The honey jar was too high to reach',w:['Ben was too cold','Owl was lost','Ben had too much honey'],e:'Ben could not reach the jar.',h:'What did Ben need help with?'},
+ {p:'Ben the bear wanted honey. The jar was too high. He asked his friend Owl to help, and Owl flew up to get it.',q:'How was the problem solved?',a:'Owl flew up and got the jar',w:['Ben climbed a tree','The jar fell down','Ben gave up'],e:'Owl helped by flying up to get the honey.',h:'Who helped Ben?'},
+],
+r1_ri:[
+ {p:'Frogs live near ponds. They have long back legs for jumping. Frogs eat bugs with their sticky tongues.',q:'What is this text mostly about?',a:'Frogs',w:['Ponds','Bugs','Tongues'],e:'Every sentence tells about frogs.',h:'What is every sentence about?'},
+ {p:'Frogs live near ponds. They have long back legs for jumping. Frogs eat bugs with their sticky tongues.',q:'What do frogs use their long back legs for?',a:'Jumping',w:['Eating','Sleeping','Swimming only'],e:'The text says their long back legs are for jumping.',h:'Find the sentence about legs.'},
+ {q:'In a nonfiction book, what does the TITLE tell you?',a:'What the book is about',w:['The last page number','Who drew the pictures only','The price'],e:'The title tells the main topic.',h:'It is on the cover.'},
+ {q:'A picture in a nonfiction book has words under it. What are those words called?',a:'A caption',w:['A title','A rhyme','A question'],e:'A caption explains a picture.',h:'It goes with a picture.'},
+],
+w1_w:[
+ {q:'Which is a complete sentence?',a:'The dog runs fast.',w:['The dog.','Runs fast','fast the dog'],e:'A complete sentence tells who and what happened.',h:'It needs a who and a what.'},
+ {q:'What should go at the end of a telling sentence?',a:'A period (.)',w:['A question mark (?)','A comma (,)','Nothing'],e:'Telling sentences end with a period.',h:'It is a dot.'},
+ {q:'Which word best finishes the sentence? “I ___ to the store.”',a:'went',w:['dog','blue','happy'],e:'“Went” is an action word that makes sense.',h:'You need an action word.'},
+ {q:'Which sentence tells about the picture of a sunny beach?',a:'The sun shines on the sand.',w:['It is snowing.','The moon is out.','We are in a cave.'],e:'Sun and sand match a sunny beach.',h:'Think about the beach.'},
+],
+w1_lu:[
+ {q:'Which sentence starts correctly?',a:'My cat is soft.',w:['my cat is soft.','MY cat is soft.','my Cat is soft.'],e:'A sentence begins with a capital letter.',h:'Look at the first letter.'},
+ {q:'Which name is written correctly?',a:'Sam',w:['sam','sAm','SAM.'],e:'Names start with a capital letter.',h:'Names are special.'},
+ {q:'What should end this question: “Can you play”',a:'?',w:['.','!',','],e:'Questions end with a question mark.',h:'It is asking something.'},
+ {q:'Which word means more than one?',a:'cats',w:['cat','a cat','one cat'],e:'Adding -s makes cat mean more than one.',h:'Look for the -s.'},
+ {q:'Which word is a naming word (noun)?',a:'ball',w:['jump','red','fast'],e:'A noun names a person, place, or thing.',h:'Can you touch it?'},
+],
+// ── READING · GRADE 2 ──
+r2_ffr:[
+ {q:'Which word has a long a sound, like in “cake”?',a:'rain',w:['cat','hand','bag'],e:'“ai” in rain makes the long a sound.',h:'Long a says its name.'},
+ {q:'How many syllables are in “basket”?',a:'2',w:['1','3','4'],e:'Bas-ket has two parts.',h:'Clap the word.'},
+ {q:'Which word has the “sh” sound?',a:'shell',w:['chip','thin','whale'],e:'Shell begins with “sh.”',h:'Say “shhh.”'},
+ {q:'Which word has a silent e?',a:'bike',w:['bell','bat','bus'],e:'In bike, the e is silent and makes the i say its name.',h:'Look for an e at the end you cannot hear.'},
+ {q:'Which word has the “oo” sound like “moon”?',a:'spoon',w:['book','sun','cone'],e:'Spoon and moon share the long “oo” sound.',h:'Say both words out loud.'},
+],
+r2_rv:[
+ {q:'What does the prefix “un-” mean in “unhappy”?',a:'Not',w:['Again','Very','Before'],e:'Unhappy means not happy.',h:'Un- turns a word around.'},
+ {q:'What does “redo” mean?',a:'Do again',w:['Do never','Do badly','Do first'],e:'The prefix re- means again.',h:'Re- means again.'},
+ {p:'The <b>enormous</b> elephant was so big it could reach the top of the tree.',q:'What does “enormous” mean?',a:'Very big',w:['Very small','Very fast','Very quiet'],e:'The sentence says it was so big.',h:'Look for clues in the sentence.'},
+ {q:'Which word is an antonym (opposite) of “begin”?',a:'end',w:['start','open','try'],e:'Begin and end are opposites.',h:'Opposite of start.'},
+ {q:'Which word is a synonym of “happy”?',a:'glad',w:['angry','tired','sad'],e:'Glad and happy mean almost the same thing.',h:'Find a word that means the same.'},
+],
+r2_rl:[
+ {p:'Rosa wanted to win the spelling bee. Every night she practiced words with her grandpa. On the big day, she spelled “giraffe” correctly and won!',q:'Why did Rosa win?',a:'She practiced every night',w:['She was lucky','The words were easy','Her grandpa spelled for her'],e:'Practicing every night helped her win.',h:'What did she do every night?'},
+ {p:'Rosa wanted to win the spelling bee. Every night she practiced words with her grandpa. On the big day, she spelled “giraffe” correctly and won!',q:'What lesson does the story teach?',a:'Hard work pays off',w:['Never try new things','Grandpas know everything','Giraffes are tall'],e:'Rosa worked hard and reached her goal.',h:'What can we learn from Rosa?'},
+ {p:'The little turtle was slow, but he never stopped. The rabbit raced ahead and took a nap. When the rabbit woke up, the turtle was crossing the finish line.',q:'How are the turtle and the rabbit different?',a:'The turtle kept going; the rabbit stopped to nap',w:['The turtle was faster','The rabbit never ran','They both napped'],e:'The turtle never stopped, but the rabbit took a nap.',h:'Compare what each one did.'},
+ {p:'Jada looked out the window. Gray clouds filled the sky. She grabbed her umbrella and boots.',q:'What does Jada think will happen?',a:'It will rain',w:['It will be very hot','It will snow sand','The sun will shine'],e:'Gray clouds plus an umbrella and boots means she expects rain.',h:'Why would she take an umbrella?'},
+],
+r2_ri:[
+ {p:'Bees are busy insects. They fly from flower to flower to collect nectar. Bees use the nectar to make honey. They also help flowers make seeds.',q:'What is the main idea?',a:'Bees are busy and helpful insects',w:['Flowers are pretty','Honey is sweet','Insects have six legs'],e:'The text tells what bees do and how they help.',h:'What is the whole text about?'},
+ {p:'Bees are busy insects. They fly from flower to flower to collect nectar. Bees use the nectar to make honey.',q:'What do bees use nectar to make?',a:'Honey',w:['Wax only','Seeds','Leaves'],e:'The text says bees use nectar to make honey.',h:'Find the word “nectar.”'},
+ {q:'Where in a book would you find the meaning of a word?',a:'The glossary',w:['The title','The cover picture','The author’s name'],e:'A glossary lists words and their meanings.',h:'It is near the back of the book.'},
+ {q:'What does a heading in a nonfiction text tell you?',a:'What that section is about',w:['The end of the book','The author’s age','A joke'],e:'Headings tell what each part is about.',h:'It is a small title for a section.'},
+],
+w2_w:[
+ {q:'Which sentence would be a good BEGINNING for a story about a trip to the zoo?',a:'Last Saturday, my family went to the zoo.',w:['The end.','Then we went home.','Lions eat meat.'],e:'A good beginning tells who, where, and when.',h:'Which one starts the story?'},
+ {q:'Which word tells the ORDER of steps?',a:'First',w:['Blue','Happy','Tall'],e:'Words like first, next, then, and last show order.',h:'It helps you know what comes before.'},
+ {q:'Which sentence gives a reason? “I like winter ___.”',a:'because I can build a snowman',w:['and summer','the end','snow'],e:'“Because” gives a reason.',h:'Why do I like winter?'},
+ {q:'Which sentence uses a describing word (adjective)?',a:'The fluffy cat slept.',w:['The cat slept.','Cats sleep.','It slept.'],e:'Fluffy describes the cat.',h:'Which word tells what the cat is like?'},
+],
+w2_lu:[
+ {q:'Which is the correct way to write the contraction for “do not”?',a:'don’t',w:['dont','do’nt','don’t’'],e:'The apostrophe takes the place of the o in “not.”',h:'The apostrophe replaces a missing letter.'},
+ {q:'Which sentence is written correctly?',a:'We visited Richmond, Virginia.',w:['We visited richmond, virginia.','we visited Richmond Virginia','We visited Richmond virginia.'],e:'City and state names start with capital letters and are separated by a comma.',h:'Places get capital letters.'},
+ {q:'What is the plural of “box”?',a:'boxes',w:['boxs','boxies','box'],e:'Words ending in x add -es.',h:'Say it out loud: box-es.'},
+ {q:'Which word is a verb (action word)?',a:'swim',w:['pool','blue','towel'],e:'Swim is something you do.',h:'Can you do it?'},
+ {q:'Which is correct? “Yesterday I ___ to school.”',a:'walked',w:['walk','walks','walking'],e:'Yesterday means the past, so use “walked.”',h:'It already happened.'},
+],
+// ── READING · GRADE 3 ──
+r3_ffr:[
+ {q:'How many syllables are in “butterfly”?',a:'3',w:['2','4','1'],e:'But-ter-fly has three syllables.',h:'Clap it out.'},
+ {q:'Which word has the suffix “-ful”?',a:'helpful',w:['helping','helper','unhelp'],e:'Help + -ful = helpful.',h:'Look at the ending.'},
+ {q:'Which word has a vowel team?',a:'boat',w:['bat','bit','bet'],e:'“oa” is a vowel team that makes the long o sound.',h:'Look for two vowels together.'},
+ {q:'Which word is divided into syllables correctly?',a:'rab-bit',w:['ra-bbit','rabb-it','r-abbit'],e:'Split between the double consonants: rab-bit.',h:'Split between the two b’s.'},
+],
+r3_rv:[
+ {q:'What does the suffix “-less” mean in “fearless”?',a:'Without',w:['Full of','Again','Before'],e:'Fearless means without fear.',h:'Think of “careless.”'},
+ {q:'Which word is a homophone of “sea”?',a:'see',w:['sun','seed','say'],e:'Sea and see sound the same but mean different things.',h:'Sounds the same, spelled differently.'},
+ {p:'The trail was <b>steep</b>, so the hikers climbed slowly and stopped to rest often.',q:'What does “steep” mean?',a:'Sharply slanted up',w:['Flat and easy','Very wet','Short'],e:'They climbed slowly and rested, so the trail went sharply uphill.',h:'Why would they climb slowly?'},
+ {q:'In a dictionary, which word comes FIRST in ABC order?',a:'apple',w:['banana','cherry','date'],e:'Apple starts with a, which comes first.',h:'Look at the first letters.'},
+ {q:'What does “a piece of cake” mean in “The test was a piece of cake”?',a:'It was very easy',w:['It was a dessert','It was hard','It was long'],e:'This idiom means something is easy.',h:'It is not about real cake.'},
+],
+r3_rl:[
+ {p:'Theo was nervous about his first day at a new school. At lunch, a girl named Priya waved him over to her table. By the end of the day, Theo couldn’t stop smiling.',q:'How did Theo’s feelings change?',a:'From nervous to happy',w:['From happy to sad','From angry to scared','They did not change'],e:'He was nervous at first, then could not stop smiling.',h:'Compare the beginning and the end.'},
+ {p:'Theo was nervous about his first day at a new school. At lunch, a girl named Priya waved him over to her table.',q:'What caused Theo’s feelings to change?',a:'Priya invited him to sit with her',w:['He went home early','He forgot his lunch','He got a new backpack'],e:'Priya’s kindness helped him feel welcome.',h:'What happened at lunch?'},
+ {p:'Ant worked all summer storing food. Grasshopper sang and played. When winter came, Grasshopper was hungry, but Ant had plenty.',q:'What is the moral of this fable?',a:'It is wise to prepare for the future',w:['Singing is bad','Ants are bigger than grasshoppers','Winter is short'],e:'Ant prepared and was ready for winter.',h:'Why did Ant have food?'},
+ {q:'A poem has lines grouped together like paragraphs. What are these groups called?',a:'Stanzas',w:['Chapters','Captions','Headings'],e:'Groups of lines in a poem are stanzas.',h:'Poems have special parts.'},
+],
+r3_ri:[
+ {p:'Sea turtles lay their eggs on sandy beaches. When the babies hatch, they crawl to the ocean. Many dangers wait for them, so only a few grow up. People help by keeping beaches clean and dark at night.',q:'What is the main idea?',a:'Baby sea turtles face dangers, and people can help them',w:['Beaches are fun','Turtles are slow','The ocean is salty'],e:'The text explains the turtles’ journey and how people help.',h:'Think about the whole paragraph.'},
+ {p:'People help by keeping beaches clean and dark at night.',q:'What is one way people help sea turtles?',a:'Keeping beaches dark at night',w:['Feeding them candy','Taking eggs home','Building more roads'],e:'The text names clean and dark beaches.',h:'Find the sentence about people.'},
+ {q:'What is the purpose of a table of contents?',a:'To show where each chapter begins',w:['To define words','To show the author’s photo','To list the prices'],e:'It lists chapters and page numbers.',h:'It is at the front of the book.'},
+ {p:'First, fill the pot with water. Next, put it on the stove. Then, add the pasta when the water boils.',q:'How is this text organized?',a:'In order (sequence)',w:['Compare and contrast','Problem and solution','Questions and answers'],e:'First, next, and then show steps in order.',h:'Look at the first word of each sentence.'},
+],
+w3_w:[
+ {q:'What is a topic sentence?',a:'The sentence that tells the main idea of a paragraph',w:['The last word of a story','A sentence with a question','A title'],e:'The topic sentence tells what the paragraph is about.',h:'It usually comes first.'},
+ {q:'Which detail best supports the topic “Dogs make great pets”?',a:'Dogs are loyal and love to play.',w:['Cats like to nap.','The sky is blue.','I have a bike.'],e:'This detail is about dogs being good pets.',h:'Which one is about the topic?'},
+ {q:'Which is the best closing sentence for a paragraph about recycling?',a:'Recycling helps keep our Earth clean.',w:['Pizza is my favorite food.','First, find a bin.','What is recycling?'],e:'A closing sentence wraps up the main idea.',h:'Which one sums it up?'},
+ {q:'Which word is the best linking word? “I wanted to play outside, ___ it was raining.”',a:'but',w:['and','so','because'],e:'“But” shows the two ideas go against each other.',h:'The second part is a problem.'},
+],
+w3_lu:[
+ {q:'Which sentence uses a comma correctly in a list?',a:'I packed socks, shirts, and shoes.',w:['I packed socks shirts and shoes.','I packed, socks shirts, and shoes.','I packed socks, shirts and, shoes.'],e:'Put commas between items in a list.',h:'Commas separate the items.'},
+ {q:'Which sentence shows ownership correctly?',a:'That is the dog’s bone.',w:['That is the dogs bone.','That is the dogs’ bone, one dog.','That is the dog bone’s.'],e:'Add ’s to show one dog owns the bone.',h:'Use an apostrophe and s.'},
+ {q:'Which is correct? “The children ___ playing.”',a:'are',w:['is','am','be'],e:'“Children” is plural, so use “are.”',h:'More than one child.'},
+ {q:'Which word is an adverb?',a:'quickly',w:['quick','run','car'],e:'Quickly tells how something is done.',h:'Many adverbs end in -ly.'},
+ {q:'Which is the correct past tense of “run”?',a:'ran',w:['runned','runs','running'],e:'Run is irregular: run → ran.',h:'It does not use -ed.'},
+],
+// ── SCIENCE · GRADE 1 ──
+sc1_2:[
+ {q:'What can make a toy car start moving?',a:'A push or a pull',w:['Looking at it','Saying its name','Turning off the lights'],e:'Pushes and pulls are forces that make things move.',h:'You use your hands.'},
+ {q:'How does a ball move when you roll it on the floor?',a:'It rolls in a straight line until something stops it',w:['It flies up','It disappears','It stays still'],e:'A rolling ball keeps going until a force stops it.',h:'Think of bowling.'},
+ {q:'What makes a guitar string make sound?',a:'It vibrates (shakes quickly)',w:['It gets cold','It changes color','It melts'],e:'Sounds are made by vibrations.',h:'Touch your throat while humming.'},
+ {q:'Which moves by sliding?',a:'A sled on snow',w:['A ball','A swing','A spinning top'],e:'A sled slides across the snow.',h:'It does not roll or spin.'},
+],
+sc1_3:[
+ {q:'Which material would be best for a window?',a:'Glass',w:['Wood','Cardboard','Rock'],e:'Glass lets light through, so you can see out.',h:'You need to see through it.'},
+ {q:'Which object is soft?',a:'A pillow',w:['A rock','A spoon','A brick'],e:'Pillows are soft. The others are hard.',h:'Which would you sleep on?'},
+ {q:'What happens to a paper towel when you dip it in water?',a:'It soaks up the water',w:['It turns to stone','It stays dry','It floats away into the sky'],e:'Paper towels absorb water.',h:'Think about cleaning a spill.'},
+ {q:'Which object will float in water?',a:'A leaf',w:['A rock','A metal key','A marble'],e:'A light leaf floats; heavy rocks and metal sink.',h:'Which is lightest?'},
+],
+sc1_4:[
+ {q:'What do plants need to live and grow?',a:'Water, light, air, and space',w:['Candy and toys','Only darkness','Nothing at all'],e:'Plants need water, light, air, nutrients, and space.',h:'Think about watering a plant by a window.'},
+ {q:'What part of a plant takes in water from the soil?',a:'Roots',w:['Flower','Leaves','Fruit'],e:'Roots take in water and hold the plant in place.',h:'This part is underground.'},
+ {q:'What part of a plant makes food using sunlight?',a:'Leaves',w:['Roots','Seeds','Stem only'],e:'Leaves use sunlight to make food.',h:'They are usually green.'},
+ {q:'What does the stem do?',a:'Holds the plant up and carries water',w:['Makes seeds','Grows underground only','Smells nice'],e:'The stem supports the plant and moves water.',h:'Like a straw.'},
+],
+sc1_5:[
+ {q:'What do all animals need to live?',a:'Food, water, air, and shelter',w:['Toys','Phones','Only sunlight'],e:'Animals need food, water, air, and shelter.',h:'What do you need too?'},
+ {q:'How does a duck’s webbed feet help it?',a:'They help it swim',w:['They help it fly','They help it dig','They keep it warm'],e:'Webbed feet push water like paddles.',h:'Where does a duck spend time?'},
+ {q:'What covers a bird’s body?',a:'Feathers',w:['Scales','Fur','Shells'],e:'Birds have feathers.',h:'They help birds fly.'},
+ {q:'Which animal has scales?',a:'Fish',w:['Dog','Bird','Cat'],e:'Fish are covered in scales.',h:'It lives in water.'},
+],
+sc1_6:[
+ {q:'What gives Earth light and heat?',a:'The sun',w:['The moon','Clouds','Rain'],e:'The sun is our source of light and heat.',h:'It is a star.'},
+ {q:'Why do shadows form?',a:'An object blocks the light',w:['The ground is cold','The sun is asleep','Water is nearby'],e:'Shadows form where light is blocked.',h:'Stand in the sun and look down.'},
+ {q:'When is your shadow the shortest?',a:'Around noon, when the sun is high',w:['In the early morning','In the evening','At night'],e:'When the sun is high, shadows are short.',h:'Where is the sun at lunchtime?'},
+],
+sc1_7:[
+ {q:'Which season is usually the coldest in Virginia?',a:'Winter',w:['Summer','Spring','Fall'],e:'Winter is the coldest season.',h:'When might it snow?'},
+ {q:'What do many trees do in the fall?',a:'Lose their leaves',w:['Grow flowers','Grow taller fast','Turn into rocks'],e:'Many trees drop their leaves in autumn.',h:'Think of raking leaves.'},
+ {q:'Which tool measures temperature?',a:'Thermometer',w:['Ruler','Scale','Clock'],e:'A thermometer tells how hot or cold it is.',h:'Thermo means heat.'},
+ {q:'What do some animals do in winter to save energy?',a:'Hibernate (sleep for a long time)',w:['Swim to the sun','Grow leaves','Change into plants'],e:'Bears and some other animals hibernate.',h:'Bears do this.'},
+],
+sc1_8:[
+ {q:'Which is a way to conserve (save) water?',a:'Turn off the water while brushing your teeth',w:['Leave the hose running','Take very long showers','Pour water on the street'],e:'Turning off the faucet saves water.',h:'Do not let it run.'},
+ {q:'What does it mean to recycle?',a:'Use old things to make new things',w:['Throw everything away','Burn trash','Bury toys'],e:'Recycling turns old materials into new products.',h:'Re- means again.'},
+ {q:'Which is a natural resource?',a:'Trees',w:['Plastic toys','Cars','Phones'],e:'Trees come from nature.',h:'People did not make it.'},
+],
+// ── SCIENCE · GRADE 2 ──
+sc2_2:[
+ {q:'What will a magnet pick up?',a:'A paper clip',w:['A paper cup','A wooden block','A rubber band'],e:'Magnets attract some metals like iron and steel.',h:'Which one is metal?'},
+ {q:'Two magnets with their north poles facing each other will…',a:'Push apart',w:['Pull together','Melt','Change color'],e:'Like poles repel (push apart).',h:'Same poles push away.'},
+ {q:'Which force pulls a dropped ball to the ground?',a:'Gravity',w:['Magnetism','Wind','Light'],e:'Gravity pulls things toward Earth.',h:'What goes up must come down.'},
+ {q:'What happens if you push a toy car harder?',a:'It goes faster and farther',w:['It stops sooner','It goes backward','Nothing changes'],e:'A bigger push gives more speed.',h:'Try a gentle push and a hard push.'},
+],
+sc2_3:[
+ {q:'Which is a liquid?',a:'Milk',w:['Ice','Rock','Steam'],e:'Milk is a liquid; it flows and takes the shape of its container.',h:'You can pour it.'},
+ {q:'What happens when ice is heated?',a:'It melts into water',w:['It becomes a rock','It gets harder','It disappears forever'],e:'Heat changes solid ice into liquid water.',h:'Think of an ice cube in the sun.'},
+ {q:'Steam from a pot of boiling water is a…',a:'Gas',w:['Solid','Liquid','Rock'],e:'Water vapor (steam) is a gas.',h:'It spreads into the air.'},
+ {q:'What happens when water is put in a freezer?',a:'It freezes into ice',w:['It boils','It becomes steam','It turns into juice'],e:'Cooling changes liquid water into solid ice.',h:'Think of ice cubes.'},
+],
+sc2_4:[
+ {t:'order',q:'Put the butterfly’s life cycle in order.',items:['Egg','Caterpillar (larva)','Chrysalis (pupa)','Butterfly (adult)'],e:'A butterfly goes through complete metamorphosis.',h:'It starts as an egg.'},
+ {t:'order',q:'Put the frog’s life cycle in order.',items:['Egg','Tadpole','Froglet','Adult frog'],e:'A tadpole grows legs and becomes a frog.',h:'Frogs start in water.'},
+ {q:'What does a seed need to start growing?',a:'Water and warmth',w:['Darkness only','Snow','Paint'],e:'Seeds need water and the right temperature to sprout.',h:'Think about spring.'},
+ {q:'Which baby animal looks like its parent?',a:'A puppy',w:['A tadpole','A caterpillar','A larva'],e:'Puppies look like small dogs. Tadpoles and caterpillars change a lot.',h:'Which one does not change shape much?'},
+],
+sc2_5:[
+ {q:'What is a habitat?',a:'The place where an animal or plant lives',w:['A kind of food','A type of weather','A toy'],e:'A habitat gives living things food, water, and shelter.',h:'It is a home in nature.'},
+ {q:'Which animal lives in a pond habitat?',a:'Frog',w:['Camel','Polar bear','Cactus wren'],e:'Frogs live in and near ponds.',h:'It needs water.'},
+ {q:'How do bees help flowers?',a:'They carry pollen from flower to flower',w:['They eat the roots','They dig holes','They make flowers wilt'],e:'Bees help flowers make seeds by moving pollen.',h:'Pollen sticks to them.'},
+ {q:'A squirrel buries acorns. How does this help the forest?',a:'Some acorns grow into new oak trees',w:['It makes the trees fall','It stops rain','It scares birds'],e:'Forgotten acorns can sprout into trees.',h:'What grows from an acorn?'},
+],
+sc2_6:[
+ {q:'Which tool measures how much rain fell?',a:'Rain gauge',w:['Thermometer','Ruler only','Compass'],e:'A rain gauge collects and measures rain.',h:'It collects rain.'},
+ {q:'Which cloud usually brings storms?',a:'Dark, tall clouds',w:['Small white puffs','No clouds','Rainbows'],e:'Dark, tall clouds can bring thunderstorms.',h:'Think of a stormy sky.'},
+ {q:'What does a weather vane show?',a:'Which way the wind is blowing',w:['The temperature','The time','How much it rained'],e:'A weather vane points into the wind.',h:'It spins on a roof.'},
+ {q:'A tornado is…',a:'A spinning column of wind',w:['A light rain','A snowflake','A rainbow'],e:'Tornadoes are dangerous spinning winds.',h:'It is a twister.'},
+],
+sc2_7:[
+ {q:'How does wind change the land over time?',a:'It moves sand and soil (erosion)',w:['It builds houses','It plants trees','It makes rocks bigger'],e:'Wind and water can carry soil away.',h:'Think of a sand dune.'},
+ {q:'Why do many birds fly south in the fall?',a:'To find warmer weather and food',w:['To see the ocean','To lose their feathers','To hibernate'],e:'Migration helps birds survive winter.',h:'Winter is cold.'},
+ {q:'How does a thick coat help some animals in winter?',a:'It keeps them warm',w:['It helps them swim faster','It makes them invisible','It helps them eat'],e:'Thick fur traps heat.',h:'Like wearing a jacket.'},
+],
+sc2_8:[
+ {q:'Which product comes from plants?',a:'Cotton for clothes',w:['Plastic toys','Steel nails','Glass jars'],e:'Cotton grows on plants.',h:'Which one grows?'},
+ {q:'How do plant roots help the soil?',a:'They hold the soil in place',w:['They make soil blow away','They turn soil into water','They melt the soil'],e:'Roots help prevent erosion.',h:'Roots grip the ground.'},
+ {q:'Which of these is made from trees?',a:'Paper',w:['Glass','Metal cans','Stones'],e:'Paper is made from wood.',h:'Think of a notebook.'},
+],
+// ── SCIENCE · GRADE 3 ──
+sc3_2:[
+ {q:'If you push a box with a bigger force, it will…',a:'Move faster or farther',w:['Stop moving','Get lighter','Change color'],e:'A larger force causes a bigger change in motion.',h:'Push harder.'},
+ {q:'Two people push a box from opposite sides with equal force. What happens?',a:'The box does not move',w:['It flies up','It moves fast','It breaks'],e:'Equal forces in opposite directions are balanced.',h:'Like a tie in tug-of-war.'},
+ {q:'What slows down a sliding object?',a:'Friction',w:['Gravity pushing up','Magnetism','Light'],e:'Friction is a force between surfaces that slows things.',h:'Rough surfaces slow things more.'},
+ {q:'Which surface would make a toy car roll the FARTHEST?',a:'A smooth floor',w:['Carpet','Grass','Sand'],e:'Smooth surfaces have less friction.',h:'Less rubbing means farther.'},
+],
+sc3_3:[
+ {q:'Sugar stirred into water seems to disappear. This is called…',a:'Dissolving',w:['Freezing','Melting','Boiling'],e:'The sugar dissolves into the water.',h:'It mixes in completely.'},
+ {q:'In which water will sugar dissolve fastest?',a:'Warm water',w:['Ice-cold water','Frozen water','Muddy water only'],e:'Many solids dissolve faster in warm water.',h:'Think of hot cocoa mix.'},
+ {q:'Which will NOT dissolve in water?',a:'Sand',w:['Salt','Sugar','Drink mix'],e:'Sand sinks to the bottom and does not dissolve.',h:'It falls to the bottom.'},
+ {q:'Oil and water are poured into a jar. What happens?',a:'The oil floats on top of the water',w:['They mix completely','The oil sinks','They turn to ice'],e:'Oil and water do not mix; oil is less dense.',h:'Think of salad dressing.'},
+],
+sc3_4:[
+ {q:'A chameleon changes color to match its surroundings. This is…',a:'Camouflage',w:['Hibernation','Migration','Pollination'],e:'Camouflage helps animals hide.',h:'It helps it hide.'},
+ {q:'Why do ducks have waterproof feathers?',a:'To stay dry and warm in water',w:['To fly to space','To dig tunnels','To eat seeds'],e:'This physical adaptation helps them live in water.',h:'Where do ducks swim?'},
+ {q:'A possum plays dead when scared. This is a…',a:'Behavioral adaptation',w:['Physical adaptation','Life cycle','Habitat'],e:'It is something the animal does.',h:'Is it a body part or an action?'},
+ {q:'How do sharp claws help an owl?',a:'They help it catch food',w:['They help it swim','They keep it warm','They help it sing'],e:'Owls use claws (talons) to grab prey.',h:'Owls hunt mice.'},
+],
+sc3_5:[
+ {q:'Which is an aquatic (water) ecosystem?',a:'A pond',w:['A desert','A forest','A field'],e:'Aquatic ecosystems are in water.',h:'Aqua means water.'},
+ {q:'In a food chain, where does the energy start?',a:'The sun',w:['The hawk','The rabbit','The soil only'],e:'Plants use sunlight to make food, starting the chain.',h:'Plants need it to make food.'},
+ {q:'Which is a producer?',a:'Grass',w:['Fox','Rabbit','Hawk'],e:'Producers make their own food from sunlight.',h:'Plants are producers.'},
+ {t:'order',q:'Put this food chain in order.',items:['Sun','Grass','Rabbit','Fox'],e:'Energy goes from the sun to the grass to the rabbit to the fox.',h:'Start with the energy source.'},
+],
+sc3_6:[
+ {q:'Which layer of soil has the most nutrients for plants?',a:'Topsoil',w:['Bedrock','Subsoil','Lava'],e:'Topsoil has humus and nutrients.',h:'It is on top.'},
+ {q:'What is humus?',a:'Decayed plants and animals in soil',w:['A type of rock','Rainwater','Sand only'],e:'Humus is rich, decayed material.',h:'It comes from things that were once alive.'},
+ {q:'Which soil holds the MOST water?',a:'Clay',w:['Sand','Gravel','Pebbles'],e:'Clay has tiny, tightly packed particles.',h:'It feels sticky when wet.'},
+ {q:'How do earthworms help soil?',a:'They loosen the soil and add nutrients',w:['They make soil hard','They eat all the roots','They dry out the soil'],e:'Worms make tunnels and enrich the soil.',h:'They dig tiny tunnels.'},
+],
+sc3_7:[
+ {t:'order',q:'Put the water cycle in order, starting with the sun warming a lake.',items:['Evaporation','Condensation','Precipitation','Collection'],e:'Water evaporates, condenses into clouds, falls as precipitation, and collects.',h:'Water goes up before it comes down.'},
+ {q:'When water vapor cools and forms clouds, it is called…',a:'Condensation',w:['Evaporation','Precipitation','Erosion'],e:'Condensation turns vapor back into tiny drops.',h:'Like drops on a cold glass.'},
+ {q:'Rain, snow, sleet, and hail are all types of…',a:'Precipitation',w:['Evaporation','Condensation','Collection'],e:'Precipitation is water falling from clouds.',h:'It falls from the sky.'},
+ {q:'Why is fresh water important?',a:'Living things need it to survive',w:['It is salty','It is only for swimming','It makes rocks'],e:'People, plants, and animals need fresh water.',h:'Can you drink ocean water?'},
+],
+sc3_8:[
+ {q:'How can a forest fire change an ecosystem?',a:'Animals lose their homes, but new plants can grow later',w:['Nothing changes','It makes the forest bigger right away','It creates oceans'],e:'Fires destroy habitats but also clear space for new growth.',h:'Think about before and after.'},
+ {q:'Which human action helps an ecosystem?',a:'Planting trees',w:['Littering','Polluting a river','Cutting down every tree'],e:'Planting trees restores habitats.',h:'Which one is caring for nature?'},
+ {q:'A flood covers a field with water. Which animals might have to move?',a:'Animals that live in burrows underground',w:['Fish in the river','Ducks','Frogs only'],e:'Flooding fills burrows, so those animals must leave.',h:'Who lives underground?'},
+],
+// ── HISTORY & SOCIAL SCIENCE · GRADE 1 ──
+h1_1:[
+ {q:'What is a good way to be a good citizen in class?',a:'Take turns and follow the rules',w:['Shout during lessons','Take other kids’ things','Leave a mess'],e:'Good citizens follow rules and treat others fairly.',h:'Think about being fair.'},
+ {q:'Why do classrooms have rules?',a:'To keep everyone safe and help us learn',w:['To make school boring','So only one person can talk','There is no reason'],e:'Rules keep people safe and treat everyone fairly.',h:'What would happen with no rules?'},
+ {q:'What should you do if someone is left out at recess?',a:'Invite them to play',w:['Ignore them','Laugh at them','Tell them to go away'],e:'Including others shows kindness and respect.',h:'How would you want to be treated?'},
+],
+h1_2:[
+ {q:'Which holiday honors the people who served in the military?',a:'Veterans Day',w:['New Year’s Day','Thanksgiving','Labor Day'],e:'Veterans Day honors people who served in the armed forces.',h:'Veterans served in the military.'},
+ {q:'Which holiday celebrates our country’s birthday on July 4?',a:'Independence Day',w:['Memorial Day','Presidents’ Day','Labor Day'],e:'The Declaration of Independence was adopted on July 4, 1776.',h:'Fireworks!'},
+ {q:'Which holiday honors Dr. Martin Luther King, Jr.?',a:'Martin Luther King, Jr. Day',w:['Columbus Day','Election Day','Juneteenth'],e:'This January holiday honors his work for equal rights.',h:'It has his name.'},
+],
+h1_3:[
+ {q:'Which is a symbol of the United States?',a:'The American flag',w:['A pizza','A bicycle','A soccer ball'],e:'The flag stands for our country.',h:'It has stars and stripes.'},
+ {q:'What do we say to show respect for the flag?',a:'The Pledge of Allegiance',w:['A nursery rhyme','A weather report','A recipe'],e:'We say the Pledge of Allegiance to honor the flag.',h:'We say it standing up.'},
+ {q:'What bird is a symbol of the United States?',a:'The bald eagle',w:['The robin','The penguin','The parrot'],e:'The bald eagle stands for strength and freedom.',h:'It has a white head.'},
+],
+h1_4:[
+ {q:'What was Werowocomoco?',a:'An important Powhatan town in Virginia',w:['A ship','A fort in England','A kind of food'],e:'Werowocomoco was the home of Chief Powhatan.',h:'Chief Powhatan lived there.'},
+ {q:'In what year did the English settle Jamestown?',a:'1607',w:['1776','1492','1865'],e:'Jamestown, settled in 1607, was the first permanent English settlement in North America.',h:'Early 1600s.'},
+ {q:'How is life in a community today different from long ago?',a:'Today we have cars and electricity',w:['Nothing has changed','People had phones long ago','Long ago there were airplanes everywhere'],e:'Transportation and tools have changed over time.',h:'How did people travel long ago?'},
+],
+h1_5:[
+ {q:'Who was the first President of the United States and came from Virginia?',a:'George Washington',w:['Booker T. Washington','Arthur Ashe','John Smith'],e:'George Washington was the first President.',h:'He is on the one-dollar bill.'},
+ {q:'Who helped keep peace between the Powhatan people and the English at Jamestown?',a:'Pocahontas',w:['Maggie L. Walker','Thomas Jefferson','Barbara Johns'],e:'Pocahontas, daughter of Chief Powhatan, helped connect the two groups.',h:'She was Chief Powhatan’s daughter.'},
+ {q:'Who wrote the Declaration of Independence?',a:'Thomas Jefferson',w:['James Monroe','George Washington','Christopher Newport'],e:'Thomas Jefferson of Virginia wrote it.',h:'He lived at Monticello.'},
+ {q:'Who started a bank in Richmond and was the first woman to found a bank in the U.S.?',a:'Maggie L. Walker',w:['Pocahontas','Barbara Johns','Arthur Ashe'],e:'Maggie L. Walker founded the St. Luke Penny Savings Bank.',h:'She helped her community save money.'},
+ {q:'Who was a tennis champion from Richmond?',a:'Arthur R. Ashe, Jr.',w:['L. Douglas Wilder','James Madison','John Smith'],e:'Arthur Ashe won major tennis championships.',h:'Think of sports.'},
+ {q:'Who became the first elected African American governor in the U.S., in Virginia?',a:'L. Douglas Wilder',w:['Booker T. Washington','George Washington','James Monroe'],e:'L. Douglas Wilder was elected governor of Virginia in 1989.',h:'He led Virginia as governor.'},
+],
+h1_6:[
+ {q:'What does a map key (legend) tell you?',a:'What the symbols on the map mean',w:['The weather','Who made the map','What time it is'],e:'The key explains map symbols.',h:'It unlocks the map.'},
+ {q:'A globe is a model of…',a:'The Earth',w:['The moon','A house','A city street'],e:'A globe shows Earth as a round model.',h:'It is round like our planet.'},
+ {q:'On a map, which direction is usually at the top?',a:'North',w:['South','East','West'],e:'Most maps show north at the top.',h:'Look at the compass rose.'},
+],
+h1_7:[
+ {q:'Why did the English build Jamestown near a river?',a:'For water, food, and ships',w:['To go skiing','Because rivers are loud','To hide from the sun'],e:'Rivers gave water, food, and transportation.',h:'Ships need water.'},
+ {q:'Which body of water is on Virginia’s east side?',a:'The Atlantic Ocean',w:['The Pacific Ocean','The Gulf of Mexico','The Great Lakes'],e:'Virginia’s coast is on the Atlantic Ocean.',h:'It is to the east.'},
+],
+h1_8:[
+ {q:'Which is a NEED?',a:'Food',w:['A video game','A toy car','Candy'],e:'Needs are things we must have to live: food, water, shelter, clothing.',h:'Can you live without it?'},
+ {q:'Which is a WANT?',a:'A new bike',w:['Water','Shelter','Food'],e:'Wants are nice to have but not needed to live.',h:'Could you live without it?'},
+ {q:'A baker makes bread. Is bread a good or a service?',a:'A good',w:['A service','Neither','A want only'],e:'Goods are things you can touch; services are work done for others.',h:'Can you hold it?'},
+ {q:'Why do people save money?',a:'To buy something later',w:['To throw it away','Because money is heavy','To make it disappear'],e:'Saving helps people buy things they want or need later.',h:'Think of a piggy bank.'},
+],
+// ── HISTORY & SOCIAL SCIENCE · GRADE 2 ──
+h2_1:[
+ {q:'Which is a right of people in the United States?',a:'Freedom of speech',w:['Never going to school','Taking others’ things','Breaking laws'],e:'Freedom of expression is protected by the Constitution.',h:'You can share your ideas.'},
+ {q:'Which is a responsibility of a good citizen?',a:'Respecting the rights of others',w:['Ignoring laws','Being unkind','Littering'],e:'Citizens have responsibilities as well as rights.',h:'Treat others well.'},
+ {q:'What is voting?',a:'Choosing leaders or ideas by casting a ballot',w:['Writing a story','Playing a game','Going shopping'],e:'Voting lets citizens make choices for their community.',h:'It happens on Election Day.'},
+],
+h2_4:[
+ {q:'What is the capital of the United States?',a:'Washington, D.C.',w:['Richmond','New York City','Philadelphia'],e:'Washington, D.C., is the nation’s capital.',h:'The President lives there.'},
+ {q:'What is the capital of Virginia?',a:'Richmond',w:['Norfolk','Jamestown','Washington, D.C.'],e:'Richmond is Virginia’s capital.',h:'It is on the James River.'},
+ {q:'What does the Liberty Bell stand for?',a:'Freedom',w:['Weather','Food','Sports'],e:'The Liberty Bell is a symbol of American freedom.',h:'It has a crack.'},
+ {q:'What does the Statue of Liberty stand for?',a:'Freedom and welcome to newcomers',w:['A lighthouse for fish','A sports trophy','A clock'],e:'It welcomed people arriving in New York Harbor.',h:'She holds a torch.'},
+],
+h2_5:[
+ {q:'The Powhatan people of Virginia lived in which region?',a:'The Eastern Woodlands',w:['The Plains','The Southwest','The Arctic'],e:'The Powhatan lived in forests along rivers in the Eastern Woodlands.',h:'Lots of forests.'},
+ {q:'Many Plains nations, like the Lakota, depended on which animal?',a:'Bison (buffalo)',w:['Penguins','Camels','Whales'],e:'Bison gave food, clothing, and shelter.',h:'Large animals of the grasslands.'},
+ {q:'The Pueblo people of the Southwest built homes from…',a:'Adobe (sun-dried clay bricks)',w:['Ice blocks','Bark only','Glass'],e:'Adobe stays cool in the hot, dry Southwest.',h:'The Southwest is hot and dry.'},
+ {q:'Why did Eastern Woodlands peoples use trees so much?',a:'Forests were all around them',w:['There were no trees','Trees were sold in stores','Trees were made of metal'],e:'People used nearby resources like wood for homes and canoes.',h:'Use what is around you.'},
+],
+h2_6:[
+ {q:'Which country sent Christopher Columbus’s voyage in 1492?',a:'Spain',w:['England','France','China'],e:'Spain paid for Columbus’s voyage.',h:'Queen Isabella.'},
+ {q:'Which European country founded Jamestown?',a:'England',w:['Spain','France','Portugal'],e:'English colonists founded Jamestown in 1607.',h:'They spoke English.'},
+ {q:'Why did European explorers sail to the Americas?',a:'To find riches, land, and new trade routes',w:['To go to school','To visit the moon','To play sports'],e:'Explorers wanted gold, land, and trade.',h:'What were they looking for?'},
+],
+h2_7:[
+ {q:'Who is called the “Father of our Country”?',a:'George Washington',w:['Paul Revere','Benjamin Franklin','John Adams'],e:'He led the army and became the first President.',h:'First President.'},
+ {q:'Who rode at night to warn colonists that British soldiers were coming?',a:'Paul Revere',w:['James Madison','Thomas Jefferson','Alexander Hamilton'],e:'Paul Revere made his famous midnight ride in 1775.',h:'A famous horse ride.'},
+ {q:'Who is called the “Father of the Constitution”?',a:'James Madison',w:['Patrick Henry','George Washington','Paul Revere'],e:'Madison helped write the Constitution.',h:'He was from Virginia.'},
+ {q:'Who said, “Give me liberty, or give me death!”?',a:'Patrick Henry',w:['Benjamin Franklin','John Adams','Thomas Jefferson'],e:'Patrick Henry gave this speech in Richmond in 1775.',h:'A famous speech in Virginia.'},
+],
+h2_8:[
+ {q:'What did the Declaration of Independence say?',a:'The colonies were free from Great Britain',w:['The colonies loved the king','Taxes should go up','Everyone must move to England'],e:'It declared the 13 colonies independent in 1776.',h:'Independence means freedom.'},
+ {q:'How many original colonies were there?',a:'13',w:['50','10','7'],e:'There were 13 colonies along the Atlantic coast.',h:'Count the stripes on the flag.'},
+ {q:'Why did many colonists come to America?',a:'For land, jobs, and religious freedom',w:['To visit a zoo','To ride trains','To play video games'],e:'People came for opportunity and freedom.',h:'What did they want?'},
+],
+h2_9:[
+ {q:'Which city became the nation’s capital after Philadelphia?',a:'Washington, D.C.',w:['Richmond','Boston','New York City'],e:'The capital moved to Washington, D.C., in 1800.',h:'It is named after the first President.'},
+ {q:'What did the Louisiana Purchase do?',a:'It doubled the size of the United States',w:['It ended the colonies','It sold Virginia','It created the ocean'],e:'In 1803 the U.S. bought land from France and grew much larger.',h:'It added a lot of land in the West.'},
+ {q:'Who explored the Louisiana Purchase with Sacagawea’s help?',a:'Lewis and Clark',w:['Columbus and Magellan','Washington and Adams','The Wright brothers'],e:'Lewis and Clark led the Corps of Discovery.',h:'Two explorers.'},
+],
+h2_10:[
+ {q:'Who invented the light bulb that people used in homes?',a:'Thomas Edison',w:['Alexander Graham Bell','Neil Armstrong','Jonas Salk'],e:'Edison developed a practical electric light bulb.',h:'He made a famous bulb.'},
+ {q:'Who was the first person to walk on the moon?',a:'Neil Armstrong',w:['Amelia Earhart','Orville Wright','Meriwether Lewis'],e:'Neil Armstrong walked on the moon in 1969.',h:'An astronaut.'},
+ {q:'Who refused to give up her bus seat and helped start the Montgomery Bus Boycott?',a:'Rosa Parks',w:['Helen Keller','Mary Jackson','Amelia Earhart'],e:'Rosa Parks stood up for equal rights in 1955.',h:'It happened on a bus.'},
+ {q:'Who found hundreds of uses for peanuts?',a:'George Washington Carver',w:['Booker T. Washington','Benjamin Banneker','Steve Jobs'],e:'Carver was a scientist who helped farmers.',h:'Peanut scientist.'},
+ {q:'Who made the first successful airplane flight?',a:'Orville and Wilbur Wright',w:['Lewis and Clark','Thomas Edison','Jackie Robinson'],e:'The Wright brothers flew in 1903.',h:'Two brothers.'},
+ {q:'Who was the first African American to play in modern Major League Baseball?',a:'Jackie Robinson',w:['Cesar Chavez','Thurgood Marshall','John F. Kennedy'],e:'Jackie Robinson joined the Brooklyn Dodgers in 1947.',h:'Baseball.'},
+],
+h2_11:[
+ {q:'Which ocean is on the WEST coast of the United States?',a:'Pacific Ocean',w:['Atlantic Ocean','Arctic Ocean','Indian Ocean'],e:'The Pacific Ocean borders the West Coast.',h:'California touches it.'},
+ {q:'Which river is the longest in the United States?',a:'Missouri River',w:['James River','Ohio River','Rio Grande'],e:'The Missouri River is the longest; the Mississippi is close behind.',h:'It flows from the Rocky Mountains.'},
+ {q:'Which mountains run through Virginia?',a:'The Appalachian Mountains',w:['The Rocky Mountains','The Alps','The Andes'],e:'The Appalachians run along the eastern U.S.',h:'They are in the east.'},
+ {q:'Which country is NORTH of the United States?',a:'Canada',w:['Mexico','Brazil','Spain'],e:'Canada is north; Mexico is south.',h:'It is very cold up there.'},
+],
+h2_12:[
+ {q:'Which memorial honors Abraham Lincoln?',a:'The Lincoln Memorial',w:['The Jefferson Memorial','Yellowstone','Valley Forge'],e:'It has a giant statue of Lincoln.',h:'It has his name.'},
+ {q:'Where did George Washington’s army spend a hard winter in 1777–1778?',a:'Valley Forge',w:['Yellowstone','Jamestown','Hawaii'],e:'The army trained and survived a cold winter at Valley Forge.',h:'A cold winter camp.'},
+ {q:'Which was the first national park?',a:'Yellowstone',w:['Valley Forge','Lincoln Memorial','Jamestown'],e:'Yellowstone became the first national park in 1872.',h:'It has geysers.'},
+],
+h2_13:[
+ {q:'A farmer is an example of a…',a:'Human resource',w:['Natural resource','Capital resource','Want'],e:'People who work are human resources.',h:'It is a person.'},
+ {q:'A tractor is an example of a…',a:'Capital resource',w:['Natural resource','Human resource','Need'],e:'Tools and machines are capital resources.',h:'It is a tool or machine.'},
+ {q:'Trading a toy for a book without using money is called…',a:'Barter',w:['Saving','Voting','Borrowing'],e:'Barter is trading goods or services without money.',h:'A swap.'},
+ {q:'Why must people make choices when they shop?',a:'They cannot have everything they want (scarcity)',w:['Stores give everything away','Money never runs out','Everything is free'],e:'Limited money means making choices.',h:'Money is limited.'},
+],
+// ── HISTORY & SOCIAL SCIENCE · GRADE 3 ──
+h3_1:[
+ {q:'What is a citizen?',a:'A member of a community or country with rights and responsibilities',w:['A visitor for one day','A kind of building','A holiday'],e:'Citizens belong to a country and share rights and duties.',h:'Belonging to a country.'},
+ {q:'Which is a responsibility of U.S. citizens?',a:'Obeying laws',w:['Ignoring rules','Breaking promises','Being unkind'],e:'Obeying laws keeps communities safe.',h:'Rules for everyone.'},
+],
+h3_2:[
+ {q:'How many continents are there?',a:'7',w:['5','4','10'],e:'The seven continents are Africa, Antarctica, Asia, Australia, Europe, North America, and South America.',h:'More than 5.'},
+ {q:'Which is the largest ocean?',a:'Pacific Ocean',w:['Atlantic Ocean','Indian Ocean','Arctic Ocean'],e:'The Pacific Ocean is the largest.',h:'It is between Asia and the Americas.'},
+ {q:'On which continent is the United States?',a:'North America',w:['South America','Europe','Africa'],e:'The U.S. is in North America.',h:'With Canada and Mexico.'},
+ {q:'Which continent is covered with ice and is the coldest?',a:'Antarctica',w:['Africa','Australia','Asia'],e:'Antarctica is at the South Pole.',h:'Penguins live there.'},
+],
+h3_3:[
+ {q:'Ancient Egypt grew up along which river?',a:'The Nile River',w:['The Huang He','The Tiber River','The Niger River'],e:'The Nile gave water and fertile soil.',h:'It is in Africa.'},
+ {q:'Ancient Rome was built along which river?',a:'The Tiber River',w:['The Nile River','The Mississippi','The Yangtze'],e:'Rome grew on hills beside the Tiber.',h:'It is in Italy.'},
+ {q:'Ancient Greece was made up of many…',a:'Peninsulas and islands',w:['Deserts only','Flat plains only','Frozen tundra'],e:'Greece is mountainous with many islands and peninsulas.',h:'Lots of coastline.'},
+],
+h3_4:[
+ {q:'What tall stone tombs did the ancient Egyptians build for pharaohs?',a:'Pyramids',w:['Temples of Rome','The Great Wall','Aqueducts'],e:'Pyramids were built as tombs for pharaohs.',h:'Shaped like triangles.'},
+ {q:'What was the ruler of ancient Egypt called?',a:'Pharaoh',w:['Emperor of China','Senator','Mansa'],e:'Pharaohs ruled ancient Egypt.',h:'Egyptian king.'},
+ {q:'What writing system with pictures did the Egyptians use?',a:'Hieroglyphics',w:['Calligraphy','The Latin alphabet','Emoji'],e:'Hieroglyphics used picture symbols.',h:'Picture writing.'},
+ {q:'What did Egyptians make from the papyrus plant?',a:'A kind of paper',w:['Bricks','Gold coins','Silk'],e:'Papyrus was used to make paper.',h:'The word “paper” comes from it.'},
+],
+h3_5:[
+ {q:'What long wall did ancient China build for protection?',a:'The Great Wall',w:['The Pyramids','The Colosseum','The Parthenon'],e:'The Great Wall helped protect China from invaders.',h:'It is very long.'},
+ {q:'Which material did ancient China make and trade along the Silk Road?',a:'Silk',w:['Papyrus','Marble','Gold dust only'],e:'China made silk and traded it along the Silk Road.',h:'Soft cloth.'},
+ {q:'Which important invention came from ancient China?',a:'Paper',w:['The airplane','The telephone','The light bulb'],e:'The Chinese invented paper made from plant fibers.',h:'You write on it.'},
+ {q:'Ancient China grew along which river?',a:'The Huang He (Yellow River)',w:['The Nile','The Tiber','The James'],e:'The Huang He gave water and rich soil.',h:'It is named for a color.'},
+],
+h3_6:[
+ {q:'Which form of government began in ancient Athens, Greece?',a:'Democracy',w:['Monarchy only','Dictatorship','No government'],e:'In Athens, citizens voted on laws.',h:'Rule by the people.'},
+ {q:'Which sports festival began in ancient Greece?',a:'The Olympic Games',w:['The World Cup','The Super Bowl','The Tour de France'],e:'The Olympics began in Olympia, Greece.',h:'Athletes from many cities.'},
+ {q:'Which famous temple in Athens has many columns?',a:'The Parthenon',w:['The Colosseum','The Great Wall','A pyramid'],e:'The Parthenon was built for the goddess Athena.',h:'It is on a hill in Athens.'},
+],
+h3_7:[
+ {q:'What large arena did the Romans build for events?',a:'The Colosseum',w:['The Parthenon','The Great Wall','A pyramid'],e:'The Colosseum held thousands of people.',h:'It is in Rome.'},
+ {q:'What did Roman aqueducts carry?',a:'Water to cities',w:['People to the moon','Letters','Silk'],e:'Aqueducts carried fresh water over long distances.',h:'Aqua means water.'},
+ {q:'Ancient Rome was a republic. What does that mean?',a:'Citizens chose leaders to represent them',w:['A king ruled alone','No one made laws','Only children voted'],e:'In a republic, people elect representatives.',h:'Representatives.'},
+ {q:'Which road-building skill helped Rome control its empire?',a:'Long, paved roads',w:['Paper roads','Ice roads','No roads'],e:'Roman roads helped armies and trade move.',h:'“All roads lead to Rome.”'},
+],
+h3_8:[
+ {q:'Where was the empire of Mali?',a:'West Africa',w:['East Asia','South America','Northern Europe'],e:'Mali was in West Africa along the Niger River.',h:'It is in Africa.'},
+ {q:'Which ruler of Mali was famous for his great wealth?',a:'Mansa Musa',w:['Julius Caesar','A pharaoh','Pericles'],e:'Mansa Musa made a famous journey with lots of gold.',h:'Mansa means king.'},
+ {q:'Which city in Mali was a center of learning and trade?',a:'Timbuktu',w:['Athens','Rome','Beijing'],e:'Timbuktu had libraries and schools.',h:'It had many books.'},
+ {q:'Which two goods were traded most in Mali?',a:'Gold and salt',w:['Silk and paper','Oil and coal','Ice and snow'],e:'Mali grew rich from the gold and salt trade.',h:'Something shiny and something salty.'},
+],
+h3_9:[
+ {q:'How many branches does the U.S. government have?',a:'Three',w:['Two','Five','One'],e:'Legislative, executive, and judicial.',h:'Think of a three-legged stool.'},
+ {q:'Which branch makes laws?',a:'Legislative (Congress)',w:['Executive','Judicial','Military'],e:'Congress makes laws.',h:'Legislate means make laws.'},
+ {q:'Who leads the executive branch?',a:'The President',w:['A judge','A senator','A mayor'],e:'The President carries out laws.',h:'Lives in the White House.'},
+ {q:'What does the judicial branch do?',a:'Decides what laws mean',w:['Makes laws','Collects trash','Builds roads'],e:'Courts interpret the laws.',h:'Judges.'},
+],
+h3_10:[
+ {q:'Which is a natural resource?',a:'Water',w:['A tractor','A teacher','A computer'],e:'Natural resources come from nature.',h:'People did not make it.'},
+ {q:'Specialization means…',a:'Doing one kind of job very well',w:['Doing every job','Never working','Buying everything'],e:'Specializing helps people produce more goods and services.',h:'Special skill.'},
+ {q:'Why do countries trade with each other?',a:'To get goods they cannot make themselves',w:['To stop all work','To get rid of money','To close their borders'],e:'Trade helps countries get what they need.',h:'Nobody has everything.'},
+ {q:'You choose to buy a book instead of a toy. The toy is your…',a:'Opportunity cost',w:['Profit','Tax','Saving'],e:'Opportunity cost is what you give up when you choose.',h:'What did you give up?'},
+],
+});
+
+
+// ═══════════════════════════════════════════════════════════════
+// GRADES 1–3 — skills, lessons, games, pictures
+// ═══════════════════════════════════════════════════════════════
+LEVELS.splice(0,LEVELS.length,[1,'Grade 1','Elementary'],[2,'Grade 2','Elementary'],[3,'Grade 3','Elementary'],[4,'Grade 4','Elementary · Virginia Studies'],[6,'Grade 6','Middle school'],[7,'Grade 7','Middle school'],[8,'Grade 8','Middle school']);
+LEVEL_IDS.splice(0,LEVEL_IDS.length,...LEVELS.map(l=>l[0]));
+normGrade=function(g){g=+g||4;return g>=8?8:g===7?7:g>=5?6:g<=1?1:g;};
+const S=(code,name,desc,gen)=>({code,name,desc,gen});
+STRANDS[1]={
+  math:[S('1.NS.1','Counting & Coins','Count to 120, skip count, tens & ones, coins','g1_ns1'),S('1.NS.2','Compare Numbers','Compare & order numbers to 120','g1_ns2'),S('1.NS.3','Halves & Fourths','Equal shares','g1_ns3'),
+    S('1.CE.1','Add & Subtract','Facts and word problems within 20','g1_ce1'),S('1.MG.1','Compare Length','Measure with paper clips & blocks','g1_mg1'),S('1.MG.2','Shapes','Sides, corners & right angles','g1_mg2'),
+    S('1.MG.3','Time & Calendar','Hour, half hour, days & ordinals','g1_mg3'),S('1.PS.1','Picture Graphs','Read picture graphs & tables','g1_ps1'),S('1.PFA.1','Patterns','Repeating & growing patterns','g1_pfa1')],
+  read:[S('1.FFR','Phonics','Rhymes, first sounds & short vowels','r1_ffr'),S('1.RV','Vocabulary','Opposites, compound words & meanings','r1_rv'),S('1.RL','Stories','Characters, setting & events','r1_rl'),S('1.RI','Nonfiction','Main topic & text features','r1_ri')],
+  sci:[S('1.2','Pushes, Pulls & Sound','How things move and make sound','sc1_2'),S('1.3','Materials','Properties of objects','sc1_3'),S('1.4','Plants','Needs and plant parts','sc1_4'),S('1.5','Animals','Needs and body parts','sc1_5'),
+    S('1.6','Sun & Earth','Light, heat & shadows','sc1_6'),S('1.7','Weather & Seasons','How seasons change living things','sc1_7'),S('1.8','Natural Resources','Using resources wisely','sc1_8')],
+  write:[S('1.W','Writing Sentences','Complete sentences & describing','w1_w'),S('1.LU','Capitals & Punctuation','Capitals, end marks & nouns','w1_lu')],
+  hist:[S('1.1','Classroom Citizenship','Rules, fairness & kindness','h1_1'),S('1.2','Holidays & Traditions','Virginia and national holidays','h1_2'),S('1.3','American Symbols','Flag, Pledge & bald eagle','h1_3'),
+    S('1.4','Virginia Long Ago','Werowocomoco, Jamestown & change','h1_4'),S('1.5','Virginia Changemakers','People who shaped Virginia','h1_5'),S('1.6','Map Skills','Maps, globes & directions','h1_6'),
+    S('1.7','Geography & History','Rivers, coasts & settlements','h1_7'),S('1.8','Needs & Wants','Goods, services & saving','h1_8')],
+};
+STRANDS[2]={
+  math:[S('2.NS.1','Skip Counting','Count by 2s–100s, even & odd','g2_ns1'),S('2.NS.2','Place Value','Hundreds, tens & ones to 999','g2_ns2'),S('2.NS.3','Fractions','Halves to eighths, unit fractions','g2_ns3'),
+    S('2.NS.4','Money','Coins up to $2.00','g2_ns4'),S('2.CE.1','Add & Subtract','Within 100, multistep & missing addends','g2_ce1'),S('2.MG.1','Measurement','Inches, pounds & cups','g2_mg1'),
+    S('2.MG.2','Time','To the nearest 5 minutes','g2_mg2'),S('2.MG.3','Symmetry','Lines of symmetry','g2_mg3'),S('2.MG.4','Solid Figures','Faces, edges & vertices','g2_mg4'),
+    S('2.PS.1','Bar Graphs','Read bar graphs & pictographs','g2_ps1'),S('2.PFA.1','Number Patterns','Growing patterns','g2_pfa1')],
+  read:[S('2.FFR','Phonics','Long vowels, syllables & digraphs','r2_ffr'),S('2.RV','Vocabulary','Prefixes, synonyms & antonyms','r2_rv'),S('2.RL','Stories','Lessons, characters & predictions','r2_rl'),S('2.RI','Nonfiction','Main idea & text features','r2_ri')],
+  sci:[S('2.2','Forces & Magnets','Pushes, pulls, gravity & magnets','sc2_2'),S('2.3','States of Matter','Solids, liquids & gases','sc2_3'),S('2.4','Life Cycles','How plants & animals grow','sc2_4'),S('2.5','Habitats','Living things and their homes','sc2_5'),
+    S('2.6','Weather','Weather types & tools','sc2_6'),S('2.7','Seasons & Change','How weather changes land & life','sc2_7'),S('2.8','Plants as Resources','How we use plants','sc2_8')],
+  write:[S('2.W','Writing','Beginnings, order words & details','w2_w'),S('2.LU','Grammar','Contractions, plurals & verbs','w2_lu')],
+  hist:[S('2.1','Rights & Responsibilities','Freedoms and good citizenship','h2_1'),S('2.4','State & National Symbols','Capitals, Liberty Bell & more','h2_4'),S('2.5','Indigenous Peoples','Eastern Woodlands, Plains & Southwest','h2_5'),
+    S('2.6','European Explorers','Spain, England & France','h2_6'),S('2.7','Revolutionaries','Washington, Revere, Madison & Henry','h2_7'),S('2.8','Founding the Nation','Colonies & the Declaration','h2_8'),
+    S('2.9','A Growing Nation','New capital & the Louisiana Purchase','h2_9'),S('2.10','Changemakers','Inventors, explorers & champions','h2_10'),S('2.11','Map Skills','Oceans, rivers & mountains','h2_11'),
+    S('2.12','Landmarks','Memorials, Valley Forge & Yellowstone','h2_12'),S('2.13','Economics','Resources, barter & scarcity','h2_13')],
+};
+STRANDS[3]={
+  math:[S('3.NS.1','Place Value','Numbers to six digits','g3_ns1'),S('3.NS.2','Compare & Order','Whole numbers to 9,999','g3_ns2'),S('3.NS.3','Fractions','Compare, equivalent & mixed numbers','g3_ns3'),
+    S('3.NS.4','Money & Change','Up to $5.00','g3_ns4'),S('3.CE.1','Add & Subtract','Within 1,000 and estimating','g3_ce1'),S('3.CE.2','Multiply & Divide','Facts through 10 × 10','g3_ce2'),
+    S('3.MG.1','Measurement','U.S. Customary & metric estimates','g3_mg1'),S('3.MG.2','Area & Perimeter','Rectangles and squares','g3_mg2'),S('3.MG.3','Time','Nearest minute & elapsed time','g3_mg3'),
+    S('3.MG.4','Polygons','Name & classify polygons','g3_mg4'),S('3.PS.1','Graphs','Bar graphs & two-step questions','g3_ps1'),S('3.PFA.1','Patterns','Increasing & decreasing rules','g3_pfa1')],
+  read:[S('3.FFR','Word Study','Syllables, suffixes & vowel teams','r3_ffr'),S('3.RV','Vocabulary','Suffixes, homophones & idioms','r3_rv'),S('3.RL','Stories & Poems','Character change, fables & stanzas','r3_rl'),S('3.RI','Nonfiction','Main idea & text structure','r3_ri')],
+  sci:[S('3.2','Forces & Motion','Balanced forces & friction','sc3_2'),S('3.3','Mixtures','Dissolving and mixing','sc3_3'),S('3.4','Adaptations','How living things survive','sc3_4'),S('3.5','Ecosystems','Food chains & habitats','sc3_5'),
+    S('3.6','Soil','Layers, humus & worms','sc3_6'),S('3.7','Water Cycle','Evaporation to collection','sc3_7'),S('3.8','Changing Ecosystems','Natural events & people','sc3_8')],
+  write:[S('3.W','Paragraphs','Topic sentences & details','w3_w'),S('3.LU','Grammar','Commas, apostrophes & verbs','w3_lu')],
+  hist:[S('3.1','Citizenship','Rights & responsibilities','h3_1'),S('3.2','Continents & Oceans','World geography','h3_2'),S('3.3','Ancient Lands','Rivers & landforms of ancient societies','h3_3'),
+    S('3.4','Ancient Egypt','Pyramids, pharaohs & hieroglyphics','h3_4'),S('3.5','Ancient China','The Great Wall, silk & paper','h3_5'),S('3.6','Ancient Greece','Democracy, Olympics & the Parthenon','h3_6'),
+    S('3.7','Ancient Rome','Republic, Colosseum & aqueducts','h3_7'),S('3.8','Empire of Mali','Mansa Musa, Timbuktu & trade','h3_8'),S('3.9','U.S. Government','Three branches','h3_9'),S('3.10','Economics','Resources, trade & choices','h3_10')],
+};
+for(const g of [1,2,3])HIST_STRANDS[g]=STRANDS[g].hist;
+msStrand=function(gen){for(const g of LEVEL_IDS)for(const s of Object.keys(STRANDS[g]||{}))for(const st of STRANDS[g][s])if(st.gen===gen)return st;return null;};
+
+Object.assign(LESSONS,{
+ g1_ns1:['Skip count by adding the same number each time: 5, 10, 15, 20.','A two-digit number is tens and ones: 47 is 4 tens and 7 ones.','A penny is 1¢, a nickel is 5¢, and a dime is 10¢.'],
+ g1_ns2:['Compare the tens first. If the tens are the same, compare the ones.','> means greater than; < means less than.'],
+ g1_ns3:['Halves: 2 equal parts. Fourths: 4 equal parts.','Equal shares must be the same size.'],
+ g1_ce1:['Count on to add; count back to subtract.','Part + part = whole.'],
+ g1_mg1:['Line things up at the same starting point to compare length.','More units means longer.'],
+ g1_mg2:['Triangles have 3 sides; squares and rectangles have 4.','Squares and rectangles have 4 right angles.'],
+ g1_mg3:['The short hand shows the hour. The long hand shows the minutes.','When the long hand is on 12, it is o’clock. On 6, it is half past.'],
+ g1_ps1:['Count the pictures in each row.','Compare rows to see which has more.'],
+ g1_pfa1:['Find the part that repeats.','Growing patterns add the same amount each time.'],
+ g2_ns1:['Skip count by 2s, 5s, 10s, 25s, and 100s.','Even numbers end in 0, 2, 4, 6, or 8.'],
+ g2_ns2:['In 547: 5 hundreds, 4 tens, 7 ones.','Expanded form: 500 + 40 + 7.'],
+ g2_ns3:['The bottom number tells how many equal parts.','With unit fractions, more parts means smaller pieces.'],
+ g2_ns4:['Quarter 25¢, dime 10¢, nickel 5¢, penny 1¢.','Count the biggest coins first.'],
+ g2_ce1:['Add or subtract tens, then ones.','Regroup 10 ones as 1 ten when needed.'],
+ g2_mg1:['Inches measure length, pounds measure weight, cups measure liquid.'],
+ g2_mg2:['Count by 5s around the clock for minutes.'],
+ g2_mg3:['A line of symmetry makes two matching halves.'],
+ g2_mg4:['Cubes and rectangular prisms have 6 faces, 12 edges, and 8 vertices.','A sphere has no flat faces.'],
+ g2_ps1:['Follow the top of each bar across to the numbers.'],
+ g2_pfa1:['Find the rule: how much is added each time?'],
+ g3_ns1:['Each place is 10 times the place to its right.','Value = digit × place.'],
+ g3_ns2:['Line up the digits and compare from the left.'],
+ g3_ns3:['Same denominator: compare numerators.','Same numerator: the smaller denominator is the bigger fraction.','2 1/4 = 9/4.'],
+ g3_ns4:['Count up from the price to find change.'],
+ g3_ce1:['Add and subtract by place value. Regroup when needed.','Estimate by rounding to check your answer.'],
+ g3_ce2:['Multiplication is equal groups.','Division undoes multiplication.'],
+ g3_mg1:['Customary: inches, feet, pounds, cups. Metric: centimeters, meters, grams, liters.'],
+ g3_mg2:['Area = square units inside. Perimeter = distance around.'],
+ g3_mg3:['Elapsed time is how much time passes between start and end.'],
+ g3_mg4:['Polygons are closed shapes with straight sides.','Triangle 3, quadrilateral 4, pentagon 5, hexagon 6, octagon 8.'],
+ g3_ps1:['Read each bar carefully, then add or subtract.'],
+ g3_pfa1:['Decide whether the pattern grows or shrinks, and by how much.'],
+ r1_ffr:['Rhyming words end with the same sound.','Say each sound slowly, then blend.'],
+ r1_rv:['Opposites mean very different things: hot and cold.','Compound words are two words put together.'],
+ r1_rl:['Characters are who the story is about. The setting is where and when.','Retell the beginning, middle, and end.'],
+ r1_ri:['The topic is what the text is mostly about.','Titles and captions give clues.'],
+ r2_ffr:['A silent e makes the vowel say its name.','Clap to count syllables.'],
+ r2_rv:['un- means not; re- means again.','Synonyms mean the same; antonyms mean the opposite.'],
+ r2_rl:['The lesson is what a character learns.','Use clues to predict what happens next.'],
+ r2_ri:['The main idea is the big point.','Headings, glossaries, and captions help readers.'],
+ r3_ffr:['Divide words into syllables to read them.','Suffixes like -ful and -less change meaning.'],
+ r3_rv:['Homophones sound the same but have different meanings.','Idioms do not mean exactly what the words say.'],
+ r3_rl:['Characters can change from the beginning to the end.','A fable teaches a moral.'],
+ r3_ri:['Find the main idea and the details that support it.','Text structure: sequence, cause and effect, compare.'],
+ w1_w:['A sentence tells a complete thought.','Telling sentences end with a period.'],
+ w1_lu:['Begin sentences and names with capital letters.','Questions end with a question mark.'],
+ w2_w:['Stories have a beginning, middle, and end.','Use order words: first, next, then, last.'],
+ w2_lu:['Contractions use an apostrophe for missing letters.','Add -s or -es to make plurals.'],
+ w3_w:['A paragraph has a topic sentence, details, and a closing sentence.'],
+ w3_lu:['Use commas in a list.','Use ’s to show ownership.'],
+ sc1_2:['Pushes and pulls make things move.','Sound is made by vibrations.'],sc1_3:['Objects are made of materials like wood, metal, glass, and cloth.'],
+ sc1_4:['Plants need water, light, air, and space.','Roots, stems, and leaves each have a job.'],sc1_5:['Animals need food, water, air, and shelter.'],
+ sc1_6:['The sun gives Earth light and heat.','Shadows form when light is blocked.'],sc1_7:['Seasons change temperature, plants, and animals.'],sc1_8:['Reduce, reuse, and recycle to save resources.'],
+ sc2_2:['Forces push or pull.','Magnets attract iron and steel; like poles repel.'],sc2_3:['Matter can be a solid, liquid, or gas.','Heating and cooling change states.'],
+ sc2_4:['Living things grow and change in life cycles.'],sc2_5:['A habitat provides food, water, and shelter.'],sc2_6:['Thermometers, rain gauges, and weather vanes measure weather.'],
+ sc2_7:['Weather and seasons change land and living things.'],sc2_8:['Plants give us food, wood, cloth, and oxygen.'],
+ sc3_2:['Bigger forces cause bigger changes in motion.','Balanced forces do not change motion.'],sc3_3:['Some solids dissolve in water, especially warm water.'],
+ sc3_4:['Physical adaptations are body parts; behavioral adaptations are actions.'],sc3_5:['Food chains start with the sun and producers.'],
+ sc3_6:['Topsoil has humus and nutrients.','Clay holds water; sand drains quickly.'],sc3_7:['Evaporation, condensation, precipitation, collection.'],sc3_8:['Natural events and people can change ecosystems.'],
+ h1_1:['Good citizens follow rules, take turns, and help others.'],h1_2:['Holidays honor people and events.'],h1_3:['The flag and bald eagle are American symbols.'],
+ h1_4:['Werowocomoco was Chief Powhatan’s town. Jamestown was settled in 1607.'],h1_5:['Many Virginians helped shape our state and nation.'],h1_6:['Maps use keys and compass roses.'],
+ h1_7:['Settlements grew near water.'],h1_8:['Needs are required to live; wants are nice to have.','Goods are things; services are work done for others.'],
+ h2_1:['Citizens have rights and responsibilities.'],h2_4:['Richmond is Virginia’s capital; Washington, D.C., is the nation’s capital.'],h2_5:['Indigenous peoples used the resources of their regions.'],
+ h2_6:['Explorers came from Spain, England, and France.'],h2_7:['Revolutionaries worked for America’s freedom.'],h2_8:['The Declaration of Independence was adopted in 1776.'],
+ h2_9:['The Louisiana Purchase doubled the size of the U.S.'],h2_10:['Changemakers invented, explored, and worked for fairness.'],h2_11:['Learn the oceans, rivers, and mountains of the U.S.'],
+ h2_12:['Landmarks honor people and events.'],h2_13:['Resources are natural, human, or capital.','Scarcity means we must make choices.'],
+ h3_1:['Citizens have rights and responsibilities.'],h3_2:['There are 7 continents and 5 oceans.'],h3_3:['Ancient societies grew near rivers.'],
+ h3_4:['Egypt: pyramids, pharaohs, hieroglyphics, papyrus.'],h3_5:['China: Great Wall, silk, paper, the Huang He.'],h3_6:['Greece: democracy, the Olympics, the Parthenon.'],
+ h3_7:['Rome: republic, roads, aqueducts, the Colosseum.'],h3_8:['Mali: Mansa Musa, Timbuktu, gold and salt.'],h3_9:['Three branches: legislative, executive, judicial.'],h3_10:['Specialization and trade help people get what they need.'],
+});
+
+HIST_EVENTS[1]=[[1607,'Jamestown is settled'],[1776,'Declaration of Independence'],[1789,'George Washington becomes President'],[1903,'Maggie L. Walker opens her bank'],[1968,'Arthur Ashe wins the U.S. Open'],[1989,'L. Douglas Wilder elected governor']];
+HIST_EVENTS[2]=[[1492,'Columbus sails for Spain'],[1607,'Jamestown is settled'],[1775,'Paul Revere’s ride'],[1776,'Declaration of Independence'],[1800,'Capital moves to Washington, D.C.'],[1803,'Louisiana Purchase'],[1872,'Yellowstone becomes the first national park'],[1903,'Wright brothers fly'],[1947,'Jackie Robinson joins Major League Baseball'],[1969,'Neil Armstrong walks on the moon']];
+HIST_EVENTS[3]=[[1776,'Declaration of Independence'],[1787,'U.S. Constitution written'],[1896,'First modern Olympic Games'],[1969,'First moon landing']];
+WHO[1]=[['George Washington',['I was the first President.','I was born in Virginia.','I am on the one-dollar bill.']],['Pocahontas',['I was the daughter of Chief Powhatan.','I helped the English at Jamestown.','I traveled to England.']],
+ ['Maggie L. Walker',['I started a bank in Richmond.','I helped people in my community save money.','I was a businesswoman and teacher.']],['Arthur R. Ashe, Jr.',['I was born in Richmond.','I was a tennis champion.','I worked to help others.']],
+ ['Thomas Jefferson',['I wrote the Declaration of Independence.','I lived at Monticello.','I was the third President.']]];
+WHO[2]=[['Benjamin Franklin',['I flew a kite to learn about electricity.','I helped write the Declaration of Independence.','I started a library.']],['Rosa Parks',['I would not give up my bus seat.','I helped start a bus boycott.','I worked for equal rights.']],
+ ['Neil Armstrong',['I was an astronaut.','I was the first person to walk on the moon.','I flew on Apollo 11.']],['Sacagawea',['I helped Lewis and Clark.','I was a Shoshone woman.','I knew the land and languages.']],
+ ['Paul Revere',['I was a silversmith.','I rode at night to warn colonists.','I lived in Boston.']]];
+WHO[3]=[['Mansa Musa',['I ruled the empire of Mali.','I was very wealthy.','I made Timbuktu a center of learning.']],['A pharaoh',['I ruled ancient Egypt.','Pyramids were built as tombs for rulers like me.','I lived along the Nile.']],
+ ['The Great Wall',['I am very long.','I was built in ancient China.','I helped protect against invaders.']],['The Colosseum',['I am a giant arena.','I am in Rome.','Crowds watched events here.']],['The Parthenon',['I am a temple.','I am in Athens, Greece.','I have many columns.']]];
+if(typeof WORD_BANK!=='undefined')for(const g of [1,2,3])WORD_BANK[g]=WORD_BANK[g]||WORD_BANK[4];
+Object.assign(SUBJ_GRADE,{1:{hist:['History & Social Science','Citizenship, Virginia history, maps, and money.']},2:{hist:['History & Social Science','American people, places, symbols, and economics.']},3:{hist:['History & Social Science','Ancient civilizations, continents, and government.']}});
+Object.assign(SK_ART,{
+ 'math:1.NS.1':'m_place','math:1.NS.2':'m_place','math:1.NS.3':'m_frac','math:1.CE.1':'m_ops','math:1.MG.1':'m_measure','math:1.MG.2':'m_geo','math:1.MG.3':'m_time','math:1.PS.1':'m_data','math:1.PFA.1':'m_pattern',
+ 'math:2.NS.1':'m_pattern','math:2.NS.2':'m_place','math:2.NS.3':'m_frac','math:2.NS.4':'m_dec','math:2.CE.1':'m_ops','math:2.MG.1':'m_measure','math:2.MG.2':'m_time','math:2.MG.3':'m_geo','math:2.MG.4':'m_squares','math:2.PS.1':'m_data','math:2.PFA.1':'m_pattern',
+ 'math:3.NS.1':'m_place','math:3.NS.2':'m_place','math:3.NS.3':'m_frac','math:3.NS.4':'m_dec','math:3.CE.1':'m_ops','math:3.CE.2':'m_ops','math:3.MG.1':'m_measure','math:3.MG.2':'m_area','math:3.MG.3':'m_time','math:3.MG.4':'m_geo','math:3.PS.1':'m_data','math:3.PFA.1':'m_pattern',
+ 'read:1.FFR':'r_vocab','read:1.RV':'r_vocab','read:1.RL':'r_fiction','read:1.RI':'r_nonfic','read:2.FFR':'r_vocab','read:2.RV':'r_vocab','read:2.RL':'r_fiction','read:2.RI':'r_nonfic','read:3.FFR':'r_vocab','read:3.RV':'r_vocab','read:3.RL':'r_fiction','read:3.RI':'r_nonfic',
+ 'write:1.W':'w_sentence','write:1.LU':'w_edit','write:2.W':'w_sentence','write:2.LU':'w_edit','write:3.W':'w_sentence','write:3.LU':'w_edit',
+ 'sci:1.2':'s_force','sci:1.3':'s_matter','sci:1.4':'s_plants','sci:1.5':'s_adapt','sci:1.6':'s_space','sci:1.7':'s_weather','sci:1.8':'s_resources',
+ 'sci:2.2':'s_elec','sci:2.3':'s_matter','sci:2.4':'s_plants','sci:2.5':'s_eco','sci:2.6':'s_weather','sci:2.7':'s_weather','sci:2.8':'s_plants',
+ 'sci:3.2':'s_force','sci:3.3':'s_matter','sci:3.4':'s_adapt','sci:3.5':'s_eco','sci:3.6':'s_plants','sci:3.7':'s_weather','sci:3.8':'s_pop',
+ 'hist:1.1':'h_citizen','hist:1.2':'h_nation','hist:1.3':'h_nation','hist:1.4':'h_jamestown','hist:1.5':'h_presidents','hist:1.6':'h_skills','hist:1.7':'h_geo','hist:1.8':'h_econ',
+ 'hist:2.1':'h_citizen','hist:2.4':'h_nation','hist:2.5':'h_native','hist:2.6':'h_jamestown','hist:2.7':'h_revolution','hist:2.8':'h_nation','hist:2.9':'h_west','hist:2.10':'h_1900s','hist:2.11':'h_geo','hist:2.12':'h_presidents','hist:2.13':'h_econ',
+ 'hist:3.1':'h_citizen','hist:3.2':'subj_geo','hist:3.3':'h_skills','hist:3.4':'h_egypt','hist:3.5':'h_china','hist:3.6':'h_greece','hist:3.7':'h_rome','hist:3.8':'h_mali','hist:3.9':'h_branches','hist:3.10':'h_econ'});
+Object.assign(ART_FALLBACK,{h_egypt:'h_skills',h_china:'h_skills',h_greece:'h_skills',h_rome:'h_skills',h_mali:'h_skills'});
 
 loadProfiles();
 if(PROFILES.active&&activateProfile(PROFILES.active))renderDash();else renderWho();

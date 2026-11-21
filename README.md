@@ -1,6 +1,6 @@
 # LearnSpark
 
-Virginia SOL practice for Grade 4 and middle school (Grades 6, 7, and 8) in Math, Reading, Science, Writing, and History & Social Science,
+Virginia SOL practice for Grades 1–4 and middle school (Grades 6, 7, and 8) in Math, Reading, Science, Writing, and History & Social Science,
 plus Story Time read-aloud books, in one web page.
 No server, no accounts, no build step. Each learner's progress is saved in the
 browser on the device they use.
@@ -9,6 +9,7 @@ browser on the device they use.
 
 - **Learn:** SmartScore practice for every SOL skill in Math, Reading, Science, Writing,
   and History & Social Science, with lessons, worked examples, pictures, and mistake review.
+  - Grades 1–3: 2023 Math SOL, phonics and reading (2024 English strands), science, and history & social science.
   - Grade 4: Virginia Studies. Grade 6: U.S. History 1865 to the Present.
   - Grade 7: 2023 Math SOL (7.NS–7.PFA), Life Science, Civics & Economics.
   - Grade 8: 2023 Math SOL (8.NS–8.PFA), Physical Science, World Geography.
