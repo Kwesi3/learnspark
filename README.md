@@ -22,8 +22,20 @@ browser on the device they use.
   plus Detective Case Files and Sound Swap. The newest 12 have painted pictures and themes from
   Ghana and West Africa, Virginia history, science, and everyday kid life.
 - **Videos:** a picture-book video for each of the 12 newest stories (narrated, with captions),
-  and a short explainer for each Grade 4–6 math skill: big ideas, then one worked question.
-  Each video has a **Save for offline** button.
+  and short lesson explainers (big ideas, then one worked question) for Grade 4–6 math, science,
+  reading and writing, and Grade 7–8 math. Each video has a **Save for offline** button.
+- **SOL-style question formats:** besides multiple choice, practice and practice tests now use
+  type-the-answer (with an on-screen keypad), sort into groups, select all that apply, put in
+  order, place a point on a number line, and plot a point on a coordinate grid.
+- **Today's 15 minutes:** a daily plan on the home screen: a Fact Sprint warm-up, one skill to
+  practice, past mistakes to fix, and a story or lesson video. Finishing it earns bonus stars.
+- **Fact Sprint:** a 20-fact speed drill (addition/subtraction for Grades 1–2, times tables and
+  division for Grade 3 and up) that focuses on slow or missed facts and shows a times-table map.
+- **Printable worksheets:** pick up to three skills and print a fresh worksheet with an answer key.
+- **Move progress between devices:** Settings → Move progress saves a progress file or a
+  copy-and-paste transfer code. No accounts and no server.
+- **Hear your child read (optional):** grown-ups can turn on saving reading recordings. They stay
+  on the device and play back in the Parent Report.
 - **Arcade:** Speed Math, Math Asteroids, Number Ninja, CodeBot, Fraction Match, Word Wizard,
   SOL Quiz Battle, Map Quest, Timeline Dash, Who Am I?, Pizza Shop, and Integer Elevator.
 - **Family Challenge,** Sparky's closet (spend stars on outfits), printable certificates,
@@ -91,6 +103,10 @@ Skip "free domain" sites: they tend to expire or disappear.
 - When Sparky listens, the browser's own speech service turns speech into text
   (Google in Chrome, Microsoft in Edge, Apple in Safari). LearnSpark keeps only
   which words were read.
+- Reading recordings are off unless a grown-up turns them on. When on, they are
+  saved only in this browser on this device and can be deleted in the Parent Report.
+- Progress files and transfer codes contain the learner's name and progress. Treat
+  them like any personal file.
 - The repository is public, so anyone can see the app's code. It contains no
   personal information about your family.
 

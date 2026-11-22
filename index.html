@@ -1334,6 +1334,117 @@ button.cl-row.cl-link:hover b{color:var(--cblue)}
 .vid-n{display:block;margin-top:6px;font-weight:800;color:#1B2A4A}
 @media (max-width:560px){.rd-top .vid-chip small{display:none}.rd-top .vid-chip{padding:6px 9px}}
 @media (max-width:560px){.vid-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:6px}.vid-card{flex:0 0 68%;scroll-snap-align:start}}
+/* SOL-style formats */
+.ti-row{display:flex;align-items:center;gap:10px;justify-content:center;margin:14px 0 10px;flex-wrap:wrap}
+.ti-in{font:800 1.8rem 'Nunito',sans-serif;color:#1B2A4A;text-align:center;width:min(260px,70vw);padding:10px 14px;border:3px solid #1B2A4A;border-radius:16px;background:#fff}
+.ti-in:focus{outline:4px solid #FFD84D;outline-offset:2px}
+.ti-in.ok{border-color:#16A34A;background:#DCFCE7}.ti-in.bad{border-color:#DC2626;background:#FEE2E2}
+.ti-aff{font:800 1.5rem 'Nunito',sans-serif;color:#1B2A4A}
+.kp{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:340px;margin:0 auto 8px}
+.kp-k{min-height:48px;border:2px solid #1B2A4A;border-radius:12px;background:#fff;font:800 1.25rem 'Nunito',sans-serif;color:#1B2A4A;cursor:pointer}
+.kp-k:active{transform:translateY(2px)}.kp-k:disabled{opacity:.45;cursor:default}
+.kp-bs{background:#FFE4E0}
+.srt-bank{display:flex;flex-wrap:wrap;gap:8px;min-height:52px;padding:10px;border:2px dashed #B8C2D6;border-radius:14px;margin:6px 0 12px;background:#F8FAFF}
+.srt-chip{border:2px solid #1B2A4A;background:#fff;border-radius:12px;padding:8px 12px;font:700 1rem 'Nunito',sans-serif;color:#1B2A4A;cursor:pointer;text-align:left}
+.srt-chip.sel{background:#FFD84D;box-shadow:0 0 0 3px #1B2A4A}
+.srt-chip.ok{background:#DCFCE7;border-color:#16A34A}.srt-chip.bad{background:#FEE2E2;border-color:#DC2626;text-decoration:line-through}
+.srt-cols{display:grid;gap:10px}.srt-cols.c2{grid-template-columns:1fr 1fr}.srt-cols.c3{grid-template-columns:repeat(3,1fr)}
+.srt-col{border:2px solid #1B2A4A;border-radius:14px;background:#fff;display:flex;flex-direction:column;min-height:140px;overflow:hidden}
+.srt-h{border:0;border-bottom:2px solid #1B2A4A;background:#E6EEFF;padding:10px 8px;font:800 .95rem 'Nunito',sans-serif;color:#1B2A4A;cursor:pointer}
+.srt-h:hover{background:#FFF4C4}
+.srt-in{display:flex;flex-direction:column;gap:6px;padding:8px}
+.srt-in .srt-chip{font-size:.92rem;padding:6px 10px}
+@media (max-width:560px){.srt-cols.c3{grid-template-columns:1fr}.srt-col{min-height:80px}}
+.nl-wrap{position:relative;max-width:640px;margin:16px auto 4px}
+.nl-svg{display:block;width:100%;height:auto}
+.nl-hits{position:absolute;inset:0}
+.nl-hit{position:absolute;top:8%;width:30px;height:62%;transform:translateX(-50%);border:0;background:transparent;border-radius:10px;cursor:pointer}
+.nl-hit:hover,.nl-hit:focus-visible{background:rgba(255,216,77,.45)}
+.cg-wrap{max-width:380px;margin:12px auto 6px;cursor:crosshair;touch-action:manipulation}
+.cg-svg{display:block;width:100%;height:auto;background:#fff;border:2px solid #1B2A4A;border-radius:14px}
+.cg-ctl{display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;font-weight:700}
+.cg-arrows{display:flex;gap:6px}.cg-arrows .kp-k{min-width:46px;min-height:42px}
+/* Today's 15 minutes */
+.dp{margin:18px 0}
+.dp-bar{height:10px;border-radius:999px;background:#E6ECF7;overflow:hidden;margin:4px 0 12px}.dp-bar i{display:block;height:100%;background:linear-gradient(90deg,#2FB37A,#4C8DF6);border-radius:999px;transition:width .4s}
+.dp-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media (max-width:1100px){.dp-list{grid-template-columns:1fr 1fr}}@media (max-width:560px){.dp-list{grid-template-columns:1fr}}
+.dp-go{width:100%;display:flex;align-items:center;gap:10px;text-align:left;border:2px solid #D5DCE8;background:#fff;border-radius:16px;padding:12px;cursor:pointer;font-family:inherit}
+.dp-go:hover{border-color:#2F6FE0}
+.dp-ic{flex:0 0 42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;background:#FFF4C4}
+.dp-b{flex:1;min-width:0}.dp-b b{display:block;color:#1B2A4A;font-size:.98rem}.dp-b small{color:#5B6478}
+.dp-arr{font-size:1.6rem;color:#2F6FE0;font-weight:800}
+.dp-step.done .dp-go{background:#EEFBF3;border-color:#2FB37A}.dp-step.done .dp-ic{background:#2FB37A;color:#fff;font-weight:900}
+.dp-step{position:relative;display:flex;flex-direction:column}.dp-step .dp-go{flex:1}.dp-step:has(.dp-alt) .dp-go{padding-bottom:46px}
+.dp-alt{position:absolute;left:64px;bottom:12px;border:2px solid #1B2A4A;background:#FFD84D;border-radius:999px;padding:4px 10px;font-weight:800;font-size:.8rem;cursor:pointer;font-family:inherit}
+/* Fact Sprint */
+.fs-card{max-width:560px;margin:0 auto;text-align:center}
+.fs-intro h2{margin:6px 0}.fs-big{font-size:3rem;line-height:1}
+.fs-prog{height:10px;border-radius:999px;background:#E6ECF7;overflow:hidden}.fs-prog i{display:block;height:100%;background:#2F6FE0;transition:width .2s}
+.fs-n{font-weight:800;color:#5B6478;margin:8px 0}
+.fs-fact{font:800 2.6rem 'Fredoka',sans-serif;color:#1B2A4A;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin:10px 0}
+.fs-in{width:150px;font-size:2.2rem}
+.fs-fb{min-height:28px;font-weight:800;color:#B4232A;font-size:1.2rem;margin-bottom:8px}
+.fs-pb{color:#15803D}
+.fs-miss{margin:10px 0;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center}.fs-miss span{background:#FEE2E2;border-radius:999px;padding:4px 10px;font-weight:800}
+.fs-gridt{font-weight:800;margin:14px 0 6px;color:#1B2A4A}
+.fs-grid{display:grid;grid-template-columns:repeat(calc(var(--m) + 1),1fr);gap:3px;max-width:380px;margin:0 auto}
+.fs-grid b{font-size:.75rem;color:#5B6478;display:flex;align-items:center;justify-content:center}
+.fs-grid i,.fs-leg i{display:block;aspect-ratio:1;border-radius:4px}
+.fs-f{background:#2FB37A}.fs-s{background:#FFD84D}.fs-m{background:#F07167}.fs-u{background:#E2E8F0}
+.fs-leg{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;font-size:.85rem;margin:8px 0 4px}.fs-leg span{display:flex;align-items:center;gap:4px}.fs-leg i{width:14px}
+.fs-promo{display:flex;align-items:center;gap:14px;width:100%;text-align:left;cursor:pointer;margin:0 0 16px;border:2px solid #1B2A4A;font-family:inherit}
+.fs-promo .fs-big{font-size:2.2rem}.fs-promo b{display:block;font-size:1.1rem;color:#1B2A4A}.fs-promo small{color:#5B6478}.fs-promo>span:nth-child(2){flex:1}
+/* Move progress */
+.sync .sync-box{border:2px solid #D5DCE8;border-radius:16px;padding:14px;margin:12px 0;display:flex;flex-direction:column;gap:8px}
+.sync .sync-box small{color:#5B6478}
+.sync-acts{display:flex;flex-wrap:wrap;gap:8px}.sync-acts .btn{flex:0 1 auto}
+.sync-code{font-family:ui-monospace,monospace;font-size:.75rem;word-break:break-all}
+.sync-ok{color:#15803D;font-weight:700}.sync-bad{color:#B4232A;font-weight:700}
+.sync-prev{display:flex;flex-direction:column;gap:8px;margin:6px 0}
+.sync-row{display:flex;gap:10px;align-items:flex-start;border:2px solid #D5DCE8;border-radius:12px;padding:10px;cursor:pointer}
+.sync-row input{width:22px;height:22px;margin-top:2px}.sync-row b{display:block}.sync-row small{color:#5B6478}
+.who-sync{text-align:center;margin-top:18px}
+/* reading recordings */
+.rec-opt{display:flex;gap:10px;align-items:flex-start;margin:8px 0 12px;font-size:.95rem}.rec-opt input{width:22px;height:22px;flex:0 0 22px;margin-top:2px}
+.rec-box h3{margin-top:0}
+.rec-day{margin:10px 0}.rec-day>b{display:block;margin-bottom:6px;color:#1B2A4A}
+.rec-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:6px 0;border-top:1px solid #E2E8F0}
+.rec-t{flex:1 1 220px;font-weight:700;font-size:.92rem}.rec-row audio{height:36px;max-width:260px;flex:1 1 200px}
+.rec-k,.rec-x{width:36px;height:36px;border-radius:50%;border:2px solid #CBD5E1;background:#fff;cursor:pointer;font-size:1rem}
+.rec-k.on{background:#FFD84D;border-color:#1B2A4A}
+/* worksheets */
+.ws-form .ws-sk{margin:10px 0}.ws-sk-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px;margin-top:6px}
+.ws-ck{display:flex;gap:8px;align-items:flex-start;border:2px solid #E2E8F0;border-radius:10px;padding:8px;cursor:pointer}.ws-ck input{width:20px;height:20px;flex:0 0 20px}.ws-ck small{color:#64748B}
+.ws-les{margin-top:10px}
+#ws{margin-top:18px}
+.ws-page{background:#fff;color:#111;max-width:800px;margin:0 auto 18px;padding:36px 44px;border:1px solid #CBD5E1;border-radius:8px;font-family:'Nunito',sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.ws-head{border-bottom:2px solid #111;padding-bottom:10px;margin-bottom:14px;font-size:15px}
+.ws-name{margin:10px 0 4px;display:flex;align-items:flex-end;gap:8px;flex-wrap:wrap}.ws-skills{font-size:13px;color:#333}
+.ws-line{display:inline-block;border-bottom:1.5px solid #111;width:220px;height:1.1em;vertical-align:bottom}.ws-line.short{width:44px}.ws-line.short2{width:120px}.ws-line.wide{display:block;width:100%;height:28px;margin-top:6px}
+.ws-list{list-style:none;padding:0;margin:0}
+.ws-q{break-inside:avoid;page-break-inside:avoid;margin:0 0 22px}
+.ws-qt{display:flex;gap:8px;font-size:16px;font-weight:700;line-height:1.45}.ws-n{min-width:26px}
+.ws-opts{margin:8px 0 0 34px;display:grid;gap:6px;font-size:15px}.ws-opts.mc{grid-template-columns:1fr 1fr}
+.ws-opts>div{display:flex;align-items:center;gap:8px}
+.ws-bub{width:24px;height:24px;border:1.5px solid #111;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex:0 0 24px}
+.ws-box{width:18px;height:18px;border:1.5px solid #111;border-radius:3px;flex:0 0 18px}
+.ws-ans{margin:10px 0 0 34px;font-size:15px;display:flex;gap:6px;align-items:flex-end}.ws-ans .ws-line{width:140px}
+.ws-bank{margin:8px 0 6px 34px;padding:8px 10px;border:1.5px dashed #555;border-radius:6px;font-size:14px}
+.ws-sort{margin:6px 0 0 34px;width:calc(100% - 34px);border-collapse:collapse;font-size:14px}.ws-sort th,.ws-sort td{border:1.5px solid #111;padding:6px;text-align:center;vertical-align:top}.ws-sort td{height:110px}
+.ws-fig{margin:8px 0 0 34px;max-width:520px}.ws-fig svg{width:100%;height:auto}.ws-grid{max-width:300px}
+.ws-pass{border-left:4px solid #999;padding:6px 12px;margin:0 0 8px;font-size:14px;background:#F8FAFC}
+.ws-foot{margin-top:18px;font-size:11px;color:#555;border-top:1px solid #ccc;padding-top:8px}
+.ws-keys{font-size:14px;line-height:1.7;padding-left:28px}
+@media (max-width:640px){.ws-page{padding:20px 16px}.ws-opts.mc{grid-template-columns:1fr}}
+@media print{
+  body.ws-mode *{visibility:hidden!important}
+  body.ws-mode #ws,body.ws-mode #ws *{visibility:visible!important}
+  body.ws-mode #ws{position:absolute;left:0;top:0;width:100%;margin:0}
+  body.ws-mode .ws-page{border:0;box-shadow:none;border-radius:0;max-width:none;padding:0 6mm;margin:0}
+  body.ws-mode .ws-keypage{break-before:page;page-break-before:always}
+  @page{margin:14mm}
+}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#4C8DF6">
@@ -7274,7 +7385,7 @@ function renderAbout(){
           <ul class="ab-list">
             <li><b>No accounts and no sign-in.</b> Learner names, pictures, scores, and settings are stored only in this browser on this device.</li>
             <li><b>Nothing is sent to a LearnSpark server.</b> There is no LearnSpark server. The app is a set of files that runs entirely in your browser.</li>
-            <li><b>Reading out loud.</b> When a child reads to Sparky, the browser’s own speech service turns speech into text (Google in Chrome, Microsoft in Edge, Apple in Safari). LearnSpark keeps only which words were read, never recordings.</li>
+            <li><b>Reading out loud.</b> When a child reads to Sparky, the browser’s own speech service turns speech into text (Google in Chrome, Microsoft in Edge, Apple in Safari). LearnSpark keeps only which words were read. A grown-up can choose to also save recordings of the child reading; these stay on this device, are never uploaded, and can be deleted from the Parent Report.</li>
             <li><b>Narration</b> is recorded ahead of time and stored with the app, so listening needs no internet once the app is saved.</li>
             <li><b>Removing data.</b> Delete a learner in Settings, or clear this site’s data in your browser settings. Each device keeps separate progress.</li>
           </ul></section>
@@ -12078,8 +12189,8 @@ addQ('wg17',[
 
 // Guard: no wrong option may equal the answer in value (e.g. 1/2 vs 3/6), and n/1 answers read as whole numbers.
 (function(){
-  const val=s=>{s=String(s).trim();let m=/^(-?\d+) (\d+)\/(\d+)$/.exec(s);if(m)return +m[1]+m[2]/m[3];m=/^(-?\d+)\/(\d+)$/.exec(s);if(m)return +m[2]?m[1]/m[2]:null;m=/^-?\d+(\.\d+)?$/.exec(s);return m?+s:null;};
-  const SKIP=/simplest|lowest terms|equivalent|same (value|amount)|equal to|NOT|unsimplified|form/i;
+  const val=s=>{s=String(s).trim();if(/^-?\d{1,3}(,\d{3})+(\.\d+)?$/.test(s))s=s.replace(/,/g,'');let m=/^(-?\d+) (\d+)\/(\d+)$/.exec(s);if(m)return +m[1]+m[2]/m[3];m=/^(-?\d+)\/(\d+)$/.exec(s);if(m)return +m[2]?m[1]/m[2]:null;m=/^-?\d+(\.\d+)?$/.exec(s);return m?+s:null;};
+  const SKIP=/simplest|lowest terms|equivalent|same (value|amount)|equal to|NOT|unsimplified|improper|mixed number/i;
   const _mq=makeQ;
   makeQ=function(gen){
     const q=_mq.apply(this,arguments);
@@ -12099,6 +12210,701 @@ addQ('wg17',[
     return q;
   };
 })();
+
+// ── SOL-style question formats (technology-enhanced items) ──
+// New types: 'input' (type the answer, with keypad), 'sort' (put items into groups),
+// 'nline' (place a point on a number line), 'plot' (place a point on a coordinate grid).
+// Existing 'multi' (select all) and 'order' are also fed from the banks below.
+
+// Sorting banks: gen -> [[bucket label, [items], optional select-all question], ...]
+const SORT_BANK={
+  // Science
+  sc1_3:[['Found in nature',['wood','wool','cotton','rock','sand'],'Which materials are found in nature?'],['Made by people',['plastic','glass','nylon','steel','paper']]],
+  sc1_4:[['Plants need it',['water','sunlight','air','space to grow','nutrients from soil'],'What do plants need to live and grow?'],['Plants do not need it',['candy','toys','music','television','shoes']]],
+  sc1_5:[['Fur',['bear','rabbit','dog','fox']],['Feathers',['robin','owl','duck','eagle']],['Scales',['snake','fish','lizard','alligator']]],
+  sc1_7:[['Winter',['building a snowman','wearing mittens','bare trees']],['Summer',['swimming outside','long, hot days','wearing sunscreen']],['Fall',['leaves changing color','picking pumpkins','birds flying south']]],
+  sc1_8:[['Natural resource',['water','trees','soil','sunlight','rocks'],'Which of these are natural resources?'],['Made by people',['plastic bottle','car','computer','sidewalk','glass jar']]],
+  sc2_2:[['A magnet attracts it',['paper clip','iron nail','steel pin','steel screw'],'Which objects would a magnet attract?'],['A magnet does not attract it',['wooden block','rubber eraser','plastic spoon','glass marble','aluminum can']]],
+  sc2_3:[['Solid',['ice cube','rock','pencil','wooden spoon']],['Liquid',['milk','juice','rain','melted butter']],['Gas',['steam','air in a balloon','oxygen','water vapor']]],
+  sc2_4:[['Part of a frog’s life',['tadpole','froglet','eggs in a jelly clump']],['Part of a butterfly’s life',['caterpillar','chrysalis','eggs on a leaf']]],
+  sc2_5:[['Desert',['cactus','camel','rattlesnake']],['Ocean',['whale','coral','octopus']],['Forest',['deer','oak tree','black bear']]],
+  sc2_8:[['Food from plants',['apples','rice','corn','potatoes'],'Which of these are foods that come from plants?'],['Materials from plants',['cotton shirt','wooden chair','paper','rope']]],
+  sc3_3:[['Dissolves in water',['salt','sugar','drink powder'],'Which of these dissolve in water?'],['Does not dissolve in water',['sand','pebbles','cooking oil','marbles']]],
+  sc3_4:[['Physical adaptation',['thick fur','sharp claws','webbed feet','camouflage coloring'],'Which are physical adaptations?'],['Behavioral adaptation',['migrating south','hibernating','living in herds','hunting at night'],'Which are behavioral adaptations?']],
+  sc3_5:[['Producer',['grass','oak tree','algae']],['Consumer',['rabbit','hawk','deer']],['Decomposer',['mushroom','earthworm','bacteria']]],
+  sc3_6:[['Living or once-living',['humus','earthworms','plant roots','dead leaves'],'Which parts of soil are living or were once living?'],['Never living',['sand','clay','small rocks','silt']]],
+  sc3_7:[['Evaporation',['a puddle drying up','wet clothes drying in the sun']],['Condensation',['dew on the grass','drops on a cold glass','clouds forming']],['Precipitation',['rain','snow','hail']]],
+  sc3_8:[['Natural change',['wildfire started by lightning','flood','drought']],['Change caused by people',['building a road','cutting down a forest','building a dam']]],
+  g4_force:[['Potential energy (stored)',['stretched rubber band','ball at the top of a hill','book on a high shelf']],['Kinetic energy (moving)',['rolling ball','flowing river','swinging bat']]],
+  g4_elec:[['Conductor',['copper wire','iron nail','aluminum foil','steel spoon'],'Which materials are good conductors of electricity?'],['Insulator',['rubber','plastic','wood','glass'],'Which materials are insulators?']],
+  g4_plants:[['Roots',['take in water from the soil','hold the plant in place']],['Stem',['carries water up the plant','holds the plant up']],['Leaves',['make food using sunlight','take in carbon dioxide']]],
+  g4_eco:[['Producer',['sunflower','seaweed','maple tree']],['Consumer',['fox','frog','owl']],['Decomposer',['mushroom','mold','bacteria']]],
+  g4_weather:[['Cumulus',['puffy and white like cotton','usually mean fair weather']],['Stratus',['flat gray layer across the sky','can bring drizzle']],['Cirrus',['thin and wispy','very high in the sky']]],
+  g4_space:[['Inner planet',['Mercury','Venus','Earth','Mars'],'Which planets are inner planets?'],['Outer planet',['Jupiter','Saturn','Uranus','Neptune'],'Which planets are outer planets?']],
+  sc5_2:[['Mechanical energy',['moving car','spinning fan blades','rolling skateboard']],['Chemical energy',['battery','food','gasoline']],['Radiant (light) energy',['sunlight','glow from a firefly','light from a candle flame']]],
+  sc5_4:[['Attract',['north pole near south pole','south pole near north pole']],['Repel',['north pole near north pole','south pole near south pole']]],
+  sc5_5:[['Higher pitch',['short guitar string','tight drum skin','small bell','mouse squeak']],['Lower pitch',['long guitar string','loose drum skin','large bell','tuba']]],
+  sc5_6:[['Transparent',['clear glass','clean water','plastic wrap']],['Translucent',['wax paper','frosted glass','tissue paper']],['Opaque',['wooden door','brick','cardboard']]],
+  sc5_7:[['Physical change',['cutting paper','melting ice','folding clothes','dissolving sugar'],'Which are physical changes?'],['Chemical change',['burning wood','rusting nail','baking a cake','milk going sour'],'Which are chemical changes?']],
+  sc5_8:[['Igneous rock',['granite','obsidian','pumice']],['Sedimentary rock',['sandstone','limestone','shale']],['Metamorphic rock',['marble','slate','quartzite']]],
+  sc5_9:[['Renewable',['solar','wind','moving water','geothermal'],'Which energy sources are renewable?'],['Nonrenewable',['coal','oil','natural gas','uranium'],'Which energy sources are nonrenewable?']],
+  g6_energy:[['Conduction',['a metal spoon in hot soup gets hot','touching a hot pan handle']],['Convection',['warm air rising from a heater','boiling water circulating in a pot']],['Radiation',['sunlight warming your face','feeling a campfire from across the room']]],
+  g6_solar:[['Rocky (terrestrial) planet',['Mercury','Venus','Earth','Mars'],'Which planets are rocky (terrestrial) planets?'],['Gas giant or ice giant',['Jupiter','Saturn','Uranus','Neptune']]],
+  g6_eco:[['Biotic (living)',['fish','algae','frog','bacteria'],'Which are biotic factors?'],['Abiotic (nonliving)',['sunlight','water temperature','rocks','oxygen'],'Which are abiotic factors?']],
+  g6_atmo:[['Troposphere',['where weather happens','the layer we live in']],['Stratosphere',['has the ozone layer','where jets often fly']],['Mesosphere',['where most meteors burn up']],['Thermosphere',['where auroras happen']]],
+  g6_resource:[['Renewable',['sunlight','wind','trees','fresh water'],'Which resources are renewable?'],['Nonrenewable',['coal','oil','natural gas','uranium'],'Which resources are nonrenewable?']],
+  ls2:[['Plant cells only',['cell wall','chloroplasts','large central vacuole']],['Both plant and animal cells',['nucleus','cell membrane','cytoplasm','mitochondria'],'Which parts are found in both plant and animal cells?']],
+  ls3:[['Vertebrate',['frog','shark','eagle','snake'],'Which animals are vertebrates?'],['Invertebrate',['spider','jellyfish','earthworm','octopus'],'Which animals are invertebrates?']],
+  ls4:[['Goes into photosynthesis',['carbon dioxide','water','light energy'],'What does a plant use for photosynthesis?'],['Made by photosynthesis',['glucose (sugar)','oxygen']]],
+  ls5:[['Mutualism',['bees and flowers','clownfish and sea anemone']],['Commensalism',['barnacles on a whale','a bird nesting in a tree']],['Parasitism',['tick on a dog','tapeworm in an animal']]],
+  ls6:[['Predator and prey',['owl hunting a mouse','lion chasing a zebra']],['Competition',['two trees reaching for the same sunlight','hawks and foxes hunting the same rabbits']],['Symbiosis',['bees and flowers','tick on a dog']]],
+  ls7:[['Physical adaptation',['a cactus’s waxy skin','a polar bear’s thick fat','a giraffe’s long neck'],'Which are physical adaptations?'],['Behavioral adaptation',['geese flying south','bears hibernating','wolves hunting in packs'],'Which are behavioral adaptations?']],
+  ls10:[['Inherited trait',['eye color','natural hair color','shape of earlobes','dimples'],'Which traits are inherited?'],['Acquired (learned) trait',['a scar','knowing how to swim','speaking Spanish','dyed hair'],'Which traits are acquired?']],
+  ps2:[['Element',['oxygen','gold','carbon','helium']],['Compound',['water','carbon dioxide','table salt','sugar']],['Mixture',['air','salad','salt water','trail mix']]],
+  ps3:[['Physical property',['color','density','boiling point','hardness'],'Which are physical properties?'],['Chemical property',['flammability','reacts with acid','ability to rust','reacts with oxygen'],'Which are chemical properties?']],
+  ps4:[['Metal',['iron','copper','sodium','aluminum'],'Which elements are metals?'],['Nonmetal',['oxygen','sulfur','nitrogen','chlorine'],'Which elements are nonmetals?']],
+  ps5:[['Conduction',['an ice cube melting in your hand','a pot handle getting hot']],['Convection',['sea breezes','hot air balloon rising']],['Radiation',['microwave heating food','sunlight warming a sidewalk']]],
+  ps6:[['Mechanical wave (needs a medium)',['sound','ocean waves','seismic waves'],'Which waves need a medium to travel?'],['Electromagnetic wave',['radio waves','visible light','X-rays','microwaves'],'Which are electromagnetic waves?']],
+  ps8:[['Newton’s first law (inertia)',['a ball keeps rolling until friction stops it','riders lurch forward when a bus stops']],['Newton’s second law (F = ma)',['an empty cart is easier to push than a full one','a harder kick makes the ball go faster']],['Newton’s third law (action–reaction)',['a rocket pushes gas down and moves up','a swimmer pushes water back to move forward']]],
+  ps9:[['Series circuit',['only one path for the current','if one bulb goes out, they all go out']],['Parallel circuit',['more than one path for the current','household outlets are wired this way']]],
+  // Reading
+  r1_ffr:[['Short a',['cat','hat','map','bag']],['Long a',['cake','rain','play','name']]],
+  r2_ffr:[['Short o',['hot','frog','sock','mop']],['Long o',['boat','rope','snow','bone']]],
+  r3_ffr:[['un- means “not”',['unhappy','unkind','unsafe','unlock']],['re- means “again”',['redo','reread','rebuild','refill']]],
+  r1_rv:[['Things you eat',['apple','bread','carrot','egg']],['Things you wear',['hat','sock','coat','boot']]],
+  r2_rv:[['Means big',['huge','giant','enormous']],['Means small',['tiny','little','miniature']]],
+  r1_rl:[['Make-believe (fiction)',['a pig that drives a bus','a dragon who bakes cookies','a talking tree']],['Real (nonfiction)',['how bees make honey','facts about the moon','how to plant a seed']]],
+  r2_rl:[['Make-believe (fiction)',['a cat who flies a plane','a magic paintbrush','a talking snowman']],['Real (nonfiction)',['how frogs grow','what clouds are made of','the life of George Washington']]],
+  r2_ri:[['Fact',['A spider has eight legs.','Richmond is the capital of Virginia.','Water freezes when it gets very cold.'],'Which sentences are facts?'],['Opinion',['Spiders are scary.','Pizza is the best food.','Rainy days are boring.'],'Which sentences are opinions?']],
+  r3_ri:[['Fact',['Virginia became a state in 1788.','The James River flows into the Chesapeake Bay.','Bats are mammals.'],'Which sentences are facts?'],['Opinion',['Summer is the best season.','Soccer is more fun than basketball.','Everyone should read this book.'],'Which sentences are opinions?']],
+  r3_rl:[['Simile',['as quiet as a mouse','ran like the wind','as busy as a bee']],['Not a simile',['the dog barked loudly','she ran fast','the bee was busy']]],
+  g4_vocab:[['Means happy',['joyful','cheerful','glad','content']],['Means sad',['gloomy','miserable','sorrowful','unhappy']]],
+  g4_fiction:[['Simile',['as quiet as a mouse','ran like the wind','eyes like stars']],['Metaphor',['the classroom was a zoo','time is a thief','the road was a ribbon']],['Personification',['the wind whispered','the sun smiled down','the old car groaned']]],
+  g4_nonfic:[['Fact',['The Blue Ridge Mountains are in Virginia.','A year has twelve months.','Plants need sunlight to make food.'],'Which sentences are facts?'],['Opinion',['Mountains are prettier than beaches.','Math is the hardest subject.','Dogs are better pets than cats.'],'Which sentences are opinions?']],
+  r5_rv:[['Root “port” (carry)',['transport','portable','export']],['Root “graph” (write)',['autograph','paragraph','biography']],['Root “spect” (see)',['inspect','spectator','spectacles']]],
+  r5_rl:[['Simile',['as cold as ice','swam like a fish','as bright as the sun']],['Metaphor',['the snow was a white blanket','his voice was thunder','the stars were diamonds']],['Personification',['the leaves danced','the thunder grumbled','the flowers nodded']]],
+  r5_ri:[['Fact',['George Washington was the first U.S. president.','The Pacific is the largest ocean.','Honeybees live in colonies.'],'Which sentences are facts?'],['Opinion',['Washington was the greatest president.','The ocean is the best vacation spot.','Honey tastes better than jam.'],'Which sentences are opinions?']],
+  g6_vocab:[['Root “port” (carry)',['transport','portable','import']],['Root “dict” (say)',['predict','dictionary','contradict']],['Root “struct” (build)',['construct','structure','instruct']]],
+  g6_fiction:[['First-person point of view',['I grabbed my bag and ran.','We laughed until our sides hurt.','My heart pounded as I waited.']],['Third-person point of view',['She grabbed her bag and ran.','They laughed until their sides hurt.','His heart pounded as he waited.']]],
+  g6_nonfic:[['Claim',['Schools should start later in the morning.']],['Evidence',['A study found teens who slept more earned higher grades.','Doctors say teens need 8 to 10 hours of sleep.']],['Counterclaim',['Some say a later start would make sports practice end too late.']]],
+  r7_vocab:[['Positive connotation',['confident','curious','slender','thrifty']],['Negative connotation',['arrogant','nosy','scrawny','stingy']]],
+  r7_fiction:[['Character vs. self',['Maya fights her fear of speaking on stage.','Tom struggles to admit he lied.']],['Character vs. nature',['A family races to escape a flood.','Hikers are trapped by a blizzard.']],['Character vs. society',['A girl protests an unfair school rule.','A town’s laws keep Sam from his dream.']]],
+  r7_nonfic:[['Fact',['The Chesapeake Bay is the largest estuary in the U.S.','Virginia has 95 counties.'],'Which statements are facts?'],['Opinion',['The bay is the most beautiful place in Virginia.','Every student should visit Jamestown.'],'Which statements are opinions?']],
+  r8_vocab:[['Positive connotation',['determined','frugal','youthful','unique']],['Negative connotation',['stubborn','cheap','childish','weird']]],
+  r8_fiction:[['Direct characterization',['Lena was generous.','The coach was strict and fair.']],['Indirect characterization',['Lena handed her last dollar to the stranger.','The coach checked every player’s homework before practice.']]],
+  r8_nonfic:[['Appeals to logic',['Recycling one ton of paper saves 17 trees.','Our town spends $40,000 a year on trash removal.']],['Appeals to emotion',['Imagine a world with no forests left for your children.','Do you want our beautiful park buried in trash?']]],
+  // Writing
+  w1_lu:[['Needs a capital letter',['monday','virginia','sam','june']],['No capital needed',['dog','school','apple','tree']]],
+  w2_lu:[['Noun',['dog','teacher','park','book']],['Verb',['jump','write','swim','sing']]],
+  w3_lu:[['Noun',['river','pencil','sister']],['Verb',['climb','shout','read']],['Adjective',['tall','shiny','quiet']]],
+  w2_w:[['Complete sentence',['The bird sang.','We went to the park.'],'Which are complete sentences?'],['Not a complete sentence',['The big red ball.','Running in the yard.']]],
+  w3_w:[['Complete sentence',['The bird sang a song.','My brother plays chess.'],'Which are complete sentences?'],['Fragment',['Under the old bridge.','Because it was raining.']]],
+  g4_sentence:[['Complete sentence',['The team won the game.','After lunch, we read books.'],'Which are complete sentences?'],['Fragment',['When the bell rang.','The tall girl with red shoes.']],['Run-on',['I like dogs they are fun.','It rained we stayed inside.']]],
+  g4_edit:[['Correct',['The dogs bark at night.','She walks to school.'],'Which sentences are written correctly?'],['Needs fixing',['The dogs barks at night.','She walk to school.']]],
+  w5_w:[['Time order',['first','next','finally']],['Contrast',['however','on the other hand','instead']],['Cause and effect',['because','as a result','therefore']]],
+  w5_lu:[['Correct',['Their dog is friendly.','It’s raining outside.','The team lost its ball.'],'Which sentences use the word correctly?'],['Needs fixing',['There dog is friendly.','Its raining outside.','The team lost it’s ball.']]],
+  g6_race:[['Claim',['Students should have a longer recess.']],['Evidence',['Studies show active breaks help students focus.','Our class scored higher after outdoor time.']],['Counterclaim',['Some argue a longer recess means less class time.']]],
+  g6_edit:[['Correct',['Each of the students has a book.','Neither Ama nor Kofi is late.'],'Which sentences are written correctly?'],['Needs fixing',['Each of the students have a book.','Neither Ama nor Kofi are late.']]],
+  w7_write:[['Claim',['Our school should start a garden.']],['Evidence',['Gardens teach science through hands-on work.','A nearby school’s garden grew 200 pounds of food.']],['Counterclaim',['Some worry a garden costs too much to keep up.']]],
+  w7_edit:[['Active voice',['The dog chased the ball.','Maya wrote the report.']],['Passive voice',['The ball was chased by the dog.','The report was written by Maya.']]],
+  w8_write:[['Formal style',['The results suggest a clear trend.','Several factors contributed to the decision.']],['Informal style',['The results are super obvious.','A bunch of stuff made them decide.']]],
+  w8_edit:[['Active voice',['The committee approved the plan.','Our class planted the trees.']],['Passive voice',['The plan was approved by the committee.','The trees were planted by our class.']]],
+  // Math with fixed items
+  g4_shape:[['Has four right angles',['square','rectangle']],['Does not have four right angles',['rhombus that is not a square','trapezoid','parallelogram that is not a rectangle']]],
+  g8_ns2:[['Rational',['√16','0.75','−3','2/3','0.333…'],'Which numbers are rational?'],['Irrational',['√7','π','√2','0.1010010001…'],'Which numbers are irrational?']],
+  g7_mg3:[['Has two pairs of parallel sides',['square','rectangle','rhombus','parallelogram']],['Has exactly one pair of parallel sides',['trapezoid']],['Has no parallel sides',['kite']]],
+  g2_mg4:[['Can roll',['sphere','cylinder','cone']],['Cannot roll',['cube','rectangular prism','square pyramid']]],
+  g1_mg2:[['Has 3 sides',['triangle']],['Has 4 sides',['square','rectangle','rhombus']],['Has no sides',['circle']]],
+};
+// Order banks: gen -> list of {q, items (correct order), e}
+const ORDER_BANK={
+  ps7:[{q:'Put these from longest wavelength to shortest.',items:['radio waves','microwaves','infrared','visible light','ultraviolet','X-rays'],e:'Wavelength gets shorter (and energy gets higher) from radio waves to X-rays.'}],
+  sc3_7:[{q:'Put the water cycle in order, starting with water in a lake.',items:['water evaporates','water vapor condenses into clouds','rain falls','water collects in the lake again'],e:'Evaporation, condensation, precipitation, then collection.'}],
+  sc2_4:[{q:'Put a frog’s life cycle in order.',items:['egg','tadpole','froglet','adult frog'],e:'A frog starts as an egg, hatches as a tadpole, grows legs as a froglet, then becomes an adult.'},
+         {q:'Put a butterfly’s life cycle in order.',items:['egg','caterpillar','chrysalis','adult butterfly'],e:'Egg, larva (caterpillar), pupa (chrysalis), adult.'}],
+  ls3:[{q:'Put these from the largest group to the smallest.',items:['kingdom','phylum','class','order','family','genus','species'],e:'Kingdom, phylum, class, order, family, genus, species.'}],
+  ps2:[{q:'Put these from smallest to largest.',items:['electron','atom','molecule','cell'],e:'Electrons are inside atoms, atoms join into molecules, and cells are made of many molecules.'}],
+  g4_space:[{q:'Put these planets in order from closest to the Sun to farthest.',items:['Mercury','Venus','Earth','Mars','Jupiter','Saturn'],e:'My Very Educated Mother Just Served… Mercury, Venus, Earth, Mars, Jupiter, Saturn.'}],
+  g6_solar:[{q:'Put these planets in order from closest to the Sun to farthest.',items:['Venus','Earth','Mars','Jupiter','Saturn','Uranus','Neptune'],e:'Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune.'}],
+  w5_w:[{q:'Put the steps of the writing process in order.',items:['prewrite','draft','revise','edit','publish'],e:'Plan, write a draft, revise ideas, edit mistakes, then publish.'}],
+};
+
+(function(){
+const R=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const pickN=(arr,n)=>shuf(arr.slice()).slice(0,n);
+const gcd=(a,b)=>b?gcd(b,a%b):Math.abs(a);
+const M='−';const sgn=n=>n<0?M+Math.abs(n):String(n);
+
+// ---------- generated sorts (math) ----------
+function sortPrime(){const pool=shuf([2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,4,6,8,9,10,12,14,15,16,18,20,21,22,25,27,33,35,39,49,51]);
+  const p0=n=>{for(let i=2;i*i<=n;i++)if(n%i===0)return false;return n>1;};const it=shuf(pool.filter(p0).slice(0,4).concat(pool.filter(n=>!p0(n)).slice(0,4)));const p=n=>{for(let i=2;i*i<=n;i++)if(n%i===0)return false;return n>1;};
+  return mkSort('Sort each number. Is it prime or composite?',[['Prime',it.filter(p)],['Composite',it.filter(n=>!p(n))]],'A prime number has exactly two factors: 1 and itself. A composite number has more than two factors.');}
+function sortFactors(){const N=pick([24,30,36,40,48,60]);const f=[];for(let i=1;i<=N;i++)if(N%i===0)f.push(i);
+  const non=[];while(non.length<4){const x=R(2,Math.min(N-1,30));if(N%x&&!non.includes(x))non.push(x);}
+  return mkSort(`Sort each number. Is it a factor of ${N}?`,[[`Factor of ${N}`,pickN(f.filter(x=>x>1&&x<N),4)],[`Not a factor of ${N}`,non]],`A factor of ${N} divides ${N} with no remainder. The factors of ${N} are ${f.join(', ')}.`);}
+function sortHalf(){const fr=[];const seen=new Set();
+  while(fr.length<7){const d=pick([2,3,4,5,6,8,10,12]),n=R(1,d-1),k=n+'/'+d;if(!seen.has(k)){seen.add(k);fr.push([n,d]);}}
+  if(!fr.some(([n,d])=>2*n===d))fr[0]=[pick([2,3,4,5,6]),0].map((v,i,a)=>i?a[0]*2:v);
+  const c=x=>Math.sign(2*x[0]-x[1]);const s=f=>f[0]+'/'+f[1];
+  return mkSort('Compare each fraction to 1/2.',[['Less than 1/2',fr.filter(f=>c(f)<0).map(s)],['Equal to 1/2',fr.filter(f=>c(f)===0).map(s)],['Greater than 1/2',fr.filter(f=>c(f)>0).map(s)]],'Double the numerator. If it is less than the denominator, the fraction is less than 1/2; equal means exactly 1/2.');}
+function sortDecHalf(){const v=new Set();while(v.size<7)v.add(pick([0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.05,0.25,0.45,0.55,0.75,0.95,0.38,0.62,0.09,0.51,0.49]));
+  const it=[...v];const s=x=>String(x);
+  return mkSort('Compare each decimal to 0.5.',[['Less than 0.5',it.filter(x=>x<0.5).map(s)],['Equal to 0.5',it.filter(x=>x===0.5).map(s)],['Greater than 0.5',it.filter(x=>x>0.5).map(s)]],'Compare the tenths digit first. 0.5 is the same as 0.50.');}
+function sortAngles(){const v=new Set();while(v.size<7)v.add(pick([15,30,35,45,60,72,85,89,90,91,100,120,135,150,170,90]));
+  const it=[...v];if(!it.includes(90))it[0]=90;
+  return mkSort('Sort each angle by its measure.',[['Acute (less than 90°)',it.filter(x=>x<90).map(x=>x+'°')],['Right (exactly 90°)',it.filter(x=>x===90).map(x=>x+'°')],['Obtuse (between 90° and 180°)',it.filter(x=>x>90).map(x=>x+'°')]],'Acute angles are less than 90°, right angles are exactly 90°, and obtuse angles are between 90° and 180°.');}
+function sortSquares(){const sq=pickN([1,4,9,16,25,36,49,64,81,100,121,144],4),non=pickN([2,8,12,18,20,24,27,32,40,50,60,75,90,99],4);
+  return mkSort('Sort each number. Is it a perfect square?',[['Perfect square',sq.map(String)],['Not a perfect square',non.map(String)]],'A perfect square is a whole number times itself, like 6 × 6 = 36.');}
+function sortProducts(){const P=pick([12,18,24,36]);const yes=[];for(let a=2;a<=10;a++)if(P%a===0&&P/a<=12&&P/a>=2)yes.push(a+' × '+P/a);
+  const no=[];while(no.length<3){const a=R(2,9),b=R(2,9);if(a*b!==P&&!no.includes(a+' × '+b))no.push(a+' × '+b);}
+  return mkSort(`Sort each fact. Is the product ${P}?`,[[`Product is ${P}`,pickN(yes,Math.min(3,yes.length))],[`Product is not ${P}`,no]],`Multiply each pair. Only the facts that make ${P} go in the first group.`);}
+function sortQuarter(){return mkSort('Sort each number. Is it equal to 1/4?',[['Equal to 1/4',pickN(['0.25','25%','25/100','2/8','3/12'],3)],['Not equal to 1/4',pickN(['0.4','40%','1/40','0.025','4/10','2.5%'],3)]],'1/4 = 0.25 = 25%. Equivalent fractions like 2/8 also equal 1/4.');}
+function sortIneq(){const a=R(2,6),b=R(1,12),op=pick(['>','<','≥','≤']);const t=x=>op==='>'?a*x+b>b+a*3:op==='<'?a*x+b<b+a*3:op==='≥'?a*x+b>=b+a*3:a*x+b<=b+a*3;
+  const rhs=a*3+b;const xs=shuf(pickN([-2,-1,0,1,2],3).concat(pickN([4,5,6],2),[3]));
+  return mkSort(`Sort each value of x. Does it make ${a}x + ${b} ${op} ${rhs} true?`,[['Solution',xs.filter(t).map(sgn)],['Not a solution',xs.filter(x=>!t(x)).map(sgn)]],`Substitute each value for x. ${a}x + ${b} ${op} ${rhs} simplifies to x ${op} 3.`);}
+function sortEven(){const it=pickN([...Array(40).keys()].map(x=>x+11),8);
+  return mkSort('Sort each number. Is it even or odd?',[['Even',it.filter(x=>x%2===0).map(String)],['Odd',it.filter(x=>x%2).map(String)]],'Even numbers end in 0, 2, 4, 6, or 8.');}
+const GEN_SORT={g5_ns2:sortPrime,g4_ops:sortFactors,g5_ce1:sortFactors,g3_ns3:sortHalf,g4_frac:sortHalf,g4_dec:sortDecHalf,g4_angle:sortAngles,g5_mg3:sortAngles,
+  g6_exp:sortSquares,g3_ce2:sortProducts,g6_fdp:sortQuarter,g6_ineq:sortIneq,g7_pfa4:sortIneq,g8_pfa5:sortIneq,g2_ns1:sortEven,g2_pfa1:sortEven};
+
+function mkSort(question,cats,expl){
+  cats=cats.filter(c=>c[1].length);
+  const items=[];cats.forEach((c,ci)=>c[1].forEach(x=>items.push({t:x,c:ci})));
+  return {type:'sort',badge:'Sort',question,cats:cats.map(c=>c[0]),items:shuf(items),explanation:expl||cats.map(c=>`<b>${esc(c[0])}:</b> ${c[1].map(esc).join(', ')}`).join('<br>'),hint:'Look at each item one at a time. Tap it, then tap the group where it belongs.'};
+}
+function bankSort(gen){const B=SORT_BANK[gen];
+  const cats=B.length>3?pickN(B,3):B;const per=cats.length===2?4:3;
+  return mkSort(cats.length===2?'Sort each item into the correct group.':'Sort each item into the correct group.',cats.map(c=>[c[0],pickN(c[1],Math.min(per,c[1].length))]));}
+function bankMulti(gen){const B=SORT_BANK[gen];const withQ=B.filter(c=>c[2]);if(!withQ.length)return null;
+  const c=pick(withQ);const others=B.filter(x=>x!==c).flatMap(x=>x[1]);
+  const right=pickN(c[1],R(2,Math.min(3,c[1].length))),wrong=pickN(others,Math.min(others.length,5-right.length));
+  return {type:'multi',badge:'Select all',question:c[2]+' Choose all that are correct.',opts:shuf(right.concat(wrong)),answers:right,
+    explanation:`${right.map(esc).join(', ')} — ${right.length===1?'it fits':'they fit'} the group “${esc(c[0])}.”`,hint:'More than one answer is correct.'};}
+function bankOrder(gen){const o=pick(ORDER_BANK[gen]);return {type:'order',badge:'Put in order',question:o.q,items:o.items.slice(),explanation:o.e,hint:'Find the first one, then think about what comes next.'};}
+
+// ---------- number lines ----------
+function nlFrac(maxW){const d=pick([2,3,4,6,8].filter(x=>x<=8)),W=maxW||1,steps=d*W;const n=R(1,steps-1);
+  const lab=Array.from({length:steps+1},(_,i)=>i%d===0?String(i/d):'');
+  const g=gcd(n,d);const show=n>d?`${Math.floor(n/d)} ${n%d}/${d}`.replace(/ 0\/\d+$/,''):`${n}/${d}`;
+  return {type:'nline',badge:'Number line',question:`Place ${show} on the number line.`,min:0,max:W,steps,labels:lab,ans:n,
+    names:Array.from({length:steps+1},(_,i)=>i%d===0?String(i/d):`${i}/${d}`),explanation:`The space between each whole number is split into ${d} equal parts, so each mark is 1/${d}. Count ${n} marks from 0.`,hint:`Each small mark is 1/${d}.`,answerText:show};}
+function nlDec(){const steps=10;const n=R(1,9);const lab=Array.from({length:11},(_,i)=>i===0?'0':i===10?'1':'');
+  return {type:'nline',badge:'Number line',question:`Place 0.${n} on the number line.`,min:0,max:1,steps,labels:lab,ans:n,names:Array.from({length:11},(_,i)=>i===10?'1':'0.'+i),
+    explanation:`From 0 to 1 is split into 10 equal parts, so each mark is 0.1. Count ${n} marks from 0.`,hint:'Each mark is one tenth.',answerText:'0.'+n};}
+function nlDec2(){const a=R(1,9);const n=R(1,9);const steps=10,lo=a/10;const lab=Array.from({length:11},(_,i)=>i===0?(lo).toFixed(1):i===10?((a+1)/10).toFixed(1):'');
+  const v=(lo+n/100).toFixed(2);
+  return {type:'nline',badge:'Number line',question:`Place ${v} on the number line.`,min:lo,max:(a+1)/10,steps,labels:lab,ans:n,names:Array.from({length:11},(_,i)=>(lo+i/100).toFixed(2)),
+    explanation:`From ${lo.toFixed(1)} to ${((a+1)/10).toFixed(1)} is split into 10 parts, so each mark is 0.01.`,hint:'Each mark is one hundredth.',answerText:v};}
+function nlInt(lo,hi){const steps=hi-lo;let n;do n=R(lo,hi);while(n===0);
+  const lab=Array.from({length:steps+1},(_,i)=>{const v=lo+i;return v%5===0?sgn(v):'';});
+  return {type:'nline',badge:'Number line',question:`Place ${sgn(n)} on the number line.`,min:lo,max:hi,steps,labels:lab,ans:n-lo,names:Array.from({length:steps+1},(_,i)=>sgn(lo+i)),
+    explanation:n<0?`${sgn(n)} is ${Math.abs(n)} units to the left of 0.`:`${n} is ${n} units to the right of 0.`,hint:'Negative numbers are to the left of 0.',answerText:sgn(n)};}
+function nlHalf(){const steps=12;const k=R(0,12);const v=-3+k/2;const name=x=>x===0?'0':(x<0?M:'')+(Number.isInteger(x)?Math.abs(x):Math.floor(Math.abs(x))?`${Math.floor(Math.abs(x))} 1/2`:'1/2');
+  if(Number.isInteger(v))return nlHalf();
+  return {type:'nline',badge:'Number line',question:`Place ${name(v)} on the number line.`,min:-3,max:3,steps,labels:Array.from({length:13},(_,i)=>i%2===0?sgn(-3+i/2):''),ans:k,names:Array.from({length:13},(_,i)=>name(-3+i/2)),
+    explanation:`Each mark is 1/2. ${name(v)} is halfway between ${sgn(Math.floor(v))} and ${sgn(Math.ceil(v))}.`,hint:'Each mark is one half.',answerText:name(v)};}
+const GEN_NL={g3_ns3:()=>nlFrac(1),g4_frac:()=>nlFrac(pick([1,2])),g4_dec:nlDec,g5_ns1:()=>pick([nlDec,nlDec2])(),g6_intns:()=>nlInt(-10,10),g6_int:()=>nlInt(-10,10),g7_ns2:nlHalf};
+
+// ---------- coordinate plots ----------
+function plotQ(x,y,question,expl){return {type:'plot',badge:'Plot a point',question,R:Math.max(5,Math.abs(x)+1,Math.abs(y)+1)>10?10:Math.max(5,Math.abs(x)+1,Math.abs(y)+1),ans:[x,y],explanation:expl,hint:'Start at the origin. Move left or right for x, then up or down for y.',answerText:`(${sgn(x)}, ${sgn(y)})`};}
+function plotNative(){const x=R(-6,6)||3,y=R(-6,6)||-2;return plotQ(x,y,`Plot the point (${sgn(x)}, ${sgn(y)}).`,`Start at (0, 0). Move ${Math.abs(x)} ${x<0?'left':'right'}, then ${Math.abs(y)} ${y<0?'down':'up'}.`);}
+const GEN_PLOT={g6_coord:plotNative};
+
+// ---------- conversion of existing multiple-choice questions ----------
+const COORD=/^\(\s*([−-]?\d+)\s*,\s*([−-]?\d+)\s*\)$/;
+const num=s=>Number(String(s).replace(/−/g,'-').replace(/,/g,''));
+function parseNum(s){s=String(s).trim().replace(/−/g,'-').replace(/,/g,'').replace(/^\$/,'').replace(/%$/,'');
+  let m=/^(-?\d+) (\d+)\/(\d+)$/.exec(s);if(m)return (+m[1])+(m[1].startsWith('-')?-1:1)*m[2]/m[3];
+  m=/^(-?\d+)\/(\d+)$/.exec(s);if(m)return +m[2]?m[1]/m[2]:NaN;
+  return /^-?\d*\.?\d+$/.test(s)?+s:NaN;}
+// Split an answer into prefix ($), number and unit suffix ("cm", "square feet", "°").
+function splitAns(a){a=String(a).trim();const m=/^(\$)?([−-]?\d[\d,]*(?:\.\d+)?(?: \d+\/\d+)?|[−-]?\d+\/\d+)(%|°|\s?[a-zA-Z²³][a-zA-Z²³ .]{0,18})?$/.exec(a);
+  if(!m)return null;return {pre:m[1]||'',n:m[2],suf:(m[3]||'').trim()};}
+const NO_TYPE=/which|NOT|closest|best|estimate|about how|compare|true|false|simplest|lowest terms|equivalent|reasonable|pattern|rule|expression|equation|order|greatest|least|round|nearest/i;
+function toInput(q,gen){
+  if(q.type!=='mc'||q.dgSvg||q.passage||NO_TYPE.test(q.question))return null;
+  const sp=splitAns(q.answer);if(!sp||isNaN(parseNum(sp.n)))return null;
+  // every option should have the same shape, or the question is really about choosing
+  if(!q.opts.every(o=>{const s=splitAns(o);return s&&s.suf===sp.suf&&s.pre===sp.pre;}))return null;
+  return Object.assign({},q,{type:'input',badge:'Type the answer',pre:sp.pre,suf:sp.suf,num:sp.n,frac:/\//.test(sp.n),opts:undefined,
+    hint:q.hint||'Work it out, then type your answer.'});
+}
+function toPlot(q){if(q.type!=='mc')return null;const m=COORD.exec(String(q.answer));if(!m)return null;const x=num(m[1]),y=num(m[2]);if(Math.abs(x)>10||Math.abs(y)>10)return null;
+  const p=plotQ(x,y,q.question.replace(/Where is (it|[A-Z]′?)\??$/,'Plot $1.').replace(/What (are|is) the (new )?coordinates[^?]*\?/,'Plot the new point.'),q.explanation);
+  if(!/Plot/.test(p.question))p.question+=' Plot your answer on the grid.';p.sol=q.sol;return p;}
+
+// Make a practice/test question: sometimes a SOL-style format.
+window.solFormats=function(gen,q,isTest){
+  const subj=(typeof SESSION!=='undefined'&&SESSION.subj)||'';
+  const r=Math.random(),pTEI=isTest?0.35:0.3;
+  const sources=[];
+  if(SORT_BANK[gen])sources.push(()=>bankSort(gen),()=>bankMulti(gen));
+  if(ORDER_BANK[gen])sources.push(()=>bankOrder(gen));
+  if(GEN_SORT[gen])sources.push(GEN_SORT[gen]);
+  if(GEN_NL[gen])sources.push(GEN_NL[gen],GEN_NL[gen]);
+  if(GEN_PLOT[gen])sources.push(GEN_PLOT[gen],GEN_PLOT[gen]);
+  if(sources.length&&r<pTEI){for(let i=0;i<4;i++){const nq=pick(sources)();if(nq){nq.sol=nq.sol||q.sol;nq.gen=gen;return nq;}}}
+  const p=toPlot(q);if(p&&Math.random()<0.7)return p;
+  if(q.type==='mc'&&Math.random()<(isTest?0.4:0.3)){const t=toInput(q,gen);if(t)return t;}
+  return q;
+};
+window.SOL_TYPES=['input','sort','nline','plot'];
+window.solHas=gen=>!!(SORT_BANK[gen]||ORDER_BANK[gen]||GEN_SORT[gen]||GEN_NL[gen]||GEN_PLOT[gen]);
+window._solParseNum=parseNum;
+})();
+
+// ── checking ──
+function solCheckInput(q,txt){
+  const s=String(txt||'').trim().replace(/^\$/,'').replace(/\s+/g,' ').replace(/\s*[a-zA-Z²³°%][a-zA-Z²³°% .]*$/,'').trim();
+  if(!s)return false;const v=_solParseNum(s),a=_solParseNum(q.num);
+  if(isNaN(v))return false;
+  if(q.frac&&/simplest|lowest/i.test(q.question))return s.replace(/-/g,'−')===q.num;
+  return Math.abs(v-a)<1e-6;
+}
+function solSortOK(q,place){return q.items.every((it,i)=>place[i]===it.c);}
+function solCorrectText(q){
+  if(q.type==='input')return (q.pre||'')+q.num+(q.suf?(q.suf==='%'||q.suf==='°'?'':' ')+q.suf:'');
+  if(q.type==='sort')return q.cats.map((c,ci)=>c+': '+q.items.filter(x=>x.c===ci).map(x=>x.t).join(', ')).join(' · ');
+  if(q.type==='nline')return q.answerText;
+  if(q.type==='plot')return q.answerText;
+}
+
+// ── drawing helpers ──
+function solKeypad(id,keys){
+  keys=keys||['7','8','9','⌫','4','5','6','/','1','2','3','−','0','.','space'];
+  return `<div class="kp" role="group" aria-label="Number keypad">${keys.map(k=>`<button class="kp-k${k==='⌫'?' kp-bs':''}" onclick="solKey('${id}','${k}')" aria-label="${k==='⌫'?'Delete':k==='space'?'Space':k==='/'?'Fraction bar':k==='−'?'Negative sign':k}">${k==='space'?'␣':k}</button>`).join('')}</div>`;
+}
+function solKey(id,k){const el=document.getElementById(id);if(!el||el.disabled)return;
+  if(k==='⌫')el.value=el.value.slice(0,-1);else el.value+=(k==='space'?' ':k);
+  el.dispatchEvent(new Event('input'));FX.click();}
+function solInputHTML(q,id,val){
+  const coarse=(window.matchMedia&&matchMedia('(pointer:coarse)').matches);
+  return `<div class="ti-row">${q.pre?`<span class="ti-aff">${esc(q.pre)}</span>`:''}<input id="${id}" class="ti-in" type="text" autocomplete="off" spellcheck="false" ${coarse?'inputmode="none"':'inputmode="decimal"'} aria-label="Your answer" value="${esc(val||'')}" placeholder="?">${q.suf?`<span class="ti-aff">${esc(q.suf)}</span>`:''}</div>
+    ${solKeypad(id)}<div class="sm-label">${q.frac?'Type a fraction like 3/4, or a mixed number like 1 1/2.':'Type a number.'}</div>`;
+}
+function solSortHTML(q,place,sel,pre){
+  const bank=q.items.map((it,i)=>place[i]==null?`<button class="srt-chip${sel===i?' sel':''}" onclick="${pre}Pick(${i})" aria-pressed="${sel===i}">${esc(it.t)}</button>`:'').join('');
+  return `<div class="sm-label">Tap an item, then tap the group where it belongs.</div>
+    <div class="srt-bank" aria-label="Items to sort">${bank||'<span class="ph">All sorted — tap Check, or tap an item to move it.</span>'}</div>
+    <div class="srt-cols c${q.cats.length}">${q.cats.map((c,ci)=>`<div class="srt-col"><button class="srt-h" onclick="${pre}Drop(${ci})" aria-label="Put the selected item in ${esc(c)}">${esc(c)}</button>
+      <div class="srt-in">${q.items.map((it,i)=>place[i]===ci?`<button class="srt-chip in" data-i="${i}" onclick="${pre}Back(${i})">${esc(it.t)}</button>`:'').join('')}</div></div>`).join('')}</div>`;
+}
+function solNlSVG(q,pick,showAns){
+  const W=640,H=130,x0=34,x1=W-34,y=50,n=q.steps,X=i=>x0+(x1-x0)*i/n;
+  let s=`<svg viewBox="0 0 ${W} ${H}" class="nl-svg" role="group" aria-label="Number line">
+    <line x1="${x0-18}" y1="${y}" x2="${x1+18}" y2="${y}" stroke="#1B2A4A" stroke-width="3"/>
+    <path d="M${x0-24} ${y} l10 -7 v14z M${x1+24} ${y} l-10 -7 v14z" fill="#1B2A4A"/>`;
+  for(let i=0;i<=n;i++){const big=q.labels[i]!=='';s+=`<line x1="${X(i)}" y1="${y-(big?14:9)}" x2="${X(i)}" y2="${y+(big?14:9)}" stroke="#1B2A4A" stroke-width="${big?4:3}"/>`;
+    if(big)s+=`<text x="${X(i)}" y="${y+50}" text-anchor="middle" font-size="30" font-weight="800" fill="#1B2A4A">${q.labels[i]}</text>`;}
+  if(showAns)s+=`<circle cx="${X(q.ans)}" cy="${y}" r="14" fill="none" stroke="#16A34A" stroke-width="5"/>`;
+  if(pick!=null)s+=`<circle cx="${X(pick)}" cy="${y}" r="12" fill="${showAns?(pick===q.ans?'#16A34A':'#DC2626'):'#2F6FE0'}"/>`;
+  return s+'</svg>';
+}
+function solNlHTML(q,pick,pre){
+  return `<div class="nl-wrap">${solNlSVG(q,pick,false)}<div class="nl-hits" style="--n:${q.steps}">${Array.from({length:q.steps+1},(_,i)=>`<button class="nl-hit${pick===i?' on':''}" style="left:calc(${34/640*100}% + ${(572/640*100)*i/q.steps}%)" onclick="${pre}Nl(${i})" aria-label="${esc(q.names[i])}"></button>`).join('')}</div></div>
+    <div class="sm-label">Tap a mark on the number line.</div>`;
+}
+function solGridSVG(q,pt,showAns){
+  const Rr=q.R,S=360,c=S/2,u=(S-30)/(2*Rr),P=(x,y)=>[c+x*u,c-y*u];
+  let s=`<svg viewBox="0 0 ${S} ${S}" class="cg-svg" data-r="${Rr}">`;
+  for(let i=-Rr;i<=Rr;i++){const [a]=P(i,0),[,b]=P(0,i);
+    s+=`<line x1="${a}" y1="${c-Rr*u}" x2="${a}" y2="${c+Rr*u}" stroke="${i?'#D5DCE8':'#1B2A4A'}" stroke-width="${i?1:2.5}"/><line x1="${c-Rr*u}" y1="${b}" x2="${c+Rr*u}" y2="${b}" stroke="${i?'#D5DCE8':'#1B2A4A'}" stroke-width="${i?1:2.5}"/>`;
+    if(i&&(Rr<=6||i%2===0))s+=`<text x="${a}" y="${c+15}" text-anchor="middle" font-size="11" fill="#475569">${sgn2(i)}</text><text x="${c-7}" y="${b+4}" text-anchor="end" font-size="11" fill="#475569">${sgn2(i)}</text>`;}
+  s+=`<text x="${c+Rr*u-4}" y="${c-6}" font-size="13" font-weight="800" text-anchor="end" fill="#1B2A4A">x</text><text x="${c+8}" y="${c-Rr*u+12}" font-size="13" font-weight="800" fill="#1B2A4A">y</text>`;
+  if(showAns){const [ax,ay]=P(q.ans[0],q.ans[1]);s+=`<circle cx="${ax}" cy="${ay}" r="10" fill="none" stroke="#16A34A" stroke-width="3.5"/>`;}
+  if(pt){const [px,py]=P(pt[0],pt[1]);s+=`<circle cx="${px}" cy="${py}" r="7" fill="${showAns?(pt[0]===q.ans[0]&&pt[1]===q.ans[1]?'#16A34A':'#DC2626'):'#2F6FE0'}"/>`;}
+  return s+'</svg>';
+}
+function sgn2(n){return n<0?'−'+Math.abs(n):String(n);}
+function solPlotHTML(q,pt,pre){
+  return `<div class="cg-wrap" onclick="${pre}Grid(event,this)">${solGridSVG(q,pt,false)}</div>
+    <div class="cg-ctl"><span>Your point: <b>${pt?`(${sgn2(pt[0])}, ${sgn2(pt[1])})`:'none yet'}</b></span>
+      <span class="cg-arrows" role="group" aria-label="Move the point">${[['←',-1,0,'left'],['→',1,0,'right'],['↑',0,1,'up'],['↓',0,-1,'down']].map(([a,dx,dy,l])=>`<button class="kp-k" onclick="event.stopPropagation();${pre}Move(${dx},${dy})" aria-label="Move point ${l}">${a}</button>`).join('')}</span></div>
+    <div class="sm-label">Tap where the point goes, or use the arrows.</div>`;
+}
+function solGridPoint(ev,wrap,q){const svg=wrap.querySelector('svg');const r=svg.getBoundingClientRect();
+  const S=360,c=S/2,u=(S-30)/(2*q.R);const x=(ev.clientX-r.left)*S/r.width,y=(ev.clientY-r.top)*S/r.height;
+  const gx=Math.round((x-c)/u),gy=Math.round((c-y)/u);return [Math.max(-q.R,Math.min(q.R,gx)),Math.max(-q.R,Math.min(q.R,gy))];}
+
+// ── practice: render + check ──
+const _rqSol=renderQuestion;
+renderQuestion=function(q,body){
+  if(!SOL_TYPES.includes(q.type))return _rqSol.apply(this,arguments);
+  SESSION.wp=false;
+  const col=sessColor();const card=document.createElement('div');card.className='qc';
+  const head=`${qHeader(q,col)}<div class="q-text">${esc(q.question).replace(/\n/g,'<br>')}</div><div class="hintbox" id="hintBox">${ic('bulb')} ${q.hint||''}</div>`;
+  SESSION.sp={place:q.items?q.items.map(()=>null):null,sel:null,pick:null,pt:null};
+  card.innerHTML=head+'<div id="solArea"></div>';body.appendChild(card);solDraw();
+  actionBar(body,`<button class="btn btn-sec" onclick="showHint()">${ic('bulb')} Hint</button><button class="btn btn-pri" style="background:${col}" onclick="solCheck()">Check</button>`);
+  if(q.type==='input'){const el=document.getElementById('solIn');el.addEventListener('keydown',e=>{if(e.key==='Enter')solCheck();});if(!(window.matchMedia&&matchMedia('(pointer:coarse)').matches))setTimeout(()=>el.focus(),50);}
+};
+function solDraw(){const q=SESSION.q,sp=SESSION.sp,a=document.getElementById('solArea');if(!a)return;
+  if(q.type==='input'){if(!document.getElementById('solIn'))a.innerHTML=solInputHTML(q,'solIn','');return;}
+  if(q.type==='sort')a.innerHTML=solSortHTML(q,sp.place,sp.sel,'solS');
+  if(q.type==='nline')a.innerHTML=solNlHTML(q,sp.pick,'sol');
+  if(q.type==='plot')a.innerHTML=solPlotHTML(q,sp.pt,'sol');
+}
+function solSPick(i){if(SESSION.answered)return;SESSION.sp.sel=SESSION.sp.sel===i?null:i;FX.click();solDraw();}
+function solSDrop(ci){if(SESSION.answered)return;const sp=SESSION.sp;if(sp.sel==null)return;sp.place[sp.sel]=ci;sp.sel=null;FX.click();solDraw();}
+function solSBack(i){if(SESSION.answered)return;SESSION.sp.place[i]=null;SESSION.sp.sel=i;solDraw();}
+function solNl(i){if(SESSION.answered)return;SESSION.sp.pick=i;FX.click();solDraw();}
+function solGrid(ev,w){if(SESSION.answered)return;SESSION.sp.pt=solGridPoint(ev,w,SESSION.q);FX.click();solDraw();}
+function solMove(dx,dy){if(SESSION.answered)return;const q=SESSION.q,p=SESSION.sp.pt||[0,0];SESSION.sp.pt=[Math.max(-q.R,Math.min(q.R,p[0]+dx)),Math.max(-q.R,Math.min(q.R,p[1]+dy))];solDraw();}
+function solCheck(){
+  if(SESSION.answered)return;const q=SESSION.q,sp=SESSION.sp,a=document.getElementById('solArea');let ok=false;
+  if(q.type==='input'){const el=document.getElementById('solIn');if(!el.value.trim())return showHint();ok=solCheckInput(q,el.value);el.disabled=true;el.classList.add(ok?'ok':'bad');a.querySelectorAll('.kp-k').forEach(b=>b.disabled=true);}
+  if(q.type==='sort'){if(sp.place.some(p=>p==null))return showHint();ok=solSortOK(q,sp.place);
+    a.querySelectorAll('.srt-chip.in').forEach(b=>{const i=+b.dataset.i;b.disabled=true;b.classList.add(q.items[i].c===sp.place[i]?'ok':'bad');});a.querySelectorAll('.srt-h').forEach(b=>b.disabled=true);}
+  if(q.type==='nline'){if(sp.pick==null)return showHint();ok=sp.pick===q.ans;a.innerHTML=`<div class="nl-wrap">${solNlSVG(q,sp.pick,true)}</div>`;}
+  if(q.type==='plot'){if(!sp.pt)return showHint();ok=sp.pt[0]===q.ans[0]&&sp.pt[1]===q.ans[1];a.innerHTML=`<div class="cg-wrap">${solGridSVG(q,sp.pt,true)}</div>`;}
+  record(ok,solCorrectText(q),q.explanation);
+}
+
+// Practice: use SOL formats when making questions (not in review mode, which replays the saved question).
+const _nqSol=nextQuestion;
+nextQuestion=function(){
+  if(SESSION.mode==='review'||!SESSION.gen)return _nqSol.apply(this,arguments);
+  const mk=makeQ;makeQ=function(g){const q=mk.apply(this,arguments);return g===SESSION.gen?solFormats(g,q,false):q;};
+  try{return _nqSol.apply(this,arguments);}finally{makeQ=mk;}
+};
+
+// ── practice tests ──
+startTest=function(){
+  const s=T.setup;const subs=s.subj==='mixed'?testSubjects():[s.subj];
+  const pool=[];subs.forEach(sj=>skillsFor(sj).forEach(st=>pool.push({subj:sj,st})));
+  const order=[];while(order.length<s.n){shuf(pool.slice()).forEach(p=>{if(order.length<s.n)order.push(p);});}
+  const OKT=['mc','multi','order'].concat(SOL_TYPES);
+  const qs=order.map(p=>{let q;for(let i=0;i<12;i++){q=makeQ(p.st.gen);if(OKT.includes(q.type))break;}
+    if(q.type==='mc'||solHas(p.st.gen))q=solFormats(p.st.gen,q,true);
+    return {q,subj:p.subj,code:p.st.code,name:p.st.name};}).filter(x=>OKT.includes(x.q.type));
+  Object.assign(T,{qs,ans:qs.map(()=>null),flags:new Set(),elim:qs.map(()=>new Set()),i:0,start:Date.now(),
+    limit:s.timed?Math.round(qs.length*90):0,label:(s.subj==='mixed'?'Mixed':SUBJ[s.subj].short)+` · ${qs.length} questions`,done:false});
+  testDraw();
+  _tick=setInterval(()=>{const el=document.getElementById('tTime');if(!el)return;const e=(Date.now()-T.start)/1000;
+    if(T.limit){const left=Math.max(0,T.limit-e);el.textContent='⏱ '+clock(left);el.classList.toggle('low',left<60);if(left<=0)submitTest(true);}
+    else el.textContent='⏱ '+clock(e);},1000);
+};
+const _tdSol=testDraw;
+testDraw=function(){
+  const it=T.qs[T.i],q=it.q;if(!SOL_TYPES.includes(q.type))return _tdSol.apply(this,arguments);
+  // Draw an ordinary frame with a stand-in mc body, then swap in our body.
+  const real=it.q;it.q={type:'mc',question:'',opts:[]};
+  try{_tdSol.apply(this,arguments);}finally{it.q=real;}
+  const qc=document.querySelector('.act-body .qc');if(!qc)return;
+  qc.querySelector('.q-text')&&qc.querySelector('.q-text').remove();qc.querySelector('.opts')&&qc.querySelector('.opts').remove();
+  const a=T.ans[T.i];const div=document.createElement('div');
+  div.innerHTML=`<div class="q-text">${esc(q.question)}</div><div id="tSol"></div>`;qc.append(...div.childNodes);
+  const area=document.getElementById('tSol');
+  if(q.type==='input'){area.innerHTML=solInputHTML(q,'tIn',a||'');const el=document.getElementById('tIn');el.addEventListener('input',()=>{T.ans[T.i]=el.value.trim()?el.value:null;
+    const d=document.querySelectorAll('.t-dot')[T.i];if(d)d.classList.toggle('done',!!T.ans[T.i]);});}
+  if(q.type==='sort'){const pl=a||q.items.map(()=>null);area.innerHTML=solSortHTML(q,pl,T._sel,'tS');}
+  if(q.type==='nline')area.innerHTML=solNlHTML(q,a,'t');
+  if(q.type==='plot')area.innerHTML=solPlotHTML(q,a,'t');
+};
+function tSPick(i){T._sel=T._sel===i?null:i;FX.click();testDraw();}
+function tSDrop(ci){if(T._sel==null)return;const q=T.qs[T.i].q;const pl=(T.ans[T.i]||q.items.map(()=>null)).slice();pl[T._sel]=ci;T.ans[T.i]=pl;T._sel=null;FX.click();testDraw();}
+function tSBack(i){const pl=T.ans[T.i].slice();pl[i]=null;T.ans[T.i]=pl.every(x=>x==null)?null:pl;T._sel=i;testDraw();}
+function tNl(i){T.ans[T.i]=i;FX.click();testDraw();}
+function tGrid(ev,w){T.ans[T.i]=solGridPoint(ev,w,T.qs[T.i].q);FX.click();testDraw();}
+function tMove(dx,dy){const q=T.qs[T.i].q,p=T.ans[T.i]||[0,0];T.ans[T.i]=[Math.max(-q.R,Math.min(q.R,p[0]+dx)),Math.max(-q.R,Math.min(q.R,p[1]+dy))];testDraw();}
+const _giSol=gradeItem;
+gradeItem=function(it,a){const q=it.q;if(!SOL_TYPES.includes(q.type))return _giSol.apply(this,arguments);
+  if(a==null)return false;
+  if(q.type==='input')return solCheckInput(q,a);
+  if(q.type==='sort')return a.every(x=>x!=null)&&solSortOK(q,a);
+  if(q.type==='nline')return a===q.ans;
+  if(q.type==='plot')return a[0]===q.ans[0]&&a[1]===q.ans[1];};
+const _ctSol=correctText;
+correctText=function(q){return SOL_TYPES.includes(q.type)?solCorrectText(q):_ctSol.apply(this,arguments);};
+const _ytSol=yourText;
+yourText=function(it,a){const q=it.q;if(!SOL_TYPES.includes(q.type))return _ytSol.apply(this,arguments);
+  if(a==null)return 'No answer';
+  if(q.type==='input')return a;
+  if(q.type==='sort')return q.cats.map((c,ci)=>c+': '+q.items.filter((x,i)=>a[i]===ci).map(x=>x.t).join(', ')).join(' · ');
+  if(q.type==='nline')return q.names[a];
+  if(q.type==='plot')return `(${sgn2(a[0])}, ${sgn2(a[1])})`;};
+// Reading a SOL-format question aloud
+const _spqSol=typeof speakQuestion==='function'?speakQuestion:null;
+if(_spqSol)speakQuestion=function(){const q=SESSION.q;if(q&&SOL_TYPES.includes(q.type)){let t=plain(q.question);if(q.type==='sort')t+='. The groups are: '+q.cats.join(', ')+'.';speak(t);return;}return _spqSol.apply(this,arguments);};
+
+// ── Fact Sprint (math facts warm-up) + Today's 15 minutes (daily plan) ──
+
+// ---------- Fact Sprint ----------
+const FS_N=20;
+function fsStore(){const x=ST.extras||(ST.extras={});return x.facts||(x.facts={f:{},runs:[]});}
+function fsKind(){return ST.grade<=2?'add':'mul';}
+function fsMax(){return ST.grade<=1?10:ST.grade===2?20:ST.grade===3?10:12;}
+function fsAll(){const out=[],k=fsKind(),M=fsMax();
+  if(k==='add'){for(let a=0;a<=10;a++)for(let b=0;b<=10;b++){if(a+b<=M)out.push({k:`${a}+${b}`,t:`${a} + ${b}`,a:a+b});if(a+b<=M&&a>=b)out.push({k:`${a+b}-${b}`,t:`${a+b} − ${b}`,a:a});}}
+  else{for(let a=2;a<=M;a++)for(let b=2;b<=M;b++){out.push({k:`${a}x${b}`,t:`${a} × ${b}`,a:a*b});out.push({k:`${a*b}/${b}`,t:`${a*b} ÷ ${b}`,a:a});}}
+  return out;}
+function fsWeight(f){const s=fsStore().f[f.k];if(!s)return 3;const acc=s.c/s.n;return 1+(acc<1?4*(1-acc):0)+(s.t>4000?2:s.t>2500?1:0);}
+function fsPick(){const all=fsAll();const w=all.map(fsWeight);const out=[];const used=new Set();
+  while(out.length<FS_N&&used.size<all.length){let r=Math.random()*w.reduce((a,b)=>a+b,0),i=0;while((r-=w[i])>0)i++;if(!used.has(i)){used.add(i);out.push(all[i]);}}
+  return out;}
+let FS=null;
+function startFactSprint(){
+  FS={qs:fsPick(),i:0,c:0,start:0,t0:0,miss:[],done:false};
+  setScreen(`<div class="screen active"><div class="topbar calm" style="--acc:#2F6FE0"><button class="tb-back" onclick="fsQuit()" aria-label="Back">←</button>
+    <div class="tb-user"><div class="tb-name" style="color:#fff">Fact Sprint</div><div class="tb-sub" style="color:rgba(255,255,255,.9)">${fsKind()==='add'?'Addition & subtraction':'Multiplication & division'} · ${FS_N} facts</div></div>
+    <div class="t-time" id="fsTime">⏱ 0:00</div></div>
+    <div class="act-body"><div class="qc fs-card" id="fsCard">
+      <div class="fs-intro"><div class="fs-big">⚡</div><h2>Ready?</h2><p>Answer ${FS_N} facts as fast as you can. Accuracy counts more than speed — Sparky picks the facts you need most.</p>
+      <button class="btn btn-pri big" style="background:#2F6FE0" onclick="fsGo()">Start</button></div></div></div></div>`);
+}
+function fsGo(){FS.start=Date.now();FS._tick=setInterval(()=>{const el=document.getElementById('fsTime');if(!el||FS.done){clearInterval(FS._tick);return;}el.textContent='⏱ '+clock((Date.now()-FS.start)/1000);},500);fsDraw();}
+function fsDraw(){const f=FS.qs[FS.i];FS.t0=Date.now();
+  const c=document.getElementById('fsCard');if(!c)return;
+  c.innerHTML=`<div class="fs-prog"><i style="width:${FS.i/FS.qs.length*100}%"></i></div><div class="fs-n">${FS.i+1} / ${FS.qs.length}</div>
+    <div class="fs-fact" aria-live="polite">${f.t} = <input id="fsIn" class="ti-in fs-in" type="text" ${(window.matchMedia&&matchMedia('(pointer:coarse)').matches)?'inputmode="none"':'inputmode="numeric"'} autocomplete="off" aria-label="Answer for ${f.t}"></div>
+    <div class="fs-fb" id="fsFb"></div>${solKeypad('fsIn',['7','8','9','⌫','4','5','6','0','1','2','3'])}`;
+  const el=document.getElementById('fsIn');el.addEventListener('input',fsInput);el.addEventListener('keydown',e=>{if(e.key==='Enter')fsSubmit();});
+  if(!(window.matchMedia&&matchMedia('(pointer:coarse)').matches))el.focus();
+}
+function fsInput(){const f=FS.qs[FS.i],el=document.getElementById('fsIn');const v=el.value.replace(/\D/g,'');el.value=v;
+  if(v.length>=String(f.a).length)fsSubmit();}
+function fsSubmit(){if(FS.lock)return;const f=FS.qs[FS.i],el=document.getElementById('fsIn');if(!el.value)return;
+  const ok=+el.value===f.a,ms=Date.now()-FS.t0;const s=fsStore().f[f.k]||(fsStore().f[f.k]={n:0,c:0,t:0});
+  s.n++;if(ok){s.c++;s.t=s.t?Math.round(s.t*0.6+ms*0.4):ms;FS.c++;}else FS.miss.push(f);
+  el.disabled=true;el.classList.add(ok?'ok':'bad');FS.lock=true;
+  document.getElementById('fsFb').innerHTML=ok?'':`${f.t} = <b>${f.a}</b>`;ok?FX.correct():FX.wrong();
+  setTimeout(()=>{FS.lock=false;FS.i++;if(FS.i<FS.qs.length)fsDraw();else fsEnd();},ok?250:1300);}
+function fsQuit(){if(FS&&FS._tick)clearInterval(FS._tick);FS=null;renderDash();}
+function fsEnd(){FS.done=true;clearInterval(FS._tick);const sec=Math.round((Date.now()-FS.start)/1000);
+  const st=fsStore();const best=st.runs.filter(r=>r.k===fsKind()&&r.c===FS_N).reduce((m,r)=>Math.min(m,r.sec),Infinity);
+  st.runs.push({d:Date.now(),day:todayKey(),k:fsKind(),c:FS.c,n:FS.qs.length,sec});if(st.runs.length>100)st.runs.shift();
+  const pb=FS.c===FS_N&&sec<best;const fpm=Math.round(FS.c/sec*60);
+  ST.xp+=FS.c;if(FS.c>=18)ST.stars++;save();if(pb||FS.c===FS_N)confetti(innerWidth/2,160,60);
+  document.getElementById('fsCard').innerHTML=`<div class="fs-intro"><div class="fs-big">${FS.c===FS_N?'🏆':FS.c>=15?'⭐':'💪'}</div>
+    <h2>${FS.c} of ${FS.qs.length} correct</h2><p><b>${clock(sec)}</b> · ${fpm} facts per minute${pb?' · <b class="fs-pb">New best time!</b>':isFinite(best)?` · best ${clock(best)}`:''}</p>
+    ${FS.miss.length?`<div class="fs-miss"><b>Practice these:</b> ${FS.miss.map(f=>`<span>${f.t} = ${f.a}</span>`).join('')}</div>`:''}
+    ${fsGrid()}
+    <div class="btns"><button class="btn btn-sec" onclick="startFactSprint()">Go again</button><button class="btn btn-pri" style="background:#2F6FE0" onclick="fsQuit()">Done</button></div></div>`;
+}
+function fsGrid(){if(fsKind()!=='mul')return '';const M=fsMax(),f=fsStore().f;
+  const cell=(a,b)=>{const s=f[`${a}x${b}`],d=f[`${a*b}/${b}`];const n=(s?s.n:0)+(d?d.n:0);if(!n)return 'u';
+    const c=(s?s.c:0)+(d?d.c:0),t=Math.max(s&&s.c?s.t:0,d&&d.c?d.t:0);return c<n*0.8?'m':t>3500?'s':'f';};
+  let h=`<div class="fs-gridt">Your times-table map</div><div class="fs-grid" style="--m:${M-1}" role="img" aria-label="Times table map: green is fast, yellow is slow, red needs practice, gray not tried yet"><span></span>`;
+  for(let b=2;b<=M;b++)h+=`<b>${b}</b>`;
+  for(let a=2;a<=M;a++){h+=`<b>${a}</b>`;for(let b=2;b<=M;b++)h+=`<i class="fs-${cell(a,b)}"></i>`;}
+  return h+`</div><div class="fs-leg"><span><i class="fs-f"></i>fast</span><span><i class="fs-s"></i>slow</span><span><i class="fs-m"></i>needs practice</span><span><i class="fs-u"></i>not yet</span></div>`;}
+function fsToday(){return fsStore().runs.some(r=>r.day===todayKey());}
+
+// ---------- Today's 15 minutes ----------
+function dpState(){const x=ST.extras||(ST.extras={});const k=todayKey();
+  if(!x.daily||x.daily.day!==k||x.daily.grade!==ST.grade){
+    const rec=recommended(3);const a=rec[0],b=rec.find(r=>a&&r.subj!==a.subj)||rec[1];
+    const sk=a&&{subj:a.subj,code:a.st.code,name:a.st.name,base:(getSkill(a.subj,a.st.code)||{n:0}).n};
+    const miss=ST.missed.length;
+    const fix=miss?{type:'fix',base:x.fixedTotal||0,need:Math.min(3,miss)}:(b?{type:'skill',subj:b.subj,code:b.st.code,name:b.st.name,base:(getSkill(b.subj,b.st.code)||{n:0}).n}:null);
+    const bk=STORIES.filter(s=>s.level===myLevel()).find(s=>!rstate().books[s.id])||STORIES.find(s=>s.level===myLevel());
+    const vid=a&&(()=>{const st=findSkill(a.subj,a.st.code);return st&&typeof hasVideo==='function'&&hasVideo('lesson',st.gen)?st.gen:null;})();
+    x.daily={day:k,grade:ST.grade,skill:sk,fix,book:bk&&bk.id,vid,bonus:false};
+  }
+  return x.daily;}
+function dpDone(d){const x=ST.extras;const k=todayKey();
+  const sn=s=>s?((getSkill(s.subj,s.code)||{n:0}).n-s.base):0;
+  return {warm:fsToday(),
+    skill:d.skill?sn(d.skill)>=8:true,
+    fix:!d.fix?true:d.fix.type==='fix'?((x.fixedTotal||0)-d.fix.base>=d.fix.need||!ST.missed.length):sn(d.fix)>=8,
+    read:Object.values(rstate().books).some(b=>b.last&&todayKey(new Date(b.last))===k)||x.vidDay===k};}
+function dpHTML(){const d=dpState(),done=dpDone(d);const steps=[
+  {k:'warm',ic:'⚡',t:'Warm up: Fact Sprint',s:`${FS_N} quick ${fsKind()==='add'?'addition and subtraction':'times-table'} facts · 2 min`,go:'startFactSprint()'},
+  d.skill&&{k:'skill',ic:'🎯',t:`Practice: ${esc(d.skill.name)}`,s:`${SUBJ[d.skill.subj].short} · answer 8 questions${!done.skill?` · ${Math.max(0,(getSkill(d.skill.subj,d.skill.code)||{n:0}).n-d.skill.base)}/8 done`:''} · 6 min`,go:`DP_STEP='skill';startSkill('${d.skill.subj}','${d.skill.code}')`},
+  d.fix&&(d.fix.type==='fix'?{k:'fix',ic:'🔁',t:'Fix past mistakes',s:`Get ${d.fix.need} missed question${d.fix.need>1?'s':''} right · 3 min`,go:'clReview()'}
+    :{k:'fix',ic:'🧩',t:`Mix it up: ${esc(d.fix.name)}`,s:`${SUBJ[d.fix.subj].short} · answer 8 questions · 3 min`,go:`startSkill('${d.fix.subj}','${d.fix.code}')`}),
+  {k:'read',ic:'📖',t:d.vid?'Read a story or watch the lesson':'Read a story to Sparky',s:d.book?`${esc((bookById(d.book)||{}).title||'')} · 4 min`:'4 min',go:d.book?`openBook('${d.book}')`:"switchTab('stories')",
+    alt:d.vid?`<button class="dp-alt" onclick="openVideo('lesson','${d.vid}','${esc(d.skill.name).replace(/'/g,"\\'")}')">▶ Watch lesson</button>`:''}
+  ].filter(Boolean);
+  const n=steps.filter(s=>done[s.k]).length,all=n===steps.length;
+  if(all&&!d.bonus){d.bonus=true;ST.stars+=2;ST.xp+=20;save();setTimeout(()=>{toast('🌟','Today’s plan complete!','+2 stars and 20 XP');confetti(innerWidth/2,120,80);},300);}
+  return `<section class="cl-panel dp"><div class="cl-sh"><h2>Today’s 15 minutes</h2><span class="cl-sub">${all?'All done — great work!':`${n} of ${steps.length} done`}</span></div>
+    <div class="dp-bar"><i style="width:${n/steps.length*100}%"></i></div>
+    <ol class="dp-list">${steps.map((s,i)=>`<li class="dp-step${done[s.k]?' done':''}"><button class="dp-go" onclick="${s.go}" ${done[s.k]?'aria-label="Done: '+s.t.replace(/"/g,'')+'. Do it again"':''}>
+      <span class="dp-ic" aria-hidden="true">${done[s.k]?'✓':s.ic}</span><span class="dp-b"><b>${s.t}</b><small>${s.s}</small></span><span class="dp-arr" aria-hidden="true">${done[s.k]?'':'›'}</span></button>${s.alt||''}</li>`).join('')}</ol></section>`;
+}
+let DP_STEP=null;
+// count fixed mistakes
+const _recDP=record;
+record=function(correct){const wasReview=SESSION.mode==='review'&&!SESSION.answered;_recDP.apply(this,arguments);
+  if(wasReview&&correct){ST.extras=ST.extras||{};ST.extras.fixedTotal=(ST.extras.fixedTotal||0)+1;save();}
+  if(DP_STEP==='skill'&&SESSION.mode==='skill'){const d=ST.extras&&ST.extras.daily;if(d&&d.skill&&d.skill.code===SESSION.code&&(getSkill(d.skill.subj,d.skill.code)||{n:0}).n-d.skill.base===8){DP_STEP=null;setTimeout(()=>toast('✅','Plan step done','8 questions answered — keep going or tap Finish'),600);}}
+};
+// video watched today counts as reading/watching
+document.addEventListener('ended',e=>{if(e.target&&e.target.classList&&e.target.classList.contains('vid-el')){ST.extras=ST.extras||{};ST.extras.vidDay=todayKey();save();}},true);
+// show the plan at the top of the Learn tab
+const _rtDP=renderTab;
+renderTab=function(){_rtDP.apply(this,arguments);
+  if(ST.tab!=='learn')return;const c=document.getElementById('tabContent');if(!c)return;
+  const hero=c.querySelector('.cl-hero');try{const h=dpHTML();if(hero)hero.insertAdjacentHTML('afterend',h);else c.insertAdjacentHTML('afterbegin',h);}catch(e){console.error(e);}
+};
+// Fact Sprint in the Arcade
+const _rtArc=renderTab;
+renderTab=function(){_rtArc.apply(this,arguments);
+  if(ST.tab!=='arcade')return;const c=document.getElementById('tabContent');const head=c&&c.querySelector('.cl-pagehead');if(!head)return;
+  const best=fsStore().runs.filter(r=>r.k===fsKind()&&r.c===FS_N).reduce((m,r)=>Math.min(m,r.sec),Infinity);
+  head.insertAdjacentHTML('afterend',`<button class="cl-panel fs-promo" onclick="startFactSprint()"><span class="fs-big" aria-hidden="true">⚡</span>
+    <span><b>Fact Sprint</b><small>${fsKind()==='add'?'Addition & subtraction':'Times tables & division'} · ${isFinite(best)?'Best: '+clock(best):'Set your first record'}</small></span><span class="cl-btn">Play</span></button>`);
+};
+
+// ── Printable worksheets with answer key ──
+const WS={subj:null,codes:[],n:10,mix:true,key:true,qs:null};
+function openWorksheets(subj){
+  WS.subj=subj||WS.subj||'math';WS.codes=WS.codes.filter(c=>skillsFor(WS.subj).some(s=>s.code===c));
+  if(!WS.codes.length){const r=recommended(3).find(x=>x.subj===WS.subj);WS.codes=[r?r.st.code:skillsFor(WS.subj)[0].code];}
+  WS.qs=null;wsScreen();}
+function wsScreen(){
+  const sk=skillsFor(WS.subj);
+  setScreen(`<div class="screen active ws-screen"><div class="topbar calm" style="--acc:#1B2A4A"><button class="tb-back" onclick="renderDash()" aria-label="Back">←</button>
+    <div class="tb-user"><div class="tb-name" style="color:#fff">Printable worksheets</div><div class="tb-sub" style="color:rgba(255,255,255,.9)">Grade ${ST.grade} · questions change every time</div></div></div>
+    <div class="act-body"><div class="qc ws-form">
+      <div class="set-row"><div><b>Subject</b></div><div class="seg wide">${Object.entries(SUBJ).map(([k,s])=>`<button class="${WS.subj===k?'on':''}" onclick="WS.subj='${k}';WS.codes=[];openWorksheets('${k}')">${s.short}</button>`).join('')}</div></div>
+      <div class="ws-sk"><b>Skills</b> <small>(pick up to 3)</small><div class="ws-sk-list">${sk.map(s=>`<label class="ws-ck"><input type="checkbox" ${WS.codes.includes(s.code)?'checked':''} onchange="wsToggle('${s.code}',this)"> <span>${esc(s.name)} <small>SOL ${s.code}</small></span></label>`).join('')}</div></div>
+      <div class="set-row"><div><b>Questions</b></div><div class="seg">${[10,15,20].map(n=>`<button class="${WS.n===n?'on':''}" onclick="WS.n=${n};wsScreen()">${n}</button>`).join('')}</div></div>
+      <div class="set-row"><div><b>SOL-style questions</b><small>Number lines, grids, sorting, and fill-in answers</small></div><button class="toggle ${WS.mix?'on':''}" onclick="WS.mix=!WS.mix;this.classList.toggle('on',WS.mix)"></button></div>
+      <div class="set-row"><div><b>Answer key</b><small>Printed on its own page at the end</small></div><button class="toggle ${WS.key?'on':''}" onclick="WS.key=!WS.key;this.classList.toggle('on',WS.key)"></button></div>
+      <div class="btns"><button class="btn btn-pri" style="background:#2F6FE0" onclick="wsMake()">${WS.qs?'Make a new set':'Make worksheet'}</button>${WS.qs?`<button class="btn btn-pri" style="background:#2FB37A" onclick="wsPrint()">🖨 Print</button>`:''}</div>
+    </div>${WS.qs?`<div id="ws">${wsHTML()}</div>`:''}</div></div>`);
+}
+function wsToggle(code,cb){if(cb.checked){if(WS.codes.length>=3){cb.checked=false;return;}WS.codes.push(code);}else WS.codes=WS.codes.filter(c=>c!==code);}
+function wsMake(){if(!WS.codes.length)return;const sts=WS.codes.map(c=>findSkill(WS.subj,c)).filter(Boolean);const seen=new Set();const qs=[];
+  const prev=typeof SESSION!=='undefined'?SESSION.subj:null;if(typeof SESSION!=='undefined')SESSION.subj=WS.subj;
+  for(let i=0,t=0;qs.length<WS.n&&t<WS.n*20;t++){const st=sts[i%sts.length];let q=makeQ(st.gen);
+    if(WS.mix&&typeof solFormats==='function')q=solFormats(st.gen,q,true);
+    const sig=(q.passage||'')+(q.question||q.correct||'');if(seen.has(sig)||q.type==='race')continue;
+    const tpl=q.type+':'+sig.replace(/[−-]?\d[\d,./]*/g,'#').replace(/\b(Ama|Kofi|Maya|Leo|Zoe|Kwame|Sofia|Ben|Lily|Jamal|Nia|Tom|Aisha|Diego|Ella|Yaw)\b/g,'N');
+    if(seen.has(tpl)&&t<WS.n*12)continue;seen.add(sig);seen.add(tpl);q._st=st;qs.push(q);i++;}
+  if(typeof SESSION!=='undefined')SESSION.subj=prev;
+  WS.qs=qs;wsScreen();setTimeout(()=>{const w=document.getElementById('ws');if(w)w.scrollIntoView({behavior:'smooth'});},50);}
+function wsQ(q,i){const n=`<span class="ws-n">${i+1}.</span>`;const qt=s=>`<div class="ws-qt">${n}<span>${String(s).replace(/\n/g,'<br>')}</span></div>`;
+  const letters='ABCDEF';
+  if(q.type==='sentence')return qt('Put the words in order to make a sentence:')+`<div class="ws-bank">${shuf(q.words).map(esc).join(' · ')}</div><div class="ws-line wide"></div>`;
+  if(q.type==='input')return qt(esc(q.question))+`<div class="ws-ans">Answer: ${q.pre||''}<span class="ws-line"></span> ${esc(q.suf||'')}</div>`;
+  if(q.type==='multi')return qt(esc(q.question))+`<div class="ws-opts">${q.opts.map(o=>`<div><span class="ws-box"></span>${o}</div>`).join('')}</div>`;
+  if(q.type==='order'){q._sh=q._sh||shuf(q.items);return qt(esc(q.question)+' Write 1 for the first, 2 for the next, and so on.')+`<div class="ws-opts">${q._sh.map(o=>`<div><span class="ws-line short"></span> ${esc(o)}</div>`).join('')}</div>`;}
+  if(q.type==='sort')return qt(esc(q.question)+' Write each item in the correct column.')+`<div class="ws-bank">${q.items.map(x=>esc(x.t)).join(' · ')}</div>
+    <table class="ws-sort"><tr>${q.cats.map(c=>`<th>${esc(c)}</th>`).join('')}</tr><tr>${q.cats.map(()=>'<td></td>').join('')}</tr></table>`;
+  if(q.type==='nline')return qt(esc(q.question).replace('Place','Mark')+' Draw a dot.')+`<div class="ws-fig">${solNlSVG(q,null,false)}</div>`;
+  if(q.type==='plot')return qt(esc(q.question)+' Draw a dot on the grid.')+`<div class="ws-fig ws-grid">${solGridSVG(q,null,false)}</div>`;
+  const dg=q.dgSvg?{svg:q.dgSvg}:(typeof diagram==='function'?diagram(q,'#1B2A4A'):null);
+  return (q.passage?`<div class="ws-pass">${q.passage}</div>`:'')+qt(dg&&dg.text?dg.text:q.question)+(dg?`<div class="ws-fig">${dg.svg}</div>`:'')+
+    `<div class="ws-opts mc">${q.opts.map((o,k)=>`<div><span class="ws-bub">${letters[k]}</span>${o}</div>`).join('')}</div>`;}
+function wsKey(q){if(q.type==='mc'){const k=q.opts.findIndex(o=>String(o)===String(q.answer));return `${'ABCDEF'[k]}. ${q.answer}`;}
+  if(q.type==='sentence')return esc(q.correct);if(q.type==='multi')return q.answers.join(', ');
+  if(q.type==='order')return q._sh.map(x=>q.items.indexOf(x)+1).join(', ')+'  ('+q.items.join(' → ')+')';
+  return esc(solCorrectText(q));}
+function wsHTML(){const sts=WS.codes.map(c=>findSkill(WS.subj,c)).filter(Boolean);
+  return `<div class="ws-page"><div class="ws-head"><div><b>LearnSpark worksheet</b> · ${SUBJ[WS.subj].label} · Grade ${ST.grade}</div>
+      <div class="ws-name">Name <span class="ws-line"></span> Date <span class="ws-line short2"></span></div>
+      <div class="ws-skills">${sts.map(s=>`${esc(s.name)} (SOL ${s.code})`).join(' · ')}</div></div>
+    <ol class="ws-list">${WS.qs.map((q,i)=>`<li class="ws-q">${wsQ(q,i)}</li>`).join('')}</ol>
+    <div class="ws-foot">Practice only — not an official SOL test. Not affiliated with the Virginia Department of Education.</div></div>
+    ${WS.key?`<div class="ws-page ws-keypage"><div class="ws-head"><b>Answer key</b> · ${sts.map(s=>esc(s.name)).join(' · ')}</div>
+      <ol class="ws-keys">${WS.qs.map(q=>`<li>${wsKey(q)}</li>`).join('')}</ol></div>`:''}`;}
+function wsPrint(){document.body.classList.add('ws-mode');const done=()=>{document.body.classList.remove('ws-mode');window.removeEventListener('afterprint',done);};
+  window.addEventListener('afterprint',done);try{window.print();}catch(e){}setTimeout(done,60000);}
+
+// Entry points: sidebar (grown-ups), skill lesson screen, Settings
+const _rdWS=renderDash;
+renderDash=function(){_rdWS.apply(this,arguments);
+  const rep=[...document.querySelectorAll('.cl-ni')].find(b=>/renderReport/.test(b.getAttribute('onclick')||''));
+  if(rep&&!document.getElementById('wsNav'))rep.insertAdjacentHTML('afterend',`<button class="cl-ni" id="wsNav" onclick="openWorksheets()">${ic('clipboard')}<span>Worksheets</span></button>`);};
+const _olWS=openLesson;
+openLesson=function(subj,code){_olWS.apply(this,arguments);
+  const qc=document.querySelector('.lesson .act-body .qc');if(qc)qc.insertAdjacentHTML('beforeend',`<div class="ws-les"><button class="link-btn" onclick="WS.subj='${subj}';WS.codes=['${code}'];WS.qs=null;wsScreen()">🖨 Print a worksheet for this skill</button></div>`);};
+const _osWS=openSettings;
+openSettings=function(){_osWS.apply(this,arguments);const acts=document.querySelector('#sheet .sheet-acts');
+  if(acts)acts.insertAdjacentHTML('afterbegin',`<button class="btn btn-sec" onclick="closeSheet();openWorksheets()">🖨 Printable worksheets</button>`);};
+
+// ── Hear yourself read: save reading recordings on this device (opt-in), play them in the Parent Report ──
+const REC_MAX=40;
+const REC={db:null,stream:null,mr:null,chunks:[],book:null,page:null,t0:0};
+function recSupported(){return !!(window.MediaRecorder&&navigator.mediaDevices&&navigator.mediaDevices.getUserMedia&&window.indexedDB);}
+function recOn(){return !!(ST.settings&&ST.settings.recOK)&&recSupported()&&storeGet('ls_rec_conflict')!=='1';}
+function recDB(){if(REC.db)return Promise.resolve(REC.db);
+  return new Promise((res,rej)=>{const r=indexedDB.open('learnspark-rec',1);r.onupgradeneeded=()=>{const s=r.result.createObjectStore('clips',{keyPath:'id'});s.createIndex('pid','pid');};
+    r.onsuccess=()=>{REC.db=r.result;res(REC.db);};r.onerror=()=>rej(r.error);});}
+function recTx(mode){return recDB().then(db=>db.transaction('clips',mode).objectStore('clips'));}
+function recAll(pid){return recTx('readonly').then(s=>new Promise(res=>{const out=[];const c=s.index('pid').openCursor(IDBKeyRange.only(pid));
+  c.onsuccess=()=>{const cur=c.result;if(cur){out.push(cur.value);cur.continue();}else res(out.sort((a,b)=>b.at-a.at));};c.onerror=()=>res([]);}));}
+function recDel(id){return recTx('readwrite').then(s=>new Promise(res=>{const r=s.delete(id);r.onsuccess=r.onerror=()=>res();}));}
+async function recPut(clip){const s=await recTx('readwrite');s.put(clip);
+  const all=await recAll(clip.pid);for(const c of all.slice(REC_MAX))if(!c.keep)await recDel(c.id);}
+
+async function recStart(){
+  if(!recOn()||REC.mr||!READ.book)return;
+  try{REC.stream=REC.stream||await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true}});}
+  catch(e){return;}
+  if(!READ.want){recRelease();return;}
+  recSegment();
+}
+function recSegment(){
+  try{const mime=['audio/webm;codecs=opus','audio/mp4','audio/webm'].find(m=>MediaRecorder.isTypeSupported&&MediaRecorder.isTypeSupported(m))||'';
+    const mr=new MediaRecorder(REC.stream,mime?{mimeType:mime,audioBitsPerSecond:32000}:{});
+    REC.chunks=[];REC.book=READ.book.id;REC.title=READ.book.title;REC.page=READ.page;REC.t0=Date.now();REC.mr=mr;
+    const meta={book:REC.book,title:REC.title,page:REC.page,t0:REC.t0,pid:ST.id};
+    mr.ondataavailable=e=>{if(e.data&&e.data.size)REC.chunks.push(e.data);};
+    const chunks=REC.chunks;
+    mr.onstop=()=>{const dur=(Date.now()-meta.t0)/1000;if(dur<2||!chunks.length)return;
+      const blob=new Blob(chunks,{type:mr.mimeType||'audio/webm'});
+      recPut({id:'r'+meta.t0.toString(36)+Math.floor(Math.random()*1e3),pid:meta.pid,book:meta.book,title:meta.title,page:meta.page,at:meta.t0,dur:Math.round(dur),mime:blob.type,blob}).catch(()=>{});};
+    mr.start(1000);
+  }catch(e){REC.mr=null;}
+}
+function recStopSeg(){if(REC.mr){try{REC.mr.stop();}catch(e){}REC.mr=null;}}
+function recRelease(){recStopSeg();if(REC.stream){REC.stream.getTracks().forEach(t=>t.stop());REC.stream=null;}}
+function recConflict(){storeSet('ls_rec_conflict','1');recRelease();}
+
+// Hooks into Story Time
+const _micToggleRec=micToggle;
+micToggle=function(){const was=READ.want;_micToggleRec.apply(this,arguments);if(!was&&READ.want)setTimeout(recStart,400);};
+const _micStopRec=micStop;
+micStop=function(){recRelease();return _micStopRec.apply(this,arguments);};
+const _drawPageRec=drawPage;
+drawPage=function(){const before=READ.page;_drawPageRec.apply(this,arguments);if(REC.mr&&READ.page!==REC.page){recStopSeg();if(READ.want&&REC.stream)recSegment();}};
+// If a recorder and the speech recognizer can't share the microphone on this device, stop recording for good here.
+if(typeof NativeSR==='function'&&NativeSR.prototype&&NativeSR.prototype.start){const _st=NativeSR.prototype.start;
+  NativeSR.prototype.start=function(){try{this.addEventListener('error',e=>{if(e.error==='audio-capture'&&REC.stream){recConflict();setTimeout(()=>{if(READ.want)startNative();},300);}});}catch(e){}return _st.apply(this,arguments);};}
+
+// Consent text and settings
+const _micConsentRec=micConsent;
+micConsent=function(){_micConsentRec.apply(this,arguments);
+  const p=document.querySelector('#sheet .muted');if(p)p.innerHTML=p.innerHTML.replace('LearnSpark keeps no recordings','LearnSpark keeps no recordings unless you choose to below');
+  if(p&&recSupported())p.insertAdjacentHTML('afterend',`<label class="rec-opt"><input type="checkbox" id="recChk" ${ST.settings.recOK?'checked':''} onchange="ST.settings.recOK=this.checked;save()"> <span>Also save recordings of my child reading, <b>on this device only</b>, so I can listen in the Parent Report.</span></label>`);};
+const _osRec=openSettings;
+openSettings=function(){_osRec.apply(this,arguments);
+  if(!recSupported())return;const rows=document.querySelectorAll('#sheet .set-row');const last=rows[rows.length-1];
+  if(last)last.insertAdjacentHTML('afterend',`<div class="set-row"><div><b>Save reading recordings</b><small>Kept on this device only. Listen in the Parent Report.</small></div>
+    <button class="toggle ${ST.settings.recOK?'on':''}" onclick="toggleSet('recOK',this)"></button></div>`);};
+
+// Parent Report section
+let REC_URLS=[];
+const _rrRec=renderReport;
+renderReport=function(){_rrRec.apply(this,arguments);
+  const host=[...document.querySelectorAll('.report h2')].find(h=>/Story Time/.test(h.textContent));if(!host||!recSupported())return;
+  const box=document.createElement('div');box.className='rep-box rec-box';box.id='recBox';
+  const anchor=[...document.querySelectorAll('.report .rep-box')].find(b=>/Words Sparky helped with/.test(b.textContent))||host;
+  anchor.after(box);recDraw();};
+async function recDraw(){const box=document.getElementById('recBox');if(!box)return;
+  REC_URLS.forEach(u=>URL.revokeObjectURL(u));REC_URLS=[];
+  if(!ST.settings.recOK){box.innerHTML=`<h3>🎙️ Hear ${esc(ST.name)} read</h3><p>Turn this on to save short recordings when ${esc(ST.name)} reads to Sparky. They stay on this device and are never uploaded. Listen back to hear reading grow over the year.</p>
+    ${storeGet('ls_rec_conflict')==='1'?'<p class="muted">This device can’t record while Sparky listens, so recordings are off here.</p>':`<button class="btn btn-sec" onclick="ST.settings.recOK=true;save();recDraw()">Turn on reading recordings</button>`}`;return;}
+  let all=[];try{all=await recAll(ST.id);}catch(e){}
+  const byDay={};all.forEach(c=>{const k=new Date(c.at).toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'});(byDay[k]=byDay[k]||[]).push(c);});
+  box.innerHTML=`<h3>🎙️ Hear ${esc(ST.name)} read</h3>
+    ${all.length?Object.entries(byDay).map(([d,cs])=>`<div class="rec-day"><b>${d}</b>${cs.map(c=>{const u=URL.createObjectURL(c.blob);REC_URLS.push(u);
+      return `<div class="rec-row"><span class="rec-t">${esc(c.title||c.book)} · page ${c.page+1} · ${c.dur}s</span><audio controls preload="none" src="${u}"></audio>
+        <button class="rec-k${c.keep?' on':''}" onclick="recKeep('${c.id}')" aria-label="${c.keep?'Kept':'Keep'} this recording" title="Keep (won’t be cleared automatically)">★</button>
+        <button class="rec-x" onclick="recDel('${c.id}').then(recDraw)" aria-label="Delete this recording">✕</button></div>`;}).join('')}</div>`).join('')
+      :`<p>No recordings yet. They appear here after ${esc(ST.name)} reads a story to Sparky with the microphone on.</p>`}
+    <p class="muted small">Only the newest ${REC_MAX} are kept, plus any you star. Stored on this device only.</p>
+    <div class="sync-acts">${all.length?`<button class="btn btn-sec" onclick="inPageConfirm('Delete all of ${esc(ST.name).replace(/'/g,'')}’s recordings?','Delete all',recWipe)">Delete all recordings</button>`:''}
+    <button class="btn btn-sec" onclick="ST.settings.recOK=false;save();recDraw()">Turn off recordings</button></div>`;}
+async function recKeep(id){const s=await recTx('readwrite');const r=s.get(id);r.onsuccess=()=>{const c=r.result;if(c){c.keep=!c.keep;s.put(c);}setTimeout(recDraw,50);};}
+async function recWipe(){const all=await recAll(ST.id);for(const c of all)await recDel(c.id);renderReport();}
+const _dlRec=deleteLearner;
+deleteLearner=function(){const id=ST.id;const was=!!PROFILES.list[id];_dlRec.apply(this,arguments);
+  if(was&&!PROFILES.list[id]&&recSupported())recAll(id).then(a=>a.forEach(c=>recDel(c.id))).catch(()=>{});};
 
 // ═══════════════════════════════════════════════════════════════
 // MORE STORY TIME BOOKS — 12 new books (3 per level), with painted pictures.
@@ -12336,7 +13142,88 @@ STORIES.push(
  ]},
 );
 
-window.VIDEOS={"story":{"blackout":{"d":69.2,"kb":2874},"debate":{"d":78.7,"kb":3060},"fair":{"d":77.7,"kb":3029},"homefront":{"d":60.4,"kb":3432},"kente":{"d":34.5,"kb":1937},"library":{"d":42.4,"kb":1876},"market":{"d":59.8,"kb":3517},"puddle":{"d":37.8,"kb":2108},"timbuktu":{"d":68.5,"kb":3422},"tornado":{"d":52.8,"kb":2372},"volta":{"d":74.6,"kb":3863},"yorktown":{"d":68.1,"kb":3256}},"lesson":{"g4_angle":{"d":40.6,"kb":525},"g4_area":{"d":44.5,"kb":610},"g4_data":{"d":39.5,"kb":551},"g4_dec":{"d":43.7,"kb":579},"g4_eq":{"d":33.9,"kb":424},"g4_frac":{"d":41.5,"kb":545},"g4_fracops":{"d":42.8,"kb":611},"g4_measure":{"d":44.6,"kb":590},"g4_ops":{"d":44.2,"kb":582},"g4_pattern":{"d":35.0,"kb":438},"g4_place":{"d":51.3,"kb":736},"g4_prob":{"d":34.6,"kb":456},"g4_shape":{"d":55.4,"kb":782},"g4_time":{"d":33.8,"kb":437},"g5_ce1":{"d":33.6,"kb":435},"g5_ce2":{"d":35.8,"kb":457},"g5_ce3":{"d":33.0,"kb":431},"g5_ce4":{"d":29.9,"kb":386},"g5_mg1":{"d":42.6,"kb":553},"g5_mg2":{"d":44.4,"kb":652},"g5_mg3":{"d":42.4,"kb":544},"g5_ns1":{"d":42.1,"kb":552},"g5_ns2":{"d":34.7,"kb":456},"g5_pfa1":{"d":30.8,"kb":387},"g5_pfa2":{"d":27.4,"kb":347},"g5_ps1":{"d":45.2,"kb":658},"g5_ps2":{"d":33.4,"kb":476},"g5_ps3":{"d":32.0,"kb":432},"g6_circgraph":{"d":42.6,"kb":599},"g6_circle":{"d":51.1,"kb":699},"g6_congr":{"d":26.4,"kb":345},"g6_coord":{"d":48.4,"kb":639},"g6_eq":{"d":45.0,"kb":640},"g6_exp":{"d":52.9,"kb":740},"g6_fdp":{"d":44.5,"kb":620},"g6_geo":{"d":47.9,"kb":639},"g6_ineq":{"d":43.9,"kb":597},"g6_int":{"d":45.6,"kb":600},"g6_intns":{"d":44.4,"kb":589},"g6_ops":{"d":46.2,"kb":603},"g6_prop":{"d":43.2,"kb":586},"g6_ratio":{"d":46.2,"kb":629},"g6_stat":{"d":40.9,"kb":525}}};
+// ── Move progress between devices: progress file + transfer code (no accounts, no server) ──
+if(!SAVE_FIELDS.includes('updated'))SAVE_FIELDS.push('updated');
+const _saveSync=save;
+save=function(){if(ST&&ST.id)ST.updated=Date.now();return _saveSync.apply(this,arguments);};
+
+function syncLast(p){const ds=Object.keys(p.days||{}).sort();const d=ds.length?new Date(ds[ds.length-1]+'T12:00:00').getTime():0;return Math.max(p.updated||0,d,p.created||0);}
+function syncPayload(){save();return {app:'LearnSpark',v:1,at:Date.now(),list:JSON.parse(JSON.stringify(PROFILES.list))};}
+function syncSummary(p){return `${esc(p.name||'Learner')} · Grade ${p.grade} · ${p.totalQ||0} questions · ${Object.keys((p.reading||{}).books||{}).length} books`;}
+async function b64z(str){
+  if(typeof CompressionStream!=='undefined'){const cs=new Blob([str]).stream().pipeThrough(new CompressionStream('deflate-raw'));
+    const buf=new Uint8Array(await new Response(cs).arrayBuffer());let s='';for(let i=0;i<buf.length;i+=0x8000)s+=String.fromCharCode.apply(null,buf.subarray(i,i+0x8000));
+    return 'LS1:'+btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');}
+  return 'LS0:'+btoa(unescape(encodeURIComponent(str)));}
+async function unb64z(code){code=code.trim().replace(/\s+/g,'');
+  if(code.startsWith('LS0:'))return decodeURIComponent(escape(atob(code.slice(4))));
+  if(!code.startsWith('LS1:'))throw new Error('not a LearnSpark code');
+  let b=code.slice(4).replace(/-/g,'+').replace(/_/g,'/');while(b.length%4)b+='=';
+  const bin=atob(b),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);
+  const ds=new Blob([u]).stream().pipeThrough(new DecompressionStream('deflate-raw'));return await new Response(ds).text();}
+function syncParse(txt){const d=JSON.parse(txt);if(!d||d.app!=='LearnSpark'||!d.list||typeof d.list!=='object')throw new Error('not a LearnSpark progress file');
+  const list=Object.values(d.list).filter(p=>p&&p.id&&typeof p.name==='string');if(!list.length)throw new Error('no learners in file');return list;}
+
+function openSync(){closeSheet();
+  const n=Object.keys(PROFILES.list).length;
+  const el=document.createElement('div');el.className='sheet-wrap';el.id='sheet';el.onclick=e=>{if(e.target===el)el.remove();};
+  el.innerHTML=`<div class="sheet sync" role="dialog" aria-label="Move progress to another device">
+    <div class="sheet-h">Move progress <button class="icon-btn" onclick="closeSheet()" aria-label="Close">✕</button></div>
+    <p class="muted">Progress is saved on this device only. To use LearnSpark on another phone, tablet, or computer, send your progress there.</p>
+    ${n?`<div class="sync-box"><b>1. On this device: send progress</b><small>${Object.values(PROFILES.list).map(syncSummary).join('<br>')}</small>
+      <div class="sync-acts"><button class="btn btn-pri" style="background:#2F6FE0" onclick="syncSave()">⬇ Save a progress file</button>
+      ${navigator.canShare&&navigator.canShare({files:[new File(['x'],'x.json',{type:'application/json'})]})?`<button class="btn btn-sec" onclick="syncShare()">📤 Send with share sheet</button>`:''}
+      <button class="btn btn-sec" onclick="syncCode()">📋 Copy a transfer code</button></div><div id="syncOut"></div></div>`:''}
+    <div class="sync-box"><b>${n?'2. On the other device: load progress':'Load progress from another device'}</b><small>Open LearnSpark there, go to Settings → Move progress, then load the file or paste the code.</small>
+      <div class="sync-acts"><label class="btn btn-sec">📂 Load a progress file<input type="file" accept=".json,application/json" hidden onchange="syncFile(this)"></label></div>
+      <textarea class="txt-in" id="syncIn" rows="3" placeholder="…or paste a transfer code here (it starts with LS1:)"></textarea>
+      <div class="sync-acts"><button class="btn btn-sec" onclick="syncPaste()">Use this code</button></div><div id="syncPrev"></div></div>
+    <p class="muted small">Reading recordings stay on the device where they were made.</p></div>`;
+  document.body.appendChild(el);
+}
+function syncName(){return `learnspark-progress-${todayKey()}.json`;}
+function syncSave(){const blob=new Blob([JSON.stringify(syncPayload())],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=syncName();document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
+  document.getElementById('syncOut').innerHTML=`<p class="sync-ok">✓ Saved <b>${syncName()}</b>. Send it to the other device (email, AirDrop, a USB drive, or cloud storage), then load it there.</p>`;}
+async function syncShare(){try{const f=new File([JSON.stringify(syncPayload())],syncName(),{type:'application/json'});await navigator.share({files:[f],title:'LearnSpark progress'});}catch(e){}}
+async function syncCode(){const out=document.getElementById('syncOut');out.innerHTML='<p class="muted">Making code…</p>';
+  try{const code=await b64z(JSON.stringify(syncPayload()));
+    out.innerHTML=`<textarea class="txt-in sync-code" rows="3" readonly aria-label="Transfer code">${code}</textarea><p class="sync-ok" id="syncCopied"></p>`;
+    const ta=out.querySelector('textarea');ta.select();
+    try{await navigator.clipboard.writeText(code);document.getElementById('syncCopied').textContent=`✓ Copied (${Math.round(code.length/1024)} KB of text). Paste it into a message or email to yourself, then paste it on the other device.`;}
+    catch(e){document.getElementById('syncCopied').textContent='Select the code above and copy it.';}
+  }catch(e){out.innerHTML='<p class="sync-bad">Could not make a code on this browser. Use the progress file instead.</p>';}}
+function syncFile(inp){const f=inp.files&&inp.files[0];if(!f)return;const r=new FileReader();r.onload=()=>syncPreview(r.result);r.readAsText(f);}
+async function syncPaste(){const v=document.getElementById('syncIn').value;if(!v.trim())return;
+  try{syncPreview(await unb64z(v));}catch(e){document.getElementById('syncPrev').innerHTML='<p class="sync-bad">That code didn’t work. Make sure you copied all of it.</p>';}}
+let SYNC_IN=null;
+function syncPreview(txt){const box=document.getElementById('syncPrev');
+  try{SYNC_IN=syncParse(txt);}catch(e){box.innerHTML='<p class="sync-bad">That isn’t a LearnSpark progress file.</p>';return;}
+  box.innerHTML=`<div class="sync-prev">${SYNC_IN.map((p,i)=>{const mine=PROFILES.list[p.id];const fileNewer=!mine||syncLast(p)>=syncLast(mine);
+    return `<label class="sync-row"><input type="checkbox" data-i="${i}" ${fileNewer?'checked':''}><span><b>${syncSummary(p)}</b><small>${!mine?'New on this device':fileNewer?`Newer than this device (${mine.totalQ||0} questions here) — will replace it`:`This device has newer progress (${mine.totalQ||0} questions) — unchecked to keep it`}</small></span></label>`;}).join('')}</div>
+    <div class="sync-acts"><button class="btn btn-pri" style="background:#2FB37A" onclick="syncImport()">Load checked learners</button></div>`;}
+function syncImport(){const picks=[...document.querySelectorAll('.sync-prev input:checked')].map(x=>SYNC_IN[+x.dataset.i]);if(!picks.length)return;
+  save();const b=blankLearner();
+  picks.forEach(p=>{for(const k of SAVE_FIELDS)if(p[k]===undefined)p[k]=JSON.parse(JSON.stringify(b[k]===undefined?null:b[k]));PROFILES.list[p.id]=p;});
+  const cur=ST.id&&PROFILES.list[ST.id]?ST.id:picks[0].id;persistProfiles();activateProfile(cur);closeSheet();renderDash();
+  setTimeout(()=>toast('✅','Progress loaded',picks.map(p=>p.name).join(', ')),300);}
+
+// Settings: add the entry
+const _osSync=openSettings;
+openSettings=function(){_osSync.apply(this,arguments);
+  const acts=document.querySelector('#sheet .sheet-acts');if(acts)acts.insertAdjacentHTML('afterbegin',`<button class="btn btn-sec" onclick="openSync()">📲 Move progress to another device</button>`);};
+// Who's learning screen: offer loading on a fresh device
+const _rwSync=renderWho;
+renderWho=function(){_rwSync.apply(this,arguments);
+  const host=document.querySelector('.screen.active .who-grid, .screen.active .who, .screen.active');
+  if(host&&!document.getElementById('whoSync'))host.insertAdjacentHTML('beforeend',`<p class="who-sync" id="whoSync"><button class="link-btn" onclick="openSync()">Have progress on another device? Load it here</button></p>`);};
+const _ralSync=renderAddLearner;
+renderAddLearner=function(){_ralSync.apply(this,arguments);
+  if(Object.keys(PROFILES.list).length)return;const sc=document.querySelector('.screen.active');
+  if(sc&&!document.getElementById('whoSync'))sc.insertAdjacentHTML('beforeend',`<p class="who-sync" id="whoSync"><button class="link-btn" onclick="openSync()">Already use LearnSpark on another device? Load your progress</button></p>`);};
+
+window.VIDEOS={"story":{"blackout":{"d":69.2,"kb":2874},"debate":{"d":78.7,"kb":3060},"fair":{"d":77.7,"kb":3029},"homefront":{"d":60.4,"kb":3432},"kente":{"d":34.5,"kb":1937},"library":{"d":42.4,"kb":1876},"market":{"d":59.8,"kb":3517},"puddle":{"d":37.8,"kb":2108},"timbuktu":{"d":68.5,"kb":3422},"tornado":{"d":52.8,"kb":2372},"volta":{"d":74.6,"kb":3863},"yorktown":{"d":68.1,"kb":3256}},"lesson":{"g4_angle":{"d":40.6,"kb":525},"g4_area":{"d":44.5,"kb":610},"g4_data":{"d":39.5,"kb":551},"g4_dec":{"d":43.7,"kb":579},"g4_eco":{"d":32.5,"kb":424},"g4_edit":{"d":23.3,"kb":292},"g4_elec":{"d":34.1,"kb":452},"g4_eq":{"d":33.9,"kb":424},"g4_fiction":{"d":25.3,"kb":325},"g4_force":{"d":33.4,"kb":477},"g4_frac":{"d":41.5,"kb":545},"g4_fracops":{"d":42.8,"kb":611},"g4_measure":{"d":44.6,"kb":590},"g4_nonfic":{"d":27.9,"kb":393},"g4_ops":{"d":44.2,"kb":582},"g4_pattern":{"d":35.0,"kb":438},"g4_place":{"d":51.3,"kb":736},"g4_plants":{"d":35.8,"kb":495},"g4_prob":{"d":34.6,"kb":456},"g4_sentence":{"d":18.9,"kb":235},"g4_shape":{"d":55.4,"kb":782},"g4_space":{"d":31.5,"kb":425},"g4_time":{"d":33.8,"kb":437},"g4_vocab":{"d":32.6,"kb":439},"g4_weather":{"d":31.9,"kb":429},"g5_ce1":{"d":33.6,"kb":435},"g5_ce2":{"d":35.8,"kb":457},"g5_ce3":{"d":33.0,"kb":431},"g5_ce4":{"d":29.9,"kb":386},"g5_mg1":{"d":42.6,"kb":553},"g5_mg2":{"d":44.4,"kb":652},"g5_mg3":{"d":42.4,"kb":544},"g5_ns1":{"d":42.1,"kb":552},"g5_ns2":{"d":34.7,"kb":456},"g5_pfa1":{"d":30.8,"kb":387},"g5_pfa2":{"d":27.4,"kb":347},"g5_ps1":{"d":45.2,"kb":658},"g5_ps2":{"d":33.4,"kb":476},"g5_ps3":{"d":32.0,"kb":432},"g6_atmo":{"d":34.3,"kb":475},"g6_circgraph":{"d":42.6,"kb":599},"g6_circle":{"d":51.1,"kb":699},"g6_congr":{"d":26.4,"kb":345},"g6_coord":{"d":48.4,"kb":639},"g6_eco":{"d":39.5,"kb":546},"g6_edit":{"d":22.3,"kb":280},"g6_energy":{"d":36.8,"kb":505},"g6_eq":{"d":45.0,"kb":640},"g6_exp":{"d":52.9,"kb":740},"g6_fdp":{"d":44.5,"kb":620},"g6_fiction":{"d":24.7,"kb":315},"g6_geo":{"d":47.9,"kb":639},"g6_ineq":{"d":43.9,"kb":597},"g6_int":{"d":45.6,"kb":600},"g6_intns":{"d":44.4,"kb":589},"g6_nonfic":{"d":42.5,"kb":605},"g6_ops":{"d":46.2,"kb":603},"g6_prop":{"d":43.2,"kb":586},"g6_race":{"d":31.8,"kb":450},"g6_ratio":{"d":46.2,"kb":629},"g6_resource":{"d":33.0,"kb":438},"g6_solar":{"d":31.8,"kb":430},"g6_stat":{"d":40.9,"kb":525},"g6_vocab":{"d":36.9,"kb":496},"g7_ce1":{"d":34.1,"kb":455},"g7_ce2":{"d":47.9,"kb":649},"g7_mg1":{"d":52.7,"kb":716},"g7_mg2":{"d":39.8,"kb":547},"g7_mg3":{"d":33.5,"kb":464},"g7_mg4":{"d":41.7,"kb":581},"g7_ns1":{"d":49.0,"kb":695},"g7_ns2":{"d":41.6,"kb":561},"g7_ns3":{"d":33.9,"kb":413},"g7_pfa1":{"d":48.2,"kb":687},"g7_pfa2":{"d":31.2,"kb":384},"g7_pfa3":{"d":41.4,"kb":530},"g7_pfa4":{"d":39.3,"kb":503},"g7_ps1":{"d":48.8,"kb":665},"g7_ps2":{"d":37.3,"kb":512},"g8_ce1":{"d":50.5,"kb":685},"g8_mg1":{"d":32.9,"kb":434},"g8_mg2":{"d":49.1,"kb":678},"g8_mg3":{"d":40.6,"kb":550},"g8_mg4":{"d":39.8,"kb":531},"g8_mg5":{"d":41.7,"kb":614},"g8_ns1":{"d":38.4,"kb":495},"g8_ns2":{"d":32.0,"kb":412},"g8_pfa1":{"d":36.0,"kb":475},"g8_pfa2":{"d":32.5,"kb":416},"g8_pfa3":{"d":40.3,"kb":576},"g8_pfa4":{"d":35.2,"kb":459},"g8_pfa5":{"d":40.1,"kb":570},"g8_ps1":{"d":37.3,"kb":534},"g8_ps2":{"d":36.7,"kb":462},"g8_ps3":{"d":36.1,"kb":487},"r5_ri":{"d":35.5,"kb":533},"r5_rl":{"d":17.0,"kb":210},"r5_rv":{"d":37.7,"kb":508},"sc5_2":{"d":30.9,"kb":422},"sc5_3":{"d":28.1,"kb":391},"sc5_4":{"d":34.6,"kb":502},"sc5_5":{"d":31.5,"kb":419},"sc5_6":{"d":31.4,"kb":422},"sc5_7":{"d":33.2,"kb":432},"sc5_8":{"d":33.0,"kb":461},"sc5_9":{"d":27.2,"kb":365},"w5_lu":{"d":28.0,"kb":382},"w5_w":{"d":34.2,"kb":482}}};
 
 // ── Videos: picture-book story videos + lesson explainers, with save-for-offline ──
 // window.VIDEOS = {story:{id:{d,kb}}, lesson:{gen:{d,kb}}} comes from part_q_gz_vdata.js (generated).
