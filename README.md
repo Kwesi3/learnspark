@@ -1,6 +1,6 @@
 # LearnSpark
 
-Virginia SOL practice for Grades 1–4 and middle school (Grades 6, 7, and 8) in Math, Reading, Science, Writing, and History & Social Science,
+Virginia SOL practice for Grades 1–8 in Math, Reading, Science, Writing, and History & Social Science,
 plus Story Time read-aloud books, in one web page.
 No server, no accounts, no build step. Each learner's progress is saved in the
 browser on the device they use.
@@ -18,7 +18,12 @@ browser on the device they use.
   - Grade 8: 2023 Math SOL (8.NS–8.PFA), Physical Science, World Geography.
 - **About & privacy:** a page inside the app explains what is stored and where.
 - **SOL Practice Test:** mixed tests with flag, cross-out, review, and submit, then results by standard.
-- **Stories:** read-aloud books where Sparky listens and helps, plus Detective Case Files and Sound Swap.
+- **Stories:** 21 read-aloud books in four levels (Grades 1–8), where Sparky listens and helps,
+  plus Detective Case Files and Sound Swap. The newest 12 have painted pictures and themes from
+  Ghana and West Africa, Virginia history, science, and everyday kid life.
+- **Videos:** a picture-book video for each of the 12 newest stories (narrated, with captions),
+  and a short explainer for each Grade 4–6 math skill: big ideas, then one worked question.
+  Each video has a **Save for offline** button.
 - **Arcade:** Speed Math, Math Asteroids, Number Ninja, CodeBot, Fraction Match, Word Wizard,
   SOL Quiz Battle, Map Quest, Timeline Dash, Who Am I?, Pizza Shop, and Integer Elevator.
 - **Family Challenge,** Sparky's closet (spend stars on outfits), printable certificates,
@@ -37,11 +42,12 @@ voice inside claude.ai, or the most natural voice on the device. Choose the voic
 | `index.html` | The whole app |
 | `manifest.webmanifest`, `icon.svg`, `icon-192.png`, `icon-512.png` | Lets you add LearnSpark to a tablet or phone home screen |
 | `sw.js` | Keeps the app working offline after the first visit |
-| `assets/` | Pictures: subject illustrations, game art and learner avatars (SVG) |
+| `assets/` | Pictures (subject illustrations, story art, game art, avatars) and `assets/video/` |
 | `audio/` | Recorded narration (about 45 minutes, 16 MB) |
 
-Keep the `assets/` and `audio/` folders next to `index.html`. Both are saved for offline
-use after the first visit. After an update, open the site once while online so devices
+Keep the `assets/` and `audio/` folders next to `index.html`. Pictures and narration are saved
+for offline use after the first visit. Videos stream when online; tap **Save for offline** on any
+video to keep it on the device. After an update, open the site once while online so devices
 pick up the new version.
 
 ## Put it on GitHub Pages (free, about 10 minutes, no coding)
