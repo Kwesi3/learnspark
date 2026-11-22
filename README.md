@@ -12,7 +12,8 @@ browser on the device they use.
   - Over 1,200 written questions and 350 math question patterns on top of the originals, so practice rarely repeats.
   - **Challenge questions** (gold star) appear as the SmartScore rises, or any time with the Challenge switch, and earn bonus XP.
   - Grades 1–3: 2023 Math SOL, phonics and reading (2024 English strands), science, and history & social science.
-  - Grade 4: Virginia Studies. Grade 6: U.S. History 1865 to the Present.
+  - Grade 4: Virginia Studies. Grade 5: 2023 Math SOL (5.NS–5.PFA), Science 5.2–5.9, U.S. History to 1865.
+  - Grade 6: U.S. History 1865 to the Present.
   - Grade 7: 2023 Math SOL (7.NS–7.PFA), Life Science, Civics & Economics.
   - Grade 8: 2023 Math SOL (8.NS–8.PFA), Physical Science, World Geography.
 - **About & privacy:** a page inside the app explains what is stored and where.
