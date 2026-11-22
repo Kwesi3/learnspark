@@ -13182,7 +13182,12 @@ function openSync(){closeSheet();
   document.body.appendChild(el);
 }
 function syncName(){return `learnspark-progress-${todayKey()}.json`;}
-function syncSave(){const blob=new Blob([JSON.stringify(syncPayload())],{type:'application/json'});
+let SYNC_DL;
+async function syncSave(){const json=JSON.stringify(syncPayload());const out=document.getElementById('syncOut');
+  if(window.claude&&window.claude.use){if(SYNC_DL===undefined){try{SYNC_DL=await window.claude.use('downloads');}catch(e){SYNC_DL=null;}}
+    if(SYNC_DL){try{await SYNC_DL.save({filename:syncName(),data:json});out.innerHTML=`<p class="sync-ok">✓ Saved <b>${syncName()}</b>. Send it to the other device, then load it there.</p>`;}
+      catch(e){out.innerHTML=e&&e.code==='declined'?'<p class="muted">Not saved.</p>':'<p class="sync-bad">Saving a file isn’t available here. Use “Copy a transfer code” instead.</p>';}return;}}
+  const blob=new Blob([json],{type:'application/json'});
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=syncName();document.body.appendChild(a);a.click();
   setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);
   document.getElementById('syncOut').innerHTML=`<p class="sync-ok">✓ Saved <b>${syncName()}</b>. Send it to the other device (email, AirDrop, a USB drive, or cloud storage), then load it there.</p>`;}
