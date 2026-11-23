@@ -1,0 +1,4 @@
+const {JSDOM}=require('jsdom');const fs=require('fs');
+const dom=new JSDOM(fs.readFileSync(require('path').join(__dirname,'../dist/app.html'),'utf8'),{runScripts:'dangerously',url:'https://x.github.io/',beforeParse(w){w.AudioContext=function(){return{createGain:()=>({connect(){},gain:{}}),createOscillator:()=>({connect(){},frequency:{}})}};w.speechSynthesis={speak(){},cancel(){},getVoices:()=>[]};w.SpeechSynthesisUtterance=function(){};w.scrollTo=()=>{};w.requestAnimationFrame=()=>0;}});
+const w=dom.window;let bad=0,n=0;for(const g of ['g8_pfa1','g8_pfa4','g8_pfa5','g7_pfa2','g7_pfa3'])for(let i=0;i<800;i++){const q=w.makeQ(g);n++;const t=q.question+' '+(q.opts||[]).join(' ');if(/(^|[^\d.])1x/.test(t)){bad++;if(bad<4)console.log(t);}if(q.opts&&!q.opts.map(String).includes(String(q.answer)))bad++;}
+console.log('checked',n,'problems',bad);process.exit(0);

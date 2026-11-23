@@ -47,35 +47,62 @@ Story Time books, lessons, Sound Swap and Detective cases are read by a natural 
 (Kokoro TTS, generated ahead of time and stored in `audio/`). Practice questions use a Claude
 voice inside claude.ai, or the most natural voice on the device. Choose the voice in Settings.
 
-## Files
+## How it's published
 
-| File | What it is |
+Every push to `main` runs the checks below on GitHub Actions. Only if **all** of them pass is the
+site rebuilt and published to GitHub Pages, so a broken version never reaches the kids.
+
+1. Build (`tools/build.py --check`): joins the source into one page and checks the script is valid
+2. Lint (ESLint): catches misspelled or missing names
+3. Unit and content tests (18 suites, about a minute): every skill's questions, stories, read-along,
+   SOL-style formats, daily plan, progress transfer, and more
+4. Browser smoke test: clicks through the main screens on a desktop and a phone screen
+5. Accessibility audit (axe-core, WCAG 2.1 A/AA) on the same screens
+
+**Roll back:** on GitHub, open **Actions → Test and deploy → Run workflow**, paste the commit ID
+(SHA) of a good version into the box, and run it. That version is tested and republished.
+(This works for commits from November 23, 2026 on, when this setup started.)
+
+After an update, open the site once while online so devices pick up the new version
+(bump `src/CACHE_VERSION` when you want installed copies to refresh their offline cache).
+
+## For developers
+
+```
+npm ci                                  # once: installs ESLint, jsdom, axe-core
+pip install playwright && python -m playwright install chromium   # once: for browser tests
+npm run build                           # src/ → dist/site (the website) and dist/LearnSpark.html (single file)
+npm run lint
+npm test                                # all unit and content suites;  npm test -- sol story   runs some
+python3 tests/e2e_smoke.py              # browser smoke test
+python3 tests/a11y.py --all             # accessibility audit, including minor findings
+node tools/content/export.js            # every question template, lesson and story as spreadsheets in dist/content/
+```
+
+| Folder | What it holds |
 | --- | --- |
-| `index.html` | The whole app |
-| `manifest.webmanifest`, `icon.svg`, `icon-192.png`, `icon-512.png` | Lets you add LearnSpark to a tablet or phone home screen |
-| `sw.js` | Keeps the app working offline after the first visit |
-| `assets/` | Pictures (subject illustrations, story art, game art, avatars) and `assets/video/` |
-| `audio/` | Recorded narration (about 45 minutes, 16 MB) |
+| `src/js/` | The app, split by feature. Files are joined in name order into one script, so they share one global scope. Later files may extend earlier ones by wrapping a function (`const _x=x; x=function(){…}`). |
+| `src/css/`, `src/index.html` | Styles and the page template |
+| `src/data/` | Generated data: narration timing (`audio-map.json`) and the video list (`videos.json`) |
+| `src/static/` | Home-screen manifest and icons |
+| `src/sw.template.js` | Offline support (service worker) |
+| `assets/` | Pictures and `assets/video/` |
+| `audio/` | Recorded narration, one file per book or lesson set |
+| `tools/` | Build script, narration (`tools/tts`), video (`tools/video`) and content export tools |
+| `tests/` | Test suites, browser smoke test, accessibility audit |
 
-Keep the `assets/` and `audio/` folders next to `index.html`. Pictures and narration are saved
-for offline use after the first visit. Videos stream when online; tap **Save for offline** on any
-video to keep it on the device. After an update, open the site once while online so devices
-pick up the new version.
+**Adding a feature:** add a file to `src/js/` with a number that places it after what it uses
+(for example `455-my-feature.js`), add a test in `tests/` and list it in `tests/run.js`.
 
-## Put it on GitHub Pages (free, about 10 minutes, no coding)
+**Narration and videos** are made offline with free tools (Kokoro voice, ffmpeg), then committed:
+`tools/tts/gen.py` makes the audio, `tools/tts/merge_map.py` copies it into `audio/` and updates
+`src/data/audio-map.json`; `tools/video/render.py` (stories) and `tools/video/lesson.py` (lessons)
+make videos, and `tools/video/mkdata.py` copies them into `assets/video/` and updates `src/data/videos.json`.
+Pictures are added with the **Fetch illustrations** workflow.
 
-1. Sign in at github.com and click **New repository**.
-   Name it `learnspark`, choose **Public**, and click **Create repository**.
-   (GitHub Pages is free for public repositories.)
-2. On the new repository page, click **uploading an existing file**.
-   Drag in every file and folder from this folder, then click **Commit changes**.
-3. Go to **Settings → Pages**. Under **Build and deployment**, set **Source** to
-   **Deploy from a branch**, choose branch **main** and folder **/ (root)**, then **Save**.
-4. Wait a minute or two and refresh. The page shows your address:
-   `https://YOUR-USERNAME.github.io/learnspark/`
-
-To update the app later, upload the new `index.html` the same way (step 2).
-GitHub replaces the old file and the site updates in a minute or two.
+**Problem reports:** in the app, **Settings → App info & problem log** shows the version, any errors
+the device logged, and questions a child flagged with **Report a problem**. **Copy report** puts it all
+on the clipboard. It holds no names, answers or progress.
 
 ## On the kids' devices
 
@@ -85,7 +112,7 @@ GitHub replaces the old file and the site updates in a minute or two.
   microphone. Choose **Allow**.
 - Tablet or phone: use **Add to Home Screen** (Safari: Share button; Chrome: ⋮ menu)
   so it opens like an app.
-- Progress stays on each device. A tablet and a laptop keep separate progress.
+- Progress stays on each device. To move it, use **Settings → Move progress**.
 
 ## A custom address (optional)
 

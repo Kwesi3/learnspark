@@ -796,7 +796,7 @@ button.story-promo{display:flex;align-items:center;gap:14px;width:100%;text-alig
 .tts-btn{display:flex;flex-direction:column;align-items:center;gap:0;height:64px;padding:6px 16px;border-radius:20px;background:#fff;border:3px solid var(--ink);box-shadow:0 4px 0 var(--ink);font-size:1.4rem;cursor:pointer}
 .tts-btn span{font-size:.75rem;font-weight:900;white-space:nowrap}
 .tts-btn.on{background:#FFE58A}
-.mic-btn{display:flex;align-items:center;gap:10px;height:72px;padding:0 24px 0 14px;border-radius:999px;background:#E8559A;color:#fff;border:3px solid var(--ink);box-shadow:0 5px 0 var(--ink);cursor:pointer;font-family:var(--display);font-weight:600;font-size:1.15rem;position:relative}
+.mic-btn{display:flex;align-items:center;gap:10px;height:72px;padding:0 24px 0 14px;border-radius:999px;background:#C34781;color:#fff;border:3px solid var(--ink);box-shadow:0 5px 0 var(--ink);cursor:pointer;font-family:var(--display);font-weight:600;font-size:1.15rem;position:relative}
 .mic-ic{width:48px;height:48px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:1.5rem;border:2px solid var(--ink)}
 .mic-btn.on{background:#2FB37A}
 .mic-btn.on .mic-ic{animation:micpulse 1.2s ease-out infinite}
@@ -1035,7 +1035,7 @@ img.subj-art{display:block;border-radius:14px}
 @media (max-width:720px){.gcard-ic,.gcard-ic .game-img{height:68px}.subj-art-wrap img.subj-art{width:100%}}
 
 /* ═══════════ CLEAN THEME ═══════════ */
-:root{--navy:#17324D;--cblue:#2D74DA;--cblue-soft:#EAF3FF;--cline:#E5EBF2;--cmuted:#6F7D8C;--cbg:#F5F8FC;
+:root{--navy:#17324D;--cblue:#2563C9;--cblue-soft:#EAF3FF;--cline:#E5EBF2;--cmuted:#596677;--cbg:#F5F8FC;
   --cshadow:0 12px 28px rgba(31,61,92,.08);--cshadow-sm:0 2px 8px rgba(31,61,92,.07);
   --display:'Nunito',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--shadow:var(--cshadow-sm);--shadow-lg:var(--cshadow)}
 body{background:var(--cbg);background-image:none}
@@ -1445,6 +1445,25 @@ button.cl-row.cl-link:hover b{color:var(--cblue)}
   body.ws-mode .ws-keypage{break-before:page;page-break-before:always}
   @page{margin:14mm}
 }
+/* app info / problem log */
+.diag-grid{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:8px 0 12px}.diag-grid b{color:#1B2A4A}
+.diag-list{margin:0 0 10px;padding-left:20px;display:flex;flex-direction:column;gap:8px}.diag-list small{display:block;color:#64748B}
+.diag-list code{font-size:.82rem;word-break:break-word;color:#B4232A}
+/* question reports */
+.qr-link{display:block;margin-top:10px;font-size:.85rem;opacity:.8}
+.qr-q{background:#F8FAFC;border:1px solid #E2E8F0;border-radius:10px;padding:10px;margin:8px 0;font-weight:700}
+.qr-reasons{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:8px 0}@media (max-width:560px){.qr-reasons{grid-template-columns:1fr}}
+.qr-box{margin:6px 0 12px}.qr-box .diag-list span{display:block}
+/* Accessibility: text contrast at least 4.5:1 (WCAG 2.1 AA) */
+.tbl tr.dim td{color:#64748B}
+.lv0{color:#475569}
+.q-badge{color:#1B2A4A!important}
+.sm-label{color:#596677}
+.sol-tag{background:#2A63C9}
+.opt.faded{opacity:.72}
+.ach-l,.ph,.seq-e{color:#64748B}
+.tbl-wrap:focus-visible{outline:3px solid #FFD84D;outline-offset:2px}
+.chip.on b{opacity:1}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#4C8DF6">
@@ -1457,6 +1476,24 @@ button.cl-row.cl-link:hover b{color:var(--cblue)}
 <script>
 window.ART_KEYS=["about", "av_bee", "av_dino", "av_dolphin", "av_fox", "av_frog", "av_lion", "av_octopus", "av_owl", "av_palette", "av_panda", "av_rocket", "av_soccer", "av_sunflower", "av_tiger", "av_turtle", "av_unicorn", "aw_fun", "aw_games", "aw_mastery", "aw_practice", "aw_reading", "aw_streak", "g_africa", "g_culture", "g_easia", "g_europe", "g_global", "g_latam", "g_mena", "g_migration", "g_oceania", "g_political", "g_pop", "g_russia", "g_sasia", "g_tools", "g_usca", "game_asteroids", "game_codebot", "game_detective", "game_elevator", "game_fracmatch", "game_mapquest", "game_ninja", "game_pizza", "game_solquiz", "game_speedmath", "game_timeline", "game_whoami", "game_wordwiz", "gen_family", "gen_mastered", "gen_review", "gen_stories", "gen_strategy", "gen_test", "h_1900s", "h_branches", "h_china", "h_citizen", "h_civil", "h_civilwar", "h_coldwar", "h_colonial", "h_courts", "h_econ", "h_egypt", "h_finance", "h_geo", "h_greece", "h_growth", "h_immig", "h_jamestown", "h_local", "h_mali", "h_market", "h_media", "h_nation", "h_native", "h_presidents", "h_publicgoods", "h_recon", "h_revolution", "h_rome", "h_skills", "h_vagov", "h_vote", "h_west", "h_ww2", "hero", "m_area", "m_circle", "m_coord", "m_data", "m_dec", "m_eq", "m_frac", "m_func", "m_geo", "m_int", "m_linear", "m_measure", "m_ops", "m_pattern", "m_percent", "m_place", "m_prob", "m_pyth", "m_ratio", "m_scatter", "m_scinot", "m_similar", "m_squares", "m_time", "m_transform", "m_volume", "r_fiction", "r_nonfic", "r_vocab", "s_adapt", "s_atoms", "s_cells", "s_classify", "s_eco", "s_elec", "s_energy", "s_evolution", "s_force", "s_genetics", "s_light", "s_matter", "s_newton", "s_periodic", "s_photo", "s_plants", "s_pop", "s_resources", "s_space", "s_waves", "s_weather", "st_blackout1", "st_blackout2", "st_blackout3", "st_blackout4", "st_debate1", "st_debate2", "st_debate3", "st_debate4", "st_fair1", "st_fair2", "st_fair3", "st_fair4", "st_homefront1", "st_homefront2", "st_homefront3", "st_homefront4", "st_kente1", "st_kente2", "st_kente3", "st_kente4", "st_library1", "st_library2", "st_library3", "st_library4", "st_market1", "st_market2", "st_market3", "st_market4", "st_puddle1", "st_puddle2", "st_puddle3", "st_puddle4", "st_timbuktu1", "st_timbuktu2", "st_timbuktu3", "st_timbuktu4", "st_tornado1", "st_tornado2", "st_tornado3", "st_tornado4", "st_volta1", "st_volta2", "st_volta3", "st_volta4", "st_yorktown1", "st_yorktown2", "st_yorktown3", "st_yorktown4", "subj_civics", "subj_geo", "subj_hist", "subj_math", "subj_read", "subj_sci", "subj_sci7", "subj_sci8", "subj_write", "w_argue", "w_edit", "w_sentence"];
 
+// ── Problem log (part 1): catch errors from the very start. Stored only on this device. ──
+// Entries hold what broke and where, never names, answers or progress.
+window.APP_VERSION="v19 · 2026-11-23 · e16b9c2";
+window.ERRLOG=(function(){
+  const KEY='ls_errlog',MAX=30;
+  const read=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'[]');}catch(e){return [];}};
+  const write=a=>{try{localStorage.setItem(KEY,JSON.stringify(a.slice(-MAX)));}catch(e){}};
+  const clean=s=>String(s||'').replace(/https?:\/\/[^\s)]*\/([^\/\s)]*)/g,'$1').replace(/data:[^\s)]{20,}/g,'data:…').slice(0,300);
+  function add(kind,msg,stack){
+    const list=read(),last=list[list.length-1],m=clean(msg);
+    const where=(()=>{try{return (window.ST&&ST.tab)||(document.querySelector('.screen.active')||{}).className||'';}catch(e){return '';}})();
+    if(last&&last.m===m&&Date.now()-last.t<60000){last.n=(last.n||1)+1;last.t=Date.now();write(list);return;}
+    list.push({t:Date.now(),k:kind,m,s:clean((stack||'').split('\n').slice(0,5).join('\n')),v:window.APP_VERSION,w:String(where).slice(0,40)});write(list);
+  }
+  window.addEventListener('error',e=>{if(e&&e.message)add('error',e.message+(e.lineno?` (line ${e.lineno}:${e.colno})`:''),e.error&&e.error.stack);});
+  window.addEventListener('unhandledrejection',e=>{const r=e&&e.reason;add('promise',r&&r.message||String(r),r&&r.stack);});
+  return {add,read,clear:()=>write([])};
+})();
 // ═══════════════════════════════════════════════════════════════
 // IMAGES — real illustration files instead of emoji
 // • assets/subjects, assets/games, assets/avatars: SVG picture files
@@ -1592,7 +1629,7 @@ function rng(a,b){return Math.floor(Math.random()*(b-a+1))+a;}
 function shuf(a){return [...a].sort(()=>Math.random()-.5);}
 function pick(a){return a[rng(0,a.length-1)];}
 function gcd(a,b){return b?gcd(b,a%b):a;}
-const NAMES=['Ama','Kofi','Maya','Leo','Zoe','Kwame','Sofia','Ben','Lily','Jamal','Nia','Tom','Aisha','Diego','Ella','Yaw'];
+const NAMES=['Ama','Kofi','Maya','Luca','Zoe','Kwame','Sofia','Ben','Lily','Jamal','Nia','Tom','Aisha','Diego','Ella','Yaw'];
 const ITEMS=['apples','books','pencils','stickers','marbles','flowers','cards','shells','crayons','coins'];
 const rn=()=>pick(NAMES),ri=()=>pick(ITEMS);
 
@@ -4129,7 +4166,7 @@ function renderTab(){
       ${(()=>{const b=STORIES.filter(x=>x.level===myLevel()).find(x=>!rstate().books[x.id])||STORIES.find(x=>x.level===myLevel());
         return `<button class="story-promo" onclick="openBook('${b.id}')"><span class="sp-cover">${scene(b.cover,'')}</span>
         <span class="rec-txt"><span class="rec-k" style="color:#6D28D9">${ic('book')} Story Time</span><span class="rec-n">${b.title}</span>
-        <span class="rec-s">Read it out loud to Sparky</span></span><span class="rec-go" style="background:#9B5DE5">Read</span></button>`;})()}
+        <span class="rec-s">Read it out loud to Sparky</span></span><span class="rec-go" style="background:#7E4BC9">Read</span></button>`;})()}
       ${miss?`<button class="review-card" onclick="startReview()">
         <span class="review-ic">${ic('refresh')}</span><span><b>Review your mistakes</b><br><small>${miss} question${miss===1?'':'s'} waiting — fix them to clear the list</small></span>
         <span class="rec-go" style="background:#7C3AED">Review</span></button>`:''}
@@ -5532,7 +5569,7 @@ function scene(art,label){
 // at one sentence: ev:[[page, sentence], ...] (0-based).
 // names: words the listener never waits on (names it may mishear).
 // ═══════════════════════════════════════════════════════════════
-const BOOK_LEVELS={1:{label:'Level 1',grades:'Grades 1–2',color:'#2FB37A'},2:{label:'Level 2',grades:'Grades 3–4',color:'#4C8DF6'},3:{label:'Level 3',grades:'Grades 5–6',color:'#9B5DE5'}};
+const BOOK_LEVELS={1:{label:'Level 1',grades:'Grades 1–2',color:'#23845A'},2:{label:'Level 2',grades:'Grades 3–4',color:'#3E74CA'},3:{label:'Level 3',grades:'Grades 5–6',color:'#9056D5'}};
 const STORIES=[
  {id:'pip',title:'Pip and the Red Ball',level:1,kind:'Story',sticker:'dog',names:['Pip'],
   cover:['park',['bush',300,205,1,{ball:true}],['dog',150,210,1.3],['ball',230,212,1.1]],
@@ -5836,7 +5873,7 @@ function micConsent(){
     <div class="sheet-h">Turn on listening?</div>
     <div class="consent">${mascot(70,'happy')}<p>Sparky listens while your child reads aloud, so he can follow along and help with tricky words.</p></div>
     <p class="muted">For grown-ups: speech is turned into text by the browser’s speech service (Google in Chrome, Microsoft in Edge, Apple in Safari, or Claude inside claude.ai). LearnSpark keeps no recordings — only which words were read, saved on this device.</p>
-    <div class="sheet-acts"><button class="btn btn-pri" style="background:#2FB37A" onclick="ST.settings.micOK=true;save();closeSheet();micToggle()">Turn on listening</button>
+    <div class="sheet-acts"><button class="btn btn-pri" style="background:#23845A" onclick="ST.settings.micOK=true;save();closeSheet();micToggle()">Turn on listening</button>
     <button class="btn btn-sec" onclick="closeSheet();sparkySays('No problem! Tap Read to me and I’ll read to you.')">Not now</button></div></div>`;
   document.body.appendChild(el);
 }
@@ -5919,7 +5956,7 @@ function renderStoriesTab(c){
       <span class="rec-go" style="background:#6D28D9">Play</span></button>
     <button class="rec swap-card" onclick="startSwap()"><span class="swap-tiles"><i>c</i><i class="hi">a</i><i>t</i></span>
       <span class="rec-txt"><span class="rec-n">Sound Swap</span><span class="rec-s">Change one letter to make a new word. Cat → cut → cub!</span></span>
-      <span class="rec-go" style="background:#9B5DE5">Play</span></button>
+      <span class="rec-go" style="background:#7E4BC9">Play</span></button>
     <div class="sec-title">My stickers · ${stickers.length}/${STORIES.length}</div>
     <div class="sticker-book">${STORIES.map(b=>r.books[b.id]?`<div class="sticker" title="${esc(b.title)}"><svg viewBox="${STICKER_VB[b.sticker]}">${PROPS[b.sticker]({})}</svg></div>`:`<div class="sticker empty-st">?</div>`).join('')}</div>
     <p class="muted" style="margin-top:12px">Finish a book to earn its sticker.</p>`;
@@ -5932,7 +5969,7 @@ function openBook(id,page){
   setScreen(`<div class="screen active reader-screen">
     <div class="topbar rd-top" style="background:${BOOK_LEVELS[b.level].color}">
       <button class="tb-back" onclick="closeBook()" aria-label="Back to bookshelf">←</button>
-      <div class="tb-user"><div class="tb-name" style="color:#fff">${b.title}</div><div class="tb-sub" style="color:rgba(255,255,255,.92)" id="rPageNo"></div></div>
+      <div class="tb-user"><div class="tb-name" style="color:#fff">${b.title}</div><div class="tb-sub" style="color:#fff" id="rPageNo"></div></div>
       <div class="rd-size" role="group" aria-label="Text size"><button onclick="textSize(-1)" aria-label="Smaller text">A−</button><button onclick="textSize(1)" aria-label="Bigger text">A+</button></div>
     </div>
     <div class="reader">
@@ -6643,7 +6680,7 @@ function testReview(){
       <div class="t-legend"><span><i class="t-dot done"></i> answered</span><span><i class="t-dot"></i> not answered</span><span><i class="t-dot flag"></i> flagged</span></div>
       <p>${un.length?`<b>${un.length} question${un.length===1?' is':'s are'} not answered:</b> ${un.map(i=>i+1).join(', ')}.`:'Every question has an answer.'} ${T.flags.size?`You flagged ${[...T.flags].map(i=>i+1).join(', ')}.`:''}</p>
       <div class="btns"><button class="btn btn-sec" onclick="T.i=${un.length?un[0]:0};testDraw()">${un.length?'Go to first unanswered':'Check my answers'}</button>
-      <button class="btn btn-pri" style="background:#2FB37A" onclick="${un.length?`inPageConfirm('Submit with ${un.length} unanswered?','Submit test',()=>submitTest())`:'submitTest()'}">Submit test</button></div>
+      <button class="btn btn-pri" style="background:#23845A" onclick="${un.length?`inPageConfirm('Submit with ${un.length} unanswered?','Submit test',()=>submitTest())`:'submitTest()'}">Submit test</button></div>
     </div></div></div>`);
 }
 function gradeItem(it,a){const q=it.q;
@@ -9253,7 +9290,7 @@ record=function(correct){const hard=SESSION.q&&SESSION.q.hard;_recV.apply(this,a
 
 // ── GRADE 1: extra questions and Challenge questions ──
 (function(){
-const NAMES=['Ava','Leo','Mia','Sam','Zoe','Eli','Nia','Max','Ivy','Ben'];
+const NAMES=['Ava','Luca','Mia','Sam','Zoe','Eli','Nia','Max','Ivy','Ben'];
 // 1.NS.1 counting & coins
 addGens('g1_ns1',[
  ()=>{const n=rng(20,118);return mq('g1_ns1',`What number comes just BEFORE ${n}?`,n-1,[n+1,n-10,n-2],`One less than ${n} is ${n-1}.`,'Count back one.');},
@@ -9559,7 +9596,7 @@ addQ('h1_8',[
 
 // ── GRADE 2: extra questions and Challenge questions ──
 (function(){
-const NAMES=['Ava','Leo','Mia','Sam','Zoe','Eli','Nia','Max','Ivy','Ben','Omar','Lucy'];
+const NAMES=['Ava','Luca','Mia','Sam','Zoe','Eli','Nia','Max','Ivy','Ben','Omar','Lucy'];
 const money=c=>c>=100?'$'+(c/100).toFixed(2):c+'¢';
 // 2.NS.1 skip counting, even & odd
 addGens('g2_ns1',[
@@ -9890,7 +9927,7 @@ addQ('h2_13',[
 
 // ── GRADE 3: extra questions and Challenge questions ──
 (function(){
-const NAMES=['Ava','Leo','Mia','Sam','Zoe','Eli','Nia','Max','Ivy','Ben','Omar','Lucy','Raj','Ana'];
+const NAMES=['Ava','Luca','Mia','Sam','Zoe','Eli','Nia','Max','Ivy','Ben','Omar','Lucy','Raj','Ana'];
 const c=n=>n.toLocaleString('en-US');const $=x=>'$'+(x/100).toFixed(2);
 // 3.NS.1 place value
 addGens('g3_ns1',[
@@ -10224,7 +10261,7 @@ addQ('h3_10',[
 
 // ── GRADE 4: extra questions and Challenge questions ──
 (function(){
-const NAMES=['Ava','Leo','Mia','Sam','Zoe','Eli','Nia','Max','Ivy','Ben','Omar','Lucy','Raj','Ana','Kofi','Gwen'];
+const NAMES=['Ava','Luca','Mia','Sam','Zoe','Eli','Nia','Max','Ivy','Ben','Omar','Lucy','Raj','Ana','Kofi','Grace'];
 const c=n=>n.toLocaleString('en-US');const f1=x=>(Math.round(x*100)/100).toString();
 const gcd=(a,b)=>b?gcd(b,a%b):a;const fr=(n,d)=>{const g=gcd(n,d);return d/g===1?String(n/g):`${n/g}/${d/g}`;};
 // 4.1 place value
@@ -10696,7 +10733,7 @@ Object.assign(SK_ART,{
  'hist:USI.1':'h_geo','hist:USI.2':'h_native','hist:USI.3':'h_jamestown','hist:USI.4':'h_mali','hist:USI.5':'h_colonial','hist:USI.6':'h_revolution','hist:USI.7':'h_nation','hist:USI.8':'h_west','hist:USI.9':'h_civilwar','hist:USI Skills':'h_skills'});
 
 // ── Grade 5 math ──
-const NAMES=['Ava','Leo','Mia','Sam','Zoe','Eli','Nia','Max','Ivy','Ben','Omar','Lucy','Raj','Ana','Kofi','Gwen','Yaw','Ama','Diego','Priya'];
+const NAMES=['Ava','Luca','Mia','Sam','Zoe','Eli','Nia','Max','Ivy','Ben','Omar','Lucy','Raj','Ana','Kofi','Grace','Yaw','Ama','Diego','Priya'];
 const gcd=(a,b)=>b?gcd(b,a%b):a;const fr=(n,d)=>{const g=gcd(n,d);return d/g===1?String(n/g):`${n/g}/${d/g}`;};
 const mix=(n,d)=>{const w=Math.floor(n/d),r=n%d;return w?(r?`${w} ${fr(r,d)}`:String(w)):fr(r,d);};
 const c=n=>n.toLocaleString('en-US');const r3=x=>Math.round(x*1000)/1000;const ds=x=>String(r3(x));
@@ -11107,7 +11144,7 @@ addQ('usi_sk',[
 
 // ── GRADE 6: extra questions and Challenge questions ──
 (function(){
-const NAMES=['Ava','Leo','Mia','Sam','Zoe','Eli','Nia','Max','Ivy','Ben','Omar','Lucy','Raj','Ana','Kofi','Gwen','Yaw','Ama'];
+const NAMES=['Ava','Luca','Mia','Sam','Zoe','Eli','Nia','Max','Ivy','Ben','Omar','Lucy','Raj','Ana','Kofi','Grace','Yaw','Ama'];
 const gcd=(a,b)=>b?gcd(b,a%b):a;const fr=(n,d)=>{if(d<0){n=-n;d=-d;}const g=Math.abs(gcd(n,d));return d/g===1?String(n/g):`${n/g}/${d/g}`;};
 const neg=n=>n<0?'−'+Math.abs(n):String(n);const sg=n=>n<0?`(−${Math.abs(n)})`:`(+${n})`;
 const r2=x=>Math.round(x*100)/100;
@@ -11437,7 +11474,7 @@ fix('g6_ops',q=>{const m=q.question.match(/÷ (\d+)\/(\d+)/);return m&&m[1]===m[
 
 // ── GRADE 7: extra questions and Challenge questions ──
 (function(){
-const NAMES=['Ava','Leo','Mia','Sam','Zoe','Eli','Nia','Max','Ivy','Ben','Omar','Lucy','Raj','Ana','Kofi','Gwen','Yaw','Ama','Diego','Priya'];
+const NAMES=['Ava','Luca','Mia','Sam','Zoe','Eli','Nia','Max','Ivy','Ben','Omar','Lucy','Raj','Ana','Kofi','Grace','Yaw','Ama','Diego','Priya'];
 const gcd=(a,b)=>b?gcd(b,a%b):a;const fr=(n,d)=>{if(d<0){n=-n;d=-d;}const g=Math.abs(gcd(n,d));const N=n/g,D=d/g;return D===1?neg(N):(N<0?'−':'')+`${Math.abs(N)}/${D}`;};
 const neg=n=>n<0?'−'+Math.abs(n):String(n);const r2=x=>Math.round(x*100)/100;const $=x=>'$'+r2(x).toFixed(2);
 const SUP={'-1':'⁻¹','-2':'⁻²','-3':'⁻³','-4':'⁻⁴','-5':'⁻⁵','-6':'⁻⁶',1:'¹',2:'²',3:'³',4:'⁴',5:'⁵',6:'⁶',7:'⁷',8:'⁸',9:'⁹'};
@@ -11793,7 +11830,7 @@ addQ('ce13',[
 
 // ── GRADE 8: extra questions and Challenge questions ──
 (function(){
-const NAMES=['Ava','Leo','Mia','Sam','Zoe','Eli','Nia','Max','Ivy','Ben','Omar','Lucy','Raj','Ana','Kofi','Gwen','Yaw','Ama','Diego','Priya'];
+const NAMES=['Ava','Luca','Mia','Sam','Zoe','Eli','Nia','Max','Ivy','Ben','Omar','Lucy','Raj','Ana','Kofi','Grace','Yaw','Ama','Diego','Priya'];
 const gcd=(a,b)=>b?gcd(b,a%b):a;const neg=n=>n<0?'−'+Math.abs(n):String(n);const r2=x=>Math.round(x*100)/100;
 const fr=(n,d)=>{if(d<0){n=-n;d=-d;}const g=Math.abs(gcd(n,d));const N=n/g,D=d/g;return D===1?neg(N):(N<0?'−':'')+`${Math.abs(N)}/${D}`;};
 const $=x=>'$'+r2(x).toFixed(2);const lin=(m,b)=>`y = ${m===1?'':m===-1?'−':neg(m)}x${b===0?'':b<0?' − '+(-b):' + '+b}`;
@@ -12058,7 +12095,7 @@ addQ('w8_edit',[
  QP('The cake was eaten by the children.','Which revision uses ACTIVE voice?','The children ate the cake.',['The cake had been eaten.','The cake was eaten.'],'Active voice puts the doer first.','Who did the action?'),
  QP('If I was taller, I would play basketball.','Which uses the correct subjunctive mood?','If I were taller, I would play basketball.',['If I am taller, I would play basketball.','If I be taller, I would play basketball.'],'Hypotheticals use “were.”','Contrary to fact.',true),
  QP('She likes hiking, to swim, and riding bikes.','Which revision is parallel?','She likes hiking, swimming, and riding bikes.',['She likes to hike, swimming, and riding bikes.','She likes hiking, to swim, and to ride bikes.'],'All items should be the same form.','Match the -ing forms.',true),
- QP('When Jake met Leo, he was nervous.','Why is this sentence unclear?','“He” could mean Jake or Leo.',['It has no verb.','It is a fragment.','It uses passive voice.'],'The pronoun reference is ambiguous.','Who was nervous?',true),
+ QP('When Jake met Omar, he was nervous.','Why is this sentence unclear?','“He” could mean Jake or Omar.',['It has no verb.','It is a fragment.','It uses passive voice.'],'The pronoun reference is ambiguous.','Who was nervous?',true),
  QP('Each of the players have their own locker.','Which is the CORRECT version?','Each of the players has his or her own locker.',['Each of the players have his own locker.','Each of the player has their own locker.'],'“Each” is singular.','Each = one.',true),
  QP('Close the door!','What is the purpose of the imperative mood in this sentence?','give a command',['ask a question','state a fact','express a wish'],'Imperatives command or request.','Command.'),
 ]);
@@ -12225,6 +12262,21 @@ addQ('wg17',[
   };
 })();
 
+// Grammar: "1 tens" → "1 ten", "1 inches" → "1 inch". Applied the same way to question, choices and answer.
+(function(){
+  const SING={tens:'ten',ones:'one',hundreds:'hundred',thousands:'thousand',days:'day',hours:'hour',minutes:'minute',seconds:'second',weeks:'week',years:'year',
+    cups:'cup',feet:'foot',inches:'inch',yards:'yard',miles:'mile',pounds:'pound',ounces:'ounce',quarters:'quarter',dimes:'dime',nickels:'nickel',pennies:'penny',
+    dollars:'dollar',cents:'cent',students:'student',apples:'apple',books:'book',groups:'group',rows:'row'};
+  const RE=new RegExp('(^|[^\\d.,/−-])1 ('+Object.keys(SING).join('|')+')\\b','g');
+  const fix=s=>typeof s==='string'?s.replace(RE,(m,pre,w)=>pre+'1 '+SING[w]):s;
+  const _mq=makeQ;
+  makeQ=function(){const q=_mq.apply(this,arguments);
+    try{if(!q)return q;
+      for(const k of ['question','explanation','hint','answer','correct'])if(typeof q[k]==='string')q[k]=fix(q[k]);
+      if(Array.isArray(q.opts))q.opts=q.opts.map(fix);if(Array.isArray(q.answers))q.answers=q.answers.map(fix);
+    }catch(e){}
+    return q;};
+})();
 // ── SOL-style question formats (technology-enhanced items) ──
 // New types: 'input' (type the answer, with keypad), 'sort' (put items into groups),
 // 'nline' (place a point on a number line), 'plot' (place a point on a coordinate grid).
@@ -12361,8 +12413,8 @@ function sortHalf(){const fr=[];const seen=new Set();
   if(!fr.some(([n,d])=>2*n===d))fr[0]=[pick([2,3,4,5,6]),0].map((v,i,a)=>i?a[0]*2:v);
   const c=x=>Math.sign(2*x[0]-x[1]);const s=f=>f[0]+'/'+f[1];
   return mkSort('Compare each fraction to 1/2.',[['Less than 1/2',fr.filter(f=>c(f)<0).map(s)],['Equal to 1/2',fr.filter(f=>c(f)===0).map(s)],['Greater than 1/2',fr.filter(f=>c(f)>0).map(s)]],'Double the numerator. If it is less than the denominator, the fraction is less than 1/2; equal means exactly 1/2.');}
-function sortDecHalf(){const v=new Set();while(v.size<7)v.add(pick([0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.05,0.25,0.45,0.55,0.75,0.95,0.38,0.62,0.09,0.51,0.49]));
-  const it=[...v];const s=x=>String(x);
+function sortDecHalf(){const P=[0.1,0.2,0.3,0.4,0.6,0.7,0.8,0.9,0.05,0.25,0.45,0.55,0.75,0.95,0.38,0.62,0.09,0.51,0.49];
+  const it=shuf(pickN(P.filter(x=>x<0.5),3).concat(pickN(P.filter(x=>x>0.5),3),Math.random()<0.6?[0.5]:[]));const s=x=>String(x);
   return mkSort('Compare each decimal to 0.5.',[['Less than 0.5',it.filter(x=>x<0.5).map(s)],['Equal to 0.5',it.filter(x=>x===0.5).map(s)],['Greater than 0.5',it.filter(x=>x>0.5).map(s)]],'Compare the tenths digit first. 0.5 is the same as 0.50.');}
 function sortAngles(){const v=new Set();while(v.size<7)v.add(pick([15,30,35,45,60,72,85,89,90,91,100,120,135,150,170,90]));
   const it=[...v];if(!it.includes(90))it[0]=90;
@@ -12376,7 +12428,7 @@ function sortQuarter(){return mkSort('Sort each number. Is it equal to 1/4?',[['
 function sortIneq(){const a=R(2,6),b=R(1,12),op=pick(['>','<','≥','≤']);const t=x=>op==='>'?a*x+b>b+a*3:op==='<'?a*x+b<b+a*3:op==='≥'?a*x+b>=b+a*3:a*x+b<=b+a*3;
   const rhs=a*3+b;const xs=shuf(pickN([-2,-1,0,1,2],3).concat(pickN([4,5,6],2),[3]));
   return mkSort(`Sort each value of x. Does it make ${a}x + ${b} ${op} ${rhs} true?`,[['Solution',xs.filter(t).map(sgn)],['Not a solution',xs.filter(x=>!t(x)).map(sgn)]],`Substitute each value for x. ${a}x + ${b} ${op} ${rhs} simplifies to x ${op} 3.`);}
-function sortEven(){const it=pickN([...Array(40).keys()].map(x=>x+11),8);
+function sortEven(){const all=[...Array(40).keys()].map(x=>x+11);const it=shuf(pickN(all.filter(x=>x%2===0),4).concat(pickN(all.filter(x=>x%2),4)));
   return mkSort('Sort each number. Is it even or odd?',[['Even',it.filter(x=>x%2===0).map(String)],['Odd',it.filter(x=>x%2).map(String)]],'Even numbers end in 0, 2, 4, 6, or 8.');}
 const GEN_SORT={g5_ns2:sortPrime,g4_ops:sortFactors,g5_ce1:sortFactors,g3_ns3:sortHalf,g4_frac:sortHalf,g4_dec:sortDecHalf,g4_angle:sortAngles,g5_mg3:sortAngles,
   g6_exp:sortSquares,g3_ce2:sortProducts,g6_fdp:sortQuarter,g6_ineq:sortIneq,g7_pfa4:sortIneq,g8_pfa5:sortIneq,g2_ns1:sortEven,g2_pfa1:sortEven};
@@ -12777,7 +12829,7 @@ function wsScreen(){
       <div class="set-row"><div><b>Questions</b></div><div class="seg">${[10,15,20].map(n=>`<button class="${WS.n===n?'on':''}" onclick="WS.n=${n};wsScreen()">${n}</button>`).join('')}</div></div>
       <div class="set-row"><div><b>SOL-style questions</b><small>Number lines, grids, sorting, and fill-in answers</small></div><button class="toggle ${WS.mix?'on':''}" onclick="WS.mix=!WS.mix;this.classList.toggle('on',WS.mix)"></button></div>
       <div class="set-row"><div><b>Answer key</b><small>Printed on its own page at the end</small></div><button class="toggle ${WS.key?'on':''}" onclick="WS.key=!WS.key;this.classList.toggle('on',WS.key)"></button></div>
-      <div class="btns"><button class="btn btn-pri" style="background:#2F6FE0" onclick="wsMake()">${WS.qs?'Make a new set':'Make worksheet'}</button>${WS.qs?`<button class="btn btn-pri" style="background:#2FB37A" onclick="wsPrint()">🖨 Print</button>`:''}</div>
+      <div class="btns"><button class="btn btn-pri" style="background:#2F6FE0" onclick="wsMake()">${WS.qs?'Make a new set':'Make worksheet'}</button>${WS.qs?`<button class="btn btn-pri" style="background:#23845A" onclick="wsPrint()">🖨 Print</button>`:''}</div>
     </div>${WS.qs?`<div id="ws">${wsHTML()}</div>`:''}</div></div>`);
 }
 function wsToggle(code,cb){if(cb.checked){if(WS.codes.length>=3){cb.checked=false;return;}WS.codes.push(code);}else WS.codes=WS.codes.filter(c=>c!==code);}
@@ -12786,7 +12838,7 @@ function wsMake(){if(!WS.codes.length)return;const sts=WS.codes.map(c=>findSkill
   for(let i=0,t=0;qs.length<WS.n&&t<WS.n*20;t++){const st=sts[i%sts.length];let q=makeQ(st.gen);
     if(WS.mix&&typeof solFormats==='function')q=solFormats(st.gen,q,true);
     const sig=(q.passage||'')+(q.question||q.correct||'');if(seen.has(sig)||q.type==='race')continue;
-    const tpl=q.type+':'+sig.replace(/[−-]?\d[\d,./]*/g,'#').replace(/\b(Ama|Kofi|Maya|Leo|Zoe|Kwame|Sofia|Ben|Lily|Jamal|Nia|Tom|Aisha|Diego|Ella|Yaw)\b/g,'N');
+    const tpl=q.type+':'+sig.replace(/[−-]?\d[\d,./]*/g,'#').replace(/\b(Ama|Kofi|Maya|Luca|Zoe|Kwame|Sofia|Ben|Lily|Jamal|Nia|Tom|Aisha|Diego|Ella|Yaw)\b/g,'N');
     if(seen.has(tpl)&&t<WS.n*12)continue;seen.add(sig);seen.add(tpl);q._st=st;qs.push(q);i++;}
   if(typeof SESSION!=='undefined')SESSION.subj=prev;
   WS.qs=qs;wsScreen();setTimeout(()=>{const w=document.getElementById('ws');if(w)w.scrollIntoView({behavior:'smooth'});},50);}
@@ -12926,7 +12978,7 @@ deleteLearner=function(){const id=ST.id;const was=!!PROFILES.list[id];_dlRec.app
 // general story picture is shown instead.
 // Level 4 is new: Grades 7–8.
 // ═══════════════════════════════════════════════════════════════
-BOOK_LEVELS[4]={label:'Level 4',grades:'Grades 7–8',color:'#E36B4E'};
+BOOK_LEVELS[4]={label:'Level 4',grades:'Grades 7–8',color:'#BA5840'};
 myLevel=function(){return ST.grade<=2?1:ST.grade<=4?2:ST.grade<=6?3:4;};
 // scenes can now be a picture key (string) instead of a drawn SVG scene
 const _sceneSVG=scene;
@@ -13221,7 +13273,7 @@ function syncPreview(txt){const box=document.getElementById('syncPrev');
   try{SYNC_IN=syncParse(txt);}catch(e){box.innerHTML='<p class="sync-bad">That isn’t a LearnSpark progress file.</p>';return;}
   box.innerHTML=`<div class="sync-prev">${SYNC_IN.map((p,i)=>{const mine=PROFILES.list[p.id];const fileNewer=!mine||syncLast(p)>=syncLast(mine);
     return `<label class="sync-row"><input type="checkbox" data-i="${i}" ${fileNewer?'checked':''}><span><b>${syncSummary(p)}</b><small>${!mine?'New on this device':fileNewer?`Newer than this device (${mine.totalQ||0} questions here) — will replace it`:`This device has newer progress (${mine.totalQ||0} questions) — unchecked to keep it`}</small></span></label>`;}).join('')}</div>
-    <div class="sync-acts"><button class="btn btn-pri" style="background:#2FB37A" onclick="syncImport()">Load checked learners</button></div>`;}
+    <div class="sync-acts"><button class="btn btn-pri" style="background:#23845A" onclick="syncImport()">Load checked learners</button></div>`;}
 function syncImport(){const picks=[...document.querySelectorAll('.sync-prev input:checked')].map(x=>SYNC_IN[+x.dataset.i]);if(!picks.length)return;
   save();const b=blankLearner();
   picks.forEach(p=>{for(const k of SAVE_FIELDS)if(p[k]===undefined)p[k]=JSON.parse(JSON.stringify(b[k]===undefined?null:b[k]));PROFILES.list[p.id]=p;});
@@ -13329,6 +13381,86 @@ showReviewBreak=function(){_srbVid();
   const h=document.querySelector('.review-break');if(h)h.insertAdjacentHTML('beforeend',lessonVidBtn(st.gen,st.name));
 };
 
+// ── Problem log (part 2): show it in Settings, copy it for a bug report ──
+function deviceLabel(){const u=navigator.userAgent;const os=/iPhone|iPad|iPod/.test(u)?'iOS':/Android/.test(u)?'Android':/Mac/.test(u)?'Mac':/Windows/.test(u)?'Windows':/CrOS/.test(u)?'Chromebook':/Linux/.test(u)?'Linux':'Other';
+  const br=/Edg\//.test(u)?'Edge':/CriOS|Chrome\//.test(u)?'Chrome':/FxiOS|Firefox\//.test(u)?'Firefox':/Safari\//.test(u)?'Safari':'Browser';
+  const where=/github\.io$/.test(location.hostname)?'website':location.protocol==='file:'?'file':'claude.ai';return `${os} · ${br} · ${where}`;}
+function diagReport(){const l=ERRLOG.read();
+  return [`LearnSpark ${APP_VERSION}`,deviceLabel(),`Screen ${innerWidth}×${innerHeight}`,`Problems logged: ${l.length}`,'']
+    .concat(l.map(e=>`${new Date(e.t).toISOString().slice(0,16).replace('T',' ')} [${e.k}${e.n>1?' ×'+e.n:''}] ${e.w?'('+e.w+') ':''}${e.m}${e.s?'\n    '+e.s.replace(/\n/g,'\n    '):''}`)).join('\n');}
+function openDiag(){closeSheet();const l=ERRLOG.read();
+  const el=document.createElement('div');el.className='sheet-wrap';el.id='sheet';el.onclick=e=>{if(e.target===el)el.remove();};
+  el.innerHTML=`<div class="sheet" role="dialog" aria-label="App info and problem log"><div class="sheet-h">App info <button class="icon-btn" onclick="closeSheet()" aria-label="Close">✕</button></div>
+    <div class="diag-grid"><b>Version</b><span>${esc(APP_VERSION)}</span><b>Device</b><span>${esc(deviceLabel())}</span><b>Problems</b><span>${l.length?l.length+' logged on this device':'None logged'}</span></div>
+    ${l.length?`<ol class="diag-list">${l.slice(-8).reverse().map(e=>`<li><small>${new Date(e.t).toLocaleString()}${e.n>1?` · ${e.n} times`:''}</small><code>${esc(e.m)}</code></li>`).join('')}</ol>`:''}
+    <p class="muted small">If something isn’t working, tap <b>Copy report</b> and send it to whoever looks after LearnSpark. It lists what went wrong and the device type only — no names, answers or progress.</p>
+    <div class="sync-acts"><button class="btn btn-pri" style="background:#2F6FE0" onclick="diagCopy(this)">📋 Copy report</button>${l.length?`<button class="btn btn-sec" onclick="ERRLOG.clear();openDiag()">Clear log</button>`:''}</div></div>`;
+  document.body.appendChild(el);}
+async function diagCopy(b){const t=diagReport();try{await navigator.clipboard.writeText(t);b.textContent='✓ Copied';}
+  catch(e){const ta=document.createElement('textarea');ta.className='txt-in';ta.rows=8;ta.value=t;b.parentNode.after(ta);ta.select();b.textContent='Select the text and copy it';}}
+const _osDiag=openSettings;
+openSettings=function(){_osDiag.apply(this,arguments);const acts=document.querySelector('#sheet .sheet-acts');
+  if(acts)acts.insertAdjacentHTML('beforeend',`<button class="btn btn-sec" onclick="openDiag()">ℹ️ App info & problem log</button>`);};
+// ── Accessibility helpers applied to whatever is on screen ──
+// On/off switches get a name and switch role; scrolling tables can be reached with the keyboard.
+(function(){
+  function fix(root){
+    root.querySelectorAll('button.toggle:not([data-a11y])').forEach(b=>{b.dataset.a11y='1';
+      const row=b.closest('.set-row');const name=row&&row.querySelector('b');
+      b.setAttribute('role','switch');if(name&&!b.getAttribute('aria-label'))b.setAttribute('aria-label',name.textContent.trim());
+      b.setAttribute('aria-checked',b.classList.contains('on')?'true':'false');});
+    root.querySelectorAll('.tbl-wrap:not([tabindex])').forEach(t=>{t.tabIndex=0;t.setAttribute('role','region');
+      const h=t.previousElementSibling;t.setAttribute('aria-label',(h&&/^H\d$/.test(h.tagName)?h.textContent.trim():'Table')+' (scrolls sideways)');});
+  }
+  new MutationObserver(ms=>{for(const m of ms){
+    if(m.type==='attributes'&&m.target.matches&&m.target.matches('button.toggle'))m.target.setAttribute('aria-checked',m.target.classList.contains('on')?'true':'false');
+    else if(m.addedNodes.length)fix(document);}})
+    .observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class']});
+  document.addEventListener('DOMContentLoaded',()=>fix(document));
+})();
+// ── Question IDs and "Report a problem" ──
+// Every question gets a stable ID: <generator>.<template hash>. Numbers and names are ignored when
+// hashing, so all versions of one question template share an ID (it's the template that gets fixed).
+// Reports are kept on this device (not per learner) and are copied out from Settings → App info.
+const QR_KEY='ls_qreports';
+function qTemplate(q){return [q.type,q.question||q.correct||'',q.passage?'P':''].join('|')
+  .replace(/<[^>]+>/g,'').replace(/[−-]?\d[\d,.\/]*/g,'#').replace(/\b[A-Z][a-z]+\b/g,'N').replace(/\s+/g,' ').trim();}
+function qHash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return (h>>>0).toString(36);}
+function qId(q,gen){return (gen||q.gen||'q')+'.'+qHash(qTemplate(q));}
+function qrRead(){try{return JSON.parse(localStorage.getItem(QR_KEY)||'[]');}catch(e){return [];}}
+function qrWrite(a){try{localStorage.setItem(QR_KEY,JSON.stringify(a.slice(-50)));}catch(e){}}
+const QR_REASONS=[['wrong','The answer is wrong'],['two','More than one answer is right'],['confusing','The question is confusing'],['typo','Spelling or grammar mistake'],['picture','Picture or diagram problem'],['grade','Too hard or easy for this grade'],['other','Something else']];
+function qrOpen(){
+  const q=SESSION.q;if(!q)return;closeSheet();
+  const el=document.createElement('div');el.className='sheet-wrap';el.id='sheet';el.onclick=e=>{if(e.target===el)el.remove();};
+  el.innerHTML=`<div class="sheet" role="dialog" aria-label="Report a problem with this question"><div class="sheet-h">Report a problem <button class="icon-btn" onclick="closeSheet()" aria-label="Close">✕</button></div>
+    <p class="muted">Thanks for helping make LearnSpark better. What’s wrong with this question?</p>
+    <div class="qr-q">${esc(plain(q.question||q.correct||''))}</div>
+    <div class="qr-reasons" role="radiogroup" aria-label="Reason">${QR_REASONS.map(([k,l],i)=>`<label class="ws-ck"><input type="radio" name="qrR" value="${k}" ${i===0?'checked':''}> <span>${l}</span></label>`).join('')}</div>
+    <textarea class="txt-in" id="qrNote" rows="2" maxlength="300" placeholder="Anything else? (optional — please don’t include names)"></textarea>
+    <div class="sync-acts"><button class="btn btn-pri" style="background:#2F6FE0" onclick="qrSave()">Save report</button></div></div>`;
+  document.body.appendChild(el);
+}
+function qrSave(){
+  const q=SESSION.q,r=(document.querySelector('input[name=qrR]:checked')||{}).value||'other';
+  const note=(document.getElementById('qrNote').value||'').slice(0,300);
+  const opts=q.opts?q.opts.map(String):q.items?q.items.map(x=>x.t||x):q.cats?q.cats:null;
+  const ans=typeof solCorrectText==='function'&&SOL_TYPES.includes(q.type)?solCorrectText(q):q.answers?q.answers.join(', '):q.correct||q.answer;
+  const list=qrRead();list.push({t:Date.now(),id:qId(q,SESSION.gen),gen:SESSION.gen,sol:SESSION.code,grade:ST.grade,type:q.type,
+    q:plain(q.question||'').slice(0,500),opts,ans:String(ans==null?'':ans).slice(0,200),r,note,v:APP_VERSION});
+  qrWrite(list);closeSheet();toast('🚩','Thanks! Problem noted','A grown-up can send it from Settings → App info');
+}
+// the link under every answer explanation
+const _recQR=record;
+record=function(){_recQR.apply(this,arguments);
+  const fb=document.getElementById('fbCard');if(fb&&!fb.querySelector('.qr-link'))fb.insertAdjacentHTML('beforeend',`<button class="link-btn qr-link" onclick="qrOpen()">🚩 Report a problem with this question</button>`);};
+// show reports in App info, include them in the copied report
+const _odQR=openDiag;
+openDiag=function(){_odQR.apply(this,arguments);const l=qrRead();const acts=document.querySelector('#sheet .sync-acts');if(!acts)return;
+  acts.insertAdjacentHTML('beforebegin',`<div class="qr-box"><b>Question reports:</b> ${l.length?`${l.length} saved`:'none yet'}${l.length?`<ol class="diag-list">${l.slice(-5).reverse().map(x=>`<li><small>${new Date(x.t).toLocaleDateString()} · ${esc((QR_REASONS.find(r=>r[0]===x.r)||['', x.r])[1])} · ${esc(x.id)}</small><span>${esc(x.q.slice(0,120))}</span></li>`).join('')}</ol>`:''}</div>`);
+  if(l.length)acts.insertAdjacentHTML('beforeend',`<button class="btn btn-sec" onclick="qrWrite([]);openDiag()">Clear question reports</button>`);};
+const _drQR=diagReport;
+diagReport=function(){const l=qrRead();return _drQR()+(l.length?'\n\nQuestion reports:\n'+l.map(x=>`- ${x.id} (grade ${x.grade}, SOL ${x.sol}, ${x.type}) [${x.r}] ${x.q}${x.opts?'\n    options: '+x.opts.join(' | '):''}\n    answer: ${x.ans}${x.note?'\n    note: '+x.note:''}`).join('\n'):'');};
 loadProfiles();
 if(PROFILES.active&&activateProfile(PROFILES.active))renderDash();else renderWho();
 

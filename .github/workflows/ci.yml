@@ -1,0 +1,72 @@
+name: Test and deploy
+
+# Every push and pull request is built and tested. Only a push to main that passes every check
+# is published to GitHub Pages, so a broken build never reaches the live site.
+# To roll back: Actions → "Test and deploy" → Run workflow, and enter an earlier commit SHA.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Commit SHA or tag to publish (leave empty for the latest main)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: |
+          npm ci --no-audit --no-fund
+          pip install -q playwright==1.63.0
+          python -m playwright install --with-deps chromium
+      - name: Build
+        run: python3 tools/build.py --check
+      - name: Lint
+        run: npm run lint
+      - name: Unit and content tests
+        run: npm test
+      - name: Browser smoke test (desktop and phone)
+        run: python3 tests/e2e_smoke.py
+      - name: Accessibility audit
+        run: python3 tests/a11y.py
+      - name: Upload site
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/site
+
+  deploy:
+    needs: test
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

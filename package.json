@@ -1,0 +1,17 @@
+{
+  "name": "learnspark",
+  "private": true,
+  "description": "Virginia SOL learning app for kids: practice, stories, games. Static site, no server.",
+  "scripts": {
+    "build": "python3 tools/build.py --check",
+    "test": "node tests/run.js",
+    "lint": "eslint -c eslint.config.mjs dist/app.js",
+    "check": "npm run build && npm run lint && npm test"
+  },
+  "devDependencies": {
+    "axe-core": "^4.10.2",
+    "eslint": "^9.15.0",
+    "globals": "^15.12.0",
+    "jsdom": "24.1.3"
+  }
+}

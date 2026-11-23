@@ -1,0 +1,42 @@
+/* ── images & icons ── */
+.ic{width:1.1em;height:1.1em;vertical-align:-.18em;flex-shrink:0;display:inline-block}
+.tab .ic{margin-right:4px}
+.icon-btn{display:grid;place-items:center;color:var(--ink)}.icon-btn .ic{width:22px;height:22px}
+.c-flame{color:#FF6B1A;fill:#FFC83D}.c-medal{color:#E0A100;fill:#FFF0B8}
+.today-stats b .ic{margin-left:3px;width:1em;height:1em}
+.rec-k .ic{width:1.15em;height:1.15em;vertical-align:-.22em;margin-right:2px}
+.review-ic{color:#7C3AED;display:grid;place-items:center}.review-ic .ic{width:32px;height:32px}
+.tool-ic .ic{width:26px;height:26px}
+.str-ic{color:#B7791F}.str-ic .ic{width:30px;height:30px}
+.skill-learn .ic{width:22px;height:22px}
+.act-t .ic{margin-right:2px}
+.rep h2 .ic{width:.95em;height:.95em}
+.gcard-hi .ic{width:1em;height:1em;vertical-align:-.15em}
+.tb-star .ic{width:1em;height:1em;vertical-align:-.15em}
+/* subject pictures */
+img.subj-art{display:block;border-radius:14px}
+.subj-art-wrap{padding:0;background:none!important}
+.subj-art-wrap img.subj-art{width:100%;height:100%;object-fit:cover;border-radius:14px}
+.tb-art img.subj-art{width:120px;height:90px;border:3px solid rgba(255,255,255,.85);box-shadow:0 4px 0 rgba(0,0,0,.15);margin-bottom:8px}
+/* learner pictures */
+.av-img{display:block;width:100%;height:100%;object-fit:contain}
+.who-av{overflow:hidden;padding:0!important;line-height:0!important;font-size:0}
+.who-add .who-av{font-size:2.2rem;line-height:70px!important}
+.me-av{overflow:hidden;padding:0}
+.av-btn{aspect-ratio:1;padding:3px!important;display:grid;place-items:center}
+.av-btn .av-img{width:100%;height:100%}
+.rep-av{width:64px;height:64px;flex-shrink:0}
+.av-img.av-sm{display:inline-block;width:1.6em;height:1.6em;vertical-align:-.45em;margin-right:2px}
+/* game pictures */
+.gcard-ic{height:84px;display:flex;justify-content:center;margin-bottom:8px}
+.gcard-ic .game-img{height:84px}
+.gcard-t,.gcard-d{display:block}
+.game-img{display:block;height:100%;width:auto;max-width:100%;filter:drop-shadow(0 3px 0 rgba(0,0,0,.18))}
+.game-start-ic{display:flex;justify-content:center}.game-start-ic .game-img{height:130px}
+.game-t .game-img{display:inline-block;height:1.6em;vertical-align:-.45em;margin-right:4px;filter:none}
+/* award medals */
+.award-ic{height:64px;display:grid;place-items:center}
+.badge{width:60px;height:60px}
+.award.locked .badge{opacity:.75}
+.ach-i{width:52px;height:52px;flex-shrink:0}.ach-i .badge{width:52px;height:52px}
+@media (max-width:720px){.gcard-ic,.gcard-ic .game-img{height:68px}.subj-art-wrap img.subj-art{width:100%}}
