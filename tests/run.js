@@ -1,7 +1,7 @@
 // Runs every test suite against dist/app.html (run `npm run build` first).
 // A suite fails if it exits non-zero, prints FAIL/FAILED/✗, or reports problems.
 const {spawnSync}=require('child_process');const path=require('path');const fs=require('fs');
-const SUITES=['content','story','stories','daily','sync','sol','more','qa','eqfrac','onex','align','hist','ms','el','g5','g5smoke','load','variety'];
+const SUITES=['standards','content','story','stories','daily','sync','sol','more','qa','eqfrac','onex','align','hist','ms','el','g5','g5smoke','load','variety'];
 const only=process.argv.slice(2);
 if(!fs.existsSync(path.join(__dirname,'../dist/app.html'))){console.error('dist/app.html missing: run npm run build first');process.exit(1);}
 let failed=[];const t0=Date.now();
