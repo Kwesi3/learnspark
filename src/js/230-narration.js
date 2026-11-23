@@ -6,7 +6,15 @@
 // • Everything else (practice questions) uses the best voice available:
 //   a Claude voice inside claude.ai, otherwise the device's most natural voice.
 // ═══════════════════════════════════════════════════════════════
-const AUDIO_MAP=/*@audio-map*/;
+// One recorded map per narrator; the chosen one is AUDIO_MAP.
+const AUDIO_VOICES=/*@audio-map*/;
+const NARRATORS={heart:'Ava · American (recommended)',emma:'Emma · British',warm:'Grace · warm American'};
+let AUDIO_MAP=AUDIO_VOICES.heart?AUDIO_VOICES.heart:AUDIO_VOICES;
+let NARR_VOICE='heart';
+function narrVoiceSync(){
+  const v=(typeof ST!=='undefined'&&ST.settings&&ST.settings.narrator)||'heart';
+  if(v===NARR_VOICE||!AUDIO_VOICES[v])return;
+  NARR_VOICE=v;AUDIO_MAP=AUDIO_VOICES[v];NARR.bufs={};NARR.loading={};}
 const NARR={ctx:null,bufs:{},loading:{},src:null,timer:null,token:0};
 function narrCtx(){if(!NARR.ctx){const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;try{NARR.ctx=new C();}catch(e){return null;}}return NARR.ctx;}
 // iPhone: play sound even when the ring/silent switch is on, and unlock audio inside the first tap.
@@ -20,7 +28,7 @@ function audioUnlock(){audioPlayback();
     try{const a=new Audio('data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjYwLjE2LjEwMAAAAAAAAAAAAAAA//NwwAAAAAAAAAAAAEluZm8AAAAPAAAACAAAA/oAR0dHR0dHR0dHR0dHYmJiYmJiYmJiYmJifHx8fHx8fHx8fHx8fJaWlpaWlpaWlpaWlrGxsbGxsbGxsbGxsbHLy8vLy8vLy8vLy8vl5eXl5eXl5eXl5eXl////////////////AAAAAExhdmM2MC4zMQAAAAAAAAAAAAAAACQC1AAAAAAAAAP6yysejgAAAAAAAAAAAAAAAAD/80DEAAAAA0gAAAAATEFNRTMuMTAwVVVVVVVVVVVVVUxBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQsRbAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVUxBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQMSkAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVTEFNRTMuMTAwVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NCxKMAAANIAAAAAFVVVVVVVVVVVVVVVVVVVVVVVVVVTEFNRTMuMTAwVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//NAxKQAAANIAAAAAFVVVVVVVVVVVVVVVVVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVX/80LEowAAA0gAAAAAVVVVVVVVVVVVVVVVVVVVVVVVVVVMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVX/80DEpAAAA0gAAAAAVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQsSjAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVQ==');a.setAttribute('playsinline','');a.volume=0.01;a.play().catch(()=>{});}catch(e){}}}
 ['touchend','pointerup','click','keydown'].forEach(ev=>document.addEventListener(ev,audioUnlock,{capture:true,passive:true}));
 document.addEventListener('visibilitychange',()=>{if(document.hidden){try{narrStop();}catch(e){}}});
-function narrOK(name,key){return typeof AUDIO_MAP!=='undefined'&&location.protocol!=='file:'&&ST.settings.narration!==false&&!!AUDIO_MAP[name]&&(!key||!!AUDIO_MAP[name].map[key]);}
+function narrOK(name,key){narrVoiceSync();return typeof AUDIO_MAP!=='undefined'&&location.protocol!=='file:'&&ST.settings.narration!==false&&!!AUDIO_MAP[name]&&(!key||!!AUDIO_MAP[name].map[key]);}
 function narrLoad(name){
   if(!narrOK(name)||!narrCtx()||typeof fetch!=='function')return Promise.resolve(null);
   if(NARR.bufs[name])return Promise.resolve(NARR.bufs[name]);
@@ -105,8 +113,11 @@ function voiceSettingsRows(){
   const pick=ST.settings.voicePick||'';const dev=bestVoices().slice(0,10);
   const opts=(CLAUDE_TTS?Object.entries(CLAUDE_VOICES).map(([k,l])=>`<option value="claude:${k}" ${pick==='claude:'+k||(!pick&&k==='airy')?'selected':''}>Claude voice · ${l}</option>`).join(''):'')+
     dev.map((v,i)=>`<option value="dev:${esc(v.name)}" ${pick==='dev:'+v.name||(!pick&&!CLAUDE_TTS&&i===0)?'selected':''}>${esc(v.name.replace(/Microsoft |Google /,''))}${i===0?' (recommended)':''}</option>`).join('');
-  return `<div class="set-row"><div><b>Story narrator</b><small>${typeof AUDIO_MAP!=='undefined'&&location.protocol!=='file:'?'Recorded natural AI voice for books, lessons and reading games':'Recorded voice plays when LearnSpark is opened from its web address'}</small></div>
+  return `<div class="set-row"><div><b>Story narrator</b><small>${typeof AUDIO_MAP!=='undefined'&&location.protocol!=='file:'?'Recorded voice for books, lessons and reading games':'Recorded voice plays when LearnSpark is opened from its web address'}</small></div>
       <button class="toggle ${ST.settings.narration!==false?'on':''}" onclick="ST.settings.narration=ST.settings.narration===false?true:false;save();this.classList.toggle('on',ST.settings.narration!==false)"></button></div>
+    ${Object.keys(AUDIO_VOICES).filter(k=>NARRATORS[k]).length>1?`<div class="set-row voice-row"><div><b>Who reads the stories</b><small>Pick the reader your child likes best</small></div>
+      <div class="voice-pick"><select id="narrSel" aria-label="Story reader" onchange="ST.settings.narrator=this.value;save();narrStop()">${Object.keys(NARRATORS).filter(k=>AUDIO_VOICES[k]).map(k=>`<option value="${k}" ${(ST.settings.narrator||'heart')===k?'selected':''}>${NARRATORS[k]}</option>`).join('')}</select>
+      <button class="btn btn-sec" onclick="narrPlay('pip','p0')">▶ Test</button></div></div>`:''}
     <div class="set-row voice-row"><div><b>Voice for questions</b><small>Used for everything that isn’t recorded</small></div>
       <div class="voice-pick">${opts?`<select id="voiceSel" onchange="ST.settings.voicePick=this.value;save()" aria-label="Voice">${opts}</select>`:'<small>No voices found on this device</small>'}
       <button class="btn btn-sec" onclick="sayText('Hi! I am Sparky. Let us read together!',.9)">▶ Test</button></div></div>
