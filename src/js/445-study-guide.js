@@ -12,9 +12,9 @@
 // ═══════════════════════════════════════════════════════════════
 const STUDY={};
 const SG={add(gen,g){STUDY[gen]=g;}};
-// Recorded narration: one audio sprite per batch (e.g. sg_g4math). Falls back to the device voice.
-const SG_SPRITE={};
-function sgSprite(gen){return SG_SPRITE[gen]||null;}
+// Recorded narration: one audio file per guide (sg_<gen>). Falls back to Ava, then the device voice.
+const SG_SPRITE={};   // kept for older data files; not used for lookup
+function sgSprite(gen){return STUDY[gen]?'sg_'+gen:null;}   // one small audio file per guide
 const SGS={gen:null,subj:null,code:null,i:0,tried:{}};
 
 function sgStore(){ST.extras=ST.extras||{};return ST.extras.study=ST.extras.study||{};}
