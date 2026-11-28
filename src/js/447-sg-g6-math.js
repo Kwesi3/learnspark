@@ -258,7 +258,7 @@ SG.add('g6_eq',{title:'One-step equations',
 
 SG.add('g6_ineq',{title:'Inequalities',
   goals:['I can write an inequality for a situation.','I can graph an inequality on a number line.','I can test whether a number is a solution.'],
-  words:[['inequality','compares with <, >, ≤, or ≥',''],['≥ (at least)','greater than or equal to','x ≥ 4'],['≤ (at most)','less than or equal to','x ≤ 10'],['solution set','all the numbers that make it true',''],['open / closed circle','open: the number is NOT included; closed: it IS included','']],
+  words:[['inequality','compares with <, >, ≤, or ≥',''],['≥ (at least)','greater than or equal to','x ≥ 4'],['≤ (at most)','less than or equal to','x ≤ 10'],['solution set','all the numbers that make it true',''],['open or closed circle','open: the number is NOT included; closed: it IS included','']],
   pages:[
     {h:'Words to symbols',p:['“More than” → >. “Less than” → <.','“<b>At least</b>” (that much or more) → ≥. “<b>At most</b>” (that much or less) → ≤.','Test it: “Joe sent at least 100 texts.” Could he have sent 105? Yes. 90? No. So t ≥ 100.'],
      ex:{q:'Luca has at most 10 brownies. Write an inequality.',steps:['At most 10 means 10 or fewer.','Could he have 11? No. Could he have 10? Yes.'],a:'b ≤ 10'},

@@ -28,7 +28,7 @@ function sgFrac(n,d){const o=SG_ORD[d];return o?`${n} ${+n===1?o[0]:o[1]}`:`${n}
 function sgSpeech(t){
   t=t.replace(/\(([<>=≠])\)/g,'');
   const SUP={'⁰':0,'¹':1,'²':2,'³':3,'⁴':4,'⁵':5,'⁶':6,'⁷':7,'⁸':8,'⁹':9};
-  t=t.replace(/\|([^|]+)\|/g,'the absolute value of $1');
+  t=t.replace(/\|(?! )([^|\s](?:[^|]*[^|\s])?)\|/g,'the absolute value of $1');   // |−12|, |5 − 8| — not the “52 | 009” period bars
   t=t.replace(/([A-Za-z0-9])²/g,'$1 squared').replace(/([A-Za-z0-9])³/g,'$1 cubed').replace(/([A-Za-z0-9])([⁰¹⁴⁵⁶⁷⁸⁹])/g,(m,b,e)=>`${b} to the power of ${SUP[e]}`);
   t=t.replace(/(^|[\s(:,])[−-](\d)/g,'$1negative $2').replace(/≥/g,' is greater than or equal to ').replace(/≤/g,' is less than or equal to ')
      .replace(/≅/g,' is congruent to ').replace(/π/g,' pi ').replace(/°F/g,' degrees').replace(/½/g,' one half ');
