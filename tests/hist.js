@@ -28,7 +28,8 @@ for(const grade of [4,6]){
   w.openSubject('hist');d.querySelectorAll('.skill').length===w.__STR[grade].hist.length?ok(`grade ${grade}: skill map lists ${w.__STR[grade].hist.length} History strands`):bad('hist map');
   let wrongTried={multi:0,order:0};
   for(const st of w.__STR[grade].hist){
-    w.startSkill('hist',st.code);if(!d.getElementById('exArea').innerHTML)bad(st.code+' no example');
+    w.startSkill('hist',st.code);if(d.querySelector('.sg'))w.eval('SGS.i=sgPages(STUDY[SGS.gen])-1;sgRender()');   // study guide: worked example is on the last page
+    if(!d.getElementById('exArea')||!d.getElementById('exArea').innerHTML)bad(st.code+' no example');
     w.beginPractice('hist',st.code);let guard=0;
     while(w.getSkill('hist',st.code).score<100&&guard++<90){const q=w.__S.q;
       const wrong=(q.type!=='mc')&&wrongTried[q.type]<2;
