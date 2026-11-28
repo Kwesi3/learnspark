@@ -20,7 +20,7 @@ ok(`${gens.length} study guides complete (goals, key words, ≥3 steps with chec
 // every grade 4 math standard has one, and each page renders
 let pages=0,errs=[];
 // subjects whose study guides are finished, per grade (grows batch by batch)
-const DONE={4:['math','sci','hist'],6:['math','sci','hist']};
+const DONE={4:['math','sci','hist','read','write'],6:['math','sci','hist','read','write']};
 for(const grade of [4,6])for(const subj of DONE[grade]){w.eval(`(()=>{const p=blankLearner('T',${grade},'🦊');PROFILES.list[p.id]=p;activateProfile(p.id);})()`);
 const miss=w.eval(`skillsFor('${subj}').filter(s=>!STUDY[s.gen]).map(s=>s.code)`);
 miss.length?bad(`grade ${grade} ${subj} without a guide: `+miss.join(' ')):ok(`every grade ${grade} ${subj} standard has a study guide`);

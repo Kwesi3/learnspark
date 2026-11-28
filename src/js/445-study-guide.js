@@ -45,6 +45,7 @@ function sgSpeech(t){
   t=t.replace(/\ba\.m\./g,'A M').replace(/\bp\.m\./g,'P M').replace(/(\d) R(\d)/g,'$1 remainder $2').replace(/\bSOL\b/g,'S O L');
   t=t.replace(/×/g,' times ').replace(/÷/g,' divided by ').replace(/−/g,' minus ').replace(/ \+ /g,' plus ').replace(/≈/g,' is about ').replace(/≠/g,' is not equal to ')
      .replace(/ = /g,' equals ').replace(/ > /g,' is greater than ').replace(/ < /g,' is less than ').replace(/→/g,', ').replace(/[✓✗✅❌·|]/g,' ');
+  t=t.replace(/ \/ /g,' or ');
   t=t.replace(/\binput\/output\b/gi,m=>m[0]==='I'?'Input and output':'input and output').replace(/([a-z])\/([a-z])/gi,'$1 or $2')
      .replace(/\(([<>=])\)/g,'').replace(/>/g,' greater than ').replace(/</g,' less than ').replace(/=/g,' equals ').replace(/\+/g,' plus ')
      .replace(/°/g,' degrees').replace(/∠/g,'angle').replace(/…/g,'.').replace(/\.\.+/g,'.');
