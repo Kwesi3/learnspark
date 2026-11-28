@@ -106,7 +106,8 @@ def main():
     inline = {a[len('assets/'):]: ('data:image/svg+xml;base64,' if a.endswith('.svg') else 'data:image/webp;base64,') +
               base64.b64encode(open(os.path.join(ROOT, a), 'rb').read()).decode()
               for a in assets if a.endswith('.svg') or '/sm/' in a}
-    single = html.replace('<script>\n', '<script>\nwindow.ASSET_INLINE=' + json.dumps(inline) + ';\n', 1)
+    # The claude.ai copy has a file limit, so study-guide narration there is Ava only.
+    single = html.replace('<script>\n', '<script>\nwindow.SG_AVA_ONLY=1;window.ASSET_INLINE=' + json.dumps(inline) + ';\n', 1)
     with open(os.path.join(DIST, 'LearnSpark.html'), 'w', encoding='utf8') as f:
         f.write(single)
     with open(os.path.join(DIST, 'app.js'), 'w', encoding='utf8') as f:
