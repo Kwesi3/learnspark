@@ -14,7 +14,7 @@ let NARR_VOICE='heart';
 function narrVoiceSync(){
   const v=(typeof ST!=='undefined'&&ST.settings&&ST.settings.narrator)||'heart';
   if(v===NARR_VOICE||!AUDIO_VOICES[v])return;
-  NARR_VOICE=v;AUDIO_MAP=AUDIO_VOICES[v];NARR.bufs={};NARR.loading={};}
+  NARR_VOICE=v;AUDIO_MAP=v==='heart'?AUDIO_VOICES[v]:Object.assign({},AUDIO_VOICES.heart||{},AUDIO_VOICES[v]);NARR.bufs={};NARR.loading={};}   // anything not yet recorded in this voice falls back to Ava
 const NARR={ctx:null,bufs:{},loading:{},src:null,timer:null,token:0};
 function narrCtx(){if(!NARR.ctx){const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;try{NARR.ctx=new C();}catch(e){return null;}}return NARR.ctx;}
 // iPhone: play sound even when the ring/silent switch is on, and unlock audio inside the first tap.
