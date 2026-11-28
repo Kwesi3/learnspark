@@ -24,9 +24,11 @@ function sgPages(g){return 1+g.pages.length+1+1;}           // intro, teaching p
 const SG_ORD={2:['half','halves'],3:['third','thirds'],4:['fourth','fourths'],5:['fifth','fifths'],6:['sixth','sixths'],7:['seventh','sevenths'],8:['eighth','eighths'],
   9:['ninth','ninths'],10:['tenth','tenths'],12:['twelfth','twelfths'],16:['sixteenth','sixteenths'],30:['thirtieth','thirtieths'],100:['hundredth','hundredths']};
 const SG_UNI={'½':'1/2','¼':'1/4','¾':'3/4','⅓':'1/3','⅔':'2/3','⅕':'1/5','⅖':'2/5','⅗':'3/5','⅘':'4/5','⅛':'1/8','⅜':'3/8','⅝':'5/8','⅞':'7/8'};
+// Abbreviations read letter by letter; other ALL-CAPS words are emphasis and are read normally.
+const SG_SPELL=['UN','NAACP','HBCU','FDR','ADA','FDIC','WAAC','USS','PQ','AB','CD','EF','XYZ','ABC','DC'];
 function sgFrac(n,d){const o=SG_ORD[d];return o?`${n} ${+n===1?o[0]:o[1]}`:`${n} over ${d}`;}
 function sgSpeech(t){
-  t=t.replace(/\(([<>=≠])\)/g,'');
+  t=t.replace(/\(([<>=≠])\)/g,'').replace(/\(([+−]), ([+−])\)/g,(m,a,b)=>`(x ${a==='+'?'positive':'negative'}, y ${b==='+'?'positive':'negative'})`);
   const SUP={'⁰':0,'¹':1,'²':2,'³':3,'⁴':4,'⁵':5,'⁶':6,'⁷':7,'⁸':8,'⁹':9};
   t=t.replace(/(?:[A-Z][a-z]?[₀-₉]*)+/g,m=>/[₀-₉]/.test(m)?' '+m.match(/[A-Z][a-z]?[₀-₉]*/g).map(el=>el.replace(/[₀-₉]+/,d=>' '+[...d].map(c=>c.charCodeAt(0)-8320).join(''))).join(' ')+' ':m);   // CO₂ → C O 2
   t=t.replace(/\|(?! )([^|\s](?:[^|]*[^|\s])?)\|/g,'the absolute value of $1');   // |−12|, |5 − 8| — not the “52 | 009” period bars
@@ -46,6 +48,11 @@ function sgSpeech(t){
   t=t.replace(/\binput\/output\b/gi,m=>m[0]==='I'?'Input and output':'input and output').replace(/([a-z])\/([a-z])/gi,'$1 or $2')
      .replace(/\(([<>=])\)/g,'').replace(/>/g,' greater than ').replace(/</g,' less than ').replace(/=/g,' equals ').replace(/\+/g,' plus ')
      .replace(/°/g,' degrees').replace(/∠/g,'angle').replace(/…/g,'.').replace(/\.\.+/g,'.');
+  t=t.replace(/\bWWII\b/g,'World War Two').replace(/\bWWI\b/g,'World War One').replace(/&/g,' and ')
+     .replace(/\bQuadrants? I–IV\b/g,'quadrants 1 through 4').replace(/\bI, II, III, IV\b/g,'1, 2, 3, 4')
+     .replace(/\b(Quadrant |quadrant )(IV|III|II|I)\b/g,(m,q,n)=>q+{I:1,II:2,III:3,IV:4}[n])
+     .replace(/(^|[\s:])(IV|III|II|I) (?=\()/g,(m,a,n)=>a+'quadrant '+{I:1,II:2,III:3,IV:4}[n]+' ')
+     .replace(/\b([A-Z]{2,5})(s?)\b/g,(m,a,pl)=>SG_SPELL.includes(a)?a.split('').join(' ')+(pl?"'s":''):a.length>2&&!/^(NATO|WASP)$/.test(a)?a.toLowerCase()+pl:m);
   return t.replace(/\s+([.,;:])/g,'$1').replace(/\s+/g,' ').trim();}
 function sgText(h){return String(h).replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();}
 
