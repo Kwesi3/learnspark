@@ -27,6 +27,11 @@ const SG_UNI={'½':'1/2','¼':'1/4','¾':'3/4','⅓':'1/3','⅔':'2/3','⅕':'1/
 function sgFrac(n,d){const o=SG_ORD[d];return o?`${n} ${+n===1?o[0]:o[1]}`:`${n} over ${d}`;}
 function sgSpeech(t){
   t=t.replace(/\(([<>=≠])\)/g,'');
+  const SUP={'⁰':0,'¹':1,'²':2,'³':3,'⁴':4,'⁵':5,'⁶':6,'⁷':7,'⁸':8,'⁹':9};
+  t=t.replace(/\|([^|]+)\|/g,'the absolute value of $1');
+  t=t.replace(/([A-Za-z0-9])²/g,'$1 squared').replace(/([A-Za-z0-9])³/g,'$1 cubed').replace(/([A-Za-z0-9])([⁰¹⁴⁵⁶⁷⁸⁹])/g,(m,b,e)=>`${b} to the power of ${SUP[e]}`);
+  t=t.replace(/(^|[\s(:,])[−-](\d)/g,'$1negative $2').replace(/≥/g,' is greater than or equal to ').replace(/≤/g,' is less than or equal to ')
+     .replace(/≅/g,' is congruent to ').replace(/π/g,' pi ').replace(/°F/g,' degrees').replace(/½/g,' one half ');
   t=t.replace(/[½¼¾⅓⅔⅕⅖⅗⅘⅛⅜⅝⅞]/g,m=>' '+SG_UNI[m]);
   t=t.replace(/(\d+)\s+(\d+)\/(\d+)/g,(m,w,n,d)=>`${w} and ${sgFrac(n,d)}`).replace(/\b(\d+)\/(\d+)\b/g,(m,n,d)=>sgFrac(n,d));
   t=t.replace(/∠\s?([A-Z])([A-Z])([A-Z])/g,'angle $1 $2 $3').replace(/∠\s?([A-Z0-9])/g,'angle $1').replace(/∥/g,' parallel ').replace(/⊥/g,' perpendicular ');
