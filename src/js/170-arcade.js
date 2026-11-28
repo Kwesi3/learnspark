@@ -122,6 +122,8 @@ function smGameOver(){
 // ═══════════════════════════════════════════════════════════════
 // 2. MATH ASTEROIDS (canvas space shooter) — NEW
 // ═══════════════════════════════════════════════════════════════
+// Answer bubbles get a random colour so colour never gives the answer away.
+const GAME_FILL=['#7C3AED','#0E7490','#B45309','#BE185D'],GAME_EDGE=['#A78BFA','#67E8F9','#FCD34D','#F9A8D4'];
 function startAsteroidsIntro(){intro('☄️','Math Asteroids','Solve the problem, then tap the asteroid with the correct answer to blast it! Wrong asteroids cost a life. Speed increases as you score. Defend your ship! 🚀',asteroidsBegin);}
 function asteroidsBegin(){
   _g={score:0,lives:3,level:1,asteroids:[],q:null,raf:null,spawnT:0,running:true,particles:[]};
@@ -161,7 +163,7 @@ function asNewProblem(){
   while(vals.length<4)vals.push(ans+rng(15,25));
   const cvw=_g.cv.width, slots=shuf([0,1,2,3]);
   shuf(vals).forEach((v,i)=>{
-    _g.asteroids.push({val:v,correct:v===ans,x:60+slots[i]*(cvw-120)/3,y:-rng(10,120)-i*60,
+    _g.asteroids.push({val:v,correct:v===ans,ci:Math.floor(Math.random()*4),x:60+slots[i]*(cvw-120)/3,y:-rng(10,120)-i*60,
       r:rng(26,32),vy:0.35+_g.level*0.12,rot:Math.random()*6,vr:(Math.random()-0.5)*0.05});
   });
 }
@@ -183,8 +185,8 @@ function asLoop(){
     if(a.dead)return; allGone=false;
     a.y+=a.vy*dt;a.rot+=a.vr*dt;
     cx.save();cx.translate(a.x,a.y);cx.rotate(a.rot);
-    cx.fillStyle=a.correct?'#7C3AED':'#64748B';
-    cx.strokeStyle=a.correct?'#A78BFA':'#94A3B8';cx.lineWidth=2;
+    cx.fillStyle=GAME_FILL[a.ci||0];
+    cx.strokeStyle=GAME_EDGE[a.ci||0];cx.lineWidth=2;
     cx.beginPath();
     for(let i=0;i<8;i++){const ang=i/8*Math.PI*2,rr=a.r*(0.82+((i*37)%10)/28);cx.lineTo(Math.cos(ang)*rr,Math.sin(ang)*rr);}
     cx.closePath();cx.fill();cx.stroke();cx.restore();
@@ -280,7 +282,7 @@ function njSpawn(){
   else if(correct)val=_g.q.ans;
   else{do{val=_g.q.ans+rng(-8,8);}while(val===_g.q.ans);}
   const x=rng(50,cv.width-50);
-  _g.objects.push({val,bomb:isBomb,correct,x,y:cv.height+30,
+  _g.objects.push({val,bomb:isBomb,correct,ci:Math.floor(Math.random()*4),x,y:cv.height+30,
     vx:(cv.width/2-x)/90+(Math.random()-0.5)*1.5,vy:-(rng(80,105)/10),r:26,sliced:false,rot:0,vr:(Math.random()-0.5)*0.1});
 }
 function njLoop(){
@@ -298,8 +300,8 @@ function njLoop(){
     cx.save();cx.translate(o.x,o.y);cx.rotate(o.rot);
     if(o.bomb){cx.font='34px serif';cx.textAlign='center';cx.textBaseline='middle';cx.fillText('💣',0,0);}
     else{cx.beginPath();cx.arc(0,0,o.r,0,7);
-      cx.fillStyle=o.correct?'#10B981':'#F59E0B';cx.fill();
-      cx.strokeStyle=o.correct?'#6EE7B7':'#FCD34D';cx.lineWidth=3;cx.stroke();
+      cx.fillStyle=GAME_FILL[o.ci||0];cx.fill();
+      cx.strokeStyle=GAME_EDGE[o.ci||0];cx.lineWidth=3;cx.stroke();
       cx.fillStyle='#fff';cx.font='bold 18px Nunito, sans-serif';cx.textAlign='center';cx.textBaseline='middle';cx.fillText(o.val,0,0);}
     cx.restore();
     // fell off bottom

@@ -40,7 +40,7 @@ function save(){
 }
 
 function rng(a,b){return Math.floor(Math.random()*(b-a+1))+a;}
-function shuf(a){return [...a].sort(()=>Math.random()-.5);}
+function shuf(a){const r=[...a];for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]];}return r;}  // Fisher-Yates: every order equally likely
 function pick(a){return a[rng(0,a.length-1)];}
 function gcd(a,b){return b?gcd(b,a%b):a;}
 const NAMES=['Ama','Kofi','Maya','Luca','Zoe','Kwame','Sofia','Ben','Lily','Jamal','Nia','Tom','Aisha','Diego','Ella','Yaw'];
