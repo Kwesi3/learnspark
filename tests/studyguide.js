@@ -19,10 +19,12 @@ for(const g of gens){const G=w.eval(`STUDY['${g}']`);const probs=[];
 ok(`${gens.length} study guides complete (goals, key words, ≥3 steps with checks, watch-outs, summary)`);
 // every grade 4 math standard has one, and each page renders
 let pages=0,errs=[];
-for(const grade of [4,6]){w.eval(`(()=>{const p=blankLearner('T',${grade},'🦊');PROFILES.list[p.id]=p;activateProfile(p.id);})()`);
-const miss=w.eval("skillsFor('math').filter(s=>!STUDY[s.gen]).map(s=>s.code)");
-miss.length?bad(`grade ${grade} math without a guide: `+miss.join(' ')):ok(`every grade ${grade} math standard has a study guide`);
-for(const c of w.eval("skillsFor('math').map(s=>s.code)")){try{w.eval(`openLesson('math','${c}',true)`);
+// subjects whose study guides are finished, per grade (grows batch by batch)
+const DONE={4:['math','sci'],6:['math']};
+for(const grade of [4,6])for(const subj of DONE[grade]){w.eval(`(()=>{const p=blankLearner('T',${grade},'🦊');PROFILES.list[p.id]=p;activateProfile(p.id);})()`);
+const miss=w.eval(`skillsFor('${subj}').filter(s=>!STUDY[s.gen]).map(s=>s.code)`);
+miss.length?bad(`grade ${grade} ${subj} without a guide: `+miss.join(' ')):ok(`every grade ${grade} ${subj} standard has a study guide`);
+for(const c of w.eval(`skillsFor('${subj}').map(s=>s.code)`)){try{w.eval(`openLesson('${subj}','${c}',true)`);
   const n=w.eval('sgPages(STUDY[SGS.gen])');for(let i=0;i<n;i++){w.eval(`SGS.i=${i};sgRender()`);pages++;
     if(!w.document.querySelector('.sg-card'))errs.push(c+' p'+i);if(/undefined|NaN/.test(w.document.querySelector('.sg-card').textContent))errs.push(c+' p'+i+' shows undefined');}}catch(e){errs.push(c+' '+e.message);}}}
 errs.length?bad('render: '+errs.slice(0,5).join('; ')):ok(`${pages} study-guide pages render`);
