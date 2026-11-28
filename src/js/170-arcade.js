@@ -656,7 +656,7 @@ function renderSolQuiz(){
       </div>
       ${q.passage?`<div class="passage" style="border-color:var(--game);font-size:.9rem">${q.passage}</div>`:''}
       <div class="q-text" style="font-size:1rem">${String(q.question).replace(/\n/g,'<br>')}</div>
-      <div class="opts">${q.opts.map((o,i)=>`<button class="opt" data-i="${i}" onclick="sqAnswer(${i})"><span class="opt-l">${'ABCD'[i]}</span>${o}</button>`).join('')}</div>
+      <div class="opts">${q.opts.map((o,i)=>`<button class="opt" data-i="${i}" onclick="sqAnswer(${i})"><span class="opt-l">${'ABCDEF'[i]}</span>${o}</button>`).join('')}</div>
     </div>`,'⚔️','SOL Quiz Battle');
 }
 function sqAnswer(i){

@@ -18,6 +18,8 @@ STEPS = [
     ('number line', "(%s)('nline','g4_frac')" % FORCE),
     ('grid', "(%s)('plot','g6_coord')" % FORCE),
     ('lesson', "openLesson('math',skillsFor('math')[0].code,true)"),
+    ('study guide step', "if(document.querySelector('.sg')){SGS.i=1;sgRender();sgStep();document.querySelector('#sgChk .opt').click()}"),
+    ('study guide watch-outs', "if(document.querySelector('.sg')){SGS.i=sgPages(STUDY[SGS.gen])-2;sgRender()}"),
     ('stories', "renderDash();switchTab('stories')"),
     ('reader', "openBook('kente')"),
     ('arcade', "closeBook();renderDash();switchTab('arcade')"),

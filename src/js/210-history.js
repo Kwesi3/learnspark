@@ -273,7 +273,7 @@ function histQ(gen){
       `From west to east the regions are Appalachian Plateau (A), Valley and Ridge (B), Blue Ridge Mountains (C), Piedmont (D), and Coastal Plain (E).`,
       'The Coastal Plain touches the ocean on the east. The Appalachian Plateau is farthest west.',{dgSvg:svg});}
   if((gen==='vs_sk'||gen==='us_sk')&&Math.random()<.55){
-    const evs=shuf(HIST_EVENTS[g].slice()).slice(0,4).sort((a,b)=>a[0]-b[0]).map((e,i)=>[e[0],e[1],'ABCD'[i]]);
+    const evs=shuf(HIST_EVENTS[g].slice()).slice(0,4).sort((a,b)=>a[0]-b[0]).map((e,i)=>[e[0],e[1],'ABCDEF'[i]]);
     const t=rng(0,2);const svg=dgTimeline(evs,'#14A394',false);
     const key=evs.map(e=>`${e[2]} = ${e[1]}`).join('; ');
     if(t===0){const a=evs[1],b=evs[3];const d=b[0]-a[0];

@@ -286,10 +286,10 @@ function openSubject(subj,filter){
     return `<div class="skill">
       <button class="skill-main" onclick="startSkill('${subj}','${st.code}')">
         <span class="sk-thumb">${art(skArt(subj,st.code),1)}</span>${ring(sc,52,s.color)}
-        <span class="skill-info"><span class="skill-code" style="background:${s.lt};color:${s.dk}">SOL ${st.code}</span>
+        <span class="skill-info"><span class="skill-code" style="background:${s.lt};color:${s.dk}">SOL ${st.code}</span>${typeof STUDY!=='undefined'&&STUDY[st.gen]?`<span class="sg-badge">📘 Study guide${sgDone(st.gen)?' ✓':''}</span>`:''}
         <span class="skill-name">${st.name}</span><span class="skill-desc">${st.desc}</span></span>
         <span class="lv ${lv.cls}">${lv.t}</span></button>
-      <button class="skill-learn" onclick="openLesson('${subj}','${st.code}')" title="Learn it first" aria-label="Lesson for ${esc(st.name)}">${ic('lesson')}</button>
+      <button class="skill-learn" onclick="openLesson('${subj}','${st.code}')" title="Learn it first" aria-label="${typeof STUDY!=='undefined'&&STUDY[st.gen]?'Study guide':'Lesson'} for ${esc(st.name)}">${ic('lesson')}</button>
     </div>`;};
   let body='';
   if(subj==='math'){
@@ -355,7 +355,7 @@ function exampleHTML(q,color){
   return `${q.passage?`<div class="passage" style="border-color:${color}">${q.passage}</div>`:''}
     <div class="q-text">${String(dg&&dg.text||q.question).replace(/\n/g,'<br>')}</div>
     ${dg?`<div class="dg-wrap">${dg.svg}</div>`:''}
-    <div class="opts">${q.opts.map((o,i)=>`<div class="opt ${String(o)===String(q.answer)?'correct':'faded'}"><span class="opt-l">${'ABCD'[i]}</span>${o}</div>`).join('')}</div>
+    <div class="opts">${q.opts.map((o,i)=>`<div class="opt ${String(o)===String(q.answer)?'correct':'faded'}"><span class="opt-l">${'ABCDEF'[i]}</span>${o}</div>`).join('')}</div>
     <div class="ex-why"><b>How to solve it:</b> ${q.explanation||''}</div>`;
 }
 function drawExample(subj,code){
@@ -481,7 +481,7 @@ function renderQuestion(q,body){
     ${(()=>{SESSION.wp=!dg&&SESSION.subj==='math'&&ST.settings.wpHelp!==false&&isWordProblem(q);return SESSION.wp?wpWrap(q):`<div class="q-text">${String(q._display||q.question).replace(/\n/g,'<br>')}</div>`;})()}
     ${dg?`<div class="dg-wrap">${dg.svg}</div>`:''}
     <div class="hintbox" id="hintBox">${ic('bulb')} ${q.hint||''}</div>
-    <div class="opts${SESSION.wp?' wp-hide':''}" id="opts">${q.opts.map((o,i)=>`<button class="opt" data-i="${i}" onclick="pickOpt(${i})"><span class="opt-l">${'ABCD'[i]}</span><span>${o}</span></button>`).join('')}</div>
+    <div class="opts${SESSION.wp?' wp-hide':''}" id="opts">${q.opts.map((o,i)=>`<button class="opt" data-i="${i}" onclick="pickOpt(${i})"><span class="opt-l">${'ABCDEF'[i]}</span><span>${o}</span></button>`).join('')}</div>
     ${SESSION.wp?`<button class="link-btn wp-skip" onclick="wpSkip();this.remove()">Skip the steps</button>`:''}`;
   body.appendChild(card);
   actionBar(body,`<button class="btn btn-sec" onclick="showHint()">${ic('bulb')} Hint</button>`);
@@ -661,7 +661,7 @@ function speak(text){
 }
 function speakQuestion(){
   const q=SESSION.q;if(!q)return;let t=plain(q._display||q.question);
-  if(q.opts)t+='. '+q.opts.map((o,i)=>'ABCD'[i]+': '+plain(o)).join('. ');
+  if(q.opts)t+='. '+q.opts.map((o,i)=>'ABCDEF'[i]+': '+plain(o)).join('. ');
   speak(t);
 }
 

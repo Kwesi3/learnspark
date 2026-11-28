@@ -55,8 +55,8 @@ function testDraw(){
   const dg=q.type==='mc'?(q.dgSvg?{svg:q.dgSvg}:diagram(q,col)):null;
   if(q.type==='mc'){
     body=`${q.passage?`<div class="passage">${q.passage}</div>`:''}<div class="q-text">${String(dg&&dg.text||q.question).replace(/\n/g,'<br>')}</div>${dg?`<div class="dg-wrap">${dg.svg}</div>`:''}
-      <div class="opts">${q.opts.map((o,i)=>`<div class="topt-row"><button class="opt${a===i?' sel':''}${T.elim[T.i].has(i)?' elim':''}" onclick="testPick(${i})"><span class="opt-l">${'ABCD'[i]}</span><span>${o}</span></button>
-        <button class="x-btn${T.elim[T.i].has(i)?' on':''}" onclick="testElim(${i})" aria-label="Cross out choice ${'ABCD'[i]}" title="Cross out">✕</button></div>`).join('')}</div>`;
+      <div class="opts">${q.opts.map((o,i)=>`<div class="topt-row"><button class="opt${a===i?' sel':''}${T.elim[T.i].has(i)?' elim':''}" onclick="testPick(${i})"><span class="opt-l">${'ABCDEF'[i]}</span><span>${o}</span></button>
+        <button class="x-btn${T.elim[T.i].has(i)?' on':''}" onclick="testElim(${i})" aria-label="Cross out choice ${'ABCDEF'[i]}" title="Cross out">✕</button></div>`).join('')}</div>`;
   } else if(q.type==='multi'){
     const sel=new Set(a||[]);
     body=`<div class="q-text">${esc(q.question)}</div><div class="sm-label">Select every correct answer.</div>
@@ -90,7 +90,7 @@ function testOrd(i){const a=(T.ans[T.i]||[]).slice();a.push(i);T.ans[T.i]=a;FX.c
 function testUnord(pi){const a=(T.ans[T.i]||[]).slice();a.splice(pi,1);T.ans[T.i]=a;testDraw();}
 function testFlag(){T.flags.has(T.i)?T.flags.delete(T.i):T.flags.add(T.i);testDraw();}
 function testGo(d){T.i=Math.max(0,Math.min(T.qs.length-1,T.i+d));testDraw();}
-function testSpeak(){const q=T.qs[T.i].q;let t=plain(q.question);if(q.opts)t+='. '+q.opts.map((o,i)=>'ABCD'[i]+': '+plain(o)).join('. ');speak(t);}
+function testSpeak(){const q=T.qs[T.i].q;let t=plain(q.question);if(q.opts)t+='. '+q.opts.map((o,i)=>'ABCDEF'[i]+': '+plain(o)).join('. ');speak(t);}
 function testReview(){
   const un=T.qs.map((_,i)=>i).filter(i=>!answered(i));
   setScreenKeepTimer(`<div class="screen active">
@@ -447,7 +447,7 @@ function famQ(){
   const dg=q.dgSvg?{svg:q.dgSvg}:diagram(q,'#E36B4E');
   setScreen(`<div class="screen active">${topBar(`${who}’s turn`,`Question ${FAM.qi+1} of 5 · Score ${FAM.scores[FAM.player]}`,'#E36B4E')}
     <div class="act-body"><div class="qc"><div class="q-text">${String(dg&&dg.text||q.question).replace(/\n/g,'<br>')}</div>${dg?`<div class="dg-wrap">${dg.svg}</div>`:''}
-      <div class="opts" id="opts">${FAM.order.map((o,i)=>`<button class="opt" data-i="${i}" onclick="famPick(${i})"><span class="opt-l">${'ABCD'[i]}</span><span>${o}</span></button>`).join('')}</div></div>
+      <div class="opts" id="opts">${FAM.order.map((o,i)=>`<button class="opt" data-i="${i}" onclick="famPick(${i})"><span class="opt-l">${'ABCDEF'[i]}</span><span>${o}</span></button>`).join('')}</div></div>
       <div id="fbCard"></div><div class="btns" id="actBtns"></div></div></div>`);
 }
 function famPick(i){

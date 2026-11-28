@@ -338,7 +338,7 @@ function quizQuestion(){
     <div class="q-top"><span class="q-badge" style="background:#9B5DE518;color:#6D28D9">${q.kind}</span>
     <button class="speak-mini" onclick="quizSpeak()" aria-label="Read the question to me">${ic('speaker')}</button></div>
     <div class="q-text">${esc(q.q)}</div><div class="hintbox" id="hintBox">${ic('bulb')} ${esc(q.hint)}</div>
-    <div class="opts" id="opts">${READ.order.map((o,i)=>`<button class="opt" data-i="${i}" onclick="quizPick(${i})"><span class="opt-l">${'ABCD'[i]}</span><span>${esc(o)}</span></button>`).join('')}</div></div>
+    <div class="opts" id="opts">${READ.order.map((o,i)=>`<button class="opt" data-i="${i}" onclick="quizPick(${i})"><span class="opt-l">${'ABCDEF'[i]}</span><span>${esc(o)}</span></button>`).join('')}</div></div>
     <div id="fbCard"></div>
     <div class="btns" id="actBtns"><button class="btn btn-sec" onclick="showHint()">${ic('bulb')} Hint</button>
       <button class="btn btn-sec" onclick="peekStory()">${ic('book')} Look back at the story</button></div>`);
