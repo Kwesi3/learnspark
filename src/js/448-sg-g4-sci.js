@@ -124,7 +124,7 @@ SG.add('g4_ocean',{title:'The ocean',
 
 SG.add('g4_vares',{title:'Virginia’s natural resources',
   goals:['I can explain what a watershed is and name Virginia’s major watersheds.','I can describe why plants, animals, minerals, forests, and soil matter.','I can explain how we can protect resources.'],
-  words:[['natural resource','something from nature that people need or use','water, soil, forests'],['watershed','land where water drains to one place','the Chesapeake Bay watershed'],['erosion','wearing away and moving soil',''],['mineral / ore','natural solids used for building, fuel, and metals','']],
+  words:[['natural resource','something from nature that people need or use','water, soil, forests'],['watershed','land where water drains to one place','the Chesapeake Bay watershed'],['erosion','wearing away and moving soil',''],['mineral or ore','natural solids used for building, fuel, and metals','']],
   pages:[
     {h:'Watersheds: we all live downstream',p:['A <b>watershed</b> is the land where surface water flows to one collection point.','About half of Virginia drains to the <b>Chesapeake Bay</b>. The other major watersheds drain to the <b>Gulf of Mexico</b> and the <b>North Carolina sounds</b>.','Pollution put in the water upstream travels down to everyone below — “we all live downstream.”'],
      ex:{q:'Fertilizer washes off a farm into a creek in the Chesapeake Bay watershed. Where can it end up?',steps:['The creek flows into a river.','The river flows to the Chesapeake Bay.'],a:'in the Chesapeake Bay'},
